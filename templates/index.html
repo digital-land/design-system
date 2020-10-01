@@ -1,0 +1,53 @@
+{% extends "digital-land-frontend/dlf-base.html" %}
+
+{% block content %}
+
+<main id="main-content" class="app-content" role="main">
+    <div class="app-content__header">
+    <span class="govuk-caption-xl">Digital land frontend</span>
+    <h1 class="govuk-heading-xl">
+        Get started with Digital Land frontend
+    </h1>
+    </div>
+
+    <p class="govuk-body">Digital Land frontend is collection of reusable frontend parts and examples. It is maintained by the <a href="https://digital-land.github.io/" class="govuk-link">Digital Land</a> team and used across their <a href="https://github.com/digital-land">projects</a>.</p>
+
+    <p class="govuk-body">It builds on the <a href="https://design-system.service.gov.uk">GOV.UK Design System</a> and includes components specific to Digital Land. We try to keep this as consistent with GOV.UK as we can.</p>
+
+    <p class="govuk-body"><a href="">Which frontend assets do I need for my project?</a></p>
+
+    <h2 class="govuk-heading-l">GOVUK components</h2>
+
+    <p class="govuk-body">We use a lot of python and flask to build our prototypes. However, the GOVUK components are written in Nunjucks, intended to be use with JS. We need them to be compatible with Jinja so we had to port them.</p>
+
+    <p class="govuk-body">They are available on <a href="https://github.com/digital-land/govuk-jinja-components">github</a> and you can <code>pip install</code> them.</p>
+
+    <p class="govuk-body"><a href="">Browse jinja components</a></p>
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-6">Digital Land components</h2>
+
+    <p class="govuk-body">Digital land components are the reusable parts of the user interface that we use in multiple Digital Land projects.</p>
+    <p class="govuk-body">They can be used in mutliple ways and contexts. Note that they are experimental and will change as we test them with more users. They will be updated regularly.</p>
+    <p class="govuk-body">If you include the digital-land.css stylesheet and jinja components then there are code examples you can reuse.</p>
+    
+    <p class="govuk-body"><a href="">Browse Digital Land components</a></p>
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-6">Digital Land javascript</h2>
+    <div class="govuk-body">We work with a lot of data.</div>
+    <p class="govuk-body">To help users understand and use data sometimes it is important for use to progressively enhance the experience of working with or consuming this data. We have created a number of javascript modules to help us.</p>
+    <p class="govuk-body">All these javascript modules are available to use in your projects. Note that they are experimental and will be changed based on various user testing.</p>
+
+    <div class="govuk-body"><a href="">Browse Digital Land javascript</a></div>
+</main>
+
+
+{% endblock %}
+
+{% block footer %}
+  <div class="dlf-pg-feedback">
+    <div class="dlf-pg-feedback__prompt">
+      <a href="mailto:digitalland@communities.gov.uk" class="dlf-pg-feedback__link">Do you have feedback about this page?</a>
+    </div>
+  </div>
+  {{ super() }}
+{% endblock %}

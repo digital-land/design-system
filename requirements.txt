@@ -1,0 +1,10 @@
+attrs==20.2.0
+click==7.1.2
+curlylint==0.12.0
+dataclasses==0.7
+-e git+https://github.com/digital-land/govuk-jinja-components.git@194500e1ab7ad0439736c7689f6031f7613fd379#egg=govuk_jinja_components
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+parsy==1.1.0
+pathspec==0.8.0
+toml==0.10.1
