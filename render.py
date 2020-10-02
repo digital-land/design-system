@@ -58,6 +58,17 @@ md = markdown.Markdown(
     ]
 )
 
+
+def markdown_compile(s):
+    html = md.convert(s)
+    html = html.replace("<p>", '<p class="govuk-body">')
+    html = html.replace("<h1>", '<h1 class="govuk-heading-xl">')
+    html = html.replace("<h2>", '<h2 class="govuk-heading-l">')
+    html = html.replace("<h3>", '<h3 class="govuk-heading-m">')
+    html = html.replace("<h4>", '<h4 class="govuk-heading-s">')
+    return html
+
+
 # get an example markdown file to render as a component page
 _content = codecs.open(
     "frontend/digital_land_frontend/templates/components/page-feedback/README.md",
@@ -75,7 +86,7 @@ render(
 render(
     "components/page-feedback/index.html",
     component_template,
-    rendered_markdown=md.convert(_content_raw),
+    rendered_markdown=markdown_compile(_content_raw),
 )
 
 # generate data-item examples
@@ -97,5 +108,5 @@ render(
 render(
     "components/data-item/index.html",
     component_template,
-    rendered_markdown=md.convert(_content_raw),
+    rendered_markdown=markdown_compile(_content_raw),
 )
