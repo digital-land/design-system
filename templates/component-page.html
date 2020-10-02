@@ -1,0 +1,24 @@
+{% extends "design-system-base.html" %}
+
+{% block content %}
+
+<div class="app-nav__body govuk-width-container">
+    <div class="app-nav__content">
+        <main id="main-content" class="app-content" role="main">
+            {{ rendered_markdown|safe }}
+        </main>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block bodyEnd %}
+{{ super() }}
+<script>
+    // Initialise back to top
+    var $btt = document.querySelector('[data-module*="back-to-top"]')
+    new window.DLFrontend.BackToTop($btt).init({
+        footer_selector: ".{{ backToTopSelector|default('govuk-footer') }}"
+    });
+</script>
+{% endblock %}

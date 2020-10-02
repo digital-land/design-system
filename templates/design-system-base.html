@@ -1,0 +1,74 @@
+{% extends "digital-land-frontend/dlf-base.html" %}
+{% from "govuk-jinja-components/components/phase-banner/macro.jinja" import govukPhaseBanner %}
+{% from "govuk-jinja-components/components/breadcrumbs/macro.jinja" import govukBreadcrumbs %}
+
+{% set htmlClasses = "dlf-page-wide" %}
+
+{% block head %}
+{{super()}}
+<link href="/static/stylesheets/styleguide.css" rel="stylesheet" />
+{% endblock %}
+
+{% block main %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+			"classes": "govuk-width-container",
+			"tag": {
+				"text": "styleguide"
+			},
+			"html": 'This is a styleguide for digital land projects'
+		}) }}
+{% endblock %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main">
+  {% block content %}{% endblock %}
+</main>
+
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+    "classes": "app-footer app-footer--full",
+    "containerClasses" : "app-width-container",
+    "navigation": [
+      {
+        "title": "Related resources",
+        "columns": 1,
+        "items": [
+          {
+            "href": "https://design-system.service.gov.uk/",
+            "text": "GOV.UK Design System"
+          },
+          {
+            "href": "https://www.gov.uk/guidance/government-design-principles",
+            "text": "Government Design Principles"
+          },
+          {
+            "href": "https://www.gov.uk/service-manual",
+            "text": "GOV.UK Service Manual"
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "items": [
+        {
+          "href": "https://github.com/digital-land/digital-land-frontend",
+          "text": "Code on github"
+        }
+      ],
+      "html": 'Built by the <a href="https://digital-land.github.io/about/" class="govuk-footer__link">MHCLG Digital land team</a>.'
+    }
+}) }}
+{% endblock %}
+
+{% block bodyEndScripts %}
+{{ super() }}
+
+{# required for on page syntax highlighting #}
+<script src='/static/javascripts/vendor/highlight.pack.js'></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+{% endblock %}

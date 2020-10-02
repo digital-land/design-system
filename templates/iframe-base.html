@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title }}</title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+  </head>
+  <body class="govuk-template__body app-example-page">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    {%- block example -%}
+
+    {% if add_width_container %}
+    <div class="govuk-width-container">
+        {%- include partial_name -%}
+    </div>
+    {% else %}
+    {%- include partial_name -%}
+    {% endif %}
+
+    {%- endblock -%}
+    </div>
+
+    {% block bodyEnd %}
+    <script src="/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+    {# needs to come after govuk frontend #}
+    <script src="/static/javascripts/dl-frontend.js"></script>
+    {% endblock %}
+  </body>
+</html>
