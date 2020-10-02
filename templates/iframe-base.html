@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,9 +9,13 @@
     <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
     <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
 
-  </head>
-  <body class="govuk-template__body app-example-page">
-    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
 
     {%- block example -%}
 
@@ -26,9 +31,10 @@
     </div>
 
     {% block bodyEnd %}
-    <script src="/static/javascripts/govuk/govuk-frontend-3.0.0.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     {# needs to come after govuk frontend #}
     <script src="/static/javascripts/dl-frontend.js"></script>
     {% endblock %}
-  </body>
+</body>
+
 </html>

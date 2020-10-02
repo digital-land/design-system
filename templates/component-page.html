@@ -22,4 +22,11 @@
         footer_selector: ".{{ backToTopSelector|default('govuk-footer') }}"
     });
 </script>
+<script>
+    // Initialise tabs
+    var $tabs = document.querySelectorAll('[data-module="app-tabs"]')
+    $tabs.forEach(function ($tab) {
+        new DLFrontend.AppTabs($tab).init()
+    })
+</script>
 {% endblock %}
