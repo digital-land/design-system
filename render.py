@@ -77,3 +77,25 @@ render(
     component_template,
     rendered_markdown=md.convert(_content_raw),
 )
+
+# generate data-item examples
+_content = codecs.open(
+    "frontend/digital_land_frontend/templates/components/data-item/README.md",
+    mode="r",
+)
+_content_raw = _content.read()
+render(
+    "components/data-item/example.html",
+    example_template,
+    partial_name="digital-land-frontend/components/data-item/example.html",
+)
+render(
+    "components/data-item/example-inline.html",
+    example_template,
+    partial_name="digital-land-frontend/components/data-item/example-inline.html",
+)
+render(
+    "components/data-item/index.html",
+    component_template,
+    rendered_markdown=md.convert(_content_raw),
+)
