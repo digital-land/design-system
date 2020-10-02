@@ -1,0 +1,14 @@
+{% macro toplevelNavItem(text, url) %}
+{#{% set current_page_section = request.path | reduce_url_to_parent %}#}
+<li
+	class="app-nav__list-item{% if current_page_section == url  %} app-nav--current-page{% endif %}">
+	<a class="govuk-link" href="{{ url }}" data-topnav="{{ text | upper }}">{{ text }}</a>
+</li>
+{% endmacro %}
+
+{% macro sublevelNavItem(params) %}
+<li
+	class="app-subnav__section-item{% if params.classes %} {{ params.classes }}{% endif %}{% if params.current %}app-subnav__section-item--current{% endif %}">
+	<a class="app-subnav__link govuk-link" href="{{ params.url }}">{{ params.text }}</a>
+</li>
+{% endmacro %}
