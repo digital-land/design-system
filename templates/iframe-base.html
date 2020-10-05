@@ -34,6 +34,14 @@
     <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     {# needs to come after govuk frontend #}
     <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
     {% endblock %}
 </body>
 
