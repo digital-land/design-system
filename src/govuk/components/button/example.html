@@ -1,0 +1,18 @@
+{% from "govuk-jinja-components/components/button/macro.jinja" import govukButton -%}
+{{ govukButton({
+    "text": "Save and continue",
+    "attributes": {
+      "data-test": "this is a value"
+      }
+}) }}
+
+{{ govukButton({
+    "text": "Start now",
+    "href": "#",
+    "isStartButton": true
+}) }}
+
+{{ govukButton({
+    "text": "Find address",
+    "classes": "govuk-button--secondary"
+}) }}
