@@ -111,7 +111,7 @@ def read_markdown_file(p):
     return _content.read()
 
 
-def render_component_doc_pages(components, dir_, dest):
+def render_component_doc_pages(components, dir_, dest, **kwargs):
     for c in components:
         documentation_path = f"{dir_}/{c}/README.md"
         if os.path.isfile(documentation_path):
@@ -120,6 +120,7 @@ def render_component_doc_pages(components, dir_, dest):
                 f"{dest}/{c}/index.html",
                 component_template,
                 rendered_markdown=markdown_compile(markdown_content),
+                **kwargs,
             )
         else:
             print(f"No documentation for {c}")
@@ -133,7 +134,10 @@ render_example_pages(
     "digital-land-frontend/components",
 )
 render_component_doc_pages(
-    components, "frontend/digital_land_frontend/templates/components", "components"
+    components,
+    "frontend/digital_land_frontend/templates/components",
+    "components",
+    section="components",
 )
 
 govuk_components = get_components("src/govuk/components")
@@ -143,7 +147,12 @@ render_example_pages(
     "govuk-components",
     "examples/govuk/components",
 )
-render_component_doc_pages(govuk_components, "src/govuk/components", "govuk-components")
+render_component_doc_pages(
+    govuk_components,
+    "src/govuk/components",
+    "govuk-components",
+    section="govuk-components",
+)
 
 # generate the pages
 render("index.html", index_template)

@@ -2,8 +2,10 @@
 
 {% block content %}
 
+{% set menu_path = 'design-system/menus/' + section + '.html'  %}
+
 <div class="app-nav__body govuk-width-container">
-    {%- include 'design-system/menus/components.html' -%}
+    {%- include menu_path -%}
     <div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
             {{ rendered_markdown|safe }}
