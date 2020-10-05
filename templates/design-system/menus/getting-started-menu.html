@@ -1,0 +1,14 @@
+{% from "design-system/components/nav/macro.html" import sublevelNavItem %}
+<div class="app-nav__subnav app-hide-mobile">
+    <nav class="app-subnav">
+
+        <h4 class="app-subnav__heading">Guides</h4>
+
+        <ul class="app-subnav__section">
+            {{ sublevelNavItem({"text": "Which frontend assets do I need?", "url": "#"}) }}
+            {{ sublevelNavItem({"text": "Include in your flask app", "url": "#"}) }}
+            {{ sublevelNavItem({"text": "Difference between DL frontend and GOVUK design system", "url": "#"}) }}
+        </ul>
+
+    </nav>
+</div>

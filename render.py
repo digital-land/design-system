@@ -172,3 +172,9 @@ render_markdown_file(
     component_template,
     section="govuk-components",
 )
+render_markdown_file(
+    "src/digital-land/components/README.md",
+    "components/index.html",
+    component_template,
+    section="components",
+)
