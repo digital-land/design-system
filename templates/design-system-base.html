@@ -18,7 +18,11 @@
 				"text": "styleguide"
 			},
 			"html": 'This is a styleguide for digital land projects'
-		}) }}
+    }) }}
+
+{% block topLevelNav %}
+{%- include 'design-system/menus/top-level-nav.html' -%}
+{% endblock %}
 {% endblock %}
 
 <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main">
