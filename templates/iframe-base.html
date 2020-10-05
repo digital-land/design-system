@@ -32,6 +32,10 @@
 
     {% block bodyEnd %}
     <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
     {# needs to come after govuk frontend #}
     <script src="/static/javascripts/dl-frontend.js"></script>
 
