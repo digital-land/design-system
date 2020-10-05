@@ -7,6 +7,7 @@ import jinja2
 import codecs
 import markdown
 from markdown_jinja import MarkdownJinja
+from frontend.digital_land_frontend.filters import get_jinja_template_raw
 
 docs = "docs/"
 static_path = "https://digital-land.github.io"  # use frontend assets we have published
@@ -39,6 +40,8 @@ multi_loader = jinja2.ChoiceLoader(
     ]
 )
 env = jinja2.Environment(loader=multi_loader)
+# register jinja filters
+env.filters["raw_jinja"] = get_jinja_template_raw
 
 # get page template
 index_template = env.get_template("index.html")

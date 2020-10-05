@@ -19,50 +19,38 @@
       src="{{ params.iframe.url }}" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
-  {% if params.partial %}
-  {% set multipleTabs = true if params.partial|length > 1 else false %}
+  {% if params.component %}
+  {% set multipleTabs = true if params.component.tabs|length > 1 else false %}
 
-  {%- if (multipleTabs) %}
+  {% set tabs = params.component.tabs %}
+
   <ul class="app-tabs" role="tablist">
-    <li class="app-tabs__item js-tabs__item{{ ' js-tabs__item--open' if (params.open) }}"
-      role="presentation"><a href="#{{ exampleId }}-html" role="tab"
-        aria-controls="{{ exampleId }}-html" data-track="tab-html">HTML</a></li>
-    <li class="app-tabs__item js-tabs__item" role="presentation"><a href="#{{ exampleId }}-jinja"
-        role="tab" aria-controls="{{ exampleId }}-jinja" data-track="tab-jinja">jinja</a></li>
-  </ul>
-  {% else %}
-  {% set tabType = params.partial[0].type if params.partial[0].type else "html" %}
-  {#- if at least one tab is set to true show the list -#}
-  {% if tabType %}
-  <ul class="app-tabs" role="tablist">
-    <li class="app-tabs__item js-tabs__item{{ ' js-tabs__item--open' if (params.open) }}"
-      role="presentation">
-      <a href="#{{ exampleId }}-{{ tabType }}" role="tab"
-        aria-controls="{{ exampleId }}-{{ tabType }}">{{ "HTML" if tabType == 'html' else tabType }}</a>
+    {% for tab in tabs %}
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#{{ exampleId }}-{{tab|lower}}" role="tab"
+        aria-controls="{{ exampleId }}-{{tab|lower}}" data-track="tab-{{tab|lower}}">{{tab}}</a>
     </li>
+    {% endfor %}
   </ul>
-  {% endif %}
-  {% endif %}
 
-  {% for partial in params.partial %}
-  {# might want to change this when showing multiple tabs #}
-  {% set tabType = partial.type if partial.type else "html" %}
+  {% set jinja_include_path = "digital-land-frontend/components/" + params.component.name + "/" + params.iframe.url %}
+  {% set component_abs_path = "frontend/digital_land_frontend/templates/components/" + params.component.name + "/" + params.iframe.url %}
+  {% for tab in tabs %}
   <div class="app-tabs__heading js-tabs__heading">
-    <a href="#{{ exampleId }}-{{tabType}}" role="tab"
-      aria-controls="{{ exampleId }}-{{tabType}}">{{ "HTML" if tabType == 'html' else tabType }}</a>
+    <a href="#{{ exampleId }}-{{tab|lower}}" role="tab"
+      aria-controls="{{ exampleId }}-{{tab|lower}}">{{ tab }}</a>
   </div>
-  <div class="app-tabs__container js-tabs__container" id="{{ exampleId }}-{{tabType}}">
+  <div class="app-tabs__container js-tabs__container" id="{{ exampleId }}-{{tab|lower}}">
     <div class="app-example__code">
-      <pre><code class="{{tabType}}">
-              {%- if partial.type == "jinja" -%}
-                  {#{{- partial.path|get_jinja_template_raw }}#}
-                  {{- partial.path }}
+      <pre><code class="{{tab|lower}}">
+              {%- if tab == "jinja" -%}
+                  {{- component_abs_path|raw_jinja }}
               {%- else -%}
                   {%- filter forceescape -%}
-      {% include partial.name %}
+{% include jinja_include_path %}
                   {%- endfilter -%}
               {%- endif -%}
-              </code></pre>
+      </code></pre>
     </div>
   </div>
   {% endfor %}
