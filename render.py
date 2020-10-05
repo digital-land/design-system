@@ -35,6 +35,7 @@ multi_loader = jinja2.ChoiceLoader(
                 "govuk-jinja-components": jinja2.PackageLoader(
                     "govuk_jinja_components"
                 ),
+                "examples": jinja2.FileSystemLoader(searchpath="./src"),
             }
         ),
     ]
@@ -77,9 +78,9 @@ component_dir = "frontend/digital_land_frontend/templates/components"
 dist_component_dir = "components"
 
 
-def get_components():
+def get_components(components_dir):
     components = []
-    component_dirs = [d[0] for d in os.walk(component_dir)]
+    component_dirs = [d[0] for d in os.walk(components_dir)]
     for c in component_dirs:
         components.append(c.split("/")[-1])
 
@@ -89,16 +90,16 @@ def get_components():
     return components
 
 
-def render_example_pages(components):
+def render_example_pages(components, dir_, dest, jinja_path):
     for c in components:
-        for file in glob.glob(f"{component_dir}/{c}/*.html"):
+        for file in glob.glob(f"{dir_}/{c}/*.html"):
             # don't want to render pages for the macro files
             if not "macro.html" in file:
                 n = os.path.basename(file)
                 render(
-                    f"{dist_component_dir}/{c}/{n}",
+                    f"{dest}/{c}/{n}",
                     example_template,
-                    partial_name=f"digital-land-frontend/components/{c}/{n}",
+                    partial_name=f"{jinja_path}/{c}/{n}",
                 )
 
 
@@ -110,13 +111,13 @@ def read_markdown_file(p):
     return _content.read()
 
 
-def render_component_doc_pages(components):
+def render_component_doc_pages(components, dir_, dest):
     for c in components:
-        documentation_path = f"{component_dir}/{c}/README.md"
+        documentation_path = f"{dir_}/{c}/README.md"
         if os.path.isfile(documentation_path):
             markdown_content = read_markdown_file(documentation_path)
             render(
-                f"components/{c}/index.html",
+                f"{dest}/{c}/index.html",
                 component_template,
                 rendered_markdown=markdown_compile(markdown_content),
             )
@@ -124,16 +125,25 @@ def render_component_doc_pages(components):
             print(f"No documentation for {c}")
 
 
-components = get_components()
-render_example_pages(components)
-render_component_doc_pages(components)
-
-# get an example markdown file to render as a component page
-_content = codecs.open(
-    "frontend/digital_land_frontend/templates/components/page-feedback/README.md",
-    mode="r",
+components = get_components(component_dir)
+render_example_pages(
+    components,
+    "frontend/digital_land_frontend/templates/components",
+    "components",
+    "digital-land-frontend/components",
 )
-_content_raw = _content.read()
+render_component_doc_pages(
+    components, "frontend/digital_land_frontend/templates/components", "components"
+)
+
+govuk_components = get_components("src/govuk/components")
+render_example_pages(
+    govuk_components,
+    "src/govuk/components",
+    "govuk-components",
+    "examples/govuk/components",
+)
+render_component_doc_pages(govuk_components, "src/govuk/components", "govuk-components")
 
 # generate the pages
 render("index.html", index_template)
