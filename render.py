@@ -111,6 +111,16 @@ def read_markdown_file(p):
     return _content.read()
 
 
+def render_markdown_file(file_, dest_file, template, **kwargs):
+    markdown_content = read_markdown_file(file_)
+    render(
+        dest_file,
+        template,
+        rendered_markdown=markdown_compile(markdown_content),
+        **kwargs,
+    )
+
+
 def render_component_doc_pages(components, dir_, dest, **kwargs):
     for c in components:
         documentation_path = f"{dir_}/{c}/README.md"
@@ -156,3 +166,9 @@ render_component_doc_pages(
 
 # generate the pages
 render("index.html", index_template)
+render_markdown_file(
+    "src/govuk/components/README.md",
+    "govuk-components/index.html",
+    component_template,
+    section="govuk-components",
+)
