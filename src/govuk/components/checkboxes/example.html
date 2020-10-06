@@ -1,0 +1,29 @@
+{% from "govuk-jinja-components/components/checkboxes/macro.jinja" import govukCheckboxes -%}
+{{ govukCheckboxes({
+    "idPrefix": "waste",
+    "name": "waste",
+    "fieldset": {
+      "legend": {
+        "text": "Which types of waste do you transport?",
+        "isPageHeading": true,
+        "classes": "govuk-fieldset__legend--xl"
+      }
+    },
+    "hint": {
+      "text": "Select all that apply."
+    },
+    "items": [
+      {
+        "value": "carcasses",
+        "text": "Waste from animal carcasses"
+      },
+      {
+        "value": "mines",
+        "text": "Waste from mines or quarries"
+      },
+      {
+        "value": "farm",
+        "text": "Farm or agricultural waste"
+      }
+    ]
+}) }}

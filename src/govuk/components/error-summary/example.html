@@ -1,0 +1,14 @@
+{% from "govuk-jinja-components/components/error-summary/macro.jinja" import govukErrorSummary -%}
+{{ govukErrorSummary({
+    "titleText": "There is a problem",
+    "errorList": [
+      {
+        "text": "The date your passport was issued must be in the past",
+        "href": "#passport-issued-error"
+      },
+      {
+        "text": "Enter a postcode, like AA1 1AA",
+        "href": "#postcode-error"
+      }
+    ]
+}) }}

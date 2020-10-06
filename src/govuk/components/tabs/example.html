@@ -1,0 +1,56 @@
+{% from "govuk-jinja-components/components/tabs/macro.jinja" import govukTabs -%}
+{% set pastDayHtml %}
+<h2 class="govuk-heading-l">Past day</h2>
+<p class="govuk-body">Some text</p>
+{% endset -%}
+
+{% set pastWeekHtml %}
+<h2 class="govuk-heading-l">Past week</h2>
+<p class="govuk-body">Some text</p>
+{% endset -%}
+
+{% set pastMonthHtml %}
+<h2 class="govuk-heading-l">Past month</h2>
+<p class="govuk-body">Some text</p>
+{% endset -%}
+
+{% set pastYearHtml %}
+<h2 class="govuk-heading-l">Past year</h2>
+<p class="govuk-body">Some text</p>
+{% endset -%}
+
+{{ govukTabs({
+  "items": [
+    {
+      "label": "Past day",
+      "id": "past-day",
+      "panel": {
+        "html": pastDayHtml,
+        "attributes": {
+          "test": "value"
+        }
+      }
+    },
+    {
+      "label": "Past week",
+      "id": "past-week",
+      "panel": {
+        "html": pastWeekHtml
+      }
+    },
+    {
+      "label": "Past month",
+      "id": "past-month",
+      "panel": {
+        "html": pastMonthHtml
+      }
+    },
+    {
+      "label": "Past year",
+      "id": "past-year",
+      "panel": {
+        "html": pastYearHtml
+      }
+    }
+  ]
+}) }}

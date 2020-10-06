@@ -1,0 +1,15 @@
+{% from "govuk-jinja-components/components/date-input/macro.jinja" import govukDateInput -%}
+{{ govukDateInput({
+    "id": "passport-issued",
+    "namePrefix": "passport-issued",
+    "fieldset": {
+      "legend": {
+        "text": "When was your passport issued?",
+        "isPageHeading": true,
+        "classes": "govuk-fieldset__legend--xl"
+      }
+    }, 
+    "hint": {
+      "text": "For example, 12 11 2007"
+    }
+}) }}

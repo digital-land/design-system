@@ -1,0 +1,17 @@
+# GOVUK Error summary
+
+An example of the govuk error summary component.
+
+{{ designSystemExample({
+"iframe": {
+    "title": "An example of the govukErrorSummary component",
+    "url": "example.html",
+    "size": "m"
+},
+"component": {
+    "name": "error-summary",
+    "tabs": ["HTML", "jinja"],
+    "include_path": "examples/govuk/components/",
+    "source_path": "src/govuk/components/"
+}
+}) }}
