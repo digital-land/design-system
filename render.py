@@ -75,7 +75,7 @@ def markdown_compile(s):
     return html
 
 
-component_dir = "frontend/digital_land_frontend/templates/components"
+component_dir = "src/digital-land/components"
 dist_component_dir = "components"
 
 
@@ -140,13 +140,13 @@ def render_component_doc_pages(components, dir_, dest, **kwargs):
 components = get_components(component_dir)
 render_example_pages(
     components,
-    "frontend/digital_land_frontend/templates/components",
+    "src/digital-land/components",
     "components",
-    "digital-land-frontend/components",
+    "examples/digital-land/components",
 )
 render_component_doc_pages(
     components,
-    "frontend/digital_land_frontend/templates/components",
+    "src/digital-land/components",
     "components",
     section="components",
 )

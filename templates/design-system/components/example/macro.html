@@ -33,8 +33,8 @@
     {% endfor %}
   </ul>
 
-  {% set jinja_include_path = (params.component.include_path if params.component.include_path else "digital-land-frontend/components/") + params.component.name + "/" + params.iframe.url %}
-  {% set component_abs_path = (params.component.source_path if params.component.source_path else "frontend/digital_land_frontend/templates/components/") + params.component.name + "/" + params.iframe.url %}
+  {% set jinja_include_path = (params.component.include_path if params.component.include_path else "examples/digital-land/components/") + params.component.name + "/" + params.iframe.url %}
+  {% set component_abs_path = (params.component.source_path if params.component.source_path else "src/digital-land/components/") + params.component.name + "/" + params.iframe.url %}
   {% for tab in tabs %}
   <div class="app-tabs__heading js-tabs__heading">
     <a href="#{{ exampleId }}-{{tab|lower}}" role="tab"
