@@ -9,7 +9,6 @@ This builds on the govukButton macro.
     "size": "xs"
 },
 "component": {
-    "name": "button",
-    "tabs": ["HTML", "jinja"]
+    "name": "button"
 }
 }) }}

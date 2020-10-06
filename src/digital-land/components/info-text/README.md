@@ -11,7 +11,6 @@ It should be used when highlighting some supplementary information to the user.
     "size": "xs"
 },
 "component": {
-    "name": "info-text",
-    "tabs": ["HTML", "jinja"]
+    "name": "info-text"
 }
 }) }}

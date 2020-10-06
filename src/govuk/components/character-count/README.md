@@ -10,8 +10,6 @@ An example of the govuk character count component.
 },
 "component": {
     "name": "character-count",
-    "tabs": ["HTML", "jinja"],
-    "include_path": "examples/govuk/components/",
-    "source_path": "src/govuk/components/"
+    "type": "govuk"
 }
 }) }}

@@ -20,9 +20,8 @@
       scrolling="auto" frameborder="0"></iframe>
   </div>
   {% if params.component %}
-  {% set multipleTabs = true if params.component.tabs|length > 1 else false %}
 
-  {% set tabs = params.component.tabs %}
+  {% set tabs = params.component.tabs if params.component.tabs else ["HTML", "Jinja"] %}
 
   <ul class="app-tabs" role="tablist">
     {% for tab in tabs %}
@@ -33,8 +32,10 @@
     {% endfor %}
   </ul>
 
-  {% set jinja_include_path = (params.component.include_path if params.component.include_path else "examples/digital-land/components/") + params.component.name + "/" + params.iframe.url %}
-  {% set component_abs_path = (params.component.source_path if params.component.source_path else "src/digital-land/components/") + params.component.name + "/" + params.iframe.url %}
+  {% set partial_type = params.component.type if params.component.type else "digital-land"  %}
+  {% set jinja_include_path = "examples/" + partial_type + "/components/" + params.component.name + "/" + params.iframe.url %}
+  {% set component_abs_path = "src/" + partial_type + "/components/" + params.component.name + "/" + params.iframe.url %}
+
   {% for tab in tabs %}
   <div class="app-tabs__heading js-tabs__heading">
     <a href="#{{ exampleId }}-{{tab|lower}}" role="tab"
@@ -43,7 +44,7 @@
   <div class="app-tabs__container js-tabs__container" id="{{ exampleId }}-{{tab|lower}}">
     <div class="app-example__code">
       <pre><code class="{{tab|lower}}">
-              {%- if tab == "jinja" -%}
+              {%- if tab|lower == "jinja" -%}
                   {{- component_abs_path|raw_jinja }}
               {%- else -%}
                   {%- filter forceescape -%}

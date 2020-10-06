@@ -10,8 +10,6 @@ An example of the govuk select component.
 },
 "component": {
     "name": "select",
-    "tabs": ["HTML", "jinja"],
-    "include_path": "examples/govuk/components/",
-    "source_path": "src/govuk/components/"
+    "type": "govuk"
 }
 }) }}

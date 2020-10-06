@@ -9,8 +9,7 @@ Use the data item component when you want to display a number from some data.
     "size": "s"
 },
 "component": {
-    "name": "data-item",
-    "tabs": ["HTML", "jinja"]
+    "name": "data-item"
 }
 }) }}
 

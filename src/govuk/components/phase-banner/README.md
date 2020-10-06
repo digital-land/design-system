@@ -10,8 +10,6 @@ An example of the govuk phase banner component.
 },
 "component": {
     "name": "phase-banner",
-    "tabs": ["HTML", "jinja"],
-    "include_path": "examples/govuk/components/",
-    "source_path": "src/govuk/components/"
+    "type": "govuk"
 }
 }) }}

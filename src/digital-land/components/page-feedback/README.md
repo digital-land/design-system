@@ -9,7 +9,6 @@ This is a test explanation
       "size": "xs"
     },
     "component": {
-        "name": "page-feedback",
-        "tabs": ["HTML", "jinja"]
+        "name": "page-feedback"
     }
 }) }}

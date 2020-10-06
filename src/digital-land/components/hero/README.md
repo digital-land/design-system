@@ -9,7 +9,6 @@ This component is a blue hero panel. It should be used to introduce a new site, 
     "size": "m"
 },
 "component": {
-    "name": "hero",
-    "tabs": ["HTML", "jinja"]
+    "name": "hero"
 }
 }) }}

@@ -9,7 +9,6 @@ Use this component when you want a user to be able to copy content easily.
     "size": "xs"
 },
 "component": {
-    "name": "input-copy",
-    "tabs": ["HTML", "jinja"]
+    "name": "input-copy"
 }
 }) }}
