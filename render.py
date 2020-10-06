@@ -46,6 +46,7 @@ env.filters["raw_jinja"] = get_jinja_template_raw
 
 # get page template
 index_template = env.get_template("index.html")
+get_started_template = env.get_template("getting-started.html")
 example_template = env.get_template("iframe-base.html")
 component_template = env.get_template("component-page.html")
 
@@ -166,6 +167,7 @@ render_component_doc_pages(
 
 # generate the pages
 render("index.html", index_template)
+render("get-started/index.html", get_started_template)
 render_markdown_file(
     "src/govuk/components/README.md",
     "govuk-components/index.html",
