@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+
+
+
+  
+
+
+<div class="govuk-form-group">
+  
+	
+		
+	<fieldset class="govuk-fieldset" role="group">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    <h1 class="govuk-fieldset__heading">
+      When was your passport issued?
+    </h1>
+  </legend>
+  
+  
+      <span id="passport-issued-hint" class="govuk-hint">
+    For example, 12 11 2007
+  </span>
+
+
+
+  <div class="govuk-date-input" id="passport-issued">
+
+    
+    
+    <div class="govuk-date-input__item">
+    <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label"
+           for="passport-issued-day">
+          Day
+        </label>
+
+
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="number" pattern="[0-9]*">
+
+      </div>
+    </div>
+    
+    <div class="govuk-date-input__item">
+    <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label"
+           for="passport-issued-month">
+          Month
+        </label>
+
+
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="number" pattern="[0-9]*">
+
+      </div>
+    </div>
+    
+    <div class="govuk-date-input__item">
+    <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label"
+           for="passport-issued-year">
+          Year
+        </label>
+
+
+        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="number" pattern="[0-9]*">
+
+      </div>
+    </div>
+    
+    
+    
+  </div>
+    </fieldset>
+  
+</div></div>
+
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+    
+</body>
+
+</html>

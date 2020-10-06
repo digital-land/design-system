@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script><table class="govuk-table">
+  
+  <caption class="govuk-table__caption">Dates and amounts</caption>
+  
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    
+      <th class="govuk-table__header" scope="col">Date</th>
+    
+      <th class="govuk-table__header" scope="col">Amount</th>
+    
+    </tr>
+  </thead>
+  
+  <tbody class="govuk-table__body">
+    
+    <tr class="govuk-table__row">
+    
+      
+      <th class="govuk-table__header" scope="row">First 6 weeks</th>
+      
+    
+      
+      <td class="govuk-table__cell ">£109.80 per week</td>
+      
+    
+    </tr>
+    
+    <tr class="govuk-table__row">
+    
+      
+      <th class="govuk-table__header" scope="row">Next 33 weeks</th>
+      
+    
+      
+      <td class="govuk-table__cell ">£109.80 per week</td>
+      
+    
+    </tr>
+    
+    <tr class="govuk-table__row">
+    
+      
+      <th class="govuk-table__header" scope="row">Total estimated pay</th>
+      
+    
+      
+      <td class="govuk-table__cell ">£4,282.20</td>
+      
+    
+    </tr>
+    
+  </tbody>
+</table></div>
+
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+    
+</body>
+
+</html>

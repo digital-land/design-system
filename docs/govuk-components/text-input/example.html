@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+<div class="govuk-form-group">
+  <label class="govuk-label"
+     for="event-name">
+    Event name
+  </label>
+
+
+  <input class="govuk-input" id="event-name" name="event-name" type="text">
+
+</div></div>
+
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+    
+</body>
+
+</html>

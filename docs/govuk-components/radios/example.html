@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+
+
+
+
+  
+
+  
+<div class="govuk-form-group">
+
+  
+	
+		
+	<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    <h1 class="govuk-fieldset__heading">
+      Have you changed your name?
+    </h1>
+  </legend>
+  
+  
+  <span id="changed-name-hint" class="govuk-hint">
+    This includes changing your last name or spelling your name differently.
+  </span>
+
+
+  <div class="govuk-radios govuk-radios--inline">
+    
+    
+    
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label"
+         for="changed-name-1">
+        Yes
+      </label>
+    </div>
+    
+    
+    
+    
+    
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label"
+         for="changed-name-2">
+        No
+      </label>
+    </div>
+    
+    
+    
+  </div>
+  </fieldset>
+
+</div></div>
+
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+    
+</body>
+
+</html>

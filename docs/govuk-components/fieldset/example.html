@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+
+
+	
+		
+	<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    <h1 class="govuk-fieldset__heading">
+      What is your address?
+    </h1>
+  </legend>
+  
+  
+
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label"
+     for="address-line-1">
+    Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+  </label>
+
+
+  <input class="govuk-input" id="address-line-1" name="address-line-1" type="text">
+
+</div>
+
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label"
+     for="address-line-2">
+    <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+  </label>
+
+
+  <input class="govuk-input" id="address-line-2" name="address-line-2" type="text">
+
+</div>
+
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label"
+     for="address-town">
+    Town or city
+  </label>
+
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
+
+</div>
+
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label"
+     for="address-county">
+    County
+  </label>
+
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
+
+</div>
+
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label"
+     for="address-postcode">
+    Postcode
+  </label>
+
+
+  <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
+
+</div>
+
+</fieldset></div>
+
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+    
+</body>
+
+</html>

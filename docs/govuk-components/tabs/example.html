@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+<div class="govuk-tabs"  data-module="tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+
+  
+  <ul class="govuk-tabs__list">
+    
+    
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab govuk-tabs__tab--selected" href="#past-day">
+          Past day
+        </a>
+      </li>
+    
+    
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#past-week">
+          Past week
+        </a>
+      </li>
+    
+    
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#past-month">
+          Past month
+        </a>
+      </li>
+    
+    
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#past-year">
+          Past year
+        </a>
+      </li>
+    
+  </ul>
+  
+
+  
+  
+  <div class="govuk-tabs__panel" id="past-day" test="value">
+    
+<h2 class="govuk-heading-l">Past day</h2>
+<p class="govuk-body">Some text</p>
+
+  </div>
+  
+  
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+    
+<h2 class="govuk-heading-l">Past week</h2>
+<p class="govuk-body">Some text</p>
+
+  </div>
+  
+  
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+    
+<h2 class="govuk-heading-l">Past month</h2>
+<p class="govuk-body">Some text</p>
+
+  </div>
+  
+  
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+    
+<h2 class="govuk-heading-l">Past year</h2>
+<p class="govuk-body">Some text</p>
+
+  </div>
+  
+</div></div>
+
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+    
+</body>
+
+</html>
