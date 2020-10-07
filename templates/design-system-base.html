@@ -33,6 +33,8 @@
 {% endblock %}
 
 {% block footer %}
+{% set github_url = "https://github.com/digital-land/design-system" %}
+{% set licence_url = licence_url | default(github_url + 'blob/master/LICENSE') %}
 {{ govukFooter({
     "classes": "app-footer app-footer--full",
     "containerClasses" : "app-width-container",
@@ -59,11 +61,19 @@
     "meta": {
       "items": [
         {
-          "href": "https://github.com/digital-land/digital-land-frontend",
-          "text": "Code on github"
+          "href": "/cookies",
+          "text": "Cookies"
+        },
+        {
+          "href": "/accessibility-statement",
+          "text": "Accessibility statement"
+        },
+        {
+          "href": "/design-system",
+          "text": "Design system"
         }
       ],
-      "html": 'Built by the <a href="https://digital-land.github.io/about/" class="govuk-footer__link">MHCLG Digital land team</a>.'
+      "html": 'The <a class="govuk-footer__link" href="' + github_url + '">software</a> used to build these pages is <a class="govuk-footer__link" href="' + licence_url + '">open source</a>.'
     }
 }) }}
 {% endblock %}
