@@ -6,8 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}</title>
-    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="{{ staticPath|default('/static') }}/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" media="all" />
 
 </head>
 
@@ -31,13 +31,13 @@
     </div>
 
     {% block bodyEnd %}
-    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="{{ staticPath|default('/static') }}/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     {# needs to come after govuk frontend #}
-    <script src="/static/javascripts/dl-frontend.js"></script>
+    <script src="{{ staticPath|default('/static') }}/javascripts/dl-frontend.js"></script>
 
     <!-- should move this to dl-frontend.js -->
     <script>
