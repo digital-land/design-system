@@ -6,7 +6,8 @@
 
 {% block head %}
 {{super()}}
-<link href="{{ static_path|default('static') }}/stylesheets/styleguide.css" rel="stylesheet" />
+<link href="{{ staticPath|default('/static') }}/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" />
 {% endblock %}
 
 {% block main %}

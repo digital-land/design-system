@@ -45,7 +45,7 @@ env = jinja2.Environment(loader=multi_loader)
 env.filters["raw_jinja"] = get_jinja_template_raw
 
 # set variables to make available to all templates
-env.globals["static_path"] = "https://digital-land.github.io"
+env.globals["staticPath"] = "https://digital-land.github.io"
 
 # get page template
 index_template = env.get_template("index.html")

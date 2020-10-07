@@ -1,5 +1,6 @@
 {% extends "design-system-base.html" %}
 
+{% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %}
 {% from 'digital-land-frontend/components/hero/macro.html' import dlHero %}
 
 {% block content %}
@@ -11,9 +12,12 @@
 <p class="govuk-body-l">Use this design system to make your service, pages or prototype consistent
   with Digital land. Reuse existing components and code to avoid repeating work
   that’s already been done.</p>
-<button
-  class="govuk-button dlf-secondary-button govuk-!-margin-top-0 govuk-!-margin-bottom-0">Get
-  started</button>
+{{ govukButton({
+  "text": "Get started",
+  "isStartButton": true,
+  "href": "get-started",
+  "classes": "dl-button--on-blue govuk-!-margin-bottom-0"
+})}}
 {% endcall %}
 
 <div class="govuk-width-container">
