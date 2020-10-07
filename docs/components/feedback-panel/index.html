@@ -216,10 +216,83 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Components</h1>
-<p class="govuk-body">Components are reusable parts of the user interface that have been made to support a variety of applications.</p>
-<p class="govuk-body">Individual components can be used in multiple different patterns and contexts.</p>
-<p class="govuk-body">If you are using Digital land frontend in your python projects, the coded examples provided will render exactly as they do inside the Design System.</p>
+            <h1 class="govuk-heading-xl">Feedback panel</h1>
+<p class="govuk-body">Use the feedback panel component when you want to ask the user to provide feedback on a page or section of a page.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the feedback panel component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--s"
+      src="example.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre><code class="html">
+
+&lt;div class=&#34;feedback-panel&#34;&gt;
+    &lt;h3 class=&#34;feedback-panel__heading&#34;&gt;&lt;/h3&gt;
+    &lt;p&gt;If you have spotted an issue with the data or have a question email the digital land team on
+    &lt;a href=&#34;mailto:email@email.com&#34;&gt;email@email.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre><code class="jinja">{%- from "digital-land-frontend/components/feedback-panel/macro.html" import dlFeedbackPanel %}
+{{ dlFeedbackPanel({
+    "title": "Is there a problem with this data?",
+    "html": 'If you have spotted an issue with the data or have a question email the digital land team on
+    <a href="mailto:email@email.com">email@email.com</a>.'
+    })
+}}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<p class="govuk-body">It works well when included at the bottom of the page, after the main content. Putting it after the main content means it won't distract the user from the content before they have had chance to read it.</p>
         </main>
     </div>
 </div>
