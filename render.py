@@ -6,11 +6,12 @@ import jinja2
 
 import codecs
 import markdown
-from markdown_jinja import MarkdownJinja
-from frontend.digital_land_frontend.filters import get_jinja_template_raw
+
+from bin.jinja_setup import setup_jinja
+from bin.markdown_jinja import MarkdownJinja
+
 
 docs = "docs/"
-static_path = "https://digital-land.github.io"  # use frontend assets we have published
 
 
 def render(path, template, **kwargs):
@@ -20,39 +21,10 @@ def render(path, template, **kwargs):
         os.makedirs(directory)
 
     with open(path, "w") as f:
-        f.write(template.render(staticPath=static_path, **kwargs))
+        f.write(template.render(**kwargs))
 
 
-# register templates
-multi_loader = jinja2.ChoiceLoader(
-    [
-        jinja2.FileSystemLoader(searchpath="./templates"),
-        jinja2.PrefixLoader(
-            {
-                "digital-land-frontend": jinja2.FileSystemLoader(
-                    searchpath="./frontend/digital_land_frontend/templates"
-                ),
-                "govuk-jinja-components": jinja2.PackageLoader(
-                    "govuk_jinja_components"
-                ),
-                "examples": jinja2.FileSystemLoader(searchpath="./src"),
-            }
-        ),
-    ]
-)
-env = jinja2.Environment(loader=multi_loader)
-# register jinja filters
-env.filters["raw_jinja"] = get_jinja_template_raw
-
-# set variables to make available to all templates
-env.globals["staticPath"] = "https://digital-land.github.io"
-env.globals["urlPath"] = "/design-system"
-
-# get page template
-index_template = env.get_template("index.html")
-get_started_template = env.get_template("getting-started.html")
-example_template = env.get_template("iframe-base.html")
-component_template = env.get_template("component-page.html")
+env = setup_jinja()
 
 # init markdown
 # give it access to the configured jinja.environment
@@ -79,35 +51,6 @@ def markdown_compile(s):
     return html
 
 
-component_dir = "src/digital-land/components"
-dist_component_dir = "components"
-
-
-def get_components(components_dir):
-    components = []
-    component_dirs = [d[0] for d in os.walk(components_dir)]
-    for c in component_dirs:
-        components.append(c.split("/")[-1])
-
-    # don't need to include component dir
-    if "components" in components:
-        components.remove("components")
-    return components
-
-
-def render_example_pages(components, dir_, dest, jinja_path):
-    for c in components:
-        for file in glob.glob(f"{dir_}/{c}/*.html"):
-            # don't want to render pages for the macro files
-            if not "macro.html" in file:
-                n = os.path.basename(file)
-                render(
-                    f"{dest}/{c}/{n}",
-                    example_template,
-                    partial_name=f"{jinja_path}/{c}/{n}",
-                )
-
-
 def read_markdown_file(p):
     _content = codecs.open(
         p,
@@ -126,48 +69,75 @@ def render_markdown_file(file_, dest_file, template, **kwargs):
     )
 
 
-def render_component_doc_pages(components, dir_, dest, **kwargs):
-    for c in components:
-        documentation_path = f"{dir_}/{c}/README.md"
-        if os.path.isfile(documentation_path):
-            markdown_content = read_markdown_file(documentation_path)
+# get page templates
+index_template = env.get_template("index.html")
+get_started_template = env.get_template("getting-started.html")
+example_template = env.get_template("iframe-base.html")
+component_template = env.get_template("component-page.html")
+
+
+def get_components(components_dir):
+    components = []
+    component_dirs = [d[0] for d in os.walk(components_dir)]
+    for c in component_dirs:
+        components.append(c.split("/")[-1])
+
+    # don't need to include component dir
+    if "components" in components:
+        components.remove("components")
+    return components
+
+
+def render_example_pages(name, src_dir, dest, jinja_path):
+    for file in glob.glob(f"{src_dir}/{name}/*.html"):
+        # don't want to render pages for the macro files
+        if not "macro.html" in file:
+            example = os.path.basename(file)
             render(
-                f"{dest}/{c}/index.html",
-                component_template,
-                rendered_markdown=markdown_compile(markdown_content),
-                **kwargs,
+                f"{dest}/{name}/{example}",
+                example_template,
+                partial_name=f"{jinja_path}/{name}/{example}",
             )
-        else:
-            print(f"No documentation for {c}")
 
 
-components = get_components(component_dir)
-render_example_pages(
-    components,
-    "src/digital-land/components",
-    "components",
-    "examples/digital-land/components",
-)
-render_component_doc_pages(
-    components,
-    "src/digital-land/components",
-    "components",
-    section="components",
-)
+def render_component_doc_pages(name, src_dir, dest, **kwargs):
+    documentation_path = f"{src_dir}/{name}/README.md"
+    if os.path.isfile(documentation_path):
+        markdown_content = read_markdown_file(documentation_path)
+        render(
+            f"{dest}/{name}/index.html",
+            component_template,
+            rendered_markdown=markdown_compile(markdown_content),
+            **kwargs,
+        )
+    else:
+        print(f"No documentation for {name}")
 
-govuk_components = get_components("src/govuk/components")
-render_example_pages(
-    govuk_components,
-    "src/govuk/components",
-    "govuk-components",
-    "examples/govuk/components",
-)
-render_component_doc_pages(
-    govuk_components,
-    "src/govuk/components",
-    "govuk-components",
-    section="govuk-components",
-)
+
+# generate all component docs and examples
+component_sets = [
+    {"type": "digital-land", "dest": "components"},
+    {"type": "govuk", "dest": "govuk-components"},
+]
+
+for cset in component_sets:
+    src_dir = f"src/{cset['type']}/components"
+    components = get_components(src_dir)
+    for component in components:
+        jinja_input_path = f"examples/{cset['type']}/components"
+        render_example_pages(
+            component,
+            src_dir,
+            cset["dest"],
+            jinja_input_path,
+        )
+        render_component_doc_pages(
+            component,
+            src_dir,
+            cset["dest"],
+            section=cset["dest"],
+        )
+
 
 # generate the pages
 render("index.html", index_template)
