@@ -130,7 +130,7 @@
 
 <li
 	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/"
+	<a class="govuk-link" href="/design-system/get-started"
 		data-topnav="GET STARTED">Get started</a>
 </li>
 
@@ -179,66 +179,73 @@
     </nav>
 </div><div class="app-nav__content">
     <main id="main-content" class="app-content" role="main">
-      <div class="app-content__header">
-        <h1 class="govuk-heading-xl">
-          Get started with Digital Land frontend
-        </h1>
-      </div>
+      <h1 class="govuk-heading-xl">Getting started with digital land frontend</h1>
+<p class="govuk-body">Use this getting started guide to find out how to:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>install Digital Land Frontend</li>
+<li>set up a test page to check your installation is working</li>
+</ul>
+<p class="govuk-body">You can see live examples of Digital Land Frontend components, GOVUK components we've ported to jinja, and guidance on when to use them, in this design system.</p>
+<p class="govuk-body"><a href="mailto:DigitalLand@communities.gov.uk">Contact</a> us if you have any questions or feedback.</p>
+<h2 class="govuk-heading-l">Install</h2>
+<p class="govuk-body"><a href="https://github.com/digital-land/frontend">Install digital land frontend with pip</a>.</p>
+<pre><code>pip install -e git+https://github.com/digital-land/frontend.git#egg=digital_land_frontend
+pip install -e git+https://github.com/digital-land/govuk-jinja-components.git#egg=govuk_jinja_components
+</code></pre>
+<h2 class="govuk-heading-l">Register templates with Jinja</h2>
+<p class="govuk-body">Installing <code>govuk-jinja-components</code> and digital land's <code>frontend</code> makes a number of templates available. You will need to register this with Jinja to be able to use them.</p>
+<p class="govuk-body">Where you initialise jinja include the following:</p>
+<pre><code>import jinja2
 
-      <p class="govuk-body">Digital Land frontend is collection of reusable frontend parts and
-        examples.
-        It is maintained by the <a href="https://digital-land.github.io/" class="govuk-link">Digital
-          Land</a> team and used across their <a
-          href="https://github.com/digital-land">projects</a>.
-      </p>
+# where you set up jinja add this
+multi_loader = jinja2.ChoiceLoader([
+    jinja2.FileSystemLoader(searchpath="&lt;&lt;path to your templates&gt;&gt;"),
+    jinja2.PrefixLoader({
+        'govuk-jinja-components': jinja2.PackageLoader('govuk_jinja_components'),
+        'digital-land-frontend': jinja2.PackageLoader('digital_land_frontend')
+    })
+])
+jinja2.Environment(loader=multi_loader)
+</code></pre>
+<h2 class="govuk-heading-l">Create a page</h2>
+<p class="govuk-body">Create a page in your application.</p>
+<p class="govuk-body">To extend the digital land base template start with the line</p>
+<pre><code>% extends "digital-land-frontend/dlf-base.html" %
+</code></pre>
+<p class="govuk-body">To use <code>govuk-jinja-components</code> import the ones you need. E.g. import the <code>govukButton</code> component with</p>
+<pre><code>% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %
+</code></pre>
+<p class="govuk-body">You can paste the HTML or jinja from the <a href="/design-system/govuk-components/button">govukButton documentation page</a> into you page, paste it between the <strong>content</strong> block</p>
+<pre><code>% block content %
+&lt;!-- paste here --&gt;
+% endblock %
+</code></pre>
+<p class="govuk-body">Take the same approach to use the <code>digital-land-frontend</code> components. E.g.</p>
+<pre><code>% block content %
+&lt;!-- paste dlFeedbackPanel here --&gt;
+% endblock %
+</code></pre>
+<p class="govuk-body">Paste <a href="/design-system/components/feedback-panel">dlFeedbackPanel example</a> from the documentation page.</p>
+<h2 class="govuk-heading-l">Using the CSS and JS assets</h2>
+<p class="govuk-body">The <strong>CSS</strong> is already included if extending the <code>dlf-base.html</code> template.</p>
+<p class="govuk-body">The <em>JS</em>* is also included if extending the <code>dlf-base.html</code> template. To initialise one of the JS modules use:</p>
+<pre><code>% block bodyEnd %
+{ super() }
+&lt;script&gt;
+    const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+    $inputCopyElements.forEach(function ($input) {
+        new window.DLFrontend.InputCopy($input).init()
+    })
+&lt;/script&gt;
+% endblock %
+</code></pre>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Help improve this page</h3>
+    <p>If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a></p>
+</div>
 
-      <p class="govuk-body">It builds on the <a href="https://design-system.service.gov.uk">GOV.UK
-          Design System</a> and includes components specific to Digital Land. We try to keep this as
-        consistent with GOV.UK as we can.</p>
-
-      <p class="govuk-body"><a href="">Which frontend assets do I need for my project?</a></p>
-
-      <h2 class="govuk-heading-l">GOVUK components</h2>
-
-      <p class="govuk-body">We use a lot of python and flask to build our prototypes. However, the
-        GOVUK
-        components are written in Nunjucks, intended to be use with JS. We need them to be
-        compatible
-        with Jinja so we had to port them.</p>
-
-      <p class="govuk-body">They are available on <a
-          href="https://github.com/digital-land/govuk-jinja-components">github</a> and you can
-        <code>pip
-          install</code> them.</p>
-
-      <p class="govuk-body"><a href="">Browse jinja components</a></p>
-
-      <h2 class="govuk-heading-l govuk-!-margin-top-6">Digital Land components</h2>
-
-      <p class="govuk-body">Digital land components are the reusable parts of the user interface
-        that
-        we
-        use in multiple Digital Land projects.</p>
-      <p class="govuk-body">They can be used in mutliple ways and contexts. Note that they are
-        experimental and will change as we test them with more users. They will be updated
-        regularly.
-      </p>
-      <p class="govuk-body">If you include the digital-land.css stylesheet and jinja components then
-        there are code examples you can reuse.</p>
-
-      <p class="govuk-body"><a href="">Browse Digital Land components</a></p>
-
-      <h2 class="govuk-heading-l govuk-!-margin-top-6">Digital Land javascript</h2>
-      <div class="govuk-body">We work with a lot of data.</div>
-      <p class="govuk-body">To help users understand and use data sometimes it is important for use
-        to
-        progressively enhance the experience of working with or consuming this data. We have created
-        a
-        number of javascript modules to help us.</p>
-      <p class="govuk-body">All these javascript modules are available to use in your projects. Note
-        that they are experimental and will be changed based on various user testing.</p>
-
-      <div class="govuk-body"><a href="">Browse Digital Land javascript</a></div>
     </main>
   </div>
 </div>

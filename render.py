@@ -48,6 +48,7 @@ def markdown_compile(s):
     html = html.replace("<h2>", '<h2 class="govuk-heading-l">')
     html = html.replace("<h3>", '<h3 class="govuk-heading-m">')
     html = html.replace("<h4>", '<h4 class="govuk-heading-s">')
+    html = html.replace("<ul>", '<ul class="govuk-list govuk-list--bullet">')
     return html
 
 
@@ -141,7 +142,12 @@ for cset in component_sets:
 
 # generate the pages
 render("index.html", index_template)
+get_started_documentation = "src/guides/get-started.md"
 render("get-started/index.html", get_started_template)
+
+render_markdown_file(
+    "src/guides/get-started.md", "get-started/index.html", get_started_template
+)
 render_markdown_file(
     "src/govuk/components/README.md",
     "govuk-components/index.html",
