@@ -82,7 +82,7 @@
 {{ super() }}
 
 {# required for on page syntax highlighting #}
-<script src='/static/javascripts/vendor/highlight.pack.js'></script>
+<script src="{{ staticPath|default('/static') }}/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>

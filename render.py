@@ -49,6 +49,7 @@ def markdown_compile(s):
     html = html.replace("<h3>", '<h3 class="govuk-heading-m">')
     html = html.replace("<h4>", '<h4 class="govuk-heading-s">')
     html = html.replace("<ul>", '<ul class="govuk-list govuk-list--bullet">')
+    html = html.replace("<pre>", '<pre class="hljs-container">')
     return html
 
 

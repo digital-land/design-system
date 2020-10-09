@@ -189,13 +189,13 @@
 <p class="govuk-body"><a href="mailto:DigitalLand@communities.gov.uk">Contact</a> us if you have any questions or feedback.</p>
 <h2 class="govuk-heading-l">Install</h2>
 <p class="govuk-body"><a href="https://github.com/digital-land/frontend">Install digital land frontend with pip</a>.</p>
-<pre><code>pip install -e git+https://github.com/digital-land/frontend.git#egg=digital_land_frontend
+<pre class="hljs-container"><code>pip install -e git+https://github.com/digital-land/frontend.git#egg=digital_land_frontend
 pip install -e git+https://github.com/digital-land/govuk-jinja-components.git#egg=govuk_jinja_components
 </code></pre>
 <h2 class="govuk-heading-l">Register templates with Jinja</h2>
 <p class="govuk-body">Installing <code>govuk-jinja-components</code> and digital land's <code>frontend</code> makes a number of templates available. You will need to register this with Jinja to be able to use them.</p>
 <p class="govuk-body">Where you initialise jinja include the following:</p>
-<pre><code>import jinja2
+<pre class="hljs-container"><code>import jinja2
 
 # where you set up jinja add this
 multi_loader = jinja2.ChoiceLoader([
@@ -210,18 +210,18 @@ jinja2.Environment(loader=multi_loader)
 <h2 class="govuk-heading-l">Create a page</h2>
 <p class="govuk-body">Create a page in your application.</p>
 <p class="govuk-body">To extend the digital land base template start with the line</p>
-<pre><code>% extends "digital-land-frontend/dlf-base.html" %
+<pre class="hljs-container"><code>% extends "digital-land-frontend/dlf-base.html" %
 </code></pre>
 <p class="govuk-body">To use <code>govuk-jinja-components</code> import the ones you need. E.g. import the <code>govukButton</code> component with</p>
-<pre><code>% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %
+<pre class="hljs-container"><code>% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %
 </code></pre>
 <p class="govuk-body">You can paste the HTML or jinja from the <a href="/design-system/govuk-components/button">govukButton documentation page</a> into you page, paste it between the <strong>content</strong> block</p>
-<pre><code>% block content %
+<pre class="hljs-container"><code>% block content %
 &lt;!-- paste here --&gt;
 % endblock %
 </code></pre>
 <p class="govuk-body">Take the same approach to use the <code>digital-land-frontend</code> components. E.g.</p>
-<pre><code>% block content %
+<pre class="hljs-container"><code>% block content %
 &lt;!-- paste dlFeedbackPanel here --&gt;
 % endblock %
 </code></pre>
@@ -229,7 +229,7 @@ jinja2.Environment(loader=multi_loader)
 <h2 class="govuk-heading-l">Using the CSS and JS assets</h2>
 <p class="govuk-body">The <strong>CSS</strong> is already included if extending the <code>dlf-base.html</code> template.</p>
 <p class="govuk-body">The <em>JS</em>* is also included if extending the <code>dlf-base.html</code> template. To initialise one of the JS modules use:</p>
-<pre><code>% block bodyEnd %
+<pre class="hljs-container"><code>% block bodyEnd %
 { super() }
 &lt;script&gt;
     const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
@@ -398,7 +398,7 @@ jinja2.Environment(loader=multi_loader)
 	
 
 
-<script src='/static/javascripts/vendor/highlight.pack.js'></script>
+<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
