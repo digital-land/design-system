@@ -210,34 +210,39 @@ jinja2.Environment(loader=multi_loader)
 <h2 class="govuk-heading-l">Create a page</h2>
 <p class="govuk-body">Create a page in your application.</p>
 <p class="govuk-body">To extend the digital land base template start with the line</p>
-<pre class="hljs-container"><code>% extends "digital-land-frontend/dlf-base.html" %
+<pre class="hljs-container"><code>{% extends &quot;digital-land-frontend/dlf-base.html&quot; %}
 </code></pre>
+
 <p class="govuk-body">To use <code>govuk-jinja-components</code> import the ones you need. E.g. import the <code>govukButton</code> component with</p>
-<pre class="hljs-container"><code>% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %
+<pre class="hljs-container"><code>{% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %}
 </code></pre>
+
 <p class="govuk-body">You can paste the HTML or jinja from the <a href="/design-system/govuk-components/button">govukButton documentation page</a> into you page, paste it between the <strong>content</strong> block</p>
-<pre class="hljs-container"><code>% block content %
+<pre class="hljs-container"><code>{% block content %}
 &lt;!-- paste here --&gt;
-% endblock %
+{% endblock %}
 </code></pre>
+
 <p class="govuk-body">Take the same approach to use the <code>digital-land-frontend</code> components. E.g.</p>
-<pre class="hljs-container"><code>% block content %
+<pre class="hljs-container"><code>{% from 'digital-land-frontend/components/feedback-panel/macro.html' import dlFeedbackPanel %}
+{% block content %}
 &lt;!-- paste dlFeedbackPanel here --&gt;
-% endblock %
+{% endblock %}
 </code></pre>
+
 <p class="govuk-body">Paste <a href="/design-system/components/feedback-panel">dlFeedbackPanel example</a> from the documentation page.</p>
 <h2 class="govuk-heading-l">Using the CSS and JS assets</h2>
 <p class="govuk-body">The <strong>CSS</strong> is already included if extending the <code>dlf-base.html</code> template.</p>
-<p class="govuk-body">The <em>JS</em>* is also included if extending the <code>dlf-base.html</code> template. To initialise one of the JS modules use:</p>
-<pre class="hljs-container"><code>% block bodyEnd %
-{ super() }
+<p class="govuk-body">The <strong>JS</strong> is also included if extending the <code>dlf-base.html</code> template. To initialise one of the JS modules use:</p>
+<pre class="hljs-container"><code>{% block bodyEnd %}
+{{ super() }}
 &lt;script&gt;
-    const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+    const $inputCopyElements = document.querySelectorAll('[data-module*=&quot;input-copy&quot;]')
     $inputCopyElements.forEach(function ($input) {
         new window.DLFrontend.InputCopy($input).init()
     })
 &lt;/script&gt;
-% endblock %
+{% endblock %}
 </code></pre>
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
       

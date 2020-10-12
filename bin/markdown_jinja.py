@@ -28,6 +28,57 @@ class MarkdownJinja(Extension):
         )
 
 
+def index_code_block(lines):
+    if "```" in lines:
+        opening_line = lines.index("```")
+        closing_line = lines.index("```", opening_line + 1)
+        return True, opening_line, closing_line
+    return False, None, None
+
+
+# extracts code blocks from lines of text
+# also replaces code_blocks with a placeholder string
+def extract_code_blocks(lines):
+    code_blocks = []
+    has_code_blocks = True
+    while has_code_blocks:
+        if "```" in lines:
+            block, op, cl = index_code_block(lines)
+            if block:
+                code_blocks.append(lines[op : cl + 1])
+                del lines[op + 1 : cl + 1]
+                lines[op] = "{CODE BLOCK PLACEHOLDER}"
+            else:
+                has_code_blocks = False
+        else:
+            has_code_blocks = False
+    return code_blocks
+
+
+def insert_lines(lines, lines_to_insert, start_from):
+    insert_pt = start_from
+    for l in lines_to_insert:
+        lines.insert(insert_pt, l)
+        insert_pt = insert_pt + 1
+
+
+def insert_code_blocks(lines, code_blocks, placeholder="{CODE BLOCK PLACEHOLDER}"):
+    has_placeholders = True
+    while has_placeholders:
+        if placeholder in lines:
+            idx = lines.index(placeholder)
+            try:
+                block = code_blocks.pop(0)
+                insert_lines(lines, block, idx + 1)
+                del lines[idx]
+            except:
+                print("An exception occurred")
+                lines[idx] = "{Error: Couldn't re-insert code-block}"
+        else:
+            has_placeholders = False
+    return lines
+
+
 class JinjaPreprocessor(Preprocessor):
     def __init__(self, md, config, env, macros):
         super(JinjaPreprocessor, self).__init__(md)
@@ -48,10 +99,12 @@ class JinjaPreprocessor(Preprocessor):
 
     def run(self, lines):
         registered_macros = self.register_macros()
+        cbs = extract_code_blocks(lines)
         text = "\n".join(lines)
         template = self.environment.from_string(text)
         new_text = template.render(**self.context, **registered_macros)
-        return new_text.split("\n")
+        new_lines = new_text.split("\n")
+        return insert_code_blocks(new_lines, cbs)
 
 
 def makeExtension(*args, **kwargs):

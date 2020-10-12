@@ -36,7 +36,8 @@ md = markdown.Markdown(
             macros={
                 "designSystemExample": "design-system/components/example/macro.html"
             },
-        )
+        ),
+        "fenced_code",
     ]
 )
 

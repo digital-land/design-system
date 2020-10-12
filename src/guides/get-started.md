@@ -40,24 +40,32 @@ Create a page in your application.
 
 To extend the digital land base template start with the line
 
-    % extends "digital-land-frontend/dlf-base.html" %
+```
+{% extends "digital-land-frontend/dlf-base.html" %}
+```
 
 To use `govuk-jinja-components` import the ones you need. E.g. import the `govukButton` component with
 
-    % from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %
+```
+{% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %}
+```
 
 You can paste the HTML or jinja from the [govukButton documentation page](/design-system/govuk-components/button) into you page, paste it between the **content** block
 
-    % block content %
-    <!-- paste here -->
-    % endblock %
+```
+{% block content %}
+<!-- paste here -->
+{% endblock %}
+```
 
 Take the same approach to use the `digital-land-frontend` components. E.g.
 
-    {% from 'digital-land-frontend/components/feedback-panel/macro.html' import dlFeedbackPanel %}
-    % block content %
-    <!-- paste dlFeedbackPanel here -->
-    % endblock %
+```
+{% from 'digital-land-frontend/components/feedback-panel/macro.html' import dlFeedbackPanel %}
+{% block content %}
+<!-- paste dlFeedbackPanel here -->
+{% endblock %}
+```
 
 Paste [dlFeedbackPanel example](/design-system/components/feedback-panel) from the documentation page.
 
@@ -65,14 +73,16 @@ Paste [dlFeedbackPanel example](/design-system/components/feedback-panel) from t
 
 The **CSS** is already included if extending the `dlf-base.html` template.
 
-The *JS** is also included if extending the `dlf-base.html` template. To initialise one of the JS modules use:
+The **JS** is also included if extending the `dlf-base.html` template. To initialise one of the JS modules use:
 
-    % block bodyEnd %
-    { super() }
-    <script>
-        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
-        $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
-        })
-    </script>
-    % endblock %
+```
+{% block bodyEnd %}
+{{ super() }}
+<script>
+    const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+    $inputCopyElements.forEach(function ($input) {
+        new window.DLFrontend.InputCopy($input).init()
+    })
+</script>
+{% endblock %}
+```
