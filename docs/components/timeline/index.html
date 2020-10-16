@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template dlf-page-wide">
+  <head>
+    <meta charset="utf-8">
+    <title>GOV.UK - The best place to find government services and information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+
+<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+
+<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+
+    
+    
+    <meta property="og:image" content="/assets/images/govuk-opengraph-image.png">
+  </head>
+  <body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+
+    
+<!-- Cookie banner partial version 1.0.1 -->
+<div id="global-cookie-message" class="govuk-clearfix global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
+
+  <div id="cookie-banner" class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="cookie-banner__message govuk-!-margin-top-6">
+          <h2 class="govuk-heading-m">Tell us whether you accept cookies</h2>
+          <p class="govuk-body">We use <a class="govuk-link" href="/cookies">cookies to collect information</a> about how you use the Digital Land website to make the website work as well as possible.</p>
+        </div>
+        <div class="cooke-banner__buttons govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <button class="govuk-button" onclick="acceptCookies();showCookieConfirmation();">Accept all cookies</button>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <a class="govuk-button" href="/cookies">Set cookie preferences</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookie-confirmation" class="govuk-width-container govuk-!-padding-top-6" tabindex="-1" style="display: none;">
+    <p class="cookie-banner__confirmation-message govuk-body">You’ve accepted all cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
+    <button class="cookie-banner__hide-button govuk-button govuk-button--secondary" onclick="document.getElementById('cookie-confirmation').style.display='none';">Hide</button>
+  </div>
+
+</div>
+<header role="banner" id="global-header" class="govuk-header  with-proposition dl-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="header-proposition">
+      <div class="govuk-header__content">
+        <a href="https://digital-land.github.io/" class="govuk-header__link govuk-header__link--service-name">
+        Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/about">Team</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/project/">Projects</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/weeknote/">Weeknotes</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/blog-post/">Blog</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/guidance/">Guidance</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/dataset/">Datasets</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/organisation/">Organisations</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/map/">Map</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+    
+
+
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  styleguide
+</strong><span class="govuk-phase-banner__text">
+      This is a <a href="/design-system">styleguide for digital land</a>
+    </span>
+  </p>
+</div>
+
+
+<div class="app-nav" id="top">
+	<nav class="app-nav__wrap govuk-clearfix">
+		<ul class="app-nav__list govuk-width-container">
+			
+			
+
+
+<li
+	class="app-nav__list-item">
+	<a class="govuk-link" href="/design-system/get-started"
+		data-topnav="GET STARTED">Get started</a>
+</li>
+
+			
+
+
+<li
+	class="app-nav__list-item">
+	<a class="govuk-link" href="/design-system/components"
+		data-topnav="COMPONENTS">Components</a>
+</li>
+
+			
+
+
+<li
+	class="app-nav__list-item">
+	<a class="govuk-link" href="/design-system/govuk-components"
+		data-topnav="GOVUK">GOVUK</a>
+</li>
+
+			
+		</ul>
+	</nav>
+</div>
+
+
+
+
+
+
+
+<div class="app-nav__body govuk-width-container">
+<div class="app-nav__subnav app-hide-mobile">
+    <nav class="app-subnav">
+
+        <ul class="app-subnav__section">
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/button">Buttons</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/data-item">Data item</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/feedback-panel">Feedback panel</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/hero">Hero</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/info-text">Info text</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/input-copy">Input copy</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/page-feedback">Page feedback</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/related-content">Related content</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/design-system/components/timeline">Timeline</a>
+</li>
+
+        </ul>
+
+    </nav>
+
+</div><div class="app-nav__content">
+        <main id="main-content" class="app-content" role="main">
+            <h1 class="govuk-heading-xl">Timeline</h1>
+<p class="govuk-body">Use the timeline component to show an ordered record of what has happened.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the timeline component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--l"
+      src="example.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+&lt;div class=&#34;govuk-grid-row&#34;&gt;
+    &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
+
+&lt;ol class=&#34;dl-timeline&#34;&gt;
+
+
+&lt;li class=&#34;dl-timeline__entry&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-s dl-timeline__entry-heading&#34;&gt;Comment: Emily Hill&lt;/h3&gt;
+    &lt;p class=&#34;dl-timeline__entry-details govuk-body-s&#34;&gt;
+      16 August 2018
+    &lt;/p&gt;
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;&lt;p class=&#34;govuk-body&#34;&gt;Need to fix issue with brownfield collection - we&#39;re losing out on data&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/li&gt;
+
+
+
+&lt;li class=&#34;dl-timeline__entry&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-s dl-timeline__entry-heading&#34;&gt;Reopened&lt;/h3&gt;
+    &lt;p class=&#34;dl-timeline__entry-details govuk-body-s&#34;&gt;
+      by Matt Lucht, 29 May 2020
+    &lt;/p&gt;
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+    &lt;p class=&#34;govuk-body&#34;&gt;Further evidence came to light.&lt;/p&gt;&lt;/div&gt;
+&lt;/li&gt;
+
+
+
+&lt;li class=&#34;dl-timeline__entry&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-s dl-timeline__entry-heading&#34;&gt;Resolved&lt;/h3&gt;
+    &lt;p class=&#34;dl-timeline__entry-details govuk-body-s&#34;&gt;
+      by Matt Lucht, 29 May 2020
+    &lt;/p&gt;
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;&lt;/div&gt;
+&lt;/li&gt;
+
+    &lt;/ol&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{%- from "digital-land-frontend/components/timeline/macro.html" import dlTimeline %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ dlTimeline({
+            "entries": [
+                {
+                    "heading": "Comment: Emily Hill",
+                    "meta": "16 August 2018",
+                    "text": "Need to fix issue with brownfield collection - we're losing out on data"
+                },{
+                    "heading": "Reopened",
+                    "meta": "by Matt Lucht, 29 May 2020",
+                    "html": '<p class="govuk-body">Further evidence came to light.</p>'
+                },{
+                    "heading": "Resolved",
+                    "meta": "by Matt Lucht, 29 May 2020"
+                }
+            ]
+        }) }}
+    </div>
+</div>
+</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<h2 class="govuk-heading-l">Filtering a timeline</h2>
+<p class="govuk-body">The timeline component can be progressively enhanced to allow filtering by date.</p>
+<p class="govuk-body"><img class="styleguide-gif" src="images/timeline-filter-video.gif"></p>
+<p class="govuk-body">We add this enhancement when the timeline has many entries and a user might need to find a specific one. An example of that can be seen on a <a href="https://digital-land.github.io/collection/brownfield-land/log/">collection log page</a>.</p>
+<h3 class="govuk-heading-m">Collector log example</h3>
+<p class="govuk-body">The timeline component is good to use when you are showing a sequence of log entries.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-collector.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the timeline component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--l"
+      src="example-collector.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+&lt;div class=&#34;govuk-grid-row&#34;&gt;
+    &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
+        &lt;div class=&#34;govuk-form-group&#34;&gt;
+            &lt;fieldset class=&#34;govuk-fieldset dl-timeline__filter&#34; role=&#34;group&#34; data-module=&#34;filter-timeline&#34; data-timeline-selector=&#34;dl-timeline--dates&#34;&gt;
+              &lt;legend class=&#34;govuk-fieldset__legend govuk-fieldset__legend--m&#34;&gt;
+                &lt;h1 class=&#34;govuk-fieldset__heading&#34;&gt;
+                  Filter by date
+                &lt;/h1&gt;
+              &lt;/legend&gt;
+              &lt;div class=&#34;govuk-date-input&#34; id=&#34;timeline-filter&#34;&gt;
+                &lt;div class=&#34;govuk-date-input__item&#34;&gt;
+                  &lt;div class=&#34;govuk-form-group&#34;&gt;
+                    &lt;label class=&#34;govuk-label govuk-date-input__label&#34; for=&#34;timeline-filter-day&#34;&gt;
+                      Day
+                    &lt;/label&gt;
+                    &lt;input class=&#34;govuk-input govuk-date-input__input govuk-input--width-2&#34; id=&#34;timeline-filter-day&#34; name=&#34;timeline-filter-day&#34; type=&#34;text&#34; pattern=&#34;[0-9]*&#34; inputmode=&#34;numeric&#34; data-filter-timeline-type=&#34;day&#34;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;govuk-date-input__item&#34;&gt;
+                  &lt;div class=&#34;govuk-form-group&#34;&gt;
+                    &lt;label class=&#34;govuk-label govuk-date-input__label&#34; for=&#34;timeline-filter-month&#34;&gt;
+                      Month
+                    &lt;/label&gt;
+                    &lt;input class=&#34;govuk-input govuk-date-input__input govuk-input--width-2&#34; id=&#34;timeline-filter-month&#34; name=&#34;timeline-filter-month&#34; type=&#34;text&#34; pattern=&#34;[0-9]*&#34; inputmode=&#34;numeric&#34; data-filter-timeline-type=&#34;month&#34;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;govuk-date-input__item&#34;&gt;
+                  &lt;div class=&#34;govuk-form-group&#34;&gt;
+                    &lt;label class=&#34;govuk-label govuk-date-input__label&#34; for=&#34;timeline-filter-year&#34;&gt;
+                      Year
+                    &lt;/label&gt;
+                    &lt;input class=&#34;govuk-input govuk-date-input__input govuk-input--width-4&#34; id=&#34;timeline-filter-year&#34; name=&#34;timeline-filter-year&#34; type=&#34;text&#34; pattern=&#34;[0-9]*&#34; inputmode=&#34;numeric&#34; data-filter-timeline-type=&#34;year&#34;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&#34;govuk-inset-text filter-timeline__status-area js-hidden&#34; aria-live=&#34;polite&#34;&gt;
+                &lt;span class=&#34;govuk-body&#34;&gt;Filter applied: &lt;span class=&#34;filter-timeline__count&#34;&gt;0 items&lt;/span&gt; matched.&lt;/span&gt;
+                &lt;a href=&#34;#log-timeline&#34; class=&#34;govuk-visually-hidden&#34;&gt;View updated timeline&lt;/a&gt;
+                &lt;a href=&#34;#&#34; class=&#34;govuk-link filter-timeline__reset&#34;&gt;Reset&lt;span class=&#34;govuk-visually-hidden&#34;&gt; timeline filter&lt;/span&gt;&lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/fieldset&gt;
+        &lt;/div&gt;
+
+&lt;ol id=&#34;log-timeline&#34; class=&#34;dl-timeline dl-timeline--dates&#34;&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;05&#34; data-timeline-day=&#34;22&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-05-22&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;No new resources collected.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;05&#34; data-timeline-day=&#34;21&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-05-21&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;3 new resources collected.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;05&#34; data-timeline-day=&#34;20&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-05-20&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
+                    Error
+                  &lt;/strong&gt;
+                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                &lt;/span&gt; 
+                &lt;span&gt;No run information available.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;05&#34; data-timeline-day=&#34;19&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-05-19&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;04&#34; data-timeline-day=&#34;22&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-04-22&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;No new resources collected.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;04&#34; data-timeline-day=&#34;21&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-04-21&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;3 new resources collected.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;04&#34; data-timeline-day=&#34;20&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-04-20&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
+                    Error
+                  &lt;/strong&gt;
+                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                &lt;/span&gt; 
+                &lt;span&gt;No run information available.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;04&#34; data-timeline-day=&#34;19&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-04-19&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;03&#34; data-timeline-day=&#34;06&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-03-06&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;No new resources collected.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;03&#34; data-timeline-day=&#34;05&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-03-05&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;3 new resources collected.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;03&#34; data-timeline-day=&#34;04&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-03-04&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
+                    Error
+                  &lt;/strong&gt;
+                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                &lt;/span&gt; 
+                &lt;span&gt;No run information available.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li class=&#34;dl-timeline__entry&#34; data-timeline-year=&#34;2020&#34; data-timeline-month=&#34;03&#34; data-timeline-day=&#34;03&#34;&gt;
+    &lt;h3 class=&#34;govuk-heading-m dl-timeline__entry-heading&#34;&gt;2020-03-03&lt;/h3&gt;
+
+    &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
+
+            &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
+                &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
+                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+&lt;/li&gt;
+
+        &lt;/ol&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{%- from "digital-land-frontend/components/timeline/macro.html" import dlTimeline %}
+{%- from "digital-land-frontend/components/timeline/macro.html" import dlTimelineEntry %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset dl-timeline__filter" role="group" data-module="filter-timeline" data-timeline-selector="dl-timeline--dates">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Filter by date
+                </h1>
+              </legend>
+              <div class="govuk-date-input" id="timeline-filter">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="timeline-filter-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="timeline-filter-day" name="timeline-filter-day" type="text" pattern="[0-9]*" inputmode="numeric" data-filter-timeline-type="day">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="timeline-filter-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="timeline-filter-month" name="timeline-filter-month" type="text" pattern="[0-9]*" inputmode="numeric" data-filter-timeline-type="month">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="timeline-filter-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="timeline-filter-year" name="timeline-filter-year" type="text" pattern="[0-9]*" inputmode="numeric" data-filter-timeline-type="year">
+                  </div>
+                </div>
+              </div>
+              <div class="govuk-inset-text filter-timeline__status-area js-hidden" aria-live="polite">
+                <span class="govuk-body">Filter applied: <span class="filter-timeline__count">0 items</span> matched.</span>
+                <a href="#log-timeline" class="govuk-visually-hidden">View updated timeline</a>
+                <a href="#" class="govuk-link filter-timeline__reset">Reset<span class="govuk-visually-hidden"> timeline filter</span></a>
+              </div>
+            </fieldset>
+        </div>
+        {% call dlTimeline({
+            "classes": "dl-timeline--dates",
+            "id": "log-timeline"
+        }) %}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>No new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-22",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"22"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-21",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"21"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><strong class="govuk-tag govuk-tag--red">
+                    Error
+                  </strong>
+                  <a href="#">Brownfield collector</a>.
+                </span> 
+                <span>No run information available.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-20",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"20"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 issues with the endpoints.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-19",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"19"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>No new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-22",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"22"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-21",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"21"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><strong class="govuk-tag govuk-tag--red">
+                    Error
+                  </strong>
+                  <a href="#">Brownfield collector</a>.
+                </span> 
+                <span>No run information available.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-20",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"20"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 issues with the endpoints.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-19",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"19"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>No new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-06",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"06"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-05",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"05"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><strong class="govuk-tag govuk-tag--red">
+                    Error
+                  </strong>
+                  <a href="#">Brownfield collector</a>.
+                </span> 
+                <span>No run information available.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-04",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"04"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 issues with the endpoints.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-03",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"03"
+                }
+            }) }}
+        {% endcall %}
+    </div>
+</div>
+</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<p class="govuk-body">When the timeline has many entries you can use the <code>call</code> approach to generate the entries individually or via a loop.</p>
+<h2 class="govuk-heading-l">Research on this compponent</h2>
+<p class="govuk-body">We need to do more research on this component. If you have used the timeline component, get in touch to share your research findings.</p>
+<p class="govuk-body">We will keep an eye on other services that use the timeline and hopefully get a better inderstanding of how timelines are being used across government. For example, it is used by <a href="https://moj-design-system.herokuapp.com/components/timeline">MoJ</a>.</p>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            
+<div class="feedback-panel">
+    <h3 class="feedback-panel__heading">Help improve this page</h3>
+    <p>If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a></p>
+</div>
+
+        </main>
+    </div>
+</div>
+
+
+
+
+
+
+    
+
+
+<footer class="govuk-footer app-footer app-footer--full" role="contentinfo"
+        >
+  <div class="govuk-width-container app-width-container">
+    
+      <div class="govuk-footer__navigation">
+        
+          <div class="govuk-footer__section">
+            <h2 class="govuk-footer__heading govuk-heading-m">Related resources</h2>
+            
+              
+              <ul class="govuk-footer__list govuk-footer__list--columns-1">
+                
+                  
+                    <li class="govuk-footer__list-item">
+                      <a class="govuk-footer__link" href="https://design-system.service.gov.uk/">
+                        GOV.UK Design System
+                      </a>
+                    </li>
+                  
+                
+                  
+                    <li class="govuk-footer__list-item">
+                      <a class="govuk-footer__link" href="https://www.gov.uk/guidance/government-design-principles">
+                        Government Design Principles
+                      </a>
+                    </li>
+                  
+                
+                  
+                    <li class="govuk-footer__list-item">
+                      <a class="govuk-footer__link" href="https://www.gov.uk/service-manual">
+                        GOV.UK Service Manual
+                      </a>
+                    </li>
+                  
+                
+              </ul>
+            
+          </div>
+        
+      </div>
+      <hr class="govuk-footer__section-break">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+              <ul class="govuk-footer__inline-list">
+                
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/cookies">
+                      Cookies
+                    </a>
+                  </li>
+                
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/accessibility-statement">
+                      Accessibility statement
+                    </a>
+                  </li>
+                
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/design-system">
+                      Design system
+                    </a>
+                  </li>
+                
+              </ul>
+            
+          
+          
+            <div class="govuk-footer__meta-custom">
+              The <a class="govuk-footer__link" href="https://github.com/digital-land/design-system">software</a> used to build these pages is <a class="govuk-footer__link" href="https://github.com/digital-land/design-systemblob/master/LICENSE">open source</a>.
+            </div>
+          
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    
+<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+	<!-- end google analytics -->
+	
+
+	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script>
+		// initiate all GOVUK components
+		window.GOVUKFrontend.initAll();
+	</script>
+
+	
+
+	
+	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script>
+		// adds any necessary polyfills
+		window.DLFrontend.polyfill();
+	</script>
+	
+
+
+<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<script>
+    // Initialise back to top
+    var $btt = document.querySelector('[data-module*="back-to-top"]')
+    new window.DLFrontend.BackToTop($btt).init({
+        footer_selector: ".govuk-footer"
+    });
+</script>
+<script>
+    // Initialise tabs
+    var $tabs = document.querySelectorAll('[data-module="app-tabs"]')
+    $tabs.forEach(function ($tab) {
+        new DLFrontend.AppTabs($tab).init()
+    })
+</script>
+
+  </body>
+</html>

@@ -1,9 +1,14 @@
-init: 
-	git submodule update --init --recursive
+init: submodule
 	pip3 install --upgrade -r requirements.txt
+
+submodule:
+	git submodule update --init --recursive
 
 render:
 	python3 render.py
+
+images:
+	cp -r src/digital-land/components/timeline/images docs/components/timeline
 
 local/css:
 	mkdir -p docs/static/stylesheets
