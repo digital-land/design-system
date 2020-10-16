@@ -457,58 +457,58 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% from "govuk-jinja-components/components/tabs/macro.jinja" import govukTabs -%}
+      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk-jinja-components/components/tabs/macro.jinja&#34; import govukTabs -%}
 {% set pastDayHtml %}
-<h2 class="govuk-heading-l">Past day</h2>
-<p class="govuk-body">Some text</p>
+&lt;h2 class=&#34;govuk-heading-l&#34;&gt;Past day&lt;/h2&gt;
+&lt;p class=&#34;govuk-body&#34;&gt;Some text&lt;/p&gt;
 {% endset -%}
 
 {% set pastWeekHtml %}
-<h2 class="govuk-heading-l">Past week</h2>
-<p class="govuk-body">Some text</p>
+&lt;h2 class=&#34;govuk-heading-l&#34;&gt;Past week&lt;/h2&gt;
+&lt;p class=&#34;govuk-body&#34;&gt;Some text&lt;/p&gt;
 {% endset -%}
 
 {% set pastMonthHtml %}
-<h2 class="govuk-heading-l">Past month</h2>
-<p class="govuk-body">Some text</p>
+&lt;h2 class=&#34;govuk-heading-l&#34;&gt;Past month&lt;/h2&gt;
+&lt;p class=&#34;govuk-body&#34;&gt;Some text&lt;/p&gt;
 {% endset -%}
 
 {% set pastYearHtml %}
-<h2 class="govuk-heading-l">Past year</h2>
-<p class="govuk-body">Some text</p>
+&lt;h2 class=&#34;govuk-heading-l&#34;&gt;Past year&lt;/h2&gt;
+&lt;p class=&#34;govuk-body&#34;&gt;Some text&lt;/p&gt;
 {% endset -%}
 
 {{ govukTabs({
-  "items": [
+  &#34;items&#34;: [
     {
-      "label": "Past day",
-      "id": "past-day",
-      "panel": {
-        "html": pastDayHtml,
-        "attributes": {
-          "test": "value"
+      &#34;label&#34;: &#34;Past day&#34;,
+      &#34;id&#34;: &#34;past-day&#34;,
+      &#34;panel&#34;: {
+        &#34;html&#34;: pastDayHtml,
+        &#34;attributes&#34;: {
+          &#34;test&#34;: &#34;value&#34;
         }
       }
     },
     {
-      "label": "Past week",
-      "id": "past-week",
-      "panel": {
-        "html": pastWeekHtml
+      &#34;label&#34;: &#34;Past week&#34;,
+      &#34;id&#34;: &#34;past-week&#34;,
+      &#34;panel&#34;: {
+        &#34;html&#34;: pastWeekHtml
       }
     },
     {
-      "label": "Past month",
-      "id": "past-month",
-      "panel": {
-        "html": pastMonthHtml
+      &#34;label&#34;: &#34;Past month&#34;,
+      &#34;id&#34;: &#34;past-month&#34;,
+      &#34;panel&#34;: {
+        &#34;html&#34;: pastMonthHtml
       }
     },
     {
-      "label": "Past year",
-      "id": "past-year",
-      "panel": {
-        "html": pastYearHtml
+      &#34;label&#34;: &#34;Past year&#34;,
+      &#34;id&#34;: &#34;past-year&#34;,
+      &#34;panel&#34;: {
+        &#34;html&#34;: pastYearHtml
       }
     }
   ]

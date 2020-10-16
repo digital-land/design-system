@@ -418,23 +418,23 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% from "govuk-jinja-components/components/button/macro.jinja" import govukButton -%}
+      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk-jinja-components/components/button/macro.jinja&#34; import govukButton -%}
 {{ govukButton({
-    "text": "Save and continue",
-    "attributes": {
-      "data-test": "this is a value"
+    &#34;text&#34;: &#34;Save and continue&#34;,
+    &#34;attributes&#34;: {
+      &#34;data-test&#34;: &#34;this is a value&#34;
       }
 }) }}
 
 {{ govukButton({
-    "text": "Start now",
-    "href": "#",
-    "isStartButton": true
+    &#34;text&#34;: &#34;Start now&#34;,
+    &#34;href&#34;: &#34;#&#34;,
+    &#34;isStartButton&#34;: true
 }) }}
 
 {{ govukButton({
-    "text": "Find address",
-    "classes": "govuk-button--secondary"
+    &#34;text&#34;: &#34;Find address&#34;,
+    &#34;classes&#34;: &#34;govuk-button--secondary&#34;
 }) }}</code></pre>
     </div>
   </div>

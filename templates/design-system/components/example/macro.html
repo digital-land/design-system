@@ -44,13 +44,13 @@
   <div class="app-tabs__container js-tabs__container" id="{{ exampleId }}-{{tab|lower}}">
     <div class="app-example__code">
       <pre><code class="{{tab|lower}}">
-              {%- if tab|lower == "jinja" -%}
-                  {{- component_abs_path|raw_jinja }}
-              {%- else -%}
-                  {%- filter forceescape -%}
+        {%- filter forceescape -%}
+          {%- if tab|lower == "jinja" -%}
+            {{- component_abs_path|raw_jinja }}
+          {%- else -%}
 {% include jinja_include_path %}
-                  {%- endfilter -%}
-              {%- endif -%}
+          {%- endif -%}
+        {%- endfilter -%}
       </code></pre>
     </div>
   </div>
