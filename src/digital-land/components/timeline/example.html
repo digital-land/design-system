@@ -1,0 +1,21 @@
+{%- from "digital-land-frontend/components/timeline/macro.html" import dlTimeline %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ dlTimeline({
+            "entries": [
+                {
+                    "heading": "Comment: Emily Hill",
+                    "meta": "16 August 2018",
+                    "text": "Need to fix issue with brownfield collection - we're losing out on data"
+                },{
+                    "heading": "Reopened",
+                    "meta": "by Matt Lucht, 29 May 2020",
+                    "html": '<p class="govuk-body">Further evidence came to light.</p>'
+                },{
+                    "heading": "Resolved",
+                    "meta": "by Matt Lucht, 29 May 2020"
+                }
+            ]
+        }) }}
+    </div>
+</div>

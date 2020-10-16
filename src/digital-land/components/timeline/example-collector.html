@@ -1,0 +1,270 @@
+{%- from "digital-land-frontend/components/timeline/macro.html" import dlTimeline %}
+{%- from "digital-land-frontend/components/timeline/macro.html" import dlTimelineEntry %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset dl-timeline__filter" role="group" data-module="filter-timeline" data-timeline-selector="dl-timeline--dates">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Filter by date
+                </h1>
+              </legend>
+              <div class="govuk-date-input" id="timeline-filter">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="timeline-filter-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="timeline-filter-day" name="timeline-filter-day" type="text" pattern="[0-9]*" inputmode="numeric" data-filter-timeline-type="day">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="timeline-filter-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="timeline-filter-month" name="timeline-filter-month" type="text" pattern="[0-9]*" inputmode="numeric" data-filter-timeline-type="month">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="timeline-filter-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="timeline-filter-year" name="timeline-filter-year" type="text" pattern="[0-9]*" inputmode="numeric" data-filter-timeline-type="year">
+                  </div>
+                </div>
+              </div>
+              <div class="govuk-inset-text filter-timeline__status-area js-hidden" aria-live="polite">
+                <span class="govuk-body">Filter applied: <span class="filter-timeline__count">0 items</span> matched.</span>
+                <a href="#log-timeline" class="govuk-visually-hidden">View updated timeline</a>
+                <a href="#" class="govuk-link filter-timeline__reset">Reset<span class="govuk-visually-hidden"> timeline filter</span></a>
+              </div>
+            </fieldset>
+        </div>
+        {% call dlTimeline({
+            "classes": "dl-timeline--dates",
+            "id": "log-timeline"
+        }) %}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>No new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-22",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"22"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-21",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"21"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><strong class="govuk-tag govuk-tag--red">
+                    Error
+                  </strong>
+                  <a href="#">Brownfield collector</a>.
+                </span> 
+                <span>No run information available.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-20",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"20"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 issues with the endpoints.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-05-19",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"05",
+                    "data-timeline-day":"19"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>No new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-22",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"22"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-21",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"21"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><strong class="govuk-tag govuk-tag--red">
+                    Error
+                  </strong>
+                  <a href="#">Brownfield collector</a>.
+                </span> 
+                <span>No run information available.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-20",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"20"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 issues with the endpoints.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-04-19",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"04",
+                    "data-timeline-day":"19"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>No new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-06",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"06"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 new resources collected.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-05",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"05"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span><strong class="govuk-tag govuk-tag--red">
+                    Error
+                  </strong>
+                  <a href="#">Brownfield collector</a>.
+                </span> 
+                <span>No run information available.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-04",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"04"
+                }
+            }) }}
+
+            {%- set entryHTML %}
+            <div class="technical-summary-card technical-summary-card--compressed">
+                <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
+                <span><a href="#">Brownfield collector</a>.</span> 
+                <span>3 issues with the endpoints.</span>
+            </div>
+            {% endset -%}
+            {{ dlTimelineEntry({
+                "heading": "2020-03-03",
+                "heading_class": "govuk-heading-m",
+                "html": entryHTML,
+                "attributes": {
+                    "data-timeline-year":"2020",
+                    "data-timeline-month":"03",
+                    "data-timeline-day":"03"
+                }
+            }) }}
+        {% endcall %}
+    </div>
+</div>
