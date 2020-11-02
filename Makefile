@@ -2,7 +2,7 @@ init: submodule
 	pip3 install --upgrade -r requirements.txt
 
 submodule:
-	git submodule update --init --recursive
+	git submodule update --init --recursive --remote
 
 render:
 	python3 render.py
