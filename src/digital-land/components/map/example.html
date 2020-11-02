@@ -1,0 +1,59 @@
+{%- from "digital-land-frontend/components/map/macro.html" import dlMap %}
+{{ dlMap({
+    "id": "aMap",
+    "classes": "govuk-!-margin-top-3"
+}) }}
+<script>
+  const $mapElement = document.querySelector('[data-module="boundary-map"]');
+  const boundaryURLs = ['https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson'];
+  if ($mapElement) {
+    // Tile layers
+    var tiles = L.tileLayer("https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+
+    // govuk consistent colours
+    var colours = {
+      lightBlue: "#1d70b8",
+      darkBlue: "#003078",
+      brown: "#594d00",
+      yellow_brown: "#a0964e"
+    };
+
+    var latLng = L.latLng(52.561928, -1.464854);
+    var map = L.map("aMap", {
+      center: latLng,
+      zoom: 5,
+      layers: [tiles]
+    });
+
+    // create layer to contain all boundaries
+    // needs to be featureGroup so that it has getBounds() func
+    var geoBoundaries = L.featureGroup().addTo(map);
+
+    count = 0;
+    boundaryURLs.forEach(function (url) {
+      fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        boundary = L.geoJSON(data, {
+          style: {
+            fillOpacity: 0.2,
+            weight: 2,
+            color: colours.darkBlue,
+            fillColor: colours.lightBlue
+          }
+        }).addTo(geoBoundaries);
+        count++;
+        // only pan map once all boundaries have loaded
+        if (count === boundaryURLs.length) {
+          map.fitBounds(geoBoundaries.getBounds());
+        }
+      });
+    });
+     
+  } 
+</script>
