@@ -10,6 +10,7 @@ import markdown
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
 
+from frontmatter import Frontmatter
 
 docs = "docs/"
 
@@ -91,7 +92,7 @@ def get_components(components_dir):
     return components
 
 
-def render_example_pages(name, src_dir, dest, jinja_path):
+def render_example_pages(name, src_dir, dest, jinja_path, **kwargs):
     for file in glob.glob(f"{src_dir}/{name}/*.html"):
         # don't want to render pages for the macro files
         if not "macro.html" in file:
@@ -100,21 +101,14 @@ def render_example_pages(name, src_dir, dest, jinja_path):
                 f"{dest}/{name}/{example}",
                 example_template,
                 partial_name=f"{jinja_path}/{name}/{example}",
+                **kwargs,
             )
 
 
-def render_component_doc_pages(name, src_dir, dest, **kwargs):
-    documentation_path = f"{src_dir}/{name}/README.md"
-    if os.path.isfile(documentation_path):
-        markdown_content = read_markdown_file(documentation_path)
-        render(
-            f"{dest}/{name}/index.html",
-            component_template,
-            rendered_markdown=markdown_compile(markdown_content),
-            **kwargs,
-        )
-    else:
-        print(f"No documentation for {name}")
+def is_displaying_map(documentation):
+    if documentation["attributes"] is not None:
+        return documentation["attributes"].get("contains_map")
+    return None
 
 
 # generate all component docs and examples
@@ -128,18 +122,28 @@ for cset in component_sets:
     components = get_components(src_dir)
     for component in components:
         jinja_input_path = f"examples/{cset['type']}/components"
-        render_example_pages(
-            component,
-            src_dir,
-            cset["dest"],
-            jinja_input_path,
-        )
-        render_component_doc_pages(
-            component,
-            src_dir,
-            cset["dest"],
-            section=cset["dest"],
-        )
+        documentation_path = f"{src_dir}/{component}/README.md"
+        if os.path.isfile(documentation_path):
+            documentation = Frontmatter.read_file(documentation_path)
+
+            # render the documentation page for the component
+            render(
+                f"{cset['dest']}/{component}/index.html",
+                component_template,
+                rendered_markdown=markdown_compile(documentation["body"]),
+                section=cset["dest"],
+            )
+
+            # render all examples for component
+            render_example_pages(
+                component,
+                src_dir,
+                cset["dest"],
+                jinja_input_path,
+                display_map=is_displaying_map(documentation),
+            )
+        else:
+            print(f"No documentation for component: {component}")
 
 
 # generate the pages

@@ -4,6 +4,7 @@ black==20.8b1
 click==7.1.2
 curlylint==0.12.0
 dataclasses==0.7
+frontmatter==3.0.7
 -e git+https://github.com/digital-land/govuk-jinja-components.git@194500e1ab7ad0439736c7689f6031f7613fd379#egg=govuk_jinja_components
 importlib-metadata==2.0.0
 Jinja2==2.11.2

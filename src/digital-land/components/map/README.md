@@ -1,3 +1,6 @@
+---
+contains_map: True
+---
 # Map component
 
 Use this component when seeing something on a map would be useful for a user.
