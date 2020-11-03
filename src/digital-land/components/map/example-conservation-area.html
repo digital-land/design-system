@@ -1,0 +1,11 @@
+{%- from "digital-land-frontend/components/map/macro.html" import dlMap %}
+{{ dlMap({
+    "id": "aMap",
+    "classes": "govuk-!-margin-top-3"
+}) }}
+<script>
+const $mapElement = document.querySelector('[data-module="boundary-map"]')
+new DLMaps.Map($mapElement).init({
+    boundaryURLs: ['https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson']
+})
+</script>
