@@ -236,8 +236,10 @@
         <main id="main-content" class="app-content" role="main">
             <h1 class="govuk-heading-xl">Map component</h1>
 <p class="govuk-body">Use this component when seeing something on a map would be useful for a user.</p>
+<p class="govuk-body">These examples show how to use <code>DLMaps.Map()</code> to create simple maps displaying area boundaries.</p>
 <h3 class="govuk-heading-m">Show a local authority boundary</h3>
-<p class="govuk-body">We regularly need to show the extent of an area. The most common is the local authority boundary. This example shows the boundary for <a href="https://digital-land.github.io/organisation/local-authority-eng/HAG/">Harrogate borough council</a>.</p>
+<p class="govuk-body">We regularly need to show the extent of an area or areas. The most common is the local authority boundary.</p>
+<p class="govuk-body">This example shows the boundaries for <a href="https://digital-land.github.io/organisation/local-authority-eng/HAG/">Harrogate borough council</a> and <a href="https://digital-land.github.io/organisation/local-authority-eng/YOR/">City of York Council</a>.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -245,7 +247,7 @@
   </div>
   <div class="app-example">
     <iframe
-      title="An example of the map component"
+      title="An example of the map component with 2 local authority boundaries plotted."
       data-module="app-example-frame"
       class="app-example__frame app-example__frame--resizable app-example__frame--m"
       src="example.html" loading="lazy" id="iFrameResizer3"
@@ -282,63 +284,24 @@
       <pre class="hljs-container"><code class="html">
 
 
-&lt;div class=&#34;dl-map govuk-!-margin-top-3&#34; id=&#34;aMap&#34; data-module=&#34;boundary-map&#34; style=&#34;height: 350px;&#34;&gt;
+&lt;div 
+    class=&#34;dl-map govuk-!-margin-top-3&#34;
+    id=&#34;aMap&#34;
+    data-module=&#34;boundary-map&#34;
+    style=&#34;height: 350px;&#34;
+
+&gt;
     &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
-  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;);
-  const boundaryURLs = [&#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;];
-  if ($mapElement) {
-    // Tile layers
-    var tiles = L.tileLayer(&#34;https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#34;, {
-      attribution:
-        &#39;&amp;copy; &lt;a href=&#34;https://www.openstreetmap.org/copyright&#34;&gt;OpenStreetMap&lt;/a&gt; contributors&#39;
-    });
-
-    // govuk consistent colours
-    var colours = {
-      lightBlue: &#34;#1d70b8&#34;,
-      darkBlue: &#34;#003078&#34;,
-      brown: &#34;#594d00&#34;,
-      yellow_brown: &#34;#a0964e&#34;
-    };
-
-    var latLng = L.latLng(52.561928, -1.464854);
-    var map = L.map(&#34;aMap&#34;, {
-      center: latLng,
-      zoom: 5,
-      layers: [tiles]
-    });
-
-    // create layer to contain all boundaries
-    // needs to be featureGroup so that it has getBounds() func
-    var geoBoundaries = L.featureGroup().addTo(map);
-
-    count = 0;
-    boundaryURLs.forEach(function (url) {
-      fetch(url)
-      .then((response) =&gt; {
-        return response.json();
-      })
-      .then((data) =&gt; {
-        boundary = L.geoJSON(data, {
-          style: {
-            fillOpacity: 0.2,
-            weight: 2,
-            color: colours.darkBlue,
-            fillColor: colours.lightBlue
-          }
-        }).addTo(geoBoundaries);
-        count++;
-        // only pan map once all boundaries have loaded
-        if (count === boundaryURLs.length) {
-          map.fitBounds(geoBoundaries.getBounds());
-        }
-      });
-    });
-
-  } 
+  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
+  new DLMaps.Map($mapElement).init({
+    geojsonURLs: [
+      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;,
+      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson&#39;
+    ]
+  })
 &lt;/script&gt;</code></pre>
     </div>
   </div>
@@ -355,58 +318,13 @@
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
 }) }}
 &lt;script&gt;
-  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;);
-  const boundaryURLs = [&#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;];
-  if ($mapElement) {
-    // Tile layers
-    var tiles = L.tileLayer(&#34;https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#34;, {
-      attribution:
-        &#39;&amp;copy; &lt;a href=&#34;https://www.openstreetmap.org/copyright&#34;&gt;OpenStreetMap&lt;/a&gt; contributors&#39;
-    });
-
-    // govuk consistent colours
-    var colours = {
-      lightBlue: &#34;#1d70b8&#34;,
-      darkBlue: &#34;#003078&#34;,
-      brown: &#34;#594d00&#34;,
-      yellow_brown: &#34;#a0964e&#34;
-    };
-
-    var latLng = L.latLng(52.561928, -1.464854);
-    var map = L.map(&#34;aMap&#34;, {
-      center: latLng,
-      zoom: 5,
-      layers: [tiles]
-    });
-
-    // create layer to contain all boundaries
-    // needs to be featureGroup so that it has getBounds() func
-    var geoBoundaries = L.featureGroup().addTo(map);
-
-    count = 0;
-    boundaryURLs.forEach(function (url) {
-      fetch(url)
-      .then((response) =&gt; {
-        return response.json();
-      })
-      .then((data) =&gt; {
-        boundary = L.geoJSON(data, {
-          style: {
-            fillOpacity: 0.2,
-            weight: 2,
-            color: colours.darkBlue,
-            fillColor: colours.lightBlue
-          }
-        }).addTo(geoBoundaries);
-        count++;
-        // only pan map once all boundaries have loaded
-        if (count === boundaryURLs.length) {
-          map.fitBounds(geoBoundaries.getBounds());
-        }
-      });
-    });
-
-  } 
+  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
+  new DLMaps.Map($mapElement).init({
+    geojsonURLs: [
+      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;,
+      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson&#39;
+    ]
+  })
 &lt;/script&gt;</code></pre>
     </div>
   </div>
@@ -417,9 +335,9 @@
 
 <!-- end app-example-wrapper -->
 
+<p class="govuk-body">Use the <code>geojsonUrls</code> option to plot mulitple boundaries, it accepts an array of geojson urls.</p>
 <h3 class="govuk-heading-m">Plot a conservation area</h3>
-<p class="govuk-body">This example shows how to use <code>DLMaps.Map()</code> to plot a single conservation area extent on a map.</p>
-<p class="govuk-body">You can pass an array of urls that all point to geojson files. Any geojson that is fetched will be plotted.</p>
+<p class="govuk-body">An alternative approach is to provide the url to the geojson in the <code>data-geojson-urls</code> attribute.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-conservation-area.html" class="govuk-link" target="_blank"
@@ -464,15 +382,19 @@
       <pre class="hljs-container"><code class="html">
 
 
-&lt;div class=&#34;dl-map govuk-!-margin-top-3&#34; id=&#34;aMap&#34; data-module=&#34;boundary-map&#34; style=&#34;height: 350px;&#34;&gt;
+&lt;div 
+    class=&#34;dl-map govuk-!-margin-top-3&#34;
+    id=&#34;aMap&#34;
+    data-module=&#34;boundary-map&#34;
+    style=&#34;height: 350px;&#34;
+     data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+&gt;
     &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
 const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-new DLMaps.Map($mapElement).init({
-    boundaryURLs: [&#39;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#39;]
-})
+new DLMaps.Map($mapElement).init({})
 &lt;/script&gt;</code></pre>
     </div>
   </div>
@@ -486,13 +408,14 @@ new DLMaps.Map($mapElement).init({
       <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
 {{ dlMap({
     &#34;id&#34;: &#34;aMap&#34;,
-    &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
+    &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;,
+    &#34;attributes&#34;: {
+        &#34;data-geojson-urls&#34;: &#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;
+    }
 }) }}
 &lt;script&gt;
 const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-new DLMaps.Map($mapElement).init({
-    boundaryURLs: [&#39;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#39;]
-})
+new DLMaps.Map($mapElement).init({})
 &lt;/script&gt;</code></pre>
     </div>
   </div>
@@ -502,6 +425,10 @@ new DLMaps.Map($mapElement).init({
 </div>
 
 <!-- end app-example-wrapper -->
+
+<p class="govuk-body">To provide mulitple separate the urls with a <code>;</code>. E.g.</p>
+<pre class="hljs-container"><code>"https://digital-land.github.io/geography/boundary1.geojson;https://digital-land.github.io/geography/boundary2.geojson"
+</code></pre>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">

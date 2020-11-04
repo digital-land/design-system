@@ -27,15 +27,19 @@
     </script>
 
 
-<div class="dl-map govuk-!-margin-top-3" id="aMap" data-module="boundary-map" style="height: 350px;">
+<div 
+    class="dl-map govuk-!-margin-top-3"
+    id="aMap"
+    data-module="boundary-map"
+    style="height: 350px;"
+     data-geojson-urls="https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson"   
+>
     <noscript>To view this map, you need to enable JavaScript.</noscript>
 </div>
 
 <script>
 const $mapElement = document.querySelector('[data-module="boundary-map"]')
-new DLMaps.Map($mapElement).init({
-    boundaryURLs: ['https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson']
-})
+new DLMaps.Map($mapElement).init({})
 </script>
     <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>

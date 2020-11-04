@@ -1,11 +1,12 @@
 {%- from "digital-land-frontend/components/map/macro.html" import dlMap %}
 {{ dlMap({
     "id": "aMap",
-    "classes": "govuk-!-margin-top-3"
+    "classes": "govuk-!-margin-top-3",
+    "attributes": {
+        "data-geojson-urls": "https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson"
+    }
 }) }}
 <script>
 const $mapElement = document.querySelector('[data-module="boundary-map"]')
-new DLMaps.Map($mapElement).init({
-    boundaryURLs: ['https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson']
-})
+new DLMaps.Map($mapElement).init({})
 </script>
