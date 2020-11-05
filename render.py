@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import glob
 import jinja2
 
@@ -26,6 +27,12 @@ def render(path, template, **kwargs):
 
 
 env = setup_jinja()
+
+# get page templates
+index_template = env.get_template("index.html")
+get_started_template = env.get_template("getting-started.html")
+example_template = env.get_template("iframe-base.html")
+component_template = env.get_template("component-page.html")
 
 # init markdown
 # give it access to the configured jinja.environment
@@ -73,13 +80,6 @@ def render_markdown_file(file_, dest_file, template, **kwargs):
     )
 
 
-# get page templates
-index_template = env.get_template("index.html")
-get_started_template = env.get_template("getting-started.html")
-example_template = env.get_template("iframe-base.html")
-component_template = env.get_template("component-page.html")
-
-
 def get_components(components_dir):
     components = []
     component_dirs = [d[0] for d in os.walk(components_dir)]
@@ -111,58 +111,68 @@ def is_displaying_map(documentation):
     return None
 
 
-# generate all component docs and examples
-component_sets = [
-    {"type": "digital-land", "dest": "components"},
-    {"type": "govuk", "dest": "govuk-components"},
-]
+def generate_documentation_pages(component_sets):
+    for cset in component_sets:
+        src_dir = f"src/{cset['type']}/components"
+        components = get_components(src_dir)
+        for component in components:
+            jinja_input_path = f"examples/{cset['type']}/components"
+            documentation_path = f"{src_dir}/{component}/README.md"
+            if os.path.isfile(documentation_path):
+                documentation = Frontmatter.read_file(documentation_path)
 
-for cset in component_sets:
-    src_dir = f"src/{cset['type']}/components"
-    components = get_components(src_dir)
-    for component in components:
-        jinja_input_path = f"examples/{cset['type']}/components"
-        documentation_path = f"{src_dir}/{component}/README.md"
-        if os.path.isfile(documentation_path):
-            documentation = Frontmatter.read_file(documentation_path)
+                # render the documentation page for the component
+                render(
+                    f"{cset['dest']}/{component}/index.html",
+                    component_template,
+                    rendered_markdown=markdown_compile(documentation["body"]),
+                    section=cset["dest"],
+                )
 
-            # render the documentation page for the component
-            render(
-                f"{cset['dest']}/{component}/index.html",
-                component_template,
-                rendered_markdown=markdown_compile(documentation["body"]),
-                section=cset["dest"],
-            )
-
-            # render all examples for component
-            render_example_pages(
-                component,
-                src_dir,
-                cset["dest"],
-                jinja_input_path,
-                display_map=is_displaying_map(documentation),
-            )
-        else:
-            print(f"No documentation for component: {component}")
+                # render all examples for component
+                render_example_pages(
+                    component,
+                    src_dir,
+                    cset["dest"],
+                    jinja_input_path,
+                    display_map=is_displaying_map(documentation),
+                )
+            else:
+                print(f"No documentation for component: {component}")
 
 
-# generate the pages
-render("index.html", index_template)
-get_started_documentation = "src/guides/get-started.md"
-render("get-started/index.html", get_started_template)
+def generate_design_system():
+    # generate all component docs and examples
+    component_sets = [
+        {"type": "digital-land", "dest": "components"},
+        {"type": "govuk", "dest": "govuk-components"},
+    ]
 
-render_markdown_file(
-    "src/guides/get-started.md", "get-started/index.html", get_started_template
-)
-render_markdown_file(
-    "src/govuk/components/README.md",
-    "govuk-components/index.html",
-    component_template,
-    section="govuk-components",
-)
-render_markdown_file(
-    "src/digital-land/components/README.md",
-    "components/index.html",
-    component_template,
-    section="components",
-)
+    generate_documentation_pages(component_sets)
+
+    # generate the index pages
+    render("index.html", index_template)
+    render("get-started/index.html", get_started_template)
+
+    render_markdown_file(
+        "src/guides/get-started.md", "get-started/index.html", get_started_template
+    )
+    render_markdown_file(
+        "src/govuk/components/README.md",
+        "govuk-components/index.html",
+        component_template,
+        section="govuk-components",
+    )
+    render_markdown_file(
+        "src/digital-land/components/README.md",
+        "components/index.html",
+        component_template,
+        section="components",
+    )
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "--local":
+        env.globals["staticPath"] = "/static"
+
+    generate_design_system()
