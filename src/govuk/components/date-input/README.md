@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Date input
 
 An example of the govuk date input component.

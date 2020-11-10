@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Related content
 
 Use this component when you want to point a user at related content.

@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Panel
 
 An example of the govuk panel component.

@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Info text
 
 This component is based on the `govuk-warning-text` component from the [GOVUK design system](https://design-system.service.gov.uk/components/warning-text/).

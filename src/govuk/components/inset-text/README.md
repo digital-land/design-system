@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Inset text
 
 An example of the govuk inset text component.

@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Character count
 
 An example of the govuk character count component.

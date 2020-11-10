@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Timeline
 
 Use the timeline component to show an ordered record of what has happened.

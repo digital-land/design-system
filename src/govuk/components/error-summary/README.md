@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Error summary
 
 An example of the govuk error summary component.

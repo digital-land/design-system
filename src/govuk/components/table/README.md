@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Table
 
 An example of the govuk table component.

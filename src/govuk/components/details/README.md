@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Details
 
 An example of the govuk details component.

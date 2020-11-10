@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Data item
 
 Use the data item component when you want to display a number from some data.

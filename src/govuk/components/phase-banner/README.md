@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Phase banner
 
 An example of the govuk phase banner component.

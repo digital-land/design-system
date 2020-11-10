@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Feedback panel
 
 Use the feedback panel component when you want to ask the user to provide feedback on a page or section of a page.

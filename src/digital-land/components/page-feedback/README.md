@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Page feedback
 
 This is a test explanation

@@ -1,3 +1,5 @@
+---
+---
 # GOVUK Footer
 
 An example of the govuk footer component.

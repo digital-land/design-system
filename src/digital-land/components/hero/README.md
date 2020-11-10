@@ -1,3 +1,6 @@
+---
+contains_map: False
+---
 # Hero
 
 This component is a blue hero panel. It should be used to introduce a new site, service or significant section.
