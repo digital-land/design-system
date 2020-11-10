@@ -19,10 +19,10 @@
 
     
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/styleguide.css" rel="stylesheet" />
 
     
     
@@ -330,7 +330,160 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            
+            <h1 class="govuk-heading-xl">GOVUK Table</h1>
+<p class="govuk-body">An example of the govuk table component.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the govukTable component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--m"
+      src="example.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">&lt;table class=&#34;govuk-table&#34;&gt;
+
+  &lt;caption class=&#34;govuk-table__caption&#34;&gt;Dates and amounts&lt;/caption&gt;
+
+
+  &lt;thead class=&#34;govuk-table__head&#34;&gt;
+    &lt;tr class=&#34;govuk-table__row&#34;&gt;
+
+      &lt;th class=&#34;govuk-table__header&#34; scope=&#34;col&#34;&gt;Date&lt;/th&gt;
+
+      &lt;th class=&#34;govuk-table__header&#34; scope=&#34;col&#34;&gt;Amount&lt;/th&gt;
+
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody class=&#34;govuk-table__body&#34;&gt;
+
+    &lt;tr class=&#34;govuk-table__row&#34;&gt;
+
+
+      &lt;th class=&#34;govuk-table__header&#34; scope=&#34;row&#34;&gt;First 6 weeks&lt;/th&gt;
+
+
+
+      &lt;td class=&#34;govuk-table__cell &#34;&gt;£109.80 per week&lt;/td&gt;
+
+
+    &lt;/tr&gt;
+
+    &lt;tr class=&#34;govuk-table__row&#34;&gt;
+
+
+      &lt;th class=&#34;govuk-table__header&#34; scope=&#34;row&#34;&gt;Next 33 weeks&lt;/th&gt;
+
+
+
+      &lt;td class=&#34;govuk-table__cell &#34;&gt;£109.80 per week&lt;/td&gt;
+
+
+    &lt;/tr&gt;
+
+    &lt;tr class=&#34;govuk-table__row&#34;&gt;
+
+
+      &lt;th class=&#34;govuk-table__header&#34; scope=&#34;row&#34;&gt;Total estimated pay&lt;/th&gt;
+
+
+
+      &lt;td class=&#34;govuk-table__cell &#34;&gt;£4,282.20&lt;/td&gt;
+
+
+    &lt;/tr&gt;
+
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk-jinja-components/components/table/macro.jinja&#34; import govukTable -%}
+{{ govukTable({
+    &#34;caption&#34;: &#34;Dates and amounts&#34;,
+    &#34;firstCellIsHeader&#34;: true,
+    &#34;head&#34;: [
+      {
+        &#34;text&#34;: &#34;Date&#34;
+      },
+      {
+        &#34;text&#34;: &#34;Amount&#34;
+      }
+    ],
+    &#34;rows&#34;: [
+      [
+        {
+          &#34;text&#34;: &#34;First 6 weeks&#34;
+        },
+        {
+          &#34;text&#34;: &#34;£109.80 per week&#34;
+        }
+      ],
+      [
+        {
+          &#34;text&#34;: &#34;Next 33 weeks&#34;
+        },
+        {
+          &#34;text&#34;: &#34;£109.80 per week&#34;
+        }
+      ],
+      [
+        {
+          &#34;text&#34;: &#34;Total estimated pay&#34;
+        },
+        {
+          &#34;text&#34;: &#34;£4,282.20&#34;
+        }
+      ]
+    ]
+}) }}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
@@ -461,12 +614,12 @@
 
 
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+<script src="/static/javascripts/dl-cookies.js"></script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- end google analytics -->
 	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
 	<script>
 		// initiate all GOVUK components
 		window.GOVUKFrontend.initAll();
@@ -475,7 +628,7 @@
 	
 
 	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script src="/static/javascripts/dl-frontend.js"></script>
 	<script>
 		// adds any necessary polyfills
 		window.DLFrontend.polyfill();
@@ -483,7 +636,7 @@
 	
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>

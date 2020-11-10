@@ -19,10 +19,10 @@
 
     
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/styleguide.css" rel="stylesheet" />
 
     
     
@@ -330,7 +330,120 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            
+            <h1 class="govuk-heading-xl">GOVUK Buttons</h1>
+<p class="govuk-body">An example of the govuk button component.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the govukButton component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--xs"
+      src="example.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+
+
+
+
+
+&lt;button class=&#34;govuk-button&#34; data-module=&#34;govuk-button&#34; data-test=&#34;this is a value&#34;&gt;
+  Save and continue
+&lt;/button&gt;
+
+
+
+
+
+
+
+
+
+
+&lt;a href=&#34;#&#34; role=&#34;button&#34; draggable=&#34;false&#34; class=&#34;govuk-button govuk-button--start&#34; data-module=&#34;govuk-button&#34;&gt;
+  Start now
+  &lt;svg class=&#34;govuk-button__start-icon&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;17.5&#34; height=&#34;19&#34; viewBox=&#34;0 0 33 40&#34; role=&#34;presentation&#34; focusable=&#34;false&#34;&gt;
+    &lt;path fill=&#34;currentColor&#34; d=&#34;M0 0h13l20 20-20 20H0l20-20z&#34;&gt;&lt;/path&gt;
+  &lt;/svg&gt;&lt;/a&gt;
+
+
+
+
+
+
+
+
+
+&lt;button class=&#34;govuk-button govuk-button--secondary&#34; data-module=&#34;govuk-button&#34;&gt;
+  Find address
+&lt;/button&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk-jinja-components/components/button/macro.jinja&#34; import govukButton -%}
+{{ govukButton({
+    &#34;text&#34;: &#34;Save and continue&#34;,
+    &#34;attributes&#34;: {
+      &#34;data-test&#34;: &#34;this is a value&#34;
+      }
+}) }}
+
+{{ govukButton({
+    &#34;text&#34;: &#34;Start now&#34;,
+    &#34;href&#34;: &#34;#&#34;,
+    &#34;isStartButton&#34;: true
+}) }}
+
+{{ govukButton({
+    &#34;text&#34;: &#34;Find address&#34;,
+    &#34;classes&#34;: &#34;govuk-button--secondary&#34;
+}) }}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
@@ -461,12 +574,12 @@
 
 
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+<script src="/static/javascripts/dl-cookies.js"></script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- end google analytics -->
 	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
 	<script>
 		// initiate all GOVUK components
 		window.GOVUKFrontend.initAll();
@@ -475,7 +588,7 @@
 	
 
 	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script src="/static/javascripts/dl-frontend.js"></script>
 	<script>
 		// adds any necessary polyfills
 		window.DLFrontend.polyfill();
@@ -483,7 +596,7 @@
 	
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>

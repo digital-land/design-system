@@ -19,10 +19,10 @@
 
     
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/styleguide.css" rel="stylesheet" />
 
     
     
@@ -330,7 +330,94 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            
+            <h1 class="govuk-heading-xl">GOVUK Textarea</h1>
+<p class="govuk-body">An example of the govuk textarea component.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the govukTextarea component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--m"
+      src="example.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+
+&lt;div class=&#34;govuk-form-group&#34;&gt;
+  &lt;label class=&#34;govuk-label&#34;
+     for=&#34;more-detail&#34;&gt;
+    Can you provide more detail?
+  &lt;/label&gt;
+
+
+
+  &lt;span id=&#34;more-detail-hint&#34; class=&#34;govuk-hint&#34;&gt;
+    Do not include personal or financial information, like your National Insurance number or credit card details.
+  &lt;/span&gt;
+
+
+  &lt;textarea class=&#34;govuk-textarea&#34; id=&#34;more-detail&#34; name=&#34;more-detail&#34; rows=&#34;5&#34; aria-describedby=&#34;more-detail-hint&#34;&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk-jinja-components/components/textarea/macro.jinja&#34; import govukTextarea -%}
+{{ govukTextarea({
+    &#34;name&#34;: &#34;more-detail&#34;,
+    &#34;id&#34;: &#34;more-detail&#34;,
+    &#34;label&#34;: {
+      &#34;text&#34;: &#34;Can you provide more detail?&#34;
+    },
+    &#34;hint&#34;: {
+      &#34;text&#34;: &#34;Do not include personal or financial information, like your National Insurance number or credit card details.&#34;
+    }
+}) }}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
@@ -461,12 +548,12 @@
 
 
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+<script src="/static/javascripts/dl-cookies.js"></script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- end google analytics -->
 	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
 	<script>
 		// initiate all GOVUK components
 		window.GOVUKFrontend.initAll();
@@ -475,7 +562,7 @@
 	
 
 	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script src="/static/javascripts/dl-frontend.js"></script>
 	<script>
 		// adds any necessary polyfills
 		window.DLFrontend.polyfill();
@@ -483,7 +570,7 @@
 	
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>

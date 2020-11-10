@@ -19,10 +19,10 @@
 
     
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/styleguide.css" rel="stylesheet" />
 
     
     
@@ -330,7 +330,175 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            
+            <h1 class="govuk-heading-xl">GOVUK Footer</h1>
+<p class="govuk-body">An example of the govuk footer component.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the govukFooter component"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--m"
+      src="example.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">&lt;footer class=&#34;govuk-footer &#34; role=&#34;contentinfo&#34;
+        &gt;
+  &lt;div class=&#34;govuk-width-container &#34;&gt;
+
+    &lt;div class=&#34;govuk-footer__meta&#34;&gt;
+      &lt;div class=&#34;govuk-footer__meta-item govuk-footer__meta-item--grow&#34;&gt;
+
+          &lt;h2 class=&#34;govuk-visually-hidden&#34;&gt;Support links&lt;/h2&gt;
+              &lt;ul class=&#34;govuk-footer__inline-list&#34;&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;#&#34;&gt;
+                      Help
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;#&#34;&gt;
+                      Cookies
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;#&#34;&gt;
+                      Contact
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;#&#34;&gt;
+                      Terms and conditions
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;#&#34;&gt;
+                      Rhestr o Wasanaethau Cymraeg
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+              &lt;/ul&gt;
+
+
+
+            &lt;div class=&#34;govuk-footer__meta-custom&#34;&gt;
+              The &lt;a href=&#34;https://github.com/digital-land/organisation-collection&#34;&gt;organisation-collection&lt;/a&gt; and &lt;a href=&#34;https://github.com/digital-land/organisation&#34;&gt;organisation&lt;/a&gt; is &lt;a href=&#34;https://github.com/digital-land/organisation/blob/master/LICENSE&#34;&gt;open source&lt;/a&gt;.
+            &lt;/div&gt;
+
+
+        &lt;svg
+          role=&#34;presentation&#34;
+          focusable=&#34;false&#34;
+          class=&#34;govuk-footer__licence-logo&#34;
+          xmlns=&#34;http://www.w3.org/2000/svg&#34;
+          viewBox=&#34;0 0 483.2 195.7&#34;
+          height=&#34;17&#34;
+          width=&#34;41&#34;
+        &gt;
+          &lt;path
+            fill=&#34;currentColor&#34;
+            d=&#34;M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145&#34;
+          /&gt;
+        &lt;/svg&gt;
+        &lt;span class=&#34;govuk-footer__licence-description&#34;&gt;
+          All content is available under the
+          &lt;a
+            class=&#34;govuk-footer__link&#34;
+            href=&#34;https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/&#34;
+            rel=&#34;license&#34;
+          &gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;govuk-footer__meta-item&#34;&gt;
+        &lt;a
+          class=&#34;govuk-footer__link govuk-footer__copyright-logo&#34;
+          href=&#34;https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/&#34;
+        &gt;© Crown copyright&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk-jinja-components/components/footer/macro.jinja&#34; import govukFooter -%}
+{{ govukFooter({
+    &#34;meta&#34;: {
+        &#34;items&#34;: [
+        {
+            &#34;href&#34;: &#34;#&#34;,
+            &#34;text&#34;: &#34;Help&#34;
+        },
+        {
+            &#34;href&#34;: &#34;#&#34;,
+            &#34;text&#34;: &#34;Cookies&#34;
+        },
+        {
+            &#34;href&#34;: &#34;#&#34;,
+            &#34;text&#34;: &#34;Contact&#34;
+        },
+        {
+            &#34;href&#34;: &#34;#&#34;,
+            &#34;text&#34;: &#34;Terms and conditions&#34;
+        },
+        {
+            &#34;href&#34;: &#34;#&#34;,
+            &#34;text&#34;: &#34;Rhestr o Wasanaethau Cymraeg&#34;
+        }
+        ],
+        &#34;html&#34;: &#39;The &lt;a href=&#34;https://github.com/digital-land/organisation-collection&#34;&gt;organisation-collection&lt;/a&gt; and &lt;a href=&#34;https://github.com/digital-land/organisation&#34;&gt;organisation&lt;/a&gt; is &lt;a href=&#34;https://github.com/digital-land/organisation/blob/master/LICENSE&#34;&gt;open source&lt;/a&gt;.&#39;
+    }
+}) }}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
@@ -461,12 +629,12 @@
 
 
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+<script src="/static/javascripts/dl-cookies.js"></script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- end google analytics -->
 	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
 	<script>
 		// initiate all GOVUK components
 		window.GOVUKFrontend.initAll();
@@ -475,7 +643,7 @@
 	
 
 	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script src="/static/javascripts/dl-frontend.js"></script>
 	<script>
 		// adds any necessary polyfills
 		window.DLFrontend.polyfill();
@@ -483,7 +651,7 @@
 	
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
