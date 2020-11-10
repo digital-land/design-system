@@ -7,8 +7,15 @@ submodule:
 render:
 	python3 render.py
 
+render/local:
+	python3 render.py --local
+
 images:
 	cp -r src/digital-land/components/timeline/images docs/components/timeline
+
+latest/css:
+	cd frontend && gulp stylesheets
+	cp frontend/digital_land_frontend/static/stylesheets/dl-frontend.css docs/static/stylesheets/
 
 local/css:
 	mkdir -p docs/static/stylesheets
