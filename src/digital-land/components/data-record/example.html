@@ -1,0 +1,40 @@
+{%- from "digital-land-frontend/components/data-record/macro.html" import dlDataRecordPanel %}
+{% set datalist %} 
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">conservation-area</dt>
+    <dd class="govuk-summary-list__value">CA10</dd>
+</div>
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">documentation-url</dt>
+    <dd class="govuk-summary-list__value"></dd>
+</div>
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">end-date</dt>
+    <dd class="govuk-summary-list__value"></dd>
+</div>
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">entry-date</dt>
+    <dd class="govuk-summary-list__value">2020-09-14</dd>
+</div>
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">name</dt>
+    <dd class="govuk-summary-list__value">Rainhill Area 2</dd>
+</div>  
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">organisation</dt>
+    <dd class="govuk-summary-list__value">local-authority-eng:SHN</dd>
+</div>
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">start-date</dt>
+    <dd class="govuk-summary-list__value"></dd>
+</div>
+{% endset -%}
+{{ dlDataRecordPanel({
+    "identifier": "9:041560991f8c2e27de78b0e49e9e9f2282879bdad6564681568d5ddd2bd4de33",
+    "html": datalist,
+    "resource": {
+        "identifier": "041560991f8c2e27de78b0e49e9e9f2282879bdad6564681568d5ddd2bd4de33",
+        "url": "https://github.com/digital-land/conservation-area-geography-collection/blob/master/collection/resource/043fd72cc71429aad3fffa1a42a75d0c063f5946f5de88a65eb4bc9a71bfb54e"
+    }
+    })
+}}
