@@ -2,7 +2,10 @@
 
 import jinja2
 
-from frontend.digital_land_frontend.filters import get_jinja_template_raw
+from frontend.digital_land_frontend.filters import (
+    get_jinja_template_raw,
+    organisation_id_to_name_filter,
+)
 
 
 def setup_jinja():
@@ -27,6 +30,7 @@ def setup_jinja():
 
     # register jinja filters
     env.filters["raw_jinja"] = get_jinja_template_raw
+    env.filters["organisation_id_to_name"] = organisation_id_to_name_filter
 
     # set variables to make available to all templates
     env.globals["staticPath"] = "https://digital-land.github.io"
