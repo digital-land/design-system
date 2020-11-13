@@ -46,3 +46,18 @@ An alternative approach is to provide the url to the geojson in the `data-geojso
 To provide mulitple separate the urls with a `;`. E.g.
 
     "https://digital-land.github.io/geography/boundary1.geojson;https://digital-land.github.io/geography/boundary2.geojson"
+
+### Aria Labelledby
+
+You can added a `aria-labelledby` attribute by adding text to the optional ` arialabelledby` option when using the component.
+
+{{ designSystemExample({
+"iframe": {
+    "title": "A map showing a single conservation area",
+    "url": "example-labelledby.html",
+    "size": "m"
+},
+"component": {
+    "name": "map"
+}
+}) }}
