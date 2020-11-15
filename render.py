@@ -174,5 +174,6 @@ def generate_design_system():
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--local":
         env.globals["staticPath"] = "/static"
+        env.globals["urlPath"] = ""
 
     generate_design_system()
