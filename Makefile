@@ -1,5 +1,6 @@
 init: submodule
 	pip3 install --upgrade -r requirements.txt
+	cd frontend && pip install -e .
 
 submodule:
 	git submodule update --init --recursive --remote
