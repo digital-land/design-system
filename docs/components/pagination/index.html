@@ -246,8 +246,9 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Page feedback</h1>
-<p class="govuk-body">This is a test explanation</p>
+            <h1 class="govuk-heading-xl">Pagination</h1>
+<p class="govuk-body">Use this component on content pages to help users to navigate to previous or the next content in the sequence.</p>
+<p class="govuk-body">It should be placed at the end of the content on the current page.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -255,9 +256,9 @@
   </div>
   <div class="app-example">
     <iframe
-      title="An example of the page feedback prompt"
+      title="An example of the pagination component"
       data-module="app-example-frame"
-      class="app-example__frame app-example__frame--resizable app-example__frame--xs"
+      class="app-example__frame app-example__frame--resizable app-example__frame--m"
       src="example.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
@@ -289,11 +290,41 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;div class=&#34;dlf-pg-feedback &#34;&gt;
-    &lt;div class=&#34;dlf-pg-feedback__prompt&#34;&gt;
-      &lt;a href=&#34;#&#34; class=&#34;dlf-pg-feedback__link&#34;&gt;Do you have feedback about this page?&lt;/a&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+      <pre class="hljs-container"><code class="html">
+
+&lt;nav class=&#34;dlf-pagination&#34;
+    role=&#34;navigation&#34; aria-label=&#34;Pagination&#34;&gt;
+    &lt;ul class=&#34;dlf-pagination__list&#34;&gt;
+        &lt;li class=&#34;dlf-pagination__item dlf-pagination__item--previous&#34;&gt;
+        &lt;a href=&#34;#previous&#34; class=&#34;dlf-pagination__link&#34; rel=&#34;prev&#34;&gt;
+            &lt;span class=&#34;dlf-pagination__link-title&#34;&gt;
+                &lt;svg class=&#34;dlf-pagination__link-icon&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; height=&#34;13&#34; width=&#34;17&#34; viewBox=&#34;0 0 17 13&#34;&gt;
+                    &lt;path fill=&#34;#626a6e&#34; d=&#34;m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z&#34;&gt;&lt;/path&gt;
+                &lt;/svg&gt;
+                &lt;span class=&#34;dlf-pagination__link-text&#34;&gt;
+                    Previous
+                &lt;/span&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;dlf-pagination__link-divider visually-hidden&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;dlf-pagination__link-label&#34;&gt;Step 1: Gather the information&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&#34;dlf-pagination__item dlf-pagination__item--next&#34;&gt;
+        &lt;a href=&#34;#next&#34; class=&#34;dlf-pagination__link&#34; rel=&#34;next&#34;&gt;
+            &lt;span class=&#34;dlf-pagination__link-title&#34;&gt;
+                &lt;svg class=&#34;dlf-pagination__link-icon&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; height=&#34;13&#34; width=&#34;17&#34; viewBox=&#34;0 0 17 13&#34;&gt;
+                    &lt;path fill=&#34;#626a6e&#34; d=&#34;m10.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z&#34;&gt;&lt;/path&gt;
+                &lt;/svg&gt;
+                &lt;span class=&#34;dlf-pagination__link-text&#34;&gt;
+                    Next
+                &lt;/span&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;dlf-pagination__link-divider visually-hidden&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;dlf-pagination__link-label&#34;&gt;Step 3: Publish the data on your site&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
 </code></pre>
     </div>
   </div>
@@ -304,11 +335,18 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/page-feedback/macro.html&#34; import dlfPageFeedback -%}
-{{ dlfPageFeedback({
-    &#34;text&#34;: &#34;Do you have feedback about this page?&#34;,
-    &#34;href&#34;: &#34;#&#34;
-}) }}</code></pre>
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/pagination/macro.html&#34; import dlContentPagePagination %}
+{{ dlContentPagePagination({
+    &#34;previous&#34;: {
+        &#34;label&#34;: &#34;Step 1: Gather the information&#34;,
+        &#34;href&#34;: &#34;#previous&#34;
+    },
+    &#34;next&#34;: {
+        &#34;label&#34;: &#34;Step 3: Publish the data on your site&#34;,
+        &#34;href&#34;: &#34;#next&#34;
+    }
+}) }}
+</code></pre>
     </div>
   </div>
 
