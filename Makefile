@@ -18,6 +18,12 @@ latest/css:
 	cd frontend && gulp stylesheets
 	cp frontend/digital_land_frontend/static/stylesheets/dl-frontend.css docs/static/stylesheets/
 
+latest/js:
+	cd frontend && gulp js
+	cp frontend/digital_land_frontend/static/javascripts/*.js docs/static/javascripts/
+
+local: render/local latest/js
+
 local/css:
 	mkdir -p docs/static/stylesheets
 	wget -O docs/static/stylesheets/dl-frontend.css https://raw.githubusercontent.com/digital-land/frontend/master/digital_land_frontend/static/stylesheets/dl-frontend.css
