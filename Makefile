@@ -22,7 +22,7 @@ latest/js:
 	cd frontend && gulp js
 	cp frontend/digital_land_frontend/static/javascripts/*.js docs/static/javascripts/
 
-local: render/local latest/js
+local: render/local latest/js latest/css
 
 local/css:
 	mkdir -p docs/static/stylesheets
