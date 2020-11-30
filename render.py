@@ -10,6 +10,9 @@ import markdown
 
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
+from frontend.digital_land_frontend.jinja_filters.organisation_mapper import (
+    OrganisationMapper,
+)
 
 from frontmatter import Frontmatter
 
@@ -33,6 +36,10 @@ index_template = env.get_template("index.html")
 get_started_template = env.get_template("getting-started.html")
 example_template = env.get_template("iframe-base.html")
 component_template = env.get_template("component-page.html")
+
+# data for organisation autocomplete
+organisation_mapper = OrganisationMapper()
+orgs = [{"value": k, "text": v} for k, v in organisation_mapper.all().items()]
 
 # init markdown
 # give it access to the configured jinja.environment
@@ -111,6 +118,12 @@ def is_displaying_map(documentation):
     return None
 
 
+def reqs_org_data(documentation):
+    if documentation["attributes"] is not None:
+        return documentation["attributes"].get("requires_orgs")
+    return None
+
+
 def generate_documentation_pages(component_sets):
     for cset in component_sets:
         src_dir = f"src/{cset['type']}/components"
@@ -129,13 +142,15 @@ def generate_documentation_pages(component_sets):
                     section=cset["dest"],
                 )
 
+                extras = {
+                    "display_map": is_displaying_map(documentation),
+                }
+                if reqs_org_data is not None:
+                    extras["organisation_data"] = orgs
+
                 # render all examples for component
                 render_example_pages(
-                    component,
-                    src_dir,
-                    cset["dest"],
-                    jinja_input_path,
-                    display_map=is_displaying_map(documentation),
+                    component, src_dir, cset["dest"], jinja_input_path, **extras
                 )
             else:
                 print(f"No documentation for component: {component}")

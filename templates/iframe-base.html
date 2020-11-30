@@ -8,6 +8,7 @@
     <title>{{ page_title }}</title>
     <link href="{{ staticPath|default('/static') }}/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
     <link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="{{ staticPath|default('/static') }}/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 
     {%- if display_map -%}
     <!-- should make this optional, no need to load if not showing a map -->
@@ -51,12 +52,23 @@
     {# needs to come after govuk frontend #}
     <script src="{{ staticPath|default('/static') }}/javascripts/dl-frontend.js"></script>
 
+    <script src="{{ staticPath|default('/static') }}/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+
     <!-- should move this to dl-frontend.js -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
             new window.DLFrontend.InputCopy($input).init()
         })
+    </script>
+
+    <script>
+        const $picker = document.querySelector('#organisation-search')
+        if ($picker) {
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: $picker
+            })
+        }
     </script>
     {% endblock %}
 </body>

@@ -19,10 +19,11 @@
 
     
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+
+<link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+<link href="/static/stylesheets/styleguide.css" rel="stylesheet" />
 
     
     
@@ -130,7 +131,7 @@
 
 <li
 	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/get-started"
+	<a class="govuk-link" href="/get-started"
 		data-topnav="GET STARTED">Get started</a>
 </li>
 
@@ -139,7 +140,7 @@
 
 <li
 	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/components"
+	<a class="govuk-link" href="/components"
 		data-topnav="COMPONENTS">Components</a>
 </li>
 
@@ -148,7 +149,7 @@
 
 <li
 	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/govuk-components"
+	<a class="govuk-link" href="/govuk-components"
 		data-topnav="GOVUK">GOVUK</a>
 </li>
 
@@ -171,73 +172,79 @@
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/button">Buttons</a>
+	<a class="app-subnav__link govuk-link" href="/components/autocomplete">Autocomplete</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/data-item">Data item</a>
+	<a class="app-subnav__link govuk-link" href="/components/button">Buttons</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/data-record">Data record</a>
+	<a class="app-subnav__link govuk-link" href="/components/data-item">Data item</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/feedback-panel">Feedback panel</a>
+	<a class="app-subnav__link govuk-link" href="/components/data-record">Data record</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/hero">Hero</a>
+	<a class="app-subnav__link govuk-link" href="/components/feedback-panel">Feedback panel</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/info-text">Info text</a>
+	<a class="app-subnav__link govuk-link" href="/components/hero">Hero</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/input-copy">Input copy</a>
+	<a class="app-subnav__link govuk-link" href="/components/info-text">Info text</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/map">Map</a>
+	<a class="app-subnav__link govuk-link" href="/components/input-copy">Input copy</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/page-feedback">Page feedback</a>
+	<a class="app-subnav__link govuk-link" href="/components/map">Map</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/pagination">Pagination</a>
+	<a class="app-subnav__link govuk-link" href="/components/page-feedback">Page feedback</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/related-content">Related content</a>
+	<a class="app-subnav__link govuk-link" href="/components/pagination">Pagination</a>
 </li>
 
             
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/components/timeline">Timeline</a>
+	<a class="app-subnav__link govuk-link" href="/components/related-content">Related content</a>
+</li>
+
+            
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="/components/timeline">Timeline</a>
 </li>
 
         </ul>
@@ -303,11 +310,12 @@
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;script&gt;
   const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-  new DLMaps.Map($mapElement).init({
+  exmap = new DLMaps.Map($mapElement).init({
     geojsonURLs: [
       &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;,
       &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson&#39;
@@ -330,7 +338,7 @@
 }) }}
 &lt;script&gt;
   const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-  new DLMaps.Map($mapElement).init({
+  exmap = new DLMaps.Map($mapElement).init({
     geojsonURLs: [
       &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;,
       &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson&#39;
@@ -400,6 +408,7 @@
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;script&gt;
@@ -484,15 +493,16 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-7407&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-1377&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-7407&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-1377&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;script&gt;
@@ -659,12 +669,12 @@ new DLMaps.Map($mapElement).init({})
 
 
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+<script src="/static/javascripts/dl-cookies.js"></script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- end google analytics -->
 	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
 	<script>
 		// initiate all GOVUK components
 		window.GOVUKFrontend.initAll();
@@ -673,7 +683,7 @@ new DLMaps.Map($mapElement).init({})
 	
 
 	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script src="/static/javascripts/dl-frontend.js"></script>
 	<script>
 		// adds any necessary polyfills
 		window.DLFrontend.polyfill();
@@ -681,7 +691,7 @@ new DLMaps.Map($mapElement).init({})
 	
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
