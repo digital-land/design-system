@@ -16,11 +16,11 @@ images:
 
 latest/css:
 	cd frontend && gulp stylesheets
-	cp frontend/digital_land_frontend/static/stylesheets/dl-frontend.css docs/static/stylesheets/
+	rsync -r frontend/digital_land_frontend/static/stylesheets/ docs/static/stylesheets/
 
 latest/js:
 	cd frontend && gulp js
-	cp frontend/digital_land_frontend/static/javascripts/*.js docs/static/javascripts/
+	rsync -r frontend/digital_land_frontend/static/javascripts/ docs/static/javascripts/
 
 local: render/local latest/js latest/css
 
