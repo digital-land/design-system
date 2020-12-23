@@ -8,7 +8,7 @@ An example of how to use the autocomplete module.
 
 {{ designSystemExample({
 "iframe": {
-    "title": "An example autocompelte component used to list all organisations",
+    "title": "An example autocomplete component used to list all organisations",
     "url": "example.html",
     "size": "xs"
 },

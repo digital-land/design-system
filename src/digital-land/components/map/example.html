@@ -5,7 +5,7 @@
 }) }}
 <script>
   const $mapElement = document.querySelector('[data-module="boundary-map"]')
-  new DLMaps.Map($mapElement).init({
+  exmap = new DLMaps.Map($mapElement).init({
     geojsonURLs: [
       'https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson',
       'https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson'
