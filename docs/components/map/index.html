@@ -19,7 +19,8 @@
 
     
 
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+	
 
 
 <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
@@ -66,6 +67,8 @@
   </div>
 
 </div>
+
+
 <header role="banner" id="global-header" class="govuk-header  with-proposition dl-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="header-proposition">
@@ -74,7 +77,6 @@
         Digital Land
         </a>
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
-
         <nav>
           <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
             <li class="govuk-header__navigation-item">
@@ -103,10 +105,11 @@
             </li>
           </ul>
         </nav>
-      </div>
+        </div>
     </div>
   </div>
 </header>
+
 
 
     
@@ -493,12 +496,12 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-8780&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-6701&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-8780&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-6701&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
@@ -531,6 +534,114 @@ new DLMaps.Map($mapElement).init({})
 const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
 new DLMaps.Map($mapElement).init({})
 &lt;/script&gt;</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<hr />
+<h3 class="govuk-heading-m">Key</h3>
+<p class="govuk-body">This is an experimental component.</p>
+<p class="govuk-body">An example of the key we use on the Brownfield land maps. Currently testing 2 options.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-key.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="A key used on the brownfield land maps"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--s"
+      src="example-key.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">&lt;div class=&#34;map-key&#34;&gt;
+    &lt;h4 class=&#34;govuk-heading-s govuk-visually-hidden&#34;&gt;Key&lt;/h4&gt;
+    &lt;div class=&#34;map-key__entry&#34;&gt;
+        &lt;div class=&#34;map-key__entry__item&#34;&gt;
+        &lt;div class=&#34;bfs-pt__container&#34;&gt;
+            &lt;div class=&#34;bfs-pt bfs-pt--small&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;ellipsis&#34;&gt;&amp;hellip;&lt;/span&gt;
+            &lt;div class=&#34;bfs-pt bfs-pt--large&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;map-key__entry__label&#34;&gt;Sites sized by hectares&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;bfs-hectares-key dl-map__panel-top-left&#34;&gt;
+    &lt;h4 class=&#34;bfs-hectares-key__title&#34;&gt;Site size in hectares&lt;/h4&gt;
+    &lt;div class=&#34;bfs-hectares-key__container&#34;&gt;
+        &lt;div class=&#34;bfs-hectare&#34;/&gt;&lt;/div&gt;
+        &lt;div class=&#34;bfs-hectare bfs-hectare--lg&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">&lt;div class=&#34;map-key&#34;&gt;
+    &lt;h4 class=&#34;govuk-heading-s govuk-visually-hidden&#34;&gt;Key&lt;/h4&gt;
+    &lt;div class=&#34;map-key__entry&#34;&gt;
+        &lt;div class=&#34;map-key__entry__item&#34;&gt;
+        &lt;div class=&#34;bfs-pt__container&#34;&gt;
+            &lt;div class=&#34;bfs-pt bfs-pt--small&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;ellipsis&#34;&gt;&amp;hellip;&lt;/span&gt;
+            &lt;div class=&#34;bfs-pt bfs-pt--large&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;map-key__entry__label&#34;&gt;Sites sized by hectares&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;bfs-hectares-key dl-map__panel-top-left&#34;&gt;
+    &lt;h4 class=&#34;bfs-hectares-key__title&#34;&gt;Site size in hectares&lt;/h4&gt;
+    &lt;div class=&#34;bfs-hectares-key__container&#34;&gt;
+        &lt;div class=&#34;bfs-hectare&#34;/&gt;&lt;/div&gt;
+        &lt;div class=&#34;bfs-hectare bfs-hectare--lg&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
     </div>
   </div>
 

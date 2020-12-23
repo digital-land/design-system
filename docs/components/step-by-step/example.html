@@ -8,17 +8,7 @@
     <title></title>
     <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
     <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" /><!-- should make this optional, no need to load if not showing a map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
-
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
-
-    <script src="https://digital-land.github.io/javascripts/dl-maps.js"></script>
+    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -26,23 +16,48 @@
         document.body.className = ((document.body.className) ? document.body.className +
             ' js-enabled' : 'js-enabled');
     </script>
-<div class="dl-map__wrapper">
-    <span id="aria-label-2718" class="govuk-visually-hidden">An example of the output of the digital land map component.</span>
-    <div 
-        class="dl-map govuk-!-margin-top-3"
-        id="aMap"
-        data-module="boundary-map"
-        style="height: 350px;" aria-labelledby="aria-label-2718" data-geojson-urls="https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson"   
-    >
-        <noscript>To view this map, you need to enable JavaScript.</noscript>
-    </div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+<ol class="dl-sbs">
     
-</div>
+    
 
-<script>
-const $mapElement = document.querySelector('[data-module="boundary-map"]')
-new DLMaps.Map($mapElement).init({})
-</script>
+
+<li class="dl-sbs__entry">
+    <h3 class="govuk-heading-s dl-sbs__entry-heading">Upload CSV</h3>
+    
+    <div class="dl-timeline__entry__content"></div>
+</li>
+
+    
+    
+
+
+<li class="dl-sbs__entry dl-sbs__entry--current">
+    <h3 class="govuk-heading-s dl-sbs__entry-heading">View data
+      <strong class="govuk-tag govuk-tag--yellow">
+        Active
+      </strong>
+    </h3>
+    
+    <div class="dl-timeline__entry__content"></div>
+</li>
+
+    
+    
+
+
+<li class="dl-sbs__entry">
+    <h3 class="govuk-heading-s dl-sbs__entry-heading">Download</h3>
+    
+    <div class="dl-timeline__entry__content"></div>
+</li>
+
+    </ol>
+
+    </div>
+</div>
     <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components

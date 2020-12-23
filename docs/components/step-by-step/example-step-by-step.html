@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+<ol class="dl-sbs">
+    
+    
+<li class="dl-sbs__entry">
+    <h3 class="govuk-heading-s dl-sbs__entry-heading">Upload CSV</h3>
+    
+    <div class="dl-timeline__entry__content"></div>
+</li>
+
+    
+    
+<li class="dl-sbs__entry dl-sbs__entry--current">
+    <h3 class="govuk-heading-s dl-sbs__entry-heading">View data
+      <strong class="govuk-tag govuk-tag--yellow">
+        Active
+      </strong>
+    </h3>
+    
+    <div class="dl-timeline__entry__content"></div>
+</li>
+
+    
+    
+<li class="dl-sbs__entry">
+    <h3 class="govuk-heading-s dl-sbs__entry-heading">Download</h3>
+    
+    <div class="dl-timeline__entry__content"></div>
+</li>
+
+    </ol>
+
+    </div>
+</div>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="/static/javascripts/dl-frontend.js"></script>
+
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+
+    <script>
+        const $picker = document.querySelector('#organisation-search')
+        if ($picker) {
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: $picker
+            })
+        }
+    </script>
+    
+</body>
+</html>

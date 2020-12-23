@@ -25,24 +25,28 @@
     <script>
         document.body.className = ((document.body.className) ? document.body.className +
             ' js-enabled' : 'js-enabled');
-    </script>
-<div class="dl-map__wrapper">
-    <span id="aria-label-2718" class="govuk-visually-hidden">An example of the output of the digital land map component.</span>
-    <div 
-        class="dl-map govuk-!-margin-top-3"
-        id="aMap"
-        data-module="boundary-map"
-        style="height: 350px;" aria-labelledby="aria-label-2718" data-geojson-urls="https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson"   
-    >
-        <noscript>To view this map, you need to enable JavaScript.</noscript>
+    </script><div class="map-key">
+    <h4 class="govuk-heading-s govuk-visually-hidden">Key</h4>
+    <div class="map-key__entry">
+        <div class="map-key__entry__item">
+        <div class="bfs-pt__container">
+            <div class="bfs-pt bfs-pt--small"></div>
+            <span class="ellipsis">&hellip;</span>
+            <div class="bfs-pt bfs-pt--large"></div>
+        </div>
+        </div>
+        <p class="map-key__entry__label">Sites sized by hectares</p>
     </div>
-    
 </div>
 
-<script>
-const $mapElement = document.querySelector('[data-module="boundary-map"]')
-new DLMaps.Map($mapElement).init({})
-</script>
+
+<div class="bfs-hectares-key dl-map__panel-top-left">
+    <h4 class="bfs-hectares-key__title">Site size in hectares</h4>
+    <div class="bfs-hectares-key__container">
+        <div class="bfs-hectare"/></div>
+        <div class="bfs-hectare bfs-hectare--lg"></div>
+    </div>
+</div>
     <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
