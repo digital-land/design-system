@@ -61,3 +61,22 @@ You can added a `aria-labelledby` attribute by adding text to the optional ` ari
     "name": "map"
 }
 }) }}
+
+--------------
+
+### Key
+
+This is an experimental component.
+
+An example of the key we use on the Brownfield land maps. Currently testing 2 options.
+
+{{ designSystemExample({
+"iframe": {
+    "title": "A key used on the brownfield land maps",
+    "url": "example-key.html",
+    "size": "s"
+},
+"component": {
+    "name": "map"
+}
+}) }}

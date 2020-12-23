@@ -1,0 +1,504 @@
+{%- from "govuk-jinja-components/components/input/macro.jinja" import govukInput %}
+{%- from "digital-land-frontend/components/map/macro.html" import dlMap %}
+
+{% set sidePanelHTML %}
+<div class="dl-map__side-panel__section">
+<h3 class="govuk-heading-s govuk-!-margin-bottom-0">Displayed on map</h3>
+</div>
+<div class="dl-map__side-panel__section dl-map__side-panel__section--title js-hidden" data-module="dl-map-items">
+  <p class="govuk-body govuk-!-margin-bottom-1"><span class="organisation-count"></span> organisation boundaries</p>
+  <p class="govuk-body govuk-!-margin-bottom-1 js-hidden">Active: <span class="active-organisation dl-map__highlight--yellow"></span></p>
+</div>
+<div class="dl-map__side-panel__section dl-map__side-panel__section--blue">
+  {% include 'digital-land-frontend/partials/dl-organisation-autocomplete.html' %}
+  <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-1 dl-map__error js-hidden" data-module="organisation-search-error">Boundary for organisation not found.</p>
+</div>
+
+{% endset %}
+
+{{ dlMap({
+    "id": "aMap",
+    "classes": "govuk-!-margin-bottom-0",
+    "height": 700,
+    "loader": {
+      "text": "Loading brownfield land data"
+    },
+    "sidePanel": {
+      "html": sidePanelHTML,
+      "classes": "js-hidden"
+    }
+}) }}
+
+<div class="govuk-form-group">
+  <div class="hover-box govuk-!-width-one-half"></div>
+</div>
+
+<script src="/static/javascripts/dl-frontend.js"></script>
+<script src="{{ staticPath|default('/static') }}/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+<script>
+
+var testA
+
+
+
+(function(dlf, accessibleAutocomplete) {
+
+  let organisationMapper = {}
+  const bfsHelpers = DLMaps.brownfieldSites
+
+  const $sidePanel = document.querySelector(".dl-map__side-panel")
+  const $mapItems = document.querySelector("[data-module='dl-map-items']")
+  const $boundaryCount = $mapItems.querySelector(".organisation-count")
+  const $activeOrganisation = $mapItems.querySelector(".active-organisation")
+  console.log($mapItems)
+
+  const $picker = document.querySelector('#dl-organisation-autocomplete')
+  const $orgSearchError = document.querySelector("[data-module='organisation-search-error']")
+  
+  function handleOrganisationSearch(val) {
+    const orgname = dlf.utils.toCamelCase(val)
+    if (Object.prototype.hasOwnProperty.call(laTracker, orgname)) {
+      console.log("We have a match")
+      $orgSearchError.classList.add("js-hidden")
+      const match = laTracker[orgname]
+      handleBrownfieldSiteLoad(match.id, match.boundaryLayer)
+    } else {
+      console.log("We do not have a match for ", orgname)
+      $orgSearchError.classList.remove("js-hidden")
+    }
+  }
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: $picker,
+    onConfirm: handleOrganisationSearch
+  })
+
+
+
+  const $hoverBox = document.querySelector('.hover-box')
+  const $mapElement = document.querySelector('[data-module="boundary-map"]')
+  exmap = new DLMaps.Map($mapElement).init({})
+
+  //const dlf = DLFrontend
+
+  function laBoundaryURL(st_geo_code) {
+    return `https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/${st_geo_code}/index.geojson`
+  }
+
+  function addProperty(feature, name, value) {
+    if( feature.properties ) {
+      feature.properties[name] = value
+    }
+  }
+  
+  {% include 'data/boundary-sample.html' %}
+
+  // function createOrgMapper(orgsObj) {
+  //   const mapper = {}
+  //   orgsObj.forEach(function(o) {
+  //     mapper[o['id']] = o['name']
+  //   })
+  //   return mapper
+  // }
+  bfsHelpers.registerOrganisationMapper(bs)
+  //organisationMapper = dlf.utils.createOrgMapper(bs)
+  
+
+// const organisationHoverStyle = {
+//   fillOpacity: 0.2,
+//   weight: 2,
+//   color: '#FFDD00',
+//   fillColor: '#FFEE80'
+// }
+
+const organisationHoverStyle = {
+  fillOpacity: 0.25,
+  weight: 2,
+  color: '#0b0c0c',
+  fillColor: '#003078'
+}
+
+const organisationActiveStyle = {
+  fillOpacity: 0.2,
+  weight: 2,
+  color: '#FFDD00',
+  fillColor: '#FFEE80'
+}
+
+// const brownfieldSiteStyle = {
+//   color: "#745729",
+//   fillColor: "#745729",
+//   fillOpacity: 0.5
+// };
+
+// const historicalBrownfieldSiteStyle = {
+//   color: "#d53880 ",
+//   fillColor: "#f3f2f1",
+//   fillOpacity: 0.5
+// }
+
+
+const _defaultIconCreateFunction = function (cluster) {
+  // var childCount = cluster.getChildCount();
+
+  // var c = ' marker-cluster-';
+  // if (childCount < 10) {
+  //   c += 'small';
+  // } else if (childCount < 100) {
+  //   c += 'medium';
+  // } else {
+  //   c += 'large';
+  // }
+
+  var count = cluster.feature.properties["bfs_count"]
+  var center_pt = turf.centerOfMass(cluster.feature)
+  var center_pt = turf.center(cluster.feature)
+
+  var center_pt = cluster.getBounds().getCenter()
+
+  var html_marker = new L.DivIcon({ html: '<div><span>' + count + '</span></div>', className: 'marker-cluster', iconSize: new L.Point(40, 40) });
+
+  return L.marker([center_pt['lat'], center_pt['lng']], {icon: html_marker})
+  //return L.marker([center_pt.geometry.coordinates[1], center_pt.geometry.coordinates[0]], {icon: html_marker})
+}
+
+
+  function updateHoverBox(layer, show) {
+    const v = layer.feature.properties.organisation_name
+    if(show) {
+      $hoverBox.textContent = v
+    } else {
+      if ($hoverBox.textContent === v) {
+        $hoverBox.textContent = ""
+      }
+    }
+  }
+
+  function addHoverState (feature, layer) {
+    exmap.addLayerHoverState(layer, {
+      check: function (layer) {
+        return !Object.prototype.hasOwnProperty.call(layer, "parentId") || !layer.parentId.activeBoundary
+      },
+      cb: updateHoverBox
+    })
+    // layer.on('mouseover', function() {
+    //   if(!Object.prototype.hasOwnProperty.call(layer, "parentId") || !layer.parentId.activeBoundary) {
+    //     layer.setStyle(organisationHoverStyle)
+    //     updateHoverBox(feature.properties.organisation_name)
+    //   }
+    // })
+    // layer.on('mouseout', function() {
+    //   if(!Object.prototype.hasOwnProperty.call(layer, "parentId") || !layer.parentId.activeBoundary) {
+    //     layer.setStyle(exmap.styles.defaultBoundaryStyle)
+    //     updateHoverBox(feature.properties.organisation_name, false)
+    //   }
+    // })
+  }
+
+  L.Path.prototype.setOnParentLayer = function(prop, val) {
+    const layer = this
+    if(Object.prototype.hasOwnProperty.call(layer, "parentId")) {
+      layer.parentId[prop] = val
+    }
+  }
+
+  function brownfield_data_url(organisation){
+    orgDir = dlf.utils.curie_to_url_part(organisation)
+    return `https://raw.githubusercontent.com/digital-land/dataset/master/docs/brownfield-land/organisation/${orgDir}/sites.geojson`
+  }
+
+
+  function updateActiveOrgPanel(name) {
+    console.log("active, active", name)
+    $activeOrganisation.textContent = name
+    const $container = $activeOrganisation.parentElement
+    if ($container.classList.contains("js-hidden")) {
+      $container.classList.remove("js-hidden")
+    }
+  }
+
+
+  function setActiveLayer(layer) {
+    // track which layer is active
+    localAuthorityBoundaries.activeLayer = layer._leaflet_id
+    localAuthorityBoundaries.eachLayer(function (layer) {
+      layer.activeBoundary = false
+      layer.setStyle(exmap.styles.defaultBoundaryStyle)
+    })
+    layer.setOnParentLayer("activeBoundary", true)
+    layer.parentId.setStyle(organisationActiveStyle)
+
+    // should this be done another way? i.e. trigger an event on the side panel?
+    updateActiveOrgPanel(layer.feature.properties['organisation_name'])
+  }
+
+  function handleBrownfieldSiteLoad(organisation_id, layer) {
+    const url = brownfield_data_url(organisation_id)
+    exmap.zoomToLayer(layer)
+    loadBrownfieldSites(url, organisation_id)
+    setActiveLayer(layer)
+  }
+
+  function addLayerClickEvent(feature, layer) {
+    layer.on('click', function(e) {
+      handleBrownfieldSiteLoad(feature.properties.organisation, layer)
+    })
+  }
+
+  function authorityLayerControls(feature, layer) {
+    const props = feature.properties
+    // function is run for each boundary that is plotted
+    //layer.activeBoundary = false
+    console.log("creating:", layer)
+    layer.on("add", function(e) {
+      console.log("My parent is", )
+      console.log(e)
+    })
+    addHoverState(feature, layer)
+    addLayerClickEvent(feature, layer)
+
+    // var count = feature.properties['bfs_count'] || 100
+    // var cluster_count = _defaultIconCreateFunction(layer)
+    // console.log("cluster marker", cluster_count)
+    // cluster_count.addTo(clusterGroup)
+
+    // var toolTip_str = `${props["organisation_name"]}, ${props['bfs_count']} brownfield sites`
+    // var tooltip = L.tooltip({direction:'center', className: "dl-map__org-label"})
+    // tooltip.setContent(toolTip_str)
+    // console.log("tooltip", tooltip)
+    // layer.bindTooltip(tooltip);
+  }
+
+
+  // function siteSize(hectares) {
+  //   if (isNaN(hectares)) {
+  //       return 100;
+  //   } else {
+  //       return (Math.sqrt((hectares * 10000) / Math.PI))
+  //   }
+  // }
+
+  // var bfsTooltipTemplate =
+  //   '<div class="bfs">' +
+  //   '{hasEndDate}' +
+  //   '<div class="bfs__header">' +
+  //   '<span class="govuk-caption-s">{site}</span>' +
+  //   '<h3 class="govuk-heading-s bfs__addr">{site-address}</h3>' +
+  //   '<span class="bfs__coords">{latitude},{longitude}</span>' +
+  //   '</div>' +
+  //   '<div class="govuk-grid-row bfs__key-data">' +
+  //   '<dl class="govuk-grid-column-one-half">' +
+  //   '<dt>Hectare</dt>' +
+  //   '<dd>{hectares}</dd>' +
+  //   '</dl>' +
+  //   '<dl class="govuk-grid-column-one-half">' +
+  //   '<dt>Dwellings</dt>' +
+  //   '<dd>{isRange}</dd>' +
+  //   '</dl>' +
+  //   '</div>' +
+  //   '<div class="bfs__meta">' +
+  //   '{orgLink}' +
+  //   '{extraData}' +
+  //   '{datesSection}' +
+  //   '</div>' +
+  //   '<div class="bfs__footer">' +
+  //   'From resource: <a href="https://digital-land.github.io/resource/{resource}" class="govuk-link">{resourceTrunc}</a>' +
+  //   '</div>' +
+  //   '</div>';
+
+  // function hasEndDate(data) {
+  //     if(data['end-date']) {
+  //         return '<span class="bfs__end-banner">End date: ' + data['end-date'] + '</span>';
+  //     }
+  //     return "";
+  // }
+
+  // function isRange(data) {
+  //     var str = data['minimum-net-dwellings'];
+  //     if(data['minimum-net-dwellings'] != null) {
+  //         if(parseInt(data['minimum-net-dwellings']) !== parseInt(data['maximum-net-dwellings']) || parseInt(data['maximum-net-dwellings']) === 0 ) {
+  //             str = data['minimum-net-dwellings'] + "-" + data['maximum-net-dwellings'];
+  //         }
+  //         return str;
+  //     }
+  //     return ""
+  // }
+
+  // function datesSection(data) {
+  //     return '<dl>' +
+  //     '<dt>Date added</dt>' +
+  //     `<dd>${data['start-date']}</dd>` +
+  //     '</dl>';
+  // }
+
+  // function linkToOrg(data) {
+  //   var orgName = data['organisation']
+  //   if(Object.prototype.hasOwnProperty.call(organisationMapper, data['organisation'])) {
+  //     orgName = organisationMapper[data['organisation']]
+  //   }
+  //   return '<dl>' +
+  //   '<dt>Organisation</dt>' +
+  //   `<dd><a class="govuk-link" href="https://digital-land.github.io/organisation/${dlf.utils.curie_to_url_part(data['organisation'])}">${orgName}</a></dd>` +
+  //   '</dl>';
+  // }
+
+  // function hasURL(urlField) {
+  //   if(urlField) {
+  //     return [
+  //       '<div class="bfs__footer">',
+  //         `<a href="${urlField}" class="govuk-link">See on authority website</a>.`,
+  //       '</div>'
+  //     ].join("\n")
+  //   }
+  //   return ""
+  // }
+
+  // function createBFSPopup(row) {
+  //   // need to find a way to clone object that will work in more browsers
+  //   processedData = {...row}
+  //   processedData.isRange = isRange
+  //   processedData.hasEndDate = hasEndDate
+  //   processedData.datesSection = datesSection
+  //   processedData.orgLink = linkToOrg
+  //   processedData.resourceTrunc = dlf.utils.truncate(row['resource'], 9)
+  //   processedData.siteURL = hasURL(row['site-plan-url'])
+  //   var extraData = ""
+  //   var potentiallyNullFields = ["deliverable", "hazardous-substances", "ownership", "planning-permission-status", "planning-permission-type"]
+  //   potentiallyNullFields.forEach(function(field) {
+  //     if(!!row[field]) {
+  //       extraData += [
+  //       '<dl>',
+  //         `<dt>${field}</dt>`,
+  //         `<dd>${row[field]}</dd>`,
+  //       '</dl>' 
+  //       ].join("\n")
+  //     }
+  //   })
+  //   processedData.extraData = extraData
+  //   return L.Util.template(bfsHelpers.popupTemplate, processedData); 
+  // }
+
+  // function bfsControls(feature, layer) {
+  //   var popupHTML = bfsHelpers.createPopup(feature.properties)
+  //   layer
+  //     .bindPopup(popupHTML, bfsHelpers.popupOptions)
+  //     .on("popupopen", function(e) {
+  //       console.log("Brownfield site selected", e.sourceTarget.feature)
+  //     })
+  // }
+
+  // function plotBFS(feature, latlng) {
+  //   var style = (feature.properties['end-date']) ? historicalBrownfieldSiteStyle : brownfieldSiteStyle
+  //   console.log("historic", Boolean(feature.properties['end-date']))
+  //   var size = bfsHelpers.calcSiteSize(feature.properties['hectares'])
+  //   style.radius = size.toFixed(2)
+  //   //layer.setStyle(style)
+  //   return L.circle(latlng, style);
+  // }
+
+
+  var localAuthorityBoundaries = exmap.createFeatureGroup("localAuthorityBoundaries").addTo(exmap.map)
+  var brownfieldSiteGroups = exmap.createFeatureGroup('brownfieldSiteGroups').addTo(exmap.map)
+  var clusterGroup = exmap.createFeatureGroup('clusterGroup').addTo(exmap.map)
+
+
+  function loadBrownfieldSites(url, organisation) {
+    bfsHelpers.loadSites(exmap, url, organisation, { layerGroup: brownfieldSiteGroups})
+    //organisationCC = dlf.utils.toCamelCase(organisation)
+    // if (exmap.featureGroups.hasOwnProperty(organisationCC)) {
+    //   // no need to fetch if we've done that before
+    //   console.log("collected before")
+    // } else {
+    //   console.log("fetch from url", url)
+    //   fetch(url)
+    //   .then(resp => resp.json())
+    //   .then((data) => {
+    //     var l = exmap.createFeatureGroup(organisationCC)
+    //     L.geoJSON(data, {
+    //       pointToLayer: plotBFS,
+    //       onEachFeature: bfsControls
+    //     })
+    //     .addTo(l)
+    //     l.addTo(brownfieldSiteGroups)
+    //     console.log(data)
+    //   })
+    //   .catch(function(err) {
+    //     console.log('error', err)
+    //   })
+    // }
+  }
+
+  function initLaTrackerItem(name, id) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    laTracker[dlf.utils.toCamelCase(name)] = {
+      "name": name,
+      "id": id,
+      "loadedBFS": false
+    }
+    return trackerId
+  }
+
+  var laTracker = {}
+  var failing = []
+  Promise.allSettled(
+    bs.map(function(b) {
+      const url = laBoundaryURL(b.statistical_geography)
+      // track the LA we have on the map
+      const trackerId = initLaTrackerItem(b.name, b.id)
+      return fetch(url)
+        .then(resp => resp.json())
+        .then((data) => {
+          addProperty(data.features[0], "organisation", b.id)
+          addProperty(data.features[0], "organisation_name", b.name)
+          addProperty(data.features[0], "bfs_count", b.count)
+          //addProperty(data.features[0], "name", b.name)
+          console.log(data)
+          var boundary = L.geoJSON(data, {
+            style: exmap.styles.defaultBoundaryStyle,
+            onEachFeature: authorityLayerControls
+          })
+          .on("add", function(e) {
+            const parentLayer = e.target
+            parentLayer.activeBoundary = false
+            laTracker[trackerId]["layer"] = parentLayer
+            console.log("Parent layer", parentLayer._leaflet_id)
+            for (var prop in parentLayer._layers) {
+              if (Object.prototype.hasOwnProperty.call(parentLayer._layers, prop)) {
+                const childLayer = parentLayer._layers[prop]
+                console.log(childLayer)
+                childLayer.parentId = localAuthorityBoundaries.getLayer(parentLayer._leaflet_id)
+                laTracker[trackerId]["boundaryLayer"] = childLayer
+              }
+            }
+          })
+          .addTo(localAuthorityBoundaries)
+          return boundary
+        })
+        .catch(function(err) {
+          console.log(b.id, 'error', err)
+          failing.push([b.id, b.statistical_geography])
+        })
+    }
+  )).then(boundaries => {
+    // after all boundaries collected then fitBounds of map
+    exmap.map.fitBounds(localAuthorityBoundaries.getBounds())
+    exmap.hideLoader()
+    console.log(bs)
+    $boundaryCount.textContent = bs.length - failing.length
+    $mapItems.classList.remove("js-hidden")
+    $sidePanel.classList.remove("js-hidden")
+  })
+
+  window.laTracker = laTracker
+
+  exmap.map.on("zoom", function(e) {
+    const zoomLevel = exmap.map.getZoom()
+    if (zoomLevel > 7) {
+      brownfieldSiteGroups.addTo(exmap.map)
+    } else {
+      brownfieldSiteGroups.remove()
+    }
+  })
+
+})(window.DLFrontend, window.accessibleAutocomplete)
+</script>
