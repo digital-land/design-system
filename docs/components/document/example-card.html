@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <ul class="govuk-list">
+      
+<li class="govuk-grid-row govuk-!-margin-bottom-6">
+<div class="govuk-grid-column-one-third">
+    
+<div class="dl-document-preview">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+    x="0px" y="0px" viewBox="0 0 168.292 215" enable-background="new 0 0 168.292 211"
+    xml:space="preserve" role="img">
+        <title id="document-preview-icon-97210">Pdf preview icon</title>
+        <path
+            d="M13.823,21.449v168.102H154.47V21.449H13.823z M151.47,186.551H16.823V24.449H151.47V186.551z" stroke="#0b0c0c" />
+        <rect x="38.688" y="156.642" width="90.917" height="3" stroke="#0b0c0c" />
+        <rect x="38.688" y="141.233" width="90.917" height="3" stroke="#0b0c0c" />
+        <path
+            d="M46.356,91.373c0.772,0.109,1.766,0.165,2.869,0.165c4.966,0,9.214-1.214,12.083-3.917c2.207-2.098,3.421-5.188,3.421-8.828  c0-3.643-1.6-6.732-3.973-8.607c-2.483-1.986-6.18-2.98-11.366-2.98c-5.131,0-8.773,0.332-11.366,0.773v36.691h8.332V91.373z   M46.356,73.881c0.607-0.165,1.766-0.331,3.476-0.331c4.193,0,6.566,2.041,6.566,5.463c0,3.807-2.759,6.068-7.228,6.068  c-1.214,0-2.097-0.055-2.814-0.221V73.881z" stroke="#0b0c0c" />
+        <path
+            d="M96.783,100.255c3.587-3.035,6.18-7.945,6.18-15.062c0-6.566-2.428-11.146-6.289-14.016  c-3.587-2.703-8.166-3.973-15.229-3.973c-4.249,0-8.276,0.276-11.366,0.773v36.525c2.097,0.276,5.187,0.553,9.545,0.553  C86.907,105.056,92.866,103.511,96.783,100.255z M78.52,73.992c0.717-0.166,1.931-0.331,3.807-0.331  c7.228,0,11.752,4.083,11.698,11.808c0,8.883-4.967,13.076-12.581,13.021c-1.048,0-2.207,0-2.924-0.166V73.992z" stroke="#0b0c0c" />
+        <polygon
+            points="116.918,89.716 130.271,89.716 130.271,82.875 116.918,82.875 116.918,74.378 131.208,74.378 131.208,67.481   108.476,67.481 108.476,104.669 116.918,104.669 " stroke="#0b0c0c" />
+    </svg>
+</div>
+
+</div>
+<div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-s govuk-!-margin-top-5 govuk-!-margin-bottom-1">A Local Plan for Sefton</h3>
+    <p class="govuk-body">Owner: <a href="https://digital-land.github.io/organisation/local-authority-eng/SFT" class="govuk-link">Sefton Metropolitan Borough Council</a></p>
+
+    
+    <p class="govuk-body"><span class="dl-small-text">2012-2017: 500 dwellings per annum2017-2030: 694 dwellings per annum</span></p>
+    <a class="govuk-link" href="https://www.sefton.gov.uk/media/1270013/A-Local-Plan-for-Sefton-for-ADOPTION-FINAL.pdf">View full document</a>
+</div>
+</li>
+
+    </ul>
+  </div>
+</div>
+    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+
+    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+
+    <script>
+        const $picker = document.querySelector('#organisation-search')
+        if ($picker) {
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: $picker
+            })
+        }
+    </script>
+    
+</body>
+</html>
