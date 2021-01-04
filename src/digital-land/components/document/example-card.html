@@ -1,0 +1,17 @@
+{% from "digital-land-frontend/components/document-preview-icon/macro.html" import documentPreview %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <ul class="govuk-list">
+      {% set classes = "govuk-!-margin-bottom-6" %} 
+      {{- documentPreview({
+        "document": {
+          "name": "A Local Plan for Sefton",
+          "organisation": "local-authority-eng:SFT",
+          "notes": "2012-2017: 500 dwellings per annum2017-2030: 694 dwellings per annum",
+          "document-url": "https://www.sefton.gov.uk/media/1270013/A-Local-Plan-for-Sefton-for-ADOPTION-FINAL.pdf"
+        },
+        "classes": classes
+      }) }}
+    </ul>
+  </div>
+</div>
