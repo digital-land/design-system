@@ -43,6 +43,8 @@ If you want to include an example add the following to your markdown:
 
 Where `url` is the name of the example file, `name` is the name of the component directory and `size` is one of **xs**, **s**, **m** or **l** depending on the amount of size you want it to take up.
 
+Remember to add the new component/documentation page to the [component menu](templates/design-system/menus/components.html).
+
 ### Documenting a new component
 
 If a new component has been added digital land [frontend](https://digital-land.github.io/frontend/) you can add documentation for it by creating a directory for it in `src/digital-land` and then creating at least 1 example and a README.md file.
