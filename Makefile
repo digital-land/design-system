@@ -1,6 +1,9 @@
+# current git branch
+BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+
 init: submodule
 	pip3 install --upgrade -r requirements.txt
-	cd frontend && pip install -e .
+	cd frontend && pip install -e . && npm install
 
 submodule:
 	git submodule update --init --recursive --remote
@@ -32,3 +35,8 @@ local/js:
 	mkdir -p docs/static/javascripts/govuk
 	wget -O docs/static/javascripts/govuk/govuk-frontend.min.js https://raw.githubusercontent.com/digital-land/frontend/master/digital_land_frontend/static/javascripts/govuk/govuk-frontend.min.js
 	wget -O docs/static/javascripts/dl-frontend.js https://raw.githubusercontent.com/digital-land/frontend/master/digital_land_frontend/static/javascripts/dl-frontend.js
+
+
+commit-docs::
+	git add docs
+	git diff --quiet && git diff --staged --quiet || (git commit -m "Rebuilt docs $(shell date +%F)"; git push origin $(BRANCH))
