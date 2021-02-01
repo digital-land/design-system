@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" /><!-- should make this optional, no need to load if not showing a map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <script src="https://digital-land.github.io/javascripts/dl-maps.js"></script>
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+<div class="dl-map__wrapper"><div 
+        class="dl-map govuk-!-margin-top-3"
+        id="aMap"
+        data-module="boundary-map"
+        style="height: 350px;" data-geojson-urls="https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3090/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3091/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3092/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3093/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3094/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3095/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3096/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3097/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3098/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3099/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3100/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3101/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3102/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3103/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3104/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3105/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3106/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3107/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3108/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3109/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3110/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3111/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3112/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3113/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3114/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3115/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3116/geometry.geojson;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3117/geometry.geojson"   
+    >
+        <noscript>To view this map, you need to enable JavaScript.</noscript>
+    </div>
+    
+</div>
+
+<script>
+  const $mapElement = document.querySelector('[data-module="boundary-map"]')
+  exmap = new DLMaps.Map($mapElement).init({})
+</script>
+    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+
+    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+
+    <script>
+        const $picker = document.querySelector('#organisation-search')
+        if ($picker) {
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: $picker
+            })
+        }
+    </script>
+    
+</body>
+</html>
