@@ -398,6 +398,116 @@
 </div>
 
 <!-- end app-example-wrapper -->
+
+<h2 class="govuk-heading-l">Reference cells</h2>
+<p class="govuk-body">Use the <code>dlDataReferenceCell</code> macro to change an identifier value to a link through to the related data record. The original identifier is still shown in brackets.</p>
+<p class="govuk-body">The example below shows how the identifier <code>local-authority-eng:HAG</code> is displayed as a link to Harrogate Borough Council along with the identifier.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-reference.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of a data record panel with a reference cell"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--s"
+      src="example-reference.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+
+
+&lt;article class=&#34;data-record&#34;&gt;
+    &lt;h4 class=&#34;govuk-heading-s data-record__identifier&#34;&gt;#con-area:18u2&lt;/h4&gt;
+    &lt;dl class=&#34;govuk-summary-list data-record__properties&#34;&gt;
+
+&lt;div class=&#34;govuk-summary-list__row&#34;&gt;
+    &lt;dt class=&#34;govuk-summary-list__key&#34;&gt;Organisation&lt;/dt&gt;
+    &lt;dd class=&#34;govuk-summary-list__value&#34;&gt;
+
+&lt;a href=&#34;/&#34; class=&#34;govuk-link&#34;&gt;Harrogate Borough Council&lt;/a&gt;
+
+
+&lt;span title=&#34;Organisation identifier: local-authority-eng:HAG&#34; class=&#34;govuk-!-font-size-16 secondary-text data-reference&#34;&gt;(&lt;span class=&#34;govuk-visually-hidden&#34;&gt;Organisation identifier is &lt;/span&gt;local-authority-eng:HAG)&lt;/span&gt;
+
+&lt;/dd&gt;
+&lt;/div&gt;
+
+    &lt;/dl&gt;
+    &lt;footer class=&#34;govuk-!-font-size-16 data-record__resource&#34;&gt;From resource &lt;a href=&#34;https://github.com/digital-land/conservation-area-geography-collection/blob/master/collection/resource/043fd72cc71429aad3fffa1a42a75d0c063f5946f5de88a65eb4bc9a71bfb54e&#34; class=&#34;govuk-link&#34;&gt;041560991f8c2e27d...&lt;/a&gt;&lt;/footer&gt;
+    &lt;/article&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/data-record/macro.html&#34; import dlDataRecordPanel %}
+{%- from &#34;digital-land-frontend/components/data-reference-cell/macro.html&#34; import dlDataReferenceCell %}
+
+{% set datalist %} 
+&lt;div class=&#34;govuk-summary-list__row&#34;&gt;
+    &lt;dt class=&#34;govuk-summary-list__key&#34;&gt;Organisation&lt;/dt&gt;
+    &lt;dd class=&#34;govuk-summary-list__value&#34;&gt;
+        {{- dlDataReferenceCell({
+            &#34;display_name&#34;: &#34;Harrogate Borough Council&#34;,
+            &#34;identifier&#34;: &#34;local-authority-eng:HAG&#34;,
+            &#34;type&#34;: &#34;Organisation&#34;,
+            &#34;url&#34;: &#34;/&#34;
+        }) -}}
+    &lt;/dd&gt;
+&lt;/div&gt;
+{% endset -%}
+{{ dlDataRecordPanel({
+    &#34;identifier&#34;: &#34;con-area:18u2&#34;,
+    &#34;html&#34;: datalist,
+    &#34;resource&#34;: {
+        &#34;identifier&#34;: &#34;041560991f8c2e27de78b0e49e9e9f2282879bdad6564681568d5ddd2bd4de33&#34;,
+        &#34;url&#34;: &#34;https://github.com/digital-land/conservation-area-geography-collection/blob/master/collection/resource/043fd72cc71429aad3fffa1a42a75d0c063f5946f5de88a65eb4bc9a71bfb54e&#34;
+    }
+    })
+}}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
