@@ -1,0 +1,25 @@
+{%- from "digital-land-frontend/components/data-record/macro.html" import dlDataRecordPanel %}
+{%- from "digital-land-frontend/components/data-reference-cell/macro.html" import dlDataReferenceCell %}
+
+{% set datalist %} 
+<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Organisation</dt>
+    <dd class="govuk-summary-list__value">
+        {{- dlDataReferenceCell({
+            "display_name": "Harrogate Borough Council",
+            "identifier": "local-authority-eng:HAG",
+            "type": "Organisation",
+            "url": "/"
+        }) -}}
+    </dd>
+</div>
+{% endset -%}
+{{ dlDataRecordPanel({
+    "identifier": "con-area:18u2",
+    "html": datalist,
+    "resource": {
+        "identifier": "041560991f8c2e27de78b0e49e9e9f2282879bdad6564681568d5ddd2bd4de33",
+        "url": "https://github.com/digital-land/conservation-area-geography-collection/blob/master/collection/resource/043fd72cc71429aad3fffa1a42a75d0c063f5946f5de88a65eb4bc9a71bfb54e"
+    }
+    })
+}}
