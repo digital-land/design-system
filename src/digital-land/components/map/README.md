@@ -7,7 +7,7 @@ Use this component when seeing something on a map would be useful for a user.
 
 These examples show how to use `DLMaps.Map()` to create simple maps displaying area boundaries.
 
-### Show a local authority boundary
+## Show a local authority boundary
 
 We regularly need to show the extent of an area or areas. The most common is the local authority boundary.
 
@@ -24,18 +24,55 @@ This example shows the boundaries for [Harrogate borough council](https://digita
 }
 }) }}
 
-Use the `geojsonUrls` option to plot mulitple boundaries, it accepts an array of geojson urls.
+## Show multiple shapes
 
-### Plot a conservation area
+There are a number of ways to pass ursl to geojson files to the map component.
 
+All urls must point to `.geojson` files.
 
+### HTML attribute
 
-An alternative approach is to provide the url to the geojson in the `data-geojson-urls` attribute.
+You can pass a list of urls, separate by `;`, to the `data-geojson-urls` attribute of the map element.
+
+    <div class="dl-map" id="aMap" 
+        data-module="boundary-map"
+        data-geojson-urls="/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson;/local-authority-district/E06000001/geometry.geojson"
+    >
 
 {{ designSystemExample({
 "iframe": {
-    "title": "An example of the map component with a single conservation area",
-    "url": "example-conservation-area.html",
+    "title": "Example - pass urls as HTML attributes",
+    "url": "example-html.html",
+    "size": "l"
+},
+"component": {
+    "name": "map"
+}
+}) }}
+
+### Jinja macro option
+
+Use the `data-geojson-urls` option when calling the jinja macro. It accepts a string with urls separated by `;` or it accepts an array urls.
+
+{{ designSystemExample({
+"iframe": {
+    "title": "An example showing list of paths passed to the map component",
+    "url": "example-multiple.html",
+    "size": "l"
+},
+"component": {
+    "name": "map"
+}
+}) }}
+
+### JS init option
+
+An alternative approach is to provide the url(s) to the `geojsonUrls` option which initalising the module.
+
+{{ designSystemExample({
+"iframe": {
+    "title": "An example of the map component with multiple geometries passed to JS",
+    "url": "example.html",
     "size": "m"
 },
 "component": {
@@ -43,9 +80,8 @@ An alternative approach is to provide the url to the geojson in the `data-geojso
 }
 }) }}
 
-To provide mulitple separate the urls with a `;`. E.g.
 
-    "https://digital-land.github.io/geography/boundary1.geojson;https://digital-land.github.io/geography/boundary2.geojson"
+## Options
 
 ### Aria Labelledby
 
