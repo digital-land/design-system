@@ -8,14 +8,16 @@ init: submodule
 submodule:
 	git submodule update --init --recursive --remote
 
+dist:
+	mkdir -p docs
+
 clobber:
 	rm -rf docs
 
-render:
-	mkdir -p docs
+render: dist
 	python3 render.py
 
-render/local:
+render/local: dist
 	python3 render.py --local
 
 images:
