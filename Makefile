@@ -8,7 +8,11 @@ init: submodule
 submodule:
 	git submodule update --init --recursive --remote
 
+clobber:
+	rm -rf docs
+
 render:
+	mkdir -p docs
 	python3 render.py
 
 render/local:
@@ -39,4 +43,4 @@ local/js:
 
 commit-docs::
 	git add docs
-	git diff --quiet && git diff --staged --quiet || (git commit -m "Rebuilt docs $(shell date +%F)"; git push origin $(BRANCH))
+	git diff --quiet && git diff --staged --quiet || (git commit -m "Rebuilt design system $(shell date +%F)"; git push origin $(BRANCH))
