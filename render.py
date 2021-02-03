@@ -11,6 +11,7 @@ import markdown
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
 from frontend.digital_land_frontend.filters import organisation_mapper
+from frontend.digital_land_frontend.markdown.utils import get_markdown_files
 
 from frontmatter import Frontmatter
 
@@ -121,7 +122,7 @@ def reqs_org_data(documentation):
     return None
 
 
-def generate_documentation_pages(component_sets):
+def generate_component_documentation_pages(component_sets):
     for cset in component_sets:
         src_dir = f"src/{cset['type']}/components"
         components = get_components(src_dir)
@@ -153,6 +154,27 @@ def generate_documentation_pages(component_sets):
                 print(f"No documentation for component: {component}")
 
 
+def generate_template_documentation_pages():
+    template_dir = "src/digital-land/templates"
+    md_files = get_markdown_files(template_dir)
+    for f in md_files:
+        documentation = Frontmatter.read_file(f"{template_dir}/{f}")
+
+        dest = (
+            "template/index.html"
+            if f == "index.md"
+            else f"template/{f.replace('.md', '')}/index.html"
+        )
+
+        # render the documentation page for the template
+        render(
+            dest,
+            component_template,
+            rendered_markdown=markdown_compile(documentation["body"]),
+            section="template",
+        )
+
+
 def generate_design_system():
     # generate all component docs and examples
     component_sets = [
@@ -160,7 +182,8 @@ def generate_design_system():
         {"type": "govuk", "dest": "govuk-components"},
     ]
 
-    generate_documentation_pages(component_sets)
+    generate_component_documentation_pages(component_sets)
+    generate_template_documentation_pages()
 
     # generate the index pages
     render("index.html", index_template)
