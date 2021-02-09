@@ -13,7 +13,7 @@ It should be used when highlighting some supplementary information to the user.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "info-text"
+"example": {
+    "path": "digital-land/components/info-text"
 }
 }) }}

@@ -19,8 +19,8 @@ This example shows the boundaries for [Harrogate borough council](https://digita
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "map"
+"example": {
+    "path": "digital-land/components/map"
 }
 }) }}
 
@@ -45,8 +45,8 @@ You can pass a list of urls, separate by `;`, to the `data-geojson-urls` attribu
     "url": "example-html.html",
     "size": "l"
 },
-"component": {
-    "name": "map"
+"example": {
+    "path": "digital-land/components/map"
 }
 }) }}
 
@@ -60,8 +60,8 @@ Use the `data-geojson-urls` option when calling the jinja macro. It accepts a st
     "url": "example-multiple.html",
     "size": "l"
 },
-"component": {
-    "name": "map"
+"example": {
+    "path": "digital-land/components/map"
 }
 }) }}
 
@@ -75,8 +75,8 @@ An alternative approach is to provide the url(s) to the `geojsonUrls` option whi
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "map"
+"example": {
+    "path": "digital-land/components/map"
 }
 }) }}
 
@@ -93,8 +93,8 @@ You can added a `aria-labelledby` attribute by adding text to the optional ` ari
     "url": "example-labelledby.html",
     "size": "m"
 },
-"component": {
-    "name": "map"
+"example": {
+    "path": "digital-land/components/map"
 }
 }) }}
 
@@ -112,7 +112,7 @@ An example of the key we use on the Brownfield land maps. Currently testing 2 op
     "url": "example-key.html",
     "size": "s"
 },
-"component": {
-    "name": "map"
+"example": {
+    "path": "digital-land/components/map"
 }
 }) }}

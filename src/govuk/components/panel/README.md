@@ -10,8 +10,7 @@ An example of the govuk panel component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "panel",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/panel"
 }
 }) }}

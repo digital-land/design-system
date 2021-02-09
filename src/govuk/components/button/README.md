@@ -10,8 +10,7 @@ An example of the govuk button component.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "button",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/button"
 }
 }) }}

@@ -13,7 +13,7 @@ It should be placed at the end of the content on the current page.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "pagination"
+"example": {
+    "path": "digital-land/components/pagination"
 }
 }) }}

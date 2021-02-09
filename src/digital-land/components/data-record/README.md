@@ -11,8 +11,8 @@ The data record component is used to show a single record of data. Including all
     "url": "example.html",
     "size": "l"
 },
-"component": {
-    "name": "data-record"
+"example": {
+    "path": "digital-land/components/data-record"
 }
 }) }}
 
@@ -28,7 +28,7 @@ The example below shows how the identifier `local-authority-eng:HAG` is displaye
     "url": "example-reference.html",
     "size": "s"
 },
-"component": {
-    "name": "data-record"
+"example": {
+    "path": "digital-land/components/data-record"
 }
 }) }}

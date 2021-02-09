@@ -10,8 +10,7 @@ An example of the govuk date input component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "date-input",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/date-input"
 }
 }) }}

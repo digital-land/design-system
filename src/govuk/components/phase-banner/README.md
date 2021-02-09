@@ -10,8 +10,7 @@ An example of the govuk phase banner component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "phase-banner",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/phase-banner"
 }
 }) }}

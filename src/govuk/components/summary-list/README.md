@@ -10,8 +10,7 @@ An example of the govuk summary list component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "summary-list",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/summary-list"
 }
 }) }}

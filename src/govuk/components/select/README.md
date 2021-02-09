@@ -10,8 +10,7 @@ An example of the govuk select component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "select",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/select"
 }
 }) }}

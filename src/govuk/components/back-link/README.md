@@ -10,8 +10,8 @@ An example of the govuk back link component.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "back-link",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/back-link",
+    
 }
 }) }}

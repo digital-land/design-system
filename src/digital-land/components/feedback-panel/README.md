@@ -11,8 +11,8 @@ Use the feedback panel component when you want to ask the user to provide feedba
     "url": "example.html",
     "size": "s"
 },
-"component": {
-    "name": "feedback-panel"
+"example": {
+    "path": "digital-land/components/feedback-panel"
 }
 }) }}
 

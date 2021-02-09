@@ -11,8 +11,8 @@ Use the timeline component to show an ordered record of what has happened.
     "url": "example.html",
     "size": "l"
 },
-"component": {
-    "name": "timeline"
+"example": {
+    "path": "digital-land/components/timeline"
 }
 }) }}
 
@@ -34,8 +34,8 @@ The timeline component is good to use when you are showing a sequence of log ent
     "url": "example-collector.html",
     "size": "l"
 },
-"component": {
-    "name": "timeline"
+"example": {
+    "path": "digital-land/components/timeline"
 }
 }) }}
 

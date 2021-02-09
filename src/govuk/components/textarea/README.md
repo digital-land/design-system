@@ -10,8 +10,7 @@ An example of the govuk textarea component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "textarea",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/textarea"
 }
 }) }}

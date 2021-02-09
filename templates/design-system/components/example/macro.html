@@ -32,9 +32,9 @@
     {% endfor %}
   </ul>
 
-  {% set partial_type = params.component.type if params.component.type else "digital-land"  %}
-  {% set jinja_include_path = "examples/" + partial_type + "/components/" + params.component.name + "/" + params.iframe.url %}
-  {% set component_abs_path = "src/" + partial_type + "/components/" + params.component.name + "/" + params.iframe.url %}
+  {% set example_path = params.example.path  %}
+  {% set jinja_include_path = "examples/" + example_path + "/" + params.iframe.url %}
+  {% set component_abs_path = "src/" + example_path + "/" + params.iframe.url %}
 
   {% for tab in tabs %}
   <div class="app-tabs__heading js-tabs__heading">

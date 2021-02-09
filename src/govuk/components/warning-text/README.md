@@ -8,8 +8,7 @@ An example of the govuk warning text component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "warning-text",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/warning-text"
 }
 }) }}

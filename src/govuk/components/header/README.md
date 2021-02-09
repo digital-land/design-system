@@ -10,8 +10,7 @@ An example of the govuk header component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "header",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/header"
 }
 }) }}

@@ -10,8 +10,7 @@ An example of the govuk table component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "table",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/table"
 }
 }) }}

@@ -10,8 +10,7 @@ An example of the govuk inset text component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "inset-text",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/inset-text"
 }
 }) }}

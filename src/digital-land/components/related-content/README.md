@@ -13,7 +13,7 @@ You should include it in a small column to the side of the main content.
     "url": "example.html",
     "size": "s"
 },
-"component": {
-    "name": "related-content"
+"example": {
+    "path": "digital-land/components/related-content"
 }
 }) }}

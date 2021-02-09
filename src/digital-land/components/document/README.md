@@ -13,8 +13,8 @@ It is experimental and under development. Currently, only available as a PDF ico
     "url": "example.html",
     "size": "s"
 },
-"component": {
-    "name": "document"
+"example": {
+    "path": "digital-land/components/document"
 }
 }) }}
 
@@ -30,7 +30,7 @@ This is how we have used the document preview icon component as part of a bigger
     "url": "example-card.html",
     "size": "s"
 },
-"component": {
-    "name": "document"
+"example": {
+    "path": "digital-land/components/document"
 }
 }) }}

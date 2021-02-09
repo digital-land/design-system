@@ -11,7 +11,7 @@ This component is a blue hero panel. It should be used to introduce a new site, 
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "hero"
+"example": {
+    "path": "digital-land/components/hero"
 }
 }) }}

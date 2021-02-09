@@ -10,8 +10,7 @@ An example of the govuk details component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "details",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/details"
 }
 }) }}

@@ -11,7 +11,7 @@ Use this component when you want a user to be able to copy content easily.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "input-copy"
+"example": {
+    "path": "digital-land/components/input-copy"
 }
 }) }}

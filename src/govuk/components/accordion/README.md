@@ -10,8 +10,7 @@ Use this component when you want a user to be able to copy content easily.
     "url": "example.html",
     "size": "l"
 },
-"component": {
-    "name": "accordion",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/accordion"
 }
 }) }}

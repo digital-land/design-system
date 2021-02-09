@@ -10,8 +10,7 @@ An example of the govuk tag component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "tag",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/tag"
 }
 }) }}

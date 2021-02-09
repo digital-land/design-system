@@ -10,8 +10,7 @@ An example of the govuk footer component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "footer",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/footer"
 }
 }) }}

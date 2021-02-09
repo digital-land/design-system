@@ -10,8 +10,7 @@ An example of the govuk error summary component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "error-summary",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/error-summary"
 }
 }) }}

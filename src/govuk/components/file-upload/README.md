@@ -10,8 +10,7 @@ An example of the govuk file upload component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "file-upload",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/file-upload"
 }
 }) }}

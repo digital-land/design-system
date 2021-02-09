@@ -11,7 +11,7 @@ This is a test explanation
       "url": "example.html",
       "size": "xs"
     },
-    "component": {
-        "name": "page-feedback"
+    "example": {
+        "path": "digital-land/components/page-feedback"
     }
 }) }}

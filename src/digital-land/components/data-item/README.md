@@ -11,8 +11,8 @@ Use the data item component when you want to display a number from some data.
     "url": "example.html",
     "size": "s"
 },
-"component": {
-    "name": "data-item"
+"example": {
+    "path": "digital-land/components/data-item"
 }
 }) }}
 
@@ -30,8 +30,8 @@ Add a `.data-item--inline` class if you need the data item to display inline.
     "url": "example-inline.html",
     "size": "s"
 },
-"component": {
-    "name": "data-item",
+"example": {
+    "path": "digital-land/components/data-item",
     "tabs": ["HTML", "jinja"]
 }
 }) }}

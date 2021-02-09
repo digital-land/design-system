@@ -10,8 +10,7 @@ An example of the govuk character count component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "character-count",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/character-count"
 }
 }) }}

@@ -10,8 +10,7 @@ An example of the govuk text input component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "text-input",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/text-input"
 }
 }) }}

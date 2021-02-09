@@ -10,8 +10,7 @@ An example of the govuk breadcrumb component.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "breadcrumbs",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/breadcrumbs"
 }
 }) }}

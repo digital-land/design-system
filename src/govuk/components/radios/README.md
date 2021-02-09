@@ -10,8 +10,7 @@ An example of the govuk radios component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "radios",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/radios"
 }
 }) }}

@@ -10,8 +10,7 @@ An example of the govuk checkboxes component.
     "url": "example.html",
     "size": "m"
 },
-"component": {
-    "name": "checkboxes",
-    "type": "govuk"
+"example": {
+    "path": "govuk/components/checkboxes"
 }
 }) }}

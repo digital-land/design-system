@@ -12,8 +12,8 @@ An example of how to use the autocomplete module.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "autocomplete"
+"example": {
+    "path": "digital-land/components/autocomplete"
 }
 }) }}
 

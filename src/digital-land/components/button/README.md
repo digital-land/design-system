@@ -11,8 +11,8 @@ This builds on the govukButton macro.
     "url": "example.html",
     "size": "xs"
 },
-"component": {
-    "name": "button"
+"example": {
+    "path": "digital-land/components/button"
 }
 }) }}
 
@@ -29,7 +29,7 @@ Use these buttons when there is a page wide action a user is able to perform, wh
     "url": "example-page-action.html",
     "size": "xs"
 },
-"component": {
-    "name": "button"
+"example": {
+    "path": "digital-land/components/button"
 }
 }) }}
