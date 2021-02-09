@@ -11,7 +11,6 @@ import markdown
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
 from frontend.digital_land_frontend.filters import organisation_mapper
-from frontend.digital_land_frontend.markdown.utils import get_markdown_files
 
 from frontmatter import Frontmatter
 
@@ -51,11 +50,12 @@ md = markdown.Markdown(
             },
         ),
         "fenced_code",
+        "tables",
     ]
 )
 
 
-def markdown_compile(s):
+def compile_markdown(s):
     html = md.convert(s)
     html = html.replace("<p>", '<p class="govuk-body">')
     html = html.replace("<h1>", '<h1 class="govuk-heading-xl">')
@@ -64,6 +64,13 @@ def markdown_compile(s):
     html = html.replace("<h4>", '<h4 class="govuk-heading-s">')
     html = html.replace("<ul>", '<ul class="govuk-list govuk-list--bullet">')
     html = html.replace("<pre>", '<pre class="hljs-container">')
+
+    html = html.replace("<table", '<table class="govuk-table" ')
+    html = html.replace("<thead>", '<thead class="govuk-table__head">')
+    html = html.replace("<tbody>", '<tbody class="govuk-table__body">')
+    html = html.replace("<tr>", '<tr class="govuk-table__row">')
+    html = html.replace("<th>", '<th scope="row" class="govuk-table__header">')
+    html = html.replace("<td>", '<td class="govuk-table__cell">')
     return html
 
 
@@ -80,7 +87,7 @@ def render_markdown_file(file_, dest_file, template, **kwargs):
     render(
         dest_file,
         template,
-        rendered_markdown=markdown_compile(markdown_content),
+        rendered_markdown=compile_markdown(markdown_content),
         **kwargs,
     )
 
@@ -136,7 +143,7 @@ def generate_component_documentation_pages(component_sets):
                 render(
                     f"{cset['dest']}/{component}/index.html",
                     component_template,
-                    rendered_markdown=markdown_compile(documentation["body"]),
+                    rendered_markdown=compile_markdown(documentation["body"]),
                     section=cset["dest"],
                 )
 
@@ -173,7 +180,7 @@ def generate_template_documentation_pages(directory):
             render(
                 dest,
                 component_template,
-                rendered_markdown=markdown_compile(documentation["body"]),
+                rendered_markdown=compile_markdown(documentation["body"]),
                 section="template",
             )
         else:
