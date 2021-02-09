@@ -154,25 +154,35 @@ def generate_component_documentation_pages(component_sets):
                 print(f"No documentation for component: {component}")
 
 
-def generate_template_documentation_pages():
-    template_dir = "src/digital-land/templates"
-    md_files = get_markdown_files(template_dir)
-    for f in md_files:
-        documentation = Frontmatter.read_file(f"{template_dir}/{f}")
+def generate_template_documentation_pages(directory):
 
-        dest = (
-            "template/index.html"
-            if f == "index.md"
-            else f"template/{f.replace('.md', '')}/index.html"
-        )
+    for p in os.listdir(directory):
+        output_root = directory.replace("src/digital-land/templates", "template")
+        if os.path.isdir(os.path.join(directory, p)):
+            generate_template_documentation_pages(os.path.join(directory, p))
+        elif p.endswith(".md"):
+            documentation = Frontmatter.read_file(f"{directory}/{p}")
 
-        # render the documentation page for the template
-        render(
-            dest,
-            component_template,
-            rendered_markdown=markdown_compile(documentation["body"]),
-            section="template",
-        )
+            dest = (
+                os.path.join(output_root, "index.html")
+                if p == "index.md"
+                else os.path.join(output_root, p.replace(".md", ""), "index.html")
+            )
+
+            # render the documentation page for the template
+            render(
+                dest,
+                component_template,
+                rendered_markdown=markdown_compile(documentation["body"]),
+                section="template",
+            )
+        else:
+            include_path = os.path.join(directory, p).replace("src", "examples")
+            render(
+                os.path.join(output_root, p),
+                example_template,
+                partial_name=include_path,
+            )
 
 
 def generate_design_system():
@@ -183,7 +193,7 @@ def generate_design_system():
     ]
 
     generate_component_documentation_pages(component_sets)
-    generate_template_documentation_pages()
+    generate_template_documentation_pages("src/digital-land/templates")
 
     # generate the index pages
     render("index.html", index_template)

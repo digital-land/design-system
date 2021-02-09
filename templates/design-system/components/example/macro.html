@@ -19,9 +19,9 @@
       src="{{ params.iframe.url }}" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
-  {% if params.component %}
+  {% if params.example %}
 
-  {% set tabs = params.component.tabs if params.component.tabs else ["HTML", "Jinja"] %}
+  {% set tabs = params.example.tabs if params.example.tabs else ["HTML", "Jinja"] %}
 
   <ul class="app-tabs" role="tablist">
     {% for tab in tabs %}
