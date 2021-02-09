@@ -192,7 +192,305 @@
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
             <h1 class="govuk-heading-xl">DLF Base</h1>
+<p class="govuk-body">Use this template to keep your pages consistent with the rest of Digital Land.</p>
 <p class="govuk-body">The <a href="">dlf-base.html</a> template extends the <a href="">GOV.UK template</a></p>
+<p class="govuk-body">The default max width is 1020px (with margins the content width is 960px). You can make it wider if needed. Using the dlf-base--full-width.html template is another option.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-basic.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of a secondary action button"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--xl"
+      src="example-basic.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34; class=&#34;govuk-template &#34;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;title&gt;Digital Land - Planning data you can find, use and trust&lt;/title&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, viewport-fit=cover&#34;&gt;
+    &lt;meta name=&#34;theme-color&#34; content=&#34;#0b0c0c&#34;&gt; 
+
+    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+
+
+      &lt;link rel=&#34;manifest&#34; href=&#34;/site.webmanifest&#34;&gt;
+      &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;48x48&#34; href=&#34;/images/favicon.ico&#34; type=&#34;image/x-icon&#34;&gt;
+      &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;32x32&#34; href=&#34;/images/favicon-32x32.png&#34; type=&#34;image/png&#34;&gt;
+      &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;16x16&#34; href=&#34;/images/favicon-16x16.png&#34; type=&#34;image/png&#34;&gt;
+      &lt;link rel=&#34;apple-touch-icon&#34; href=&#34;/images/apple-touch-icon.png&#34;&gt;
+
+
+
+    &lt;meta name=&#34;dl-template&#34; content=&#34;dlf-base.html&#34;&gt;
+    &lt;link href=&#34;https://digital-land.github.io/stylesheets/dl-frontend.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+
+    &lt;meta property=&#34;og:image&#34; content=&#34;/images/govuk-opengraph-image.png&#34;&gt;
+  &lt;/head&gt;
+  &lt;body class=&#34;govuk-template__body &#34;&gt;
+    &lt;script&gt;document.body.className = ((document.body.className) ? document.body.className + &#39; js-enabled&#39; : &#39;js-enabled&#39;);&lt;/script&gt;
+
+
+
+      &lt;a href=&#34;#main-content&#34; class=&#34;govuk-skip-link&#34;&gt;Skip to main content&lt;/a&gt;
+
+
+
+&lt;!-- Cookie banner partial version 1.0.1 --&gt;
+&lt;div id=&#34;global-cookie-message&#34; class=&#34;govuk-clearfix global-cookie-message&#34; data-module=&#34;cookie-banner&#34; role=&#34;region&#34; aria-label=&#34;cookie banner&#34; data-nosnippet=&#34;&#34;&gt;
+
+  &lt;div id=&#34;cookie-banner&#34; class=&#34;govuk-width-container&#34;&gt;
+    &lt;div class=&#34;govuk-grid-row&#34;&gt;
+      &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
+        &lt;div class=&#34;cookie-banner__message govuk-!-margin-top-6&#34;&gt;
+          &lt;h2 class=&#34;govuk-heading-m&#34;&gt;Tell us whether you accept cookies&lt;/h2&gt;
+          &lt;p class=&#34;govuk-body&#34;&gt;We use &lt;a class=&#34;govuk-link&#34; href=&#34;/cookies&#34;&gt;cookies to collect information&lt;/a&gt; about how you use the Digital Land website to make the website work as well as possible.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;cooke-banner__buttons govuk-grid-row&#34;&gt;
+          &lt;div class=&#34;govuk-grid-column-one-half&#34;&gt;
+            &lt;button class=&#34;govuk-button&#34; onclick=&#34;acceptCookies();showCookieConfirmation();&#34;&gt;Accept all cookies&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;govuk-grid-column-one-half&#34;&gt;
+            &lt;a class=&#34;govuk-button&#34; href=&#34;/cookies&#34;&gt;Set cookie preferences&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&#34;cookie-confirmation&#34; class=&#34;govuk-width-container govuk-!-padding-top-6&#34; tabindex=&#34;-1&#34; style=&#34;display: none;&#34;&gt;
+    &lt;p class=&#34;cookie-banner__confirmation-message govuk-body&#34;&gt;You’ve accepted all cookies. You can &lt;a class=&#34;govuk-link&#34; href=&#34;/cookies&#34;&gt;change your cookie settings&lt;/a&gt; at any time.&lt;/p&gt;
+    &lt;button class=&#34;cookie-banner__hide-button govuk-button govuk-button--secondary&#34; onclick=&#34;document.getElementById(&#39;cookie-confirmation&#39;).style.display=&#39;none&#39;;&#34;&gt;Hide&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+&lt;header role=&#34;banner&#34; id=&#34;global-header&#34; class=&#34;govuk-header  with-proposition dl-header&#34; data-module=&#34;govuk-header&#34;&gt;
+  &lt;div class=&#34;govuk-header__container govuk-width-container&#34;&gt;
+    &lt;div class=&#34;header-proposition&#34;&gt;
+      &lt;div class=&#34;govuk-header__content&#34;&gt;
+        &lt;a href=&#34;https://digital-land.github.io/&#34; class=&#34;govuk-header__link govuk-header__link--service-name&#34;&gt;
+        Digital Land
+        &lt;/a&gt;
+        &lt;button type=&#34;button&#34; class=&#34;govuk-header__menu-button govuk-js-header-toggle&#34; aria-controls=&#34;navigation&#34; aria-label=&#34;Show or hide Top Level Navigation&#34;&gt;Menu&lt;/button&gt;
+        &lt;nav&gt;
+          &lt;ul id=&#34;navigation&#34; class=&#34;govuk-header__navigation&#34; aria-label=&#34;Top Level Navigation&#34;&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/about&#34;&gt;Team&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/project/&#34;&gt;Projects&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/weeknote/&#34;&gt;Weeknotes&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/blog-post/&#34;&gt;Blog&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/guidance/&#34;&gt;Guidance&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/dataset/&#34;&gt;Datasets&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/organisation/&#34;&gt;Organisations&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/map/&#34;&gt;Map&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+
+
+
+      &lt;div class=&#34;govuk-width-container &#34;&gt;
+
+
+&lt;div class=&#34;govuk-phase-banner&#34;&gt;
+  &lt;p class=&#34;govuk-phase-banner__content&#34;&gt;&lt;strong class=&#34;govuk-tag govuk-phase-banner__content__tag &#34;&gt;
+  prototype
+&lt;/strong&gt;&lt;span class=&#34;govuk-phase-banner__text&#34;&gt;
+      This is a prototype. Please provide feedback to the Digital Land team.
+    &lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+
+        &lt;main class=&#34;govuk-main-wrapper &#34; id=&#34;main-content&#34; role=&#34;main&#34;&gt;
+
+  &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
+
+        &lt;/main&gt;
+      &lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+&lt;footer class=&#34;govuk-footer &#34; role=&#34;contentinfo&#34;
+        &gt;
+  &lt;div class=&#34;govuk-width-container &#34;&gt;
+
+    &lt;div class=&#34;govuk-footer__meta&#34;&gt;
+      &lt;div class=&#34;govuk-footer__meta-item govuk-footer__meta-item--grow&#34;&gt;
+
+          &lt;h2 class=&#34;govuk-visually-hidden&#34;&gt;Support links&lt;/h2&gt;
+              &lt;ul class=&#34;govuk-footer__inline-list&#34;&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/cookies&#34;&gt;
+                      Cookies
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/accessibility-statement&#34;&gt;
+                      Accessibility statement
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/design-system&#34;&gt;
+                      Design system
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+              &lt;/ul&gt;
+
+
+
+            &lt;div class=&#34;govuk-footer__meta-custom&#34;&gt;
+              The &lt;a class=&#34;govuk-footer__link&#34; href=&#34;https://github.com/digital-land/digital-land/&#34;&gt;software&lt;/a&gt; and &lt;a class=&#34;govuk-footer__link&#34; href=&#34;https://github.com/digital-land/digital-land/&#34;&gt;data&lt;/a&gt; used to build these pages is &lt;a class=&#34;govuk-footer__link&#34; href=&#34;https://github.com/digital-land/digital-land/blob/master/LICENSE&#34;&gt;open source&lt;/a&gt;.
+            &lt;/div&gt;
+
+
+        &lt;svg
+          role=&#34;presentation&#34;
+          focusable=&#34;false&#34;
+          class=&#34;govuk-footer__licence-logo&#34;
+          xmlns=&#34;http://www.w3.org/2000/svg&#34;
+          viewBox=&#34;0 0 483.2 195.7&#34;
+          height=&#34;17&#34;
+          width=&#34;41&#34;
+        &gt;
+          &lt;path
+            fill=&#34;currentColor&#34;
+            d=&#34;M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145&#34;
+          /&gt;
+        &lt;/svg&gt;
+        &lt;span class=&#34;govuk-footer__licence-description&#34;&gt;
+          All content is available under the
+          &lt;a
+            class=&#34;govuk-footer__link&#34;
+            href=&#34;https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/&#34;
+            rel=&#34;license&#34;
+          &gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;govuk-footer__meta-item&#34;&gt;
+        &lt;a
+          class=&#34;govuk-footer__link govuk-footer__copyright-logo&#34;
+          href=&#34;https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/&#34;
+        &gt;© Crown copyright&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+
+    &lt;script src=&#34;https://digital-land.github.io/javascripts/dl-cookies.js&#34;&gt;&lt;/script&gt;
+    &lt;script async src=&#39;https://www.google-analytics.com/analytics.js&#39;&gt;&lt;/script&gt;
+    &lt;!-- end google analytics --&gt;
+
+
+    &lt;script src=&#34;https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    &lt;/script&gt;
+
+
+
+    &lt;script src=&#34;https://digital-land.github.io/javascripts/dl-frontend.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // adds any necessary polyfills
+        window.DLFrontend.polyfill();
+    &lt;/script&gt;
+
+
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/dlf-base.html&#34; %}
+
+{% block content %}
+  &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
+{% endblock %}</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
