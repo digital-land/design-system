@@ -36,7 +36,9 @@ example_template = env.get_template("iframe-base.html")
 component_template = env.get_template("component-page.html")
 
 # data for organisation autocomplete
-orgs = [{"value": k, "text": v} for k, v in organisation_mapper.all().items()]
+orgs = [
+    {"value": k, "text": v} for k, v in organisation_mapper.organisations.all().items()
+]
 
 # init markdown
 # give it access to the configured jinja.environment
