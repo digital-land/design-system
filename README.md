@@ -36,8 +36,8 @@ If you want to include an example add the following to your markdown:
         "url": "example.html",
         "size": "s"
     },
-    "component": {
-        "name": "feedback-panel"
+    "example": {
+        "path": "digital-land/components/example"
     }
     }) }}
 
