@@ -36,7 +36,7 @@
 
 {% block footer %}
 {% set github_url = "https://github.com/digital-land/design-system" %}
-{% set licence_url = licence_url | default(github_url + 'blob/master/LICENSE') %}
+{% set licence_url = licence_url | default(github_url + '/blob/master/LICENSE') %}
 {{ govukFooter({
     "classes": "app-footer app-footer--full",
     "containerClasses" : "app-width-container",
