@@ -3,13 +3,13 @@ BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
 init: submodule
 	pip3 install --upgrade -r requirements.txt
-	cd frontend && pip install -e . && npm install
+	cd $(FRONTEND) && pip install -e . && npm install
 
 submodule:
-	git submodule update --init --recursive --remote
+	git submodule update --init --recursive --remote --merge
 
 dist:
-	mkdir -p docs
+	mkdir -p docs/static
 
 clobber:
 	rm -rf docs
@@ -23,13 +23,15 @@ render/local: dist
 images:
 	cp -r src/digital-land/components/timeline/images docs/components/timeline
 
+FRONTEND=frontend
+
 latest/css:
-	cd frontend && gulp stylesheets
-	rsync -r frontend/digital_land_frontend/static/stylesheets/ docs/static/stylesheets/
+	cd $(FRONTEND) && gulp stylesheets
+	rsync -r $(FRONTEND)/digital_land_frontend/static/stylesheets/ docs/static/stylesheets/
 
 latest/js:
-	cd frontend && gulp js
-	rsync -r frontend/digital_land_frontend/static/javascripts/ docs/static/javascripts/
+	cd $(FRONTEND) && gulp js
+	rsync -r $(FRONTEND)/digital_land_frontend/static/javascripts/ docs/static/javascripts/
 
 local: render/local latest/js latest/css
 
