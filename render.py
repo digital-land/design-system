@@ -133,7 +133,7 @@ def reqs_org_data(documentation):
 
 def generate_component_documentation_pages(component_sets):
     for cset in component_sets:
-        src_dir = f"src/{cset['type']}/components"
+        src_dir = f"documentation/{cset['type']}/components"
         components = get_components(src_dir)
         for component in components:
             jinja_input_path = f"examples/{cset['type']}/components"
@@ -166,7 +166,9 @@ def generate_component_documentation_pages(component_sets):
 def generate_template_documentation_pages(directory):
 
     for p in os.listdir(directory):
-        output_root = directory.replace("src/digital-land/templates", "template")
+        output_root = directory.replace(
+            "documentation/digital-land/templates", "template"
+        )
         if os.path.isdir(os.path.join(directory, p)):
             generate_template_documentation_pages(os.path.join(directory, p))
         elif p.endswith(".md"):
@@ -186,7 +188,9 @@ def generate_template_documentation_pages(directory):
                 section="template",
             )
         else:
-            include_path = os.path.join(directory, p).replace("src", "examples")
+            include_path = os.path.join(directory, p).replace(
+                "documentation", "examples"
+            )
             render(
                 os.path.join(output_root, p),
                 example_template,
@@ -202,23 +206,25 @@ def generate_design_system():
     ]
 
     generate_component_documentation_pages(component_sets)
-    generate_template_documentation_pages("src/digital-land/templates")
+    generate_template_documentation_pages("documentation/digital-land/templates")
 
     # generate the index pages
     render("index.html", index_template)
     render("get-started/index.html", get_started_template)
 
     render_markdown_file(
-        "src/guides/get-started.md", "get-started/index.html", get_started_template
+        "documentation/guides/get-started.md",
+        "get-started/index.html",
+        get_started_template,
     )
     render_markdown_file(
-        "src/govuk/components/README.md",
+        "documentation/govuk/components/README.md",
         "govuk-components/index.html",
         component_template,
         section="govuk-components",
     )
     render_markdown_file(
-        "src/digital-land/components/README.md",
+        "documentation/digital-land/components/README.md",
         "components/index.html",
         component_template,
         section="components",

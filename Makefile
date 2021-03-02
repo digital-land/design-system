@@ -21,7 +21,7 @@ render/local: dist
 	python3 render.py --local
 
 images:
-	cp -r src/digital-land/components/timeline/images docs/components/timeline
+	cp -r documentation/digital-land/components/timeline/images docs/components/timeline
 
 FRONTEND=frontend
 

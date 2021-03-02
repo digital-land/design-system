@@ -2,7 +2,7 @@
 
 import jinja2
 
-from frontend.digital_land_frontend.filters import (
+from digital_land_frontend.filters import (
     get_jinja_template_raw,
     organisation_id_to_name_filter,
     is_list,
@@ -22,7 +22,7 @@ def setup_jinja():
                     "govuk-jinja-components": jinja2.PackageLoader(
                         "govuk_jinja_components"
                     ),
-                    "examples": jinja2.FileSystemLoader(searchpath="./src"),
+                    "examples": jinja2.FileSystemLoader(searchpath="./documentation"),
                 }
             ),
         ]

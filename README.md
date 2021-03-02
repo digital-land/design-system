@@ -22,11 +22,11 @@ All documentation and examples are kept in the `/src` directory.
 
 ### New examples
 
-To add a new example, create a `.html` file in the component directory you are providing the example for. E.g. `src/digital-land/buttons/example.html`.
+To add a new example, create a `.html` file in the component directory you are providing the example for. E.g. `documentation/digital-land/buttons/example.html`.
 
 ### Updating documentation
 
-To update the documentation edit any of the markdown files found in `/src`. E.g. `src/digital-land/components/info-text/README.md`.
+To update the documentation edit any of the markdown files found in `documentation/`. E.g. `documentation/digital-land/components/info-text/README.md`.
 
 If you want to include an example add the following to your markdown:
 
@@ -47,11 +47,11 @@ Remember to add the new component/documentation page to the [component menu](tem
 
 ### Documenting a new component
 
-If a new component has been added digital land [frontend](https://digital-land.github.io/frontend/) you can add documentation for it by creating a directory for it in `src/digital-land` and then creating at least 1 example and a README.md file.
+If a new component has been added digital land [frontend](https://digital-land.github.io/frontend/) you can add documentation for it by creating a directory for it in `documentation/digital-land` and then creating at least 1 example and a README.md file.
 
 A new component should have a directory such as:
 
-    src/digital-land/new-component
+    documentation/digital-land/new-component
         - example.html
         - example2.html
         - README.md
