@@ -2,8 +2,16 @@
 <div class="app-nav__subnav app-hide-mobile">
     <nav class="app-subnav">
 
+        <h4 class="app-subnav__theme" style="user-select: auto;">Base templates</h4>
         <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "dlf-base", "url": "/template/dlf-base"}) }}
+            {{ sublevelNavItem({"text": "Dlf base", "url": "/template/dlf-base"}) }}
+            {{ sublevelNavItem({"text": "Dlf base full width", "url": "/template/dlf-base-full-width"}) }}
+        </ul>
+
+        <h4 class="app-subnav__theme" style="user-select: auto;">Page per thing</h4>
+        <ul class="app-subnav__section">
+            {{ sublevelNavItem({"text": "Index page", "url": "/template/index-page"}) }}
+            {{ sublevelNavItem({"text": "Record", "url": "/template/record"}) }}
         </ul>
 
     </nav>
