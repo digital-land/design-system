@@ -353,20 +353,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
-{{ dlMap({
-    &#34;id&#34;: &#34;aMap&#34;,
-    &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
-}) }}
-&lt;script&gt;
-  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-  exmap = new DLMaps.Map($mapElement).init({
-    geojsonURLs: [
-      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;,
-      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson&#39;
-    ]
-  })
-&lt;/script&gt;</code></pre>
+      <pre class="hljs-container"><code class="jinja">None</code></pre>
     </div>
   </div>
 
@@ -445,15 +432,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
-&lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;div class=&#34;dl-map govuk-!-margin-top-3&#34; id=&#34;aMap&#34; style=&#34;height: 350px;&#34; data-module=&#34;boundary-map&#34; data-geojson-urls=&#34;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson;https://digital-land.github.io/local-authority-district/E06000001/geometry.geojson&#34;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-new DLMaps.Map($mapElement).init({})
-&lt;/script&gt;</code></pre>
+      <pre class="hljs-container"><code class="jinja">None</code></pre>
     </div>
   </div>
 
@@ -532,47 +511,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
-{{ dlMap({
-    &#34;id&#34;: &#34;aMap&#34;,
-    &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;,
-    &#34;attributes&#34;: {
-        &#34;data-geojson-urls&#34;: [
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3090/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3091/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3092/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3093/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3094/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3095/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3096/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3097/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3098/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3099/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3100/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3101/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3102/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3103/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3104/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3105/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3106/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3107/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3108/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3109/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3110/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3111/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3112/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3113/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3114/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3115/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3116/geometry.geojson&#39;,
-            &#39;https://digital-land.github.io/conservation-area/local-authority-eng/YOR/3117/geometry.geojson&#39;
-        ]
-    }
-}) }}
-&lt;script&gt;
-  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-  exmap = new DLMaps.Map($mapElement).init({})
-&lt;/script&gt;</code></pre>
+      <pre class="hljs-container"><code class="jinja">None</code></pre>
     </div>
   </div>
 
@@ -656,20 +595,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
-{{ dlMap({
-    &#34;id&#34;: &#34;aMap&#34;,
-    &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
-}) }}
-&lt;script&gt;
-  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-  exmap = new DLMaps.Map($mapElement).init({
-    geojsonURLs: [
-      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson&#39;,
-      &#39;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E06000014/index.geojson&#39;
-    ]
-  })
-&lt;/script&gt;</code></pre>
+      <pre class="hljs-container"><code class="jinja">None</code></pre>
     </div>
   </div>
 
@@ -725,12 +651,12 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-0433&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-1273&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-0433&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-1273&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
@@ -750,19 +676,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap -%}
-{{- dlMap({
-    &#34;id&#34;: &#34;aMap&#34;,
-    &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;,
-    &#34;attributes&#34;: {
-        &#34;data-geojson-urls&#34;: &#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;
-    },
-    &#34;arialabelledby&#34;: &#34;An example of the output of the digital land map component.&#34;
-}) }}
-&lt;script&gt;
-const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
-new DLMaps.Map($mapElement).init({})
-&lt;/script&gt;</code></pre>
+      <pre class="hljs-container"><code class="jinja">None</code></pre>
     </div>
   </div>
 
@@ -849,30 +763,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">&lt;div class=&#34;map-key&#34;&gt;
-    &lt;h4 class=&#34;govuk-heading-s govuk-visually-hidden&#34;&gt;Key&lt;/h4&gt;
-    &lt;div class=&#34;map-key__entry&#34;&gt;
-        &lt;div class=&#34;map-key__entry__item&#34;&gt;
-        &lt;div class=&#34;bfs-pt__container&#34;&gt;
-            &lt;div class=&#34;bfs-pt bfs-pt--small&#34;&gt;&lt;/div&gt;
-            &lt;span class=&#34;ellipsis&#34;&gt;&amp;hellip;&lt;/span&gt;
-            &lt;div class=&#34;bfs-pt bfs-pt--large&#34;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;p class=&#34;map-key__entry__label&#34;&gt;Sites sized by hectares&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;div class=&#34;bfs-hectares-key dl-map__panel-top-left&#34;&gt;
-    &lt;h3 class=&#34;govuk-heading-s govuk-visually-hidden&#34;&gt;Key&lt;/h3&gt;
-    &lt;h4 class=&#34;bfs-hectares-key__title&#34;&gt;Site size in hectares&lt;/h4&gt;
-    &lt;div class=&#34;bfs-hectares-key__container&#34;&gt;
-        &lt;div class=&#34;bfs-hectare&#34;/&gt;&lt;/div&gt;
-        &lt;div class=&#34;bfs-hectare bfs-hectare--lg&#34;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+      <pre class="hljs-container"><code class="jinja">None</code></pre>
     </div>
   </div>
 
