@@ -73,6 +73,8 @@ def compile_markdown(s):
     html = html.replace("<tr>", '<tr class="govuk-table__row">')
     html = html.replace("<th>", '<th scope="row" class="govuk-table__header">')
     html = html.replace("<td>", '<td class="govuk-table__cell">')
+
+    html = html.replace("<code>", '<code class="dl-code">')
     return html
 
 
