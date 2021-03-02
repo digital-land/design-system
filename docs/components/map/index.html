@@ -277,7 +277,7 @@
         <main id="main-content" class="app-content" role="main">
             <h1 class="govuk-heading-xl">Map component</h1>
 <p class="govuk-body">Use this component when seeing something on a map would be useful for a user.</p>
-<p class="govuk-body">These examples show how to use <code>DLMaps.Map()</code> to create simple maps displaying area boundaries.</p>
+<p class="govuk-body">These examples show how to use <code class="dl-code">DLMaps.Map()</code> to create simple maps displaying area boundaries.</p>
 <h2 class="govuk-heading-l">Show a local authority boundary</h2>
 <p class="govuk-body">We regularly need to show the extent of an area or areas. The most common is the local authority boundary.</p>
 <p class="govuk-body">This example shows the boundaries for <a href="https://digital-land.github.io/organisation/local-authority-eng/HAG/">Harrogate borough council</a> and <a href="https://digital-land.github.io/organisation/local-authority-eng/YOR/">City of York Council</a>.</p>
@@ -365,10 +365,10 @@
 
 <h2 class="govuk-heading-l">Show multiple shapes</h2>
 <p class="govuk-body">There are a number of ways to pass ursl to geojson files to the map component.</p>
-<p class="govuk-body">All urls must point to <code>.geojson</code> files.</p>
+<p class="govuk-body">All urls must point to <code class="dl-code">.geojson</code> files.</p>
 <h3 class="govuk-heading-m">HTML attribute</h3>
-<p class="govuk-body">You can pass a list of urls, separate by <code>;</code>, to the <code>data-geojson-urls</code> attribute of the map element.</p>
-<pre class="hljs-container"><code>&lt;div class="dl-map" id="aMap" 
+<p class="govuk-body">You can pass a list of urls, separate by <code class="dl-code">;</code>, to the <code class="dl-code">data-geojson-urls</code> attribute of the map element.</p>
+<pre class="hljs-container"><code class="dl-code">&lt;div class="dl-map" id="aMap" 
     data-module="boundary-map"
     data-geojson-urls="/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson;/local-authority-district/E06000001/geometry.geojson"
 &gt;
@@ -443,7 +443,7 @@ new DLMaps.Map($mapElement).init({})
 <!-- end app-example-wrapper -->
 
 <h3 class="govuk-heading-m">Jinja macro option</h3>
-<p class="govuk-body">Use the <code>data-geojson-urls</code> option when calling the jinja macro. It accepts a string with urls separated by <code>;</code> or it accepts an array urls.</p>
+<p class="govuk-body">Use the <code class="dl-code">data-geojson-urls</code> option when calling the jinja macro. It accepts a string with urls separated by <code class="dl-code">;</code> or it accepts an array urls.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-multiple.html" class="govuk-link" target="_blank"
@@ -522,7 +522,7 @@ new DLMaps.Map($mapElement).init({})
 <!-- end app-example-wrapper -->
 
 <h3 class="govuk-heading-m">JS init option</h3>
-<p class="govuk-body">An alternative approach is to provide the url(s) to the <code>geojsonUrls</code> option which initalising the module.</p>
+<p class="govuk-body">An alternative approach is to provide the url(s) to the <code class="dl-code">geojsonUrls</code> option which initalising the module.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -607,7 +607,7 @@ new DLMaps.Map($mapElement).init({})
 
 <h2 class="govuk-heading-l">Options</h2>
 <h3 class="govuk-heading-m">Aria Labelledby</h3>
-<p class="govuk-body">You can added a <code>aria-labelledby</code> attribute by adding text to the optional <code>arialabelledby</code> option when using the component.</p>
+<p class="govuk-body">You can added a <code class="dl-code">aria-labelledby</code> attribute by adding text to the optional <code class="dl-code">arialabelledby</code> option when using the component.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-labelledby.html" class="govuk-link" target="_blank"
@@ -651,12 +651,12 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-7988&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-9913&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-7988&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-9913&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;

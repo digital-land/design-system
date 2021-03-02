@@ -281,33 +281,33 @@
 <p class="govuk-body">When you have a list of values that is cumbersome to scan. Roughly 20+ items.</p>
 <p class="govuk-body">When a user needs to find an item quickly and knows an attribute of the item to help find it. For example, this could be a name or reference number.</p>
 <h2 class="govuk-heading-l">How to use</h2>
-<p class="govuk-body">It is a modules in <code>dl-frontend.js</code>. This script is loaded on all digital land pages.</p>
+<p class="govuk-body">It is a modules in <code class="dl-code">dl-frontend.js</code>. This script is loaded on all digital land pages.</p>
 <p class="govuk-body">To use it:</p>
 <ul class="govuk-list govuk-list--bullet">
 <li>markup the list correctly</li>
 <li>instantiate the JS module</li>
 </ul>
 <h3 class="govuk-heading-m">Markup the list</h3>
-<p class="govuk-body">Add <code>data-filter="list"</code> to the element that contains the list.</p>
-<p class="govuk-body">Add <code>data-filter="item"</code> to every item in the list. Elements with the <code>data-filter="item"</code> attribute will be elements shown and hidden depending on the search term.</p>
-<p class="govuk-body">Add <code>data-filter="match-content"</code> on any element contained in a <code>data-filter="item"</code> element where you want the content to be searchable. This is optional. If you do not include a <code>data-filter="match-content"</code> the module will look for any <code>&lt;a&gt;</code> element within the <code>data-filter="item"</code> element.</p>
-<p class="govuk-body">Use <code>data-filter="match-content"</code> if you want more than one term to be searchable. For example, make the an id and the name of an item searchable:</p>
-<pre class="hljs-container"><code>&lt;tr data-filter="item"&gt;
+<p class="govuk-body">Add <code class="dl-code">data-filter="list"</code> to the element that contains the list.</p>
+<p class="govuk-body">Add <code class="dl-code">data-filter="item"</code> to every item in the list. Elements with the <code class="dl-code">data-filter="item"</code> attribute will be elements shown and hidden depending on the search term.</p>
+<p class="govuk-body">Add <code class="dl-code">data-filter="match-content"</code> on any element contained in a <code class="dl-code">data-filter="item"</code> element where you want the content to be searchable. This is optional. If you do not include a <code class="dl-code">data-filter="match-content"</code> the module will look for any <code class="dl-code">&lt;a&gt;</code> element within the <code class="dl-code">data-filter="item"</code> element.</p>
+<p class="govuk-body">Use <code class="dl-code">data-filter="match-content"</code> if you want more than one term to be searchable. For example, make the an id and the name of an item searchable:</p>
+<pre class="hljs-container"><code class="dl-code">&lt;tr data-filter="item"&gt;
     &lt;td&gt;&lt;a class="govuk-link" href="./dev-plan-buc-bmwlp" data-filter="match-content"&gt;dev-plan-buc-bmwlp&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;p class="govuk-body" data-filter="match-content"&gt;Buckinghamshire Minerals and Waste Local Plan 2016-2036&lt;/p&gt;
     &lt;/td&gt;
 &lt;/tr&gt;
 </code></pre>
 <p class="govuk-body">Insert the form with</p>
-<pre class="hljs-container"><code>&lt;form class="filter-organisations-list__form" data-filter="form"&gt;
+<pre class="hljs-container"><code class="dl-code">&lt;form class="filter-organisations-list__form" data-filter="form"&gt;
     &lt;label class="filter-list__label govuk-label govuk-!-font-weight-bold" for="filter-organisations-list"&gt;I'm looking for&lt;/label&gt;
     &lt;input class="filter-list__input govuk-input" type="text" id="filter-organisations-list" placeholder="For example, Harrogate Borough Council"&gt;
 &lt;/form&gt;
 </code></pre>
-<p class="govuk-body">In a jinja template you can set the placeholder text but setting <code>filterInputPlaceholder</code>. E.g:</p>
-<p class="govuk-body">The filter module will update a count if you provide pointers to it. The count element consists of a count element with the class <code>.js-list-count</code> and a matching count element for accessibility, with the class <code>.js-accessible-list-count"</code>.</p>
+<p class="govuk-body">In a jinja template you can set the placeholder text but setting <code class="dl-code">filterInputPlaceholder</code>. E.g:</p>
+<p class="govuk-body">The filter module will update a count if you provide pointers to it. The count element consists of a count element with the class <code class="dl-code">.js-list-count</code> and a matching count element for accessibility, with the class <code class="dl-code">.js-accessible-list-count"</code>.</p>
 <p class="govuk-body">The count element might look like:</p>
-<pre class="hljs-container"><code>&lt;div class="count-wrapper"&gt;
+<pre class="hljs-container"><code class="dl-code">&lt;div class="count-wrapper"&gt;
     &lt;p class="govuk-body" aria-hidden="true"&gt;Showing &lt;span class="js-list-count"&gt;&lt;/span&gt; records.&lt;/p&gt;
     &lt;p class="govuk-visually-hidden"&gt;There are
         &lt;span class="js-accessible-list-count"&gt;&lt;/span&gt;
@@ -315,8 +315,8 @@
 &lt;/div&gt;
 </code></pre>
 <h3 class="govuk-heading-m">Instantiate JS</h3>
-<p class="govuk-body">Grab the form element first. Then run <code>FilterList.init()</code>. The <code>init</code> function accepts some options. E.g:</p>
-<pre class="hljs-container"><code>&lt;script&gt;
+<p class="govuk-body">Grab the form element first. Then run <code class="dl-code">FilterList.init()</code>. The <code class="dl-code">init</code> function accepts some options. E.g:</p>
+<pre class="hljs-container"><code class="dl-code">&lt;script&gt;
     const $form = document.querySelector('[data-filter="form"]');
     new window.DLFrontend.FilterList($form).init({
         list_section_selector: '.index-list-wrapper',
@@ -324,8 +324,8 @@
     })
 &lt;/script&gt;
 </code></pre>
-<p class="govuk-body"><code>list_section_selector</code> - the element that contains the list
-<code>count_wrapper_selector</code> - the element that contains the count(s)</p>
+<p class="govuk-body"><code class="dl-code">list_section_selector</code> - the element that contains the list
+<code class="dl-code">count_wrapper_selector</code> - the element that contains the count(s)</p>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">

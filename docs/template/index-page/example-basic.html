@@ -1,8 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" class="govuk-template dlf-page-wide">
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script><!DOCTYPE html>
+<html lang="en" class="govuk-template ">
   <head>
     <meta charset="utf-8">
-    <title>Template | Design system | Digital Land</title>
+    <title>Test data | Digital Land</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c"> 
     
@@ -17,13 +34,12 @@
     
 
     
-
+    
 	<meta name="dl-template" content="dlf-base.html">
 	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
 	
-<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-<link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
-
+    <script src="https://digital-land.github.io/javascripts/dl-maps.js"></script>
+    
     
     
     <meta property="og:image" content="/images/govuk-opengraph-image.png">
@@ -111,177 +127,61 @@
 
 
     
-
-
-<div class="govuk-phase-banner govuk-width-container">
+      <div class="govuk-width-container ">
+        
+  
+<div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
-  styleguide
+  prototype
 </strong><span class="govuk-phase-banner__text">
-      This is a <a href="/design-system">styleguide for digital land</a>
+      This is a prototype. Please provide feedback to the Digital Land team.
     </span>
   </p>
 </div>
-
-
-<div class="app-nav" id="top">
-	<nav class="app-nav__wrap govuk-clearfix">
-		<ul class="app-nav__list govuk-width-container">
-			
-			
-
-
-<li
-	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/get-started"
-		data-topnav="GET STARTED">Get started</a>
-</li>
-
-			
-
-
-<li
-	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/components"
-		data-topnav="COMPONENTS">Components</a>
-</li>
-
-			
-
-
-<li
-	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/govuk-components"
-		data-topnav="GOVUK">GOVUK</a>
-</li>
-
-			
-
-
-<li
-	class="app-nav__list-item">
-	<a class="govuk-link" href="/design-system/template"
-		data-topnav="TEMPLATES">Templates</a>
-</li>
-
-			
-		</ul>
-	</nav>
+  
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    
+  
+  </ol>
 </div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
 
+    <h1 class="govuk-heading-xl">Test data</h1>
+        
+    
 
+    
 
+    
 
+        
 
+        
 
-
-<div class="app-nav__body govuk-width-container">
-<div class="app-nav__subnav app-hide-mobile">
-    <nav class="app-subnav">
-
-        <h4 class="app-subnav__theme" style="user-select: auto;">Base templates</h4>
-        <ul class="app-subnav__section">
-            
-<li
-	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/dlf-base">Dlf base</a>
-</li>
-
-            
-<li
-	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/dlf-base-full-width">Dlf base full width</a>
-</li>
-
-        </ul>
-
-        <h4 class="app-subnav__theme" style="user-select: auto;">Page per thing</h4>
-        <ul class="app-subnav__section">
-            
-<li
-	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/index-page">Index page</a>
-</li>
-
-            
-<li
-	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/record">Record</a>
-</li>
-
-        </ul>
-
-    </nav>
-
-</div><div class="app-nav__content">
-        <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Templates</h1>
-<p class="govuk-body">We use a number of jinja templates to generate the pages on the <a href="https://digital-land.github.io/">digital land site</a>.</p>
-<p class="govuk-body">If you are creating any pages for digital land, you should try to use one of the available templates. At a minimum you should extend on of the base templates. We have 2 main base templates to use depending on your need.</p>
-<ul class="govuk-list govuk-list--bullet">
-<li><a href="dlf-base">dlf-base.html</a> - the main base template. It is customisable but provides you with the basic building blocks you will need.</li>
-<li>dlf-base--full-width.html - this makes the page wider than the standard 960px. It should be used when you need to make a page that needs to make full use of the available width, for example when generating a map to display a lot of data.</li>
-</ul>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
-<div class="feedback-panel">
-    <h3 class="feedback-panel__heading">Help improve this page</h3>
-    <p>If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a></p>
-</div>
 
         </main>
-    </div>
-</div>
-
-
-
-
-
-
-    
-
-
-<footer class="govuk-footer app-footer app-footer--full" role="contentinfo"
-        >
-  <div class="govuk-width-container app-width-container">
-    
-      <div class="govuk-footer__navigation">
-        
-          <div class="govuk-footer__section">
-            <h2 class="govuk-footer__heading govuk-heading-m">Related resources</h2>
-            
-              
-              <ul class="govuk-footer__list govuk-footer__list--columns-1">
-                
-                  
-                    <li class="govuk-footer__list-item">
-                      <a class="govuk-footer__link" href="https://design-system.service.gov.uk/">
-                        GOV.UK Design System
-                      </a>
-                    </li>
-                  
-                
-                  
-                    <li class="govuk-footer__list-item">
-                      <a class="govuk-footer__link" href="https://www.gov.uk/guidance/government-design-principles">
-                        Government Design Principles
-                      </a>
-                    </li>
-                  
-                
-                  
-                    <li class="govuk-footer__list-item">
-                      <a class="govuk-footer__link" href="https://www.gov.uk/service-manual">
-                        GOV.UK Service Manual
-                      </a>
-                    </li>
-                  
-                
-              </ul>
-            
-          </div>
-        
       </div>
-      <hr class="govuk-footer__section-break">
+    
+
+    
+  
+
+
+
+
+
+
+
+<footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
@@ -312,7 +212,7 @@
           
           
             <div class="govuk-footer__meta-custom">
-              The <a class="govuk-footer__link" href="https://github.com/digital-land/design-system">software</a> used to build these pages is <a class="govuk-footer__link" href="https://github.com/digital-land/design-systemblob/master/LICENSE">open source</a>.
+              The <a class="govuk-footer__link" href="https://github.com/digital-land/digital-land/">software</a> and <a class="govuk-footer__link" href="https://github.com/digital-land/digital-land/">data</a> used to build these pages is <a class="govuk-footer__link" href="https://github.com/digital-land/digital-land/blob/master/LICENSE">open source</a>.
             </div>
           
         
@@ -351,7 +251,7 @@
 
 
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+    <script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- end google analytics -->
 	
@@ -363,7 +263,6 @@
 	</script>
 
 	
-
 	
 	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
 	<script>
@@ -373,27 +272,53 @@
 	
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
 
+    
+        
+    
 
+    
+        
+        <script>
+            const showCounts = false
+            const $hist = document.querySelector('[data-historical="form"]');
+            new window.DLFrontend.FilterHistorical($hist).init({
+                triggerEvents: "list:filtered",
+                listWrapperSelector: '.index-list-wrapper',
+                showCountsWhenShowingAll: showCounts
+            })
+        </script>
+    
 
-<script>
-    // Initialise back to top
-    var $btt = document.querySelector('[data-module*="back-to-top"]')
-    new window.DLFrontend.BackToTop($btt).init({
-        footer_selector: ".govuk-footer"
-    });
-</script>
-<script>
-    // Initialise tabs
-    var $tabs = document.querySelectorAll('[data-module="app-tabs"]')
-    $tabs.forEach(function ($tab) {
-        new DLFrontend.AppTabs($tab).init()
-    })
-</script>
 
   </body>
+</html>
+    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+
+    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+
+    <script>
+        const $picker = document.querySelector('#organisation-search')
+        if ($picker) {
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: $picker
+            })
+        }
+    </script>
+    
+</body>
 </html>
