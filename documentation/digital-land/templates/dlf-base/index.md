@@ -29,9 +29,10 @@ The default max width is 1020px (with margins the content width is 960px). You c
 | `head`   | block       | Use this to override the assets digital land loads in the head. |
 | `dlHead` | block | Use this instead of the `head` block to add to the things digital land loads in the head |
 | `dlMetaTemplate` | block | Use this block to add a `<meta name="dl-template" content="TEMPLATE">`, replace TEMPLATE with template name |
+| `dlMapAssets` | block | This block contains assets needed for the maps on the digital land website |
+| `includesMap` | variable | If true the assets needed for dl maps will be loaded |
 | `dlCss` | block | Use to override the stylesheets digital land loads as default |
 | `includeAutocomplete` | variable | If true the assets needed for the autocomplete component will be loaded |
-| `includesMap` | variable | If true the assets needed for dl maps will be loaded |
 | `header` | block | Inherited from GOV.UK base. By default, includes our cookie banner and top navigation banner |
 | `beforeContent` | block | Inherited from GOV.UK base. Includes prototype banner and breadcrumbs block |
 | `dl_breadcrumbs` | block | Hook to insert breadcrumbs component for the page |
