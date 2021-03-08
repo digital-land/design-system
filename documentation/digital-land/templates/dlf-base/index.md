@@ -25,10 +25,11 @@ The default max width is 1020px (with margins the content width is 960px). You c
 | Option name  | Option type  | Description |
 | ----------- | ----------- | ----------- |
 | `pageTitle`  | block      | Add a title for the page. Will be added to the `<meta>` tag in the head |
-| `staticPath` | variable | Option to set the root of the path to static assets, usually set in the renderer |
+| `staticPath` | variable | Option to set the root of the path to static assets, usually set in the renderer. Defaults to `/static` |
 | `head`   | block       | Use this to override the assets digital land loads in the head. |
 | `dlHead` | block | Use this instead of the `head` block to add to the things digital land loads in the head |
 | `dlMetaTemplate` | block | Use this block to add a `<meta name="dl-template" content="TEMPLATE">`, replace TEMPLATE with template name |
+| `templateName` | variable | Use this to name the template or base template the page uses. Helpful when things go wrong. Defaults to `dlf-base.html` |
 | `dlMapAssets` | block | This block contains assets needed for the maps on the digital land website |
 | `includesMap` | variable | If true the assets needed for dl maps will be loaded |
 | `dlCss` | block | Use to override the stylesheets digital land loads as default |
