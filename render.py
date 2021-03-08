@@ -10,7 +10,7 @@ import markdown
 
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
-from frontend.digital_land_frontend.filters import organisation_mapper
+from digital_land_frontend.filters import organisation_mapper
 
 from frontmatter import Frontmatter
 

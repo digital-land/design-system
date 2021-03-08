@@ -20,8 +20,8 @@ def setup_jinja():
             jinja2.FileSystemLoader(searchpath="./templates"),
             jinja2.PrefixLoader(
                 {
-                    "digital-land-frontend": jinja2.FileSystemLoader(
-                        searchpath="./frontend/digital_land_frontend/templates"
+                    "digital-land-frontend": jinja2.PackageLoader(
+                        "digital_land_frontend"
                     ),
                     "govuk-jinja-components": jinja2.PackageLoader(
                         "govuk_jinja_components"

@@ -1,12 +1,9 @@
 # current git branch
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
-init: submodule
+init: 
+	pip3 install --upgrade pip
 	pip3 install --upgrade -r requirements.txt
-	cd $(FRONTEND) && pip install -e . && npm install
-
-submodule:
-	git submodule update --init --recursive --remote --merge
 
 dist:
 	mkdir -p docs/static
@@ -23,7 +20,8 @@ render/local: dist
 images:
 	cp -r documentation/digital-land/components/timeline/images docs/components/timeline
 
-FRONTEND=frontend
+# should point to local version of frontend
+FRONTEND=../frontend
 
 latest/css:
 	cd $(FRONTEND) && gulp stylesheets
