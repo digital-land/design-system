@@ -9,8 +9,9 @@
 {% endmacro %}
 
 {% macro sublevelNavItem(params) %}
+{% set urlRoot = "" if params.current_item in ["/components", "/govuk-components", "/templates"]  else "../"  %}
 <li
 	class="app-subnav__section-item{% if params.classes %} {{ params.classes }}{% endif %}{% if params.current %} app-subnav__section-item--current{% endif %}">
-	<a class="app-subnav__link govuk-link" href="{{ urlPath }}{{ params.url }}">{{ params.text }}</a>
+	<a class="app-subnav__link govuk-link" href="{{ urlRoot }}{{ params.url }}">{{ params.text }}</a>
 </li>
 {% endmacro %}

@@ -17,6 +17,14 @@ from frontmatter import Frontmatter
 docs = "docs/"
 
 
+def path_to_url(p):
+    if p.startswith("docs"):
+        p = p[4:]
+    if p.endswith("/index.html"):
+        p = p[:-11]
+    return p
+
+
 def render(path, template, **kwargs):
     path = os.path.join(docs, path)
     directory = os.path.dirname(path)
@@ -24,7 +32,7 @@ def render(path, template, **kwargs):
         os.makedirs(directory)
 
     with open(path, "w") as f:
-        f.write(template.render(**kwargs))
+        f.write(template.render(path=path_to_url(path), **kwargs))
 
 
 env = setup_jinja()

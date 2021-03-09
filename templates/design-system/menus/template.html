@@ -4,14 +4,14 @@
 
         <h4 class="app-subnav__theme" style="user-select: auto;">Base templates</h4>
         <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "Dlf base", "url": "/template/dlf-base"}) }}
-            {{ sublevelNavItem({"text": "Dlf base full width", "url": "/template/dlf-base-full-width"}) }}
+            {{ sublevelNavItem({"text": "Dlf base", "url": "dlf-base", "current_item": path}) }}
+            {{ sublevelNavItem({"text": "Dlf base full width", "url": "dlf-base-full-width", "current_item": path}) }}
         </ul>
 
         <h4 class="app-subnav__theme" style="user-select: auto;">Page per thing</h4>
         <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "Index page", "url": "/template/index-page"}) }}
-            {{ sublevelNavItem({"text": "Record", "url": "/template/record"}) }}
+            {{ sublevelNavItem({"text": "Index page", "url": "index-page", "current_item": path}) }}
+            {{ sublevelNavItem({"text": "Record", "url": "record", "current_item": path}) }}
         </ul>
 
     </nav>
