@@ -181,37 +181,59 @@
 <div class="app-nav__subnav app-hide-mobile">
     <nav class="app-subnav">
 
-        <h4 class="app-subnav__theme" style="user-select: auto;">Base templates</h4>
-        <ul class="app-subnav__section">
-            
+        
+
+<h4 class="app-subnav__theme">Base templates</h4>
+
+<ul class="app-subnav__section">
+
+	
+	
+
 <li
-	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/dlf-base">Dlf base</a>
+	class="app-subnav__section-item app-subnav__section-item--current">
+	<a class="app-subnav__link govuk-link" href="../dlf-base">Dlf base</a>
 </li>
 
-            
+
+	
+	
+
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/dlf-base-full-width">Dlf base full width</a>
+	<a class="app-subnav__link govuk-link" href="../dlf-base-full-width">Dlf base full width</a>
 </li>
 
-        </ul>
 
-        <h4 class="app-subnav__theme" style="user-select: auto;">Page per thing</h4>
-        <ul class="app-subnav__section">
-            
+</ul>
+
+
+        
+
+<h4 class="app-subnav__theme">Page per thing</h4>
+
+<ul class="app-subnav__section">
+
+	
+	
+
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/index-page">Index page</a>
+	<a class="app-subnav__link govuk-link" href="../index-page">Index page</a>
 </li>
 
-            
+
+	
+	
+
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="/design-system/template/record">Record</a>
+	<a class="app-subnav__link govuk-link" href="../record">Record</a>
 </li>
 
-        </ul>
+
+</ul>
+
 
     </nav>
 
@@ -507,7 +529,11 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">None</code></pre>
+      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/dlf-base.html&#34; %}
+
+{% block content %}
+  &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
+{% endblock %}</code></pre>
     </div>
   </div>
 
@@ -535,7 +561,7 @@
 <tr class="govuk-table__row">
 <td class="govuk-table__cell"><code class="dl-code">staticPath</code></td>
 <td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">Option to set the root of the path to static assets, usually set in the renderer</td>
+<td class="govuk-table__cell">Option to set the root of the path to static assets, usually set in the renderer. Defaults to <code class="dl-code">/static</code></td>
 </tr>
 <tr class="govuk-table__row">
 <td class="govuk-table__cell"><code class="dl-code">head</code></td>
@@ -551,6 +577,11 @@
 <td class="govuk-table__cell"><code class="dl-code">dlMetaTemplate</code></td>
 <td class="govuk-table__cell">block</td>
 <td class="govuk-table__cell">Use this block to add a <code class="dl-code">&lt;meta name="dl-template" content="TEMPLATE"&gt;</code>, replace TEMPLATE with template name</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">templateName</code></td>
+<td class="govuk-table__cell">variable</td>
+<td class="govuk-table__cell">Use this to name the template or base template the page uses. Helpful when things go wrong. Defaults to <code class="dl-code">dlf-base.html</code></td>
 </tr>
 <tr class="govuk-table__row">
 <td class="govuk-table__cell"><code class="dl-code">dlMapAssets</code></td>
