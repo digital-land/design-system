@@ -1,35 +1,38 @@
-{% from "design-system/components/nav/macro.html" import sublevelNavItem %}
+{% from "design-system/components/nav/macro.html" import sublevelNavMenu %}
 <div class="app-nav__subnav app-hide-mobile">
     <nav class="app-subnav">
 
-        <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "Accordion", "url": "accordion", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Back link", "url": "back-link", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Breadcrumbs", "url": "breadcrumbs", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Button", "url": "button", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Character count", "url": "character-count", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Checkboxes", "url": "checkboxes", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Date input", "url": "date-input", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Details", "url": "details", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Error message", "url": "error-message", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Error summary", "url": "error-summary", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Fieldset", "url": "fieldset", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "File upload", "url": "file-upload", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Footer", "url": "footer", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Header", "url": "header", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Inset text", "url": "inset-text", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Panel", "url": "panel", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Phase banner", "url": "phase-banner", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Radios", "url": "radios", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Select", "url": "select", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Summary list", "url": "summary-list", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Table", "url": "table", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Tabs", "url": "tabs", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Tag", "url": "tag", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Text input", "url": "text-input", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Textarea", "url": "textarea", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Warning text", "url": "warning-text", "current_item": path}) }}
-        </ul>
+        {{ sublevelNavMenu({
+            "current_path": path,
+            "items": [
+                { "text": "Accordion", "url": "accordion" },
+                { "text": "Back link", "url": "back-link" },
+                { "text": "Breadcrumbs", "url": "breadcrumbs" },
+                { "text": "Button", "url": "button" },
+                { "text": "Character count", "url": "character-count" },
+                { "text": "Checkboxes", "url": "checkboxes" },
+                { "text": "Date input", "url": "date-input" },
+                { "text": "Details", "url": "details" },
+                { "text": "Error message", "url": "error-message" },
+                { "text": "Error summary", "url": "error-summary" },
+                { "text": "Fieldset", "url": "fieldset" },
+                { "text": "File upload", "url": "file-upload" },
+                { "text": "Footer", "url": "footer" },
+                { "text": "Header", "url": "header" },
+                { "text": "Inset text", "url": "inset-text" },
+                { "text": "Panel", "url": "panel" },
+                { "text": "Phase banner", "url": "phase-banner" },
+                { "text": "Radios", "url": "radios" },
+                { "text": "Select", "url": "select" },
+                { "text": "Summary list", "url": "summary-list" },
+                { "text": "Table", "url": "table" },
+                { "text": "Tabs", "url": "tabs" },
+                { "text": "Tag", "url": "tag" },
+                { "text": "Text input", "url": "text-input" },
+                { "text": "Textarea", "url": "textarea" },
+                { "text": "Warning text", "url": "warning-text" }
+            ]
+        }) }}
 
     </nav>
 

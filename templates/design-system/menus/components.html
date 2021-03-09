@@ -1,23 +1,29 @@
-{% from "design-system/components/nav/macro.html" import sublevelNavItem %}
+{% from "design-system/components/nav/macro.html" import sublevelNavMenu %}
 <div class="app-nav__subnav app-hide-mobile">
     <nav class="app-subnav">
 
+        {{ sublevelNavMenu({
+            "current_path": path,
+            "items": [
+                { "text": "Autocomplete", "url": "autocomplete" },
+                { "text": "Buttons", "url": "button" },
+                { "text": "Data item", "url": "data-item" },
+                { "text": "Data record", "url": "data-record" },
+                { "text": "Document", "url": "document" },
+                { "text": "Feedback panel", "url": "feedback-panel" },
+                { "text": "Hero", "url": "hero" },
+                { "text": "Info text", "url": "info-text" },
+                { "text": "Input copy", "url": "input-copy" },
+                { "text": "List filter", "url": "list-filter" },
+                { "text": "Map", "url": "map" },
+                { "text": "Page feedback", "url": "page-feedback" },
+                { "text": "Pagination", "url": "pagination" },
+                { "text": "Related content", "url": "related-content" },
+                { "text": "Timeline", "url": "timeline" }
+            ]
+        }) }}
         <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "Autocomplete", "url": "autocomplete", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Buttons", "url": "button", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Data item", "url": "data-item", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Data record", "url": "data-record", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Document", "url": "document", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Feedback panel", "url": "feedback-panel", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Hero", "url": "hero", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Info text", "url": "info-text", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Input copy", "url": "input-copy", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "List filter", "url": "list-filter", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Map", "url": "map", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Page feedback", "url": "page-feedback", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Pagination", "url": "pagination", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Related content", "url": "related-content", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Timeline", "url": "timeline", "current_item": path}) }}
+            
         </ul>
 
     </nav>

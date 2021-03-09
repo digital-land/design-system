@@ -12,6 +12,8 @@ from digital_land_frontend.filters import (
     contains_historical,
 )
 
+from bin.filters import is_current_page
+
 
 def setup_jinja():
     # register templates
@@ -41,6 +43,7 @@ def setup_jinja():
     env.filters["clean_slug"] = strip_slug
     env.filters["is_historical"] = is_historical
     env.filters["contains_historical"] = contains_historical
+    env.filters["is_current_page"] = is_current_page
 
     # set variables to make available to all templates
     env.globals["staticPath"] = "https://digital-land.github.io"

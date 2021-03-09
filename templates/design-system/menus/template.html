@@ -1,18 +1,24 @@
-{% from "design-system/components/nav/macro.html" import sublevelNavItem %}
+{% from "design-system/components/nav/macro.html" import sublevelNavMenu %}
 <div class="app-nav__subnav app-hide-mobile">
     <nav class="app-subnav">
 
-        <h4 class="app-subnav__theme" style="user-select: auto;">Base templates</h4>
-        <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "Dlf base", "url": "dlf-base", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Dlf base full width", "url": "dlf-base-full-width", "current_item": path}) }}
-        </ul>
+        {{ sublevelNavMenu({
+            "heading": "Base templates",
+            "current_path": path,
+            "items": [
+                { "text": "Dlf base", "url": "dlf-base" },
+                { "text": "Dlf base full width", "url": "dlf-base-full-width" }
+            ]
+        }) }}
 
-        <h4 class="app-subnav__theme" style="user-select: auto;">Page per thing</h4>
-        <ul class="app-subnav__section">
-            {{ sublevelNavItem({"text": "Index page", "url": "index-page", "current_item": path}) }}
-            {{ sublevelNavItem({"text": "Record", "url": "record", "current_item": path}) }}
-        </ul>
+        {{ sublevelNavMenu({
+            "heading": "Page per thing",
+            "current_path": path,
+            "items": [
+                { "text": "Index page", "url": "index-page" },
+                { "text": "Record", "url": "record" }
+            ]
+        }) }}
 
     </nav>
 

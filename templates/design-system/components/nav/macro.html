@@ -9,9 +9,23 @@
 {% endmacro %}
 
 {% macro sublevelNavItem(params) %}
-{% set urlRoot = "" if params.current_item in ["/components", "/govuk-components", "/templates"]  else "../"  %}
+{% set urlRoot = "" if params.current_path in ["/components", "/govuk-components", "/templates"]  else "../"  %}
 <li
 	class="app-subnav__section-item{% if params.classes %} {{ params.classes }}{% endif %}{% if params.current %} app-subnav__section-item--current{% endif %}">
-	<a class="app-subnav__link govuk-link" href="{{ urlRoot }}{{ params.url }}">{{ params.text }}</a>
+	<a class="app-subnav__link govuk-link" href="{{ params.url }}">{{ params.text }}</a>
 </li>
+{% endmacro %}
+
+{% macro sublevelNavMenu(params) %}
+{% set urlRoot = "" if params.current_path in ["/components", "/govuk-components", "/template"]  else "../"  %}
+{% if params.heading -%}
+<h4 class="app-subnav__theme">{{ params.heading }}</h4>
+{%- endif %}
+
+<ul class="app-subnav__section{{ ' ' + params.classes if params.classes }}">
+{% for item in params['items'] %}
+	{% set url = urlRoot + item.url %}
+	{{ sublevelNavItem({"text": item.text, "url": url, "current": params.current_path|is_current_page(item.url)}) }}
+{% endfor %}
+</ul>
 {% endmacro %}
