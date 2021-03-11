@@ -1,9 +1,25 @@
+{% macro toplevelNav(params) %}
+<div class="app-nav" id="top">
+	<nav class="app-nav__wrap govuk-clearfix">
+		<ul class="app-nav__list govuk-width-container">
+		{% for item in params['items']  -%}
+			{%- set is_current_section = true if item.url in params.current_path|default("/") else false %}
+			{{- toplevelNavItem({
+				"current": is_current_section,
+				"url": item.url,
+				"text": item.text
+			}) -}}
+		{%- endfor %}
+		</ul>
+	</nav>
+</div>
+{% endmacro %}
+
 {% macro toplevelNavItem(params) %}
-{#{% set current_page_section = request.path | reduce_url_to_parent %}#}
 {% set urlPath = urlPath|default("/") %}
 <li
 	class="app-nav__list-item{% if params.current %} app-nav--current-page{% endif %}">
-	<a class="govuk-link" href="{{ urlPath }}{{ params.url }}"
+	<a class="govuk-link app-nav__link" href="{{ urlPath }}{{ params.url }}"
 		data-topnav="{{ params.text | upper }}">{{ params.text }}</a>
 </li>
 {% endmacro %}

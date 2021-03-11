@@ -1,13 +1,11 @@
-{% from "design-system/components/nav/macro.html" import toplevelNavItem %}
-<div class="app-nav" id="top">
-	<nav class="app-nav__wrap govuk-clearfix">
-		<ul class="app-nav__list govuk-width-container">
-			{% block topLevelNavItems %}
-			{{ toplevelNavItem({"text": "Get started", "url": "/get-started"}) }}
-			{{ toplevelNavItem({"text": "Components", "url": "/components"}) }}
-			{{ toplevelNavItem({"text": "GOVUK", "url": "/govuk-components"}) }}
-			{{ toplevelNavItem({"text": "Templates", "url": "/template"}) }}
-			{% endblock %}
-		</ul>
-	</nav>
-</div>
+{% from "design-system/components/nav/macro.html" import toplevelNav %}
+
+{{ toplevelNav({
+	"current_path": path,
+	"items": [
+		{"text": "Get started", "url": "/get-started"},
+		{"text": "Components", "url": "/components"},
+		{"text": "GOVUK", "url": "/govuk-components"},
+		{"text": "Templates", "url": "/template"}
+	]
+}) }}
