@@ -1,0 +1,18 @@
+{% extends "digital-land-frontend/dlf-base.html" %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Default page template</h1>
+{% endblock %}
+
+{% block footer %}
+    {%- from "digital-land-frontend/components/feedback/macro.html" import dlFeedback %}
+    {{ dlFeedback({
+        "text": "Spotted an issue? Let us know so we can improve the data.",
+        "action": {
+            "text": "There is something wrong with the data",
+            "href": "DigitalLand@communities.gov.uk"
+        }
+        })
+    }}
+    {% include 'digital-land-frontend/partials/dl-footer-code.html' %}
+{% endblock %}
