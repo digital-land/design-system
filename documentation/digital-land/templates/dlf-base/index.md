@@ -39,6 +39,7 @@ The default max width is 1020px (with margins the content width is 960px). You c
 | `dl_breadcrumbs` | block | Hook to insert breadcrumbs component for the page |
 | `content` | block | Inherited from GOV.UK base. Where the bulk of the page content will go |
 | `footer` | block | Inherited from GOV.UK base. Includes the digital land footer |
+| `feedbackPrompt` | block | Use to add a feedback component to the bottom of the page. Sits inside the `footer` block |
 | `bodyEnd` | block | Inherited from GOV.UK base. A block to insert any scripts for the page. We have broken this down into specific block. |
 | `googleAnalytics` | block | Where we include our cookie and google analytics scripts |
 | `includeJQuery` | variable | If set to `true` a version of jQuery will be included on the page |

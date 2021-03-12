@@ -1,8 +1,9 @@
 {%- from "digital-land-frontend/components/map/macro.html" import dlMap %}
 {{ dlMap({
-    "id": "aMap",
+    "id": "basicMap",
     "classes": "govuk-!-margin-top-3"
 }) }}
+<script src="/static/javascripts/Leaflet.recentre.js"></script>
 <script>
   const $mapElement = document.querySelector('[data-module="boundary-map"]')
   exmap = new DLMaps.Map($mapElement).init({

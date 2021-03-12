@@ -4,7 +4,7 @@
   <h1 class="govuk-heading-xl">Default page template</h1>
 {% endblock %}
 
-{% block footer %}
+{% block feedbackPrompt %}
     {%- from "digital-land-frontend/components/feedback/macro.html" import dlFeedback %}
     {{ dlFeedback({
         "text": "Spotted an issue? Let us know so we can improve the data.",
@@ -14,5 +14,4 @@
         }
         })
     }}
-    {% include 'digital-land-frontend/partials/dl-footer-code.html' %}
 {% endblock %}
