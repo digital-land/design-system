@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+</head>
+
+<body class="govuk-template__body app-example-page">
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className +
+            ' js-enabled' : 'js-enabled');
+    </script>
+
+<div class="dlf-feedback__wrapper">
+    <div class="dlf-feedback">
+        <div class="dlf-feedback__prompt">
+            <div class="dlf-feedback__prompt-content">
+                
+                <span class="dlf-feedback__prompt-content__text">Spotted an issue? Let us know so we can improve the data.</span>
+                
+            </div>
+            <div class="dlf-feedback__prompt-action">
+                <a href="DigitalLand@communities.gov.uk" class="govuk-button dlf-feedback__prompt__link">There is something wrong with the data</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    </script>
+    
+    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+
+    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+
+    <!-- should move this to dl-frontend.js -->
+    <script>
+        const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
+        $inputCopyElements.forEach(function ($input) {
+            new window.DLFrontend.InputCopy($input).init()
+        })
+    </script>
+
+    <script>
+        const $picker = document.querySelector('#organisation-search')
+        if ($picker) {
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: $picker
+            })
+        }
+    </script>
+    
+</body>
+</html>
