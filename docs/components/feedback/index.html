@@ -231,7 +231,7 @@
 
 <li
 	class="app-subnav__section-item app-subnav__section-item--current">
-	<a class="app-subnav__link govuk-link" href="../feedback-panel">Feedback panel</a>
+	<a class="app-subnav__link govuk-link" href="../feedback">Feedback</a>
 </li>
 
 
@@ -285,15 +285,6 @@
 
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="../page-feedback">Page feedback</a>
-</li>
-
-
-	
-	
-
-<li
-	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../pagination">Pagination</a>
 </li>
 
@@ -323,7 +314,10 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Feedback panel</h1>
+            <h1 class="govuk-heading-xl">Feedback</h1>
+<p class="govuk-body">Use these components when you want the user to provide feedback on the page / content.</p>
+<h2 class="govuk-heading-l">Inline feedback</h2>
+<p class="govuk-body">For inline feedback use the <code class="dl-code">feedback-panel</code> component.</p>
 <p class="govuk-body">Use the feedback panel component when you want to ask the user to provide feedback on a page or section of a page.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
@@ -400,7 +394,10 @@
 <!-- end app-example-wrapper -->
 
 <p class="govuk-body">It works well when included at the bottom of the page, after the main content. Putting it after the main content means it won't distract the user from the content before they have had chance to read it.</p>
-<h1 class="govuk-heading-xl">Feedback at end of page</h1>
+<h2 class="govuk-heading-l">Feedback at end of page</h2>
+<p class="govuk-body">Use the <code class="dl-code">dlf-feedback-prompt</code> component to place a prompt for feedback. The component includes options to add content to the panel and an <code class="dl-code">action</code> in the form of a button.</p>
+<h3 class="govuk-heading-m">Feedback with button</h3>
+<p class="govuk-body">Using a button in the prompt helps the user know they can interact with the prompt.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback.html" class="govuk-link" target="_blank"
@@ -408,7 +405,7 @@
   </div>
   <div class="app-example">
     <iframe
-      title="An example of the feedback panel component"
+      title="An example of the feedback prompt that uses a button as the action"
       data-module="app-example-frame"
       class="app-example__frame app-example__frame--resizable app-example__frame--s"
       src="example-feedback.html" loading="lazy" id="iFrameResizer3"
@@ -452,9 +449,11 @@
                 &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
 
             &lt;/div&gt;
+
             &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
                 &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
             &lt;/div&gt;
+
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -487,7 +486,98 @@
 
 <!-- end app-example-wrapper -->
 
-<h1 class="govuk-heading-xl">Feedback when pinned to footer</h1>
+<h3 class="govuk-heading-m">Feedback without button</h3>
+<p class="govuk-body">You don't always need to include a button. A link can be used instead.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-feedback-no-action.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the feedback prompt that uses a link as the action"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--s"
+      src="example-feedback-no-action.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+
+
+&lt;div class=&#34;dlf-feedback__wrapper&#34;&gt;
+    &lt;div class=&#34;dlf-feedback&#34;&gt;
+        &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
+            &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+
+
+&lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? &lt;a href=&#34;#&#34; class=&#34;dlf-feedback__link&#34;&gt;Let us know&lt;/a&gt; so we can improve the data.&lt;/span&gt;
+
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.html&#34; import dlFeedback %}
+{% set feedbackHtml %}
+&lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? &lt;a href=&#34;#&#34; class=&#34;dlf-feedback__link&#34;&gt;Let us know&lt;/a&gt; so we can improve the data.&lt;/span&gt;
+{% endset %}
+{{ dlFeedback({
+    &#34;html&#34;: feedbackHtml
+    })
+}}
+</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<h3 class="govuk-heading-m">Feedback when pinned to footer</h3>
+<p class="govuk-body">Often if makes sense to ask for feedback about the whole page.</p>
+<p class="govuk-body">When doing this it makes sense to place the feedback prompt at the bottom of the page.</p>
+<p class="govuk-body">The <a href="../../template/dlf-base">dlf-base template</a> has a <code class="dl-code">feedbackPrompt</code> block that can be used to place the component at the end of the page.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-pinned.html" class="govuk-link" target="_blank"
@@ -664,6 +754,7 @@
 
 
 
+
 &lt;div class=&#34;dlf-feedback__wrapper&#34;&gt;
     &lt;div class=&#34;dlf-feedback&#34;&gt;
         &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
@@ -672,12 +763,15 @@
                 &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
 
             &lt;/div&gt;
+
             &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
                 &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
             &lt;/div&gt;
+
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+
 
 
 
@@ -796,7 +890,7 @@
   &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
 {% endblock %}
 
-{% block footer %}
+{% block feedbackPrompt %}
     {%- from &#34;digital-land-frontend/components/feedback/macro.html&#34; import dlFeedback %}
     {{ dlFeedback({
         &#34;text&#34;: &#34;Spotted an issue? Let us know so we can improve the data.&#34;,
@@ -806,7 +900,6 @@
         }
         })
     }}
-    {% include &#39;digital-land-frontend/partials/dl-footer-code.html&#39; %}
 {% endblock %}
 </code></pre>
     </div>

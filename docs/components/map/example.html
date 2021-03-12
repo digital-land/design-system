@@ -36,7 +36,7 @@ crossorigin="" />
 
 <div class="dl-map__wrapper"><div 
         class="dl-map govuk-!-margin-top-3"
-        id="aMap"
+        id="basicMap"
         data-module="boundary-map"
         style="height: 350px;"   
     >
@@ -45,6 +45,7 @@ crossorigin="" />
     
 </div>
 
+<script src="/static/javascripts/Leaflet.recentre.js"></script>
 <script>
   const $mapElement = document.querySelector('[data-module="boundary-map"]')
   exmap = new DLMaps.Map($mapElement).init({

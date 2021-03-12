@@ -231,7 +231,7 @@
 
 <li
 	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="../feedback-panel">Feedback panel</a>
+	<a class="app-subnav__link govuk-link" href="../feedback">Feedback</a>
 </li>
 
 
@@ -277,15 +277,6 @@
 <li
 	class="app-subnav__section-item app-subnav__section-item--current">
 	<a class="app-subnav__link govuk-link" href="../map">Map</a>
-</li>
-
-
-	
-	
-
-<li
-	class="app-subnav__section-item">
-	<a class="app-subnav__link govuk-link" href="../page-feedback">Page feedback</a>
 </li>
 
 
@@ -374,7 +365,7 @@
 
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;&lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
-        id=&#34;aMap&#34;
+        id=&#34;basicMap&#34;
         data-module=&#34;boundary-map&#34;
         style=&#34;height: 350px;&#34;   
     &gt;
@@ -383,6 +374,7 @@
 
 &lt;/div&gt;
 
+&lt;script src=&#34;/static/javascripts/Leaflet.recentre.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
   const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
   exmap = new DLMaps.Map($mapElement).init({
@@ -403,9 +395,10 @@
     <div class="app-example__code">
       <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
 {{ dlMap({
-    &#34;id&#34;: &#34;aMap&#34;,
+    &#34;id&#34;: &#34;basicMap&#34;,
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
 }) }}
+&lt;script src=&#34;/static/javascripts/Leaflet.recentre.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
   const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
   exmap = new DLMaps.Map($mapElement).init({
@@ -677,7 +670,7 @@ new DLMaps.Map($mapElement).init({})
 
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;&lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
-        id=&#34;aMap&#34;
+        id=&#34;basicMap&#34;
         data-module=&#34;boundary-map&#34;
         style=&#34;height: 350px;&#34;   
     &gt;
@@ -686,6 +679,7 @@ new DLMaps.Map($mapElement).init({})
 
 &lt;/div&gt;
 
+&lt;script src=&#34;/static/javascripts/Leaflet.recentre.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
   const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
   exmap = new DLMaps.Map($mapElement).init({
@@ -706,9 +700,10 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.html&#34; import dlMap %}
 {{ dlMap({
-    &#34;id&#34;: &#34;aMap&#34;,
+    &#34;id&#34;: &#34;basicMap&#34;,
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
 }) }}
+&lt;script src=&#34;/static/javascripts/Leaflet.recentre.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
   const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
   exmap = new DLMaps.Map($mapElement).init({
@@ -773,12 +768,12 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-6031&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-7250&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-6031&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-7250&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
