@@ -65,8 +65,7 @@ Use the `data-geojson-urls` option when calling the jinja macro. It accepts a st
 }
 }) }}
 
-### JS init option
-
+### JS init
 An alternative approach is to provide the url(s) to the `geojsonUrls` option which initalising the module.
 
 {{ designSystemExample({
@@ -80,8 +79,19 @@ An alternative approach is to provide the url(s) to the `geojsonUrls` option whi
 }
 }) }}
 
+#### Options
 
-## Options
+There are a number of options you can set when initialising the module.
+
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| `defaultPos` | Point | An array of coords the map will initially centre on. Defaults to `[52.561928, -1.464854]`, which is the centre of the UK. | 
+| `fullScreenControl` | Boolean | True but default. Option to add button to make the map fullscreen |
+| `minZoom` | Int | Sets the minimum zoom level for the map. Defaults to 6 |
+| `maxZoom` | Int | Sets the maximum zoom level for the map. Defaults to 18 |
+
+
+## Additional information
 
 ### Aria Labelledby
 
@@ -98,7 +108,6 @@ You can added a `aria-labelledby` attribute by adding text to the optional ` ari
 }
 }) }}
 
---------------
 
 ### Key
 
