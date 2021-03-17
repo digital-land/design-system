@@ -623,7 +623,7 @@ new DLMaps.Map($mapElement).init({})
 
 <!-- end app-example-wrapper -->
 
-<h3 class="govuk-heading-m">JS init option</h3>
+<h3 class="govuk-heading-m">JS init</h3>
 <p class="govuk-body">An alternative approach is to provide the url(s) to the <code class="dl-code">geojsonUrls</code> option which initalising the module.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
@@ -722,7 +722,40 @@ new DLMaps.Map($mapElement).init({})
 
 <!-- end app-example-wrapper -->
 
-<h2 class="govuk-heading-l">Options</h2>
+<h4 class="govuk-heading-s">Options</h4>
+<p class="govuk-body">There are a number of options you can set when initialising the module.</p>
+<table class="govuk-table" >
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+<th scope="row" class="govuk-table__header">Option</th>
+<th scope="row" class="govuk-table__header">Type</th>
+<th scope="row" class="govuk-table__header">Description</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">defaultPos</code></td>
+<td class="govuk-table__cell">Point</td>
+<td class="govuk-table__cell">An array of coords the map will initially centre on. Defaults to <code class="dl-code">[52.561928, -1.464854]</code>, which is the centre of the UK.</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">fullScreenControl</code></td>
+<td class="govuk-table__cell">Boolean</td>
+<td class="govuk-table__cell">True but default. Option to add button to make the map fullscreen</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">minZoom</code></td>
+<td class="govuk-table__cell">Int</td>
+<td class="govuk-table__cell">Sets the minimum zoom level for the map. Defaults to 6</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">maxZoom</code></td>
+<td class="govuk-table__cell">Int</td>
+<td class="govuk-table__cell">Sets the maximum zoom level for the map. Defaults to 18</td>
+</tr>
+</tbody>
+</table>
+<h2 class="govuk-heading-l">Additional information</h2>
 <h3 class="govuk-heading-m">Aria Labelledby</h3>
 <p class="govuk-body">You can added a <code class="dl-code">aria-labelledby</code> attribute by adding text to the optional <code class="dl-code">arialabelledby</code> option when using the component.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
@@ -768,12 +801,12 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-5658&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-3221&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-5658&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-3221&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
@@ -815,7 +848,6 @@ new DLMaps.Map($mapElement).init({})
 
 <!-- end app-example-wrapper -->
 
-<hr />
 <h3 class="govuk-heading-m">Key</h3>
 <p class="govuk-body">This is an experimental component.</p>
 <p class="govuk-body">An example of the key we use on the Brownfield land maps. Currently testing 2 options.</p>

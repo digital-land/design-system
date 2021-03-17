@@ -582,6 +582,44 @@
 <!-- end app-example-wrapper -->
 
 <h3 class="govuk-heading-m">Options</h3>
+<p class="govuk-body">Contains all the options available to <a href="../dlf-base">dlf-base</a>.</p>
+<p class="govuk-body">The index template adds makes more options available.</p>
+<table class="govuk-table" >
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+<th scope="row" class="govuk-table__header">Option name</th>
+<th scope="row" class="govuk-table__header">Option type</th>
+<th scope="row" class="govuk-table__header">Description</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">data_type</code></td>
+<td class="govuk-table__cell">variable</td>
+<td class="govuk-table__cell">This is the collection name and is set by the renderer. It can be overridden in the template if needed.</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">indexTitle</code></td>
+<td class="govuk-table__cell">block</td>
+<td class="govuk-table__cell">Part of <code class="dl-code">content</code> block. Contains the heading displayed on the page</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">indexList</code></td>
+<td class="govuk-table__cell">block</td>
+<td class="govuk-table__cell">Part of <code class="dl-code">content</code> block. Displays a list of records or the records grouped.</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">initMapBlock</code></td>
+<td class="govuk-table__cell">block</td>
+<td class="govuk-table__cell">Part of <code class="dl-code">bodyEnd</code> block. JS script the looks for <code class="dl-code">boundary-map</code> module and inits the map.</td>
+</tr>
+<tr class="govuk-table__row">
+<td class="govuk-table__cell"><code class="dl-code">initFilteringBlock</code></td>
+<td class="govuk-table__cell">block</td>
+<td class="govuk-table__cell">Part of <code class="dl-code">bodyEnd</code> block. JS script that sets up any filters on the page - these can be a <code class="dl-code">FilterList</code> filter and a <code class="dl-code">FilterHistorical</code> filter.</td>
+</tr>
+</tbody>
+</table>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
