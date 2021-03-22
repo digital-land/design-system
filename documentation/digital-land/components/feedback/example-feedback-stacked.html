@@ -1,0 +1,16 @@
+{%- from "digital-land-frontend/components/feedback/macro.html" import dlFeedback %}
+<div class='govuk-grid-row'>
+    <div class="govuk-grid-column-two-thirds">Main content</div>
+    <div class="govuk-grid-column-one-third">
+        {{ dlFeedback({
+            "classes": "dlf-feedback--stacked dlf-feedback--flush",
+            "text": "Have you spotted any issues with the data?",
+            "action": {
+                "text": "Provide feedback",
+                "href": "mailto:digitalLand@communities.gov.uk?subject=Feedback"
+            }
+            })
+        }}
+    </div>
+</div>
+
