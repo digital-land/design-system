@@ -394,8 +394,9 @@
 <!-- end app-example-wrapper -->
 
 <p class="govuk-body">It works well when included at the bottom of the page, after the main content. Putting it after the main content means it won't distract the user from the content before they have had chance to read it.</p>
-<h2 class="govuk-heading-l">Feedback at end of page</h2>
+<h2 class="govuk-heading-l">Feedback prompt</h2>
 <p class="govuk-body">Use the <code class="dl-code">dlf-feedback-prompt</code> component to place a prompt for feedback. The component includes options to add content to the panel and an <code class="dl-code">action</code> in the form of a button.</p>
+<p class="govuk-body">By default the component will be 100% width.</p>
 <h3 class="govuk-heading-m">Feedback with button</h3>
 <p class="govuk-body">Using a button in the prompt helps the user know they can interact with the prompt.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
@@ -441,20 +442,18 @@
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 
-&lt;div class=&#34;dlf-feedback__wrapper&#34;&gt;
-    &lt;div class=&#34;dlf-feedback&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-            &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+&lt;div class=&#34;dlf-feedback&#34;&gt;
+    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
 
-                &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
-
-            &lt;/div&gt;
-
-            &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
-                &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
-            &lt;/div&gt;
+            &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
 
         &lt;/div&gt;
+
+        &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
+            &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
+        &lt;/div&gt;
+
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -532,18 +531,16 @@
       <pre class="hljs-container"><code class="html">
 
 
-&lt;div class=&#34;dlf-feedback__wrapper&#34;&gt;
-    &lt;div class=&#34;dlf-feedback&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-            &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+&lt;div class=&#34;dlf-feedback&#34;&gt;
+    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
 
 
 &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? &lt;a href=&#34;#&#34; class=&#34;dlf-feedback__link&#34;&gt;Let us know&lt;/a&gt; so we can improve the data.&lt;/span&gt;
 
 
-            &lt;/div&gt;
-
         &lt;/div&gt;
+
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -578,6 +575,7 @@
 <p class="govuk-body">Often if makes sense to ask for feedback about the whole page.</p>
 <p class="govuk-body">When doing this it makes sense to place the feedback prompt at the bottom of the page.</p>
 <p class="govuk-body">The <a href="../../template/dlf-base">dlf-base template</a> has a <code class="dl-code">feedbackPrompt</code> block that can be used to place the component at the end of the page.</p>
+<p class="govuk-body">This takes the feeback component out of the main <code class="dl-code">content</code> block on the page and uses the <code class="dl-code">feedbackPrompt</code> block. This will wrap the component in div with the <code class="dl-code">.dlf-feedback__wrapper</code>. This class limits the width of the component to the maximum page width.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-pinned.html" class="govuk-link" target="_blank"
@@ -753,26 +751,26 @@
 
 
 
+    &lt;div class=&#34;dlf-feedback__wrapper&#34;&gt;
 
 
-&lt;div class=&#34;dlf-feedback__wrapper&#34;&gt;
-    &lt;div class=&#34;dlf-feedback&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-            &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+&lt;div class=&#34;dlf-feedback&#34;&gt;
+    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
 
-                &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
-
-            &lt;/div&gt;
-
-            &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
-                &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
-            &lt;/div&gt;
+            &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
 
         &lt;/div&gt;
+
+        &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
+            &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
+        &lt;/div&gt;
+
     &lt;/div&gt;
 &lt;/div&gt;
 
 
+    &lt;/div&gt;
 
 
 
@@ -901,6 +899,108 @@
         })
     }}
 {% endblock %}
+</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<h3 class="govuk-heading-m">Stacked feedback</h3>
+<p class="govuk-body">You can use the feedback prompt component in a narrower layout - for example, in a <code class="dl-code">govuk-grid-column-one-third</code> parent.</p>
+<p class="govuk-body">Add the class <code class="dl-code">dlf-feedback--stacked</code> to get the desired effect.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-feedback-stacked.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the feedback panel component stacked in a narrow layout"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--m"
+      src="example-feedback-stacked.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+&lt;div class=&#39;govuk-grid-row&#39;&gt;
+    &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;Main content&lt;/div&gt;
+    &lt;div class=&#34;govuk-grid-column-one-third&#34;&gt;
+
+&lt;div class=&#34;dlf-feedback dlf-feedback--stacked dlf-feedback--flush&#34;&gt;
+    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+
+            &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Have you spotted any issues with the data?&lt;/span&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
+            &lt;a href=&#34;mailto:digitalLand@communities.gov.uk?subject=Feedback&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;Provide feedback&lt;/a&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.html&#34; import dlFeedback %}
+&lt;div class=&#39;govuk-grid-row&#39;&gt;
+    &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;Main content&lt;/div&gt;
+    &lt;div class=&#34;govuk-grid-column-one-third&#34;&gt;
+        {{ dlFeedback({
+            &#34;classes&#34;: &#34;dlf-feedback--stacked dlf-feedback--flush&#34;,
+            &#34;text&#34;: &#34;Have you spotted any issues with the data?&#34;,
+            &#34;action&#34;: {
+                &#34;text&#34;: &#34;Provide feedback&#34;,
+                &#34;href&#34;: &#34;mailto:digitalLand@communities.gov.uk?subject=Feedback&#34;
+            }
+            })
+        }}
+    &lt;/div&gt;
+&lt;/div&gt;
+
 </code></pre>
     </div>
   </div>
