@@ -125,3 +125,18 @@ An example of the key we use on the Brownfield land maps. Currently testing 2 op
     "path": "digital-land/components/map"
 }
 }) }}
+
+##  Brownfield map
+
+An example of the national brownfield map.
+
+{{ designSystemExample({
+"iframe": {
+    "title": "A sample of the national brownfield land map",
+    "url": "example-brownfield.html",
+    "size": "xl"
+},
+"example": {
+    "path": "digital-land/components/map"
+}
+}) }}

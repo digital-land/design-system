@@ -1,0 +1,293 @@
+{% extends "digital-land-frontend/dlf-base--full-width.html" %}
+{% from 'digital-land-frontend/components/map/macro.html' import dlMap %}
+
+{% set includesMap = true %}
+{% block pageTitle %}BFS Map | Digital Land{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+  	<h1 class="govuk-heading-xl">Map of brownfield land</h1>
+    </div>
+</div>
+
+<p class="govuk-body-l">National view of the brownfield land  collected and collated by Digital Land.</p>
+
+{% set sidePanelHTML %}
+<div class="dl-map__side-panel__section">
+<h3 class="govuk-heading-s govuk-!-margin-bottom-0">Displayed on map</h3>
+</div>
+<div class="dl-map__side-panel__section dl-map__side-panel__section--title js-hidden" data-module="dl-map-items">
+  <p class="govuk-body govuk-!-margin-bottom-1"><span class="organisation-count"></span> organisation boundaries</p>
+  <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-1 js-hidden">Active: <span class="active-organisation dl-map__highlight--yellow"></span></p>
+</div>
+<div class="dl-map__side-panel__section dl-map__side-panel__section--blue">
+  {% include 'digital-land-frontend/partials/dl-organisation-autocomplete.html' %}
+  <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-1 dl-map__error js-hidden" data-module="organisation-search-error">Boundary for organisation not found.</p>
+</div>
+
+{% endset %}
+
+{{ dlMap({
+    "id": "aMap",
+    "classes": "govuk-!-margin-bottom-0",
+    "height": 700,
+    "loader": {
+      "text": "Loading brownfield land data"
+    },
+    "sidePanel": {
+      "html": sidePanelHTML,
+      "classes": "js-hidden"
+    }
+}) }}
+{% endblock %}
+
+{% block bodyEnd %}
+{{ super() }}
+<script src="{{ staticPath|default('/static') }}/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+<script>
+(function(dlf, accessibleAutocomplete) {
+  let organisationMapper = {}
+  const bfsHelpers = DLMaps.brownfieldSites
+
+  // create URL used to fetch boundaries
+  function laBoundaryURL(st_geo_code) {
+    return `https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/${st_geo_code}/index.geojson`
+  }
+
+  // add a property to a feature
+  function addProperty(feature, name, value) {
+    if( feature.properties ) {
+      feature.properties[name] = value
+    }
+  }
+
+  const organisationActiveStyle = {
+    fillOpacity: 0.2,
+    weight: 2,
+    color: '#FFDD00',
+    fillColor: '#FFEE80'
+  }
+
+  // $elements needed for map functions
+  const $mapElement = document.querySelector('[data-module="boundary-map"]')
+  const $sidePanel = document.querySelector(".dl-map__side-panel")
+  const $mapItems = document.querySelector("[data-module='dl-map-items']")
+  const $boundaryCount = $mapItems.querySelector(".organisation-count")
+  const $activeOrganisation = $mapItems.querySelector(".active-organisation")
+
+  // needed for organisation search
+  const $picker = document.querySelector('#dl-organisation-autocomplete')
+  const $orgSearchError = document.querySelector("[data-module='organisation-search-error']")
+
+  // initiate the map component
+  const bfsmap = new DLMaps.Map($mapElement).init({})
+  var localAuthorityBoundaries = bfsmap.createFeatureGroup("localAuthorityBoundaries").addTo(bfsmap.map)
+  var brownfieldSiteGroups = bfsmap.createFeatureGroup('brownfieldSiteGroups').addTo(bfsmap.map)
+  bfsmap.setMapHeight()
+
+  function handleOrganisationSearch(val) {
+    const orgname = dlf.utils.toCamelCase(val)
+    if (laTracker.get(orgname)) {
+      $orgSearchError.classList.add("js-hidden")
+      const match = laTracker.get(orgname)
+      selectOrganisation(match.name, match.boundaryLayer)
+    } else {
+      $orgSearchError.classList.remove("js-hidden")
+    }
+  }
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: $picker,
+    onConfirm: handleOrganisationSearch,
+    confirmOnBlur: false
+  })
+
+  // in the real map the whole array is passed to the template
+  var brownfieldPublishers = [
+      {"count": 32, "id": "local-authority-eng:DEB", "name": "Derbyshire Dales District Council", "statistical_geography": "E07000035"},
+      {"count": 34, "id": "local-authority-eng:HAL", "name": "Halton Borough Council", "statistical_geography": "E06000006"}
+      ]
+
+  organisationMapper = dlf.utils.createOrgMapper(brownfieldPublishers)
+  bfsHelpers.registerOrganisationMapper(organisationMapper)
+
+  function addUsefulPropertiesToFeature(feature, organisation) {
+    addProperty(feature, "organisation", organisation.id)
+    addProperty(feature, "organisation_name", organisation.name)
+    addProperty(feature, "bfs_count", organisation.count)
+    return feature
+  }
+
+  function updateActiveOrgPanel(name) {
+    $activeOrganisation.textContent = name
+    const $container = $activeOrganisation.parentElement
+    if ($container.classList.contains("js-hidden")) {
+      $container.classList.remove("js-hidden")
+    }
+  }
+
+  function LayerTracker(defaultProps) {
+    this.items = {}
+    this._defaultProps = defaultProps || {}
+  }
+  LayerTracker.prototype.add = function(name, props) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    // can i use spread???
+    this.items[trackerId] = {...this._defaultProps, ...props}
+    this.items[trackerId]["name"] = name
+    return trackerId
+  }
+  LayerTracker.prototype.addToItem = function(name, k, v) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    if (Object.prototype.hasOwnProperty.call(this.items, trackerId)) {
+      this.items[trackerId][k] = v
+    }
+  }
+  LayerTracker.prototype.get = function (name) {
+    return this.items[dlf.utils.toCamelCase(name)]
+  }
+
+  var laTracker = new LayerTracker({"loadedBFS": false})
+  console.log(laTracker)
+
+
+  function brownfieldDataUrl(organisation){
+    orgDir = dlf.utils.curie_to_url_part(organisation)
+    return `https://raw.githubusercontent.com/digital-land/dataset/master/docs/brownfield-land/organisation/${orgDir}/sites.geojson`
+  }
+
+  function setActiveBoundaryLayer(layer) {
+    // track which layer is active
+    localAuthorityBoundaries.activeLayer = layer._leaflet_id
+    localAuthorityBoundaries.eachLayer(function (layer) {
+      layer.activeBoundary = false
+      layer.setStyle(bfsmap.styles.defaultBoundaryStyle)
+    })
+    if (hasParentLayer(layer)) {
+      layer.parentId["activeBoundary"] = true
+      layer.parentId.setStyle(organisationActiveStyle)
+    }
+
+    // should this be done another way? i.e. trigger an event on the side panel?
+    updateActiveOrgPanel(layer.feature.properties['organisation_name'])
+  }
+
+  function hasParentLayer(childLayer) {
+    return Object.prototype.hasOwnProperty.call(childLayer, "parentId")
+  }
+
+  function setParentLayer(parentLayer, layerName) {
+    parentLayer.activeBoundary = false
+    laTracker.addToItem(layerName, "layer", parentLayer)
+    for (var lId in parentLayer._layers) {
+      if (Object.prototype.hasOwnProperty.call(parentLayer._layers, lId)) {
+        const childLayer = parentLayer._layers[lId]
+        childLayer.parentId = localAuthorityBoundaries.getLayer(parentLayer._leaflet_id)
+        laTracker.addToItem(layerName, "boundaryLayer", childLayer)
+      }
+    }
+  }
+
+  function addHoverState (layer) {
+    bfsmap.addLayerHoverState(layer, {
+      check: function (layer) {
+        return !Object.prototype.hasOwnProperty.call(layer, "parentId") || !layer.parentId.activeBoundary
+      }
+    })
+  }
+
+  function onSuccessfulBrownfieldLoad (layer, organisationName) {
+    if (laTracker.get(organisationName)) {
+      laTracker.get(organisationName).loadedBFS = true
+    }
+  }
+
+  /**
+   * Select the organisation -> highlights polygon and loads data if not loaded
+   * @param  {String} organisationName Name of organisation to select, e.g. Harrogate Borough Council
+   * @param  {Object} layer Leaflet layer. Should be the boundary polygon layer not the parent
+   */
+  // needs to be own function because called from multiple sources: click and organisation search
+  function selectOrganisation(organisationName, layer) {
+    setActiveBoundaryLayer(layer)
+    bfsmap.zoomToLayer(layer)
+    if (laTracker.get(organisationName)) {
+      const url = laTracker.get(organisationName).brownfield_data_url
+      bfsHelpers.loadSites(bfsmap, url, organisationName, {
+        layerGroup: brownfieldSiteGroups,
+        cb: onSuccessfulBrownfieldLoad
+      })
+    }
+  }
+
+
+  function addLayerClickEvent(feature, layer) {
+    const organisation = layer.feature.properties.organisation
+    const organisationName = organisationMapper[organisation]
+    laTracker.addToItem(organisationName, "brownfield_data_url", brownfieldDataUrl(organisation)) 
+    layer.on('click', function(e) {
+      selectOrganisation(organisationName, layer)
+    })
+  }
+
+  function setupAuthorityBoundaryLayer(feature, layer) {
+    // function is run for each boundary that is plotted
+    addHoverState(layer)
+    addLayerClickEvent(feature, layer)
+  }
+
+  console.log(brownfieldPublishers.length)
+  var failing = []
+  Promise.allSettled(
+    brownfieldPublishers.map(function(bP) {
+      const url = laBoundaryURL(bP.statistical_geography)
+      // track the organisation layer on the map
+      const trackerId = laTracker.add(bP.name, {"id": bP.id})
+      return fetch(url)
+        .then(resp => resp.json())
+        .then((data) => {
+          data.features[0] = addUsefulPropertiesToFeature(data.features[0], bP)
+          // create geojson feature layer (parent)
+          var boundary = L.geoJSON(data, {
+            style: bfsmap.styles.defaultBoundaryStyle,
+            onEachFeature: setupAuthorityBoundaryLayer
+          })
+          .on("add", function(e) {
+            // set currently added layer as parent for all children layers
+            setParentLayer(e.target, bP.name)
+          })
+          .addTo(localAuthorityBoundaries)
+          return boundary
+        })
+        .catch(function(err) {
+          console.log(bP.id, 'error', err)
+          failing.push([bP.id, bP.statistical_geography])
+        })
+    }
+  )).then(boundaries => {
+    // after all boundaries collected then fitBounds of map
+    bfsmap.map.fitBounds(localAuthorityBoundaries.getBounds())
+    bfsmap.hideLoader()
+    $boundaryCount.textContent = brownfieldPublishers.length - failing.length
+    $mapItems.classList.remove("js-hidden")
+    $sidePanel.classList.remove("js-hidden")
+  })
+
+  // candidate for dl-maps.js?
+  bfsmap.map.on("zoom", function(e) {
+    const zoomLevel = bfsmap.map.getZoom()
+    if (zoomLevel > 7) {
+      brownfieldSiteGroups.addTo(bfsmap.map)
+    } else {
+      brownfieldSiteGroups.remove()
+    }
+  })
+
+window.bfsmap = bfsmap
+window.laTracker = laTracker
+
+})(window.DLFrontend, window.accessibleAutocomplete)
+
+</script>
+{% endblock %}
