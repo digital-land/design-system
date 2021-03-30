@@ -1,0 +1,22 @@
+{%- from "digital-land-frontend/components/sub-nav-tabs/macro.html" import dlSubNavTabs %}
+{% set recordHTML %}
+<p class="govuk-body">This is the record section.</p>
+{% endset %}
+{% set historyHTML %}
+<p class="govuk-body">This is the history section.</p>
+{% endset %}
+{{ dlSubNavTabs({
+    "tabs": [
+        {
+            "id": "record",
+            "label": "Record",
+            "html": recordHTML
+        },
+        {
+            "id": "history",
+            "label": "History",
+            "html": historyHTML
+        }
+    ]
+})
+}}

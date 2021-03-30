@@ -62,11 +62,15 @@
     </script>
 
     <script>
-        // Initialise back to top
         var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
         $data_tables.forEach(data_table => {
             new window.DLFrontend.ScrollableTables(data_table).init()
         })
+    </script>
+
+    <script>
+        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
+        const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
     </script>
     {% endblock %}
 </body>
