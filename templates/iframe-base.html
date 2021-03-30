@@ -44,7 +44,7 @@
 
     <script src="{{ staticPath|default('/static') }}/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
-    <!-- should move this to dl-frontend.js -->
+    <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
@@ -59,6 +59,14 @@
                 selectElement: $picker
             })
         }
+    </script>
+
+    <script>
+        // Initialise back to top
+        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
+        $data_tables.forEach(data_table => {
+            new window.DLFrontend.ScrollableTables(data_table).init()
+        })
     </script>
     {% endblock %}
 </body>

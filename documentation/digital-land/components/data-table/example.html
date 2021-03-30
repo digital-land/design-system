@@ -1,0 +1,32 @@
+{%- from "digital-land-frontend/components/data-table/macro.html" import dlDataTableWrapper %}
+{%- set tableHTML %}
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>entry-date</th>
+            <th>resource</th>
+            <th>line</th>
+            <th>name</th>
+            <th>geography</th>
+            <th>organisation</th>
+            <th>geometry</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2020-09-11</td>
+            <td><a href="https://github.com/digital-land/conservation-area-collection/tree/main/transformed/conservation-area/ea8b5f08dde355f8b4cc435efd408c5519e64db1b208acc7987b0ffd50a935c6.csv#L2">ea8b5f08dde3...</a></td>
+            <td>1</td>
+            <td>Beyton</td> 
+            <td>conservation-area:1</td> 
+            <td>local-authority-eng:BAB</td> 
+            <td class="data-table__notes-cell data-table__cell--min-width-4">
+                Geometry data goes here
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endset -%}
+{{ dlDataTableWrapper({
+    "tableHTML": tableHTML
+}) }}
