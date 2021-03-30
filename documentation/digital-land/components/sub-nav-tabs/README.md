@@ -1,7 +1,7 @@
 ---
 contains_map: False
 ---
-# Data table
+# Sub nav tabs
 
 Use this component when you have a wide table users will need to scroll horizontally.
 
@@ -15,3 +15,15 @@ Use this component when you have a wide table users will need to scroll horizont
     "path": "digital-land/components/data-table"
 }
 }) }}
+
+
+### Initialise JS module
+
+The `subNavTabs` component is a progressive enhancement. You will need to initialise the JS module for it to work.
+
+```
+<script>
+    const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
+    const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
+</script>
+```
