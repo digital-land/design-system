@@ -221,7 +221,7 @@
 	
 
 <li
-	class="app-subnav__section-item">
+	class="app-subnav__section-item app-subnav__section-item--current">
 	<a class="app-subnav__link govuk-link" href="../data-table">Data table</a>
 </li>
 
@@ -248,7 +248,7 @@
 	
 
 <li
-	class="app-subnav__section-item app-subnav__section-item--current">
+	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../hero">Hero</a>
 </li>
 
@@ -332,8 +332,8 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Hero</h1>
-<p class="govuk-body">This component is a blue hero panel. It should be used to introduce a new site, service or significant section.</p>
+            <h1 class="govuk-heading-xl">Data table</h1>
+<p class="govuk-body">Use this component when you have a wide table users will need to scroll horizontally.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -341,9 +341,9 @@
   </div>
   <div class="app-example">
     <iframe
-      title="An example of the hero component"
+      title="An example showing a wide table wrapped in widetable component"
       data-module="app-example-frame"
-      class="app-example__frame app-example__frame--resizable app-example__frame--m"
+      class="app-example__frame app-example__frame--resizable app-example__frame--s"
       src="example.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
@@ -376,13 +376,42 @@
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
-&lt;header class=&#34;hero&#34;&gt;
-    &lt;div class=&#34;hero__content&#34;&gt;
 
-        &lt;h1 class=&#34;govuk-heading-l&#34;&gt;A hero example&lt;/h1&gt;&lt;p class=&#34;govuk-body-l&#34;&gt;There is some useful stuff on the &lt;a href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;data-table__wrapper&#34; data-module=&#34;data-table&#34;&gt;
+    &lt;div class=&#34;data-table-left-shadow with-transition&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;wide-table&#34;&gt;
+
+&lt;table class=&#34;data-table&#34;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;entry-date&lt;/th&gt;
+            &lt;th&gt;resource&lt;/th&gt;
+            &lt;th&gt;line&lt;/th&gt;
+            &lt;th&gt;name&lt;/th&gt;
+            &lt;th&gt;geography&lt;/th&gt;
+            &lt;th&gt;organisation&lt;/th&gt;
+            &lt;th&gt;geometry&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2020-09-11&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://github.com/digital-land/conservation-area-collection/tree/main/transformed/conservation-area/ea8b5f08dde355f8b4cc435efd408c5519e64db1b208acc7987b0ffd50a935c6.csv#L2&#34;&gt;ea8b5f08dde3...&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Beyton&lt;/td&gt; 
+            &lt;td&gt;conservation-area:1&lt;/td&gt; 
+            &lt;td&gt;local-authority-eng:BAB&lt;/td&gt; 
+            &lt;td class=&#34;data-table__notes-cell data-table__cell--min-width-4&#34;&gt;
+                Geometry data goes here
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
     &lt;/div&gt;
-&lt;/header&gt;
+    &lt;div class=&#34;data-table-right-shadow visible with-transition&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
 </code></pre>
     </div>
   </div>
@@ -393,10 +422,39 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.html&#34; import dlHero -%}
-{{ dlHero({
-    &#34;html&#34;: &#39;&lt;h1 class=&#34;govuk-heading-l&#34;&gt;A hero example&lt;/h1&gt;&lt;p class=&#34;govuk-body-l&#34;&gt;There is some useful stuff on the &lt;a href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&lt;/p&gt;&#39;
-}) }}</code></pre>
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/data-table/macro.html&#34; import dlDataTableWrapper %}
+{%- set tableHTML %}
+&lt;table class=&#34;data-table&#34;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;entry-date&lt;/th&gt;
+            &lt;th&gt;resource&lt;/th&gt;
+            &lt;th&gt;line&lt;/th&gt;
+            &lt;th&gt;name&lt;/th&gt;
+            &lt;th&gt;geography&lt;/th&gt;
+            &lt;th&gt;organisation&lt;/th&gt;
+            &lt;th&gt;geometry&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2020-09-11&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://github.com/digital-land/conservation-area-collection/tree/main/transformed/conservation-area/ea8b5f08dde355f8b4cc435efd408c5519e64db1b208acc7987b0ffd50a935c6.csv#L2&#34;&gt;ea8b5f08dde3...&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Beyton&lt;/td&gt; 
+            &lt;td&gt;conservation-area:1&lt;/td&gt; 
+            &lt;td&gt;local-authority-eng:BAB&lt;/td&gt; 
+            &lt;td class=&#34;data-table__notes-cell data-table__cell--min-width-4&#34;&gt;
+                Geometry data goes here
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+{% endset -%}
+{{ dlDataTableWrapper({
+    &#34;tableHTML&#34;: tableHTML
+}) }}
+</code></pre>
     </div>
   </div>
 
@@ -405,6 +463,16 @@
 </div>
 
 <!-- end app-example-wrapper -->
+
+<h3 class="govuk-heading-m">Initialise JS module</h3>
+<p class="govuk-body">The <code class="dl-code">dlDataTableWrapper</code> component is a progressive enhancement. You will need to initialise the JS module for it to work.</p>
+<pre class="hljs-container"><code class="dl-code">&lt;script&gt;
+    var $data_tables = document.querySelectorAll('[data-module*=&quot;data-table&quot;]')
+    $data_tables.forEach(data_table =&gt; {
+        new window.DLFrontend.ScrollableTables(data_table).init()
+    })
+&lt;/script&gt;
+</code></pre>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">

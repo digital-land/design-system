@@ -34,12 +34,12 @@ crossorigin="" />
             ' js-enabled' : 'js-enabled');
     </script>
 <div class="dl-map__wrapper">
-    <span id="aria-label-0891" class="govuk-visually-hidden">An example of the output of the digital land map component.</span>
+    <span id="aria-label-1635" class="govuk-visually-hidden">An example of the output of the digital land map component.</span>
     <div 
         class="dl-map govuk-!-margin-top-3"
         id="aMap"
         data-module="boundary-map"
-        style="height: 350px;" aria-labelledby="aria-label-0891" data-geojson-urls="https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson"   
+        style="height: 350px;" aria-labelledby="aria-label-1635" data-geojson-urls="https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson"   
     >
         <noscript>To view this map, you need to enable JavaScript.</noscript>
     </div>
@@ -60,7 +60,7 @@ new DLMaps.Map($mapElement).init({})
 
     <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
-    <!-- should move this to dl-frontend.js -->
+    <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
@@ -75,6 +75,18 @@ new DLMaps.Map($mapElement).init({})
                 selectElement: $picker
             })
         }
+    </script>
+
+    <script>
+        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
+        $data_tables.forEach(data_table => {
+            new window.DLFrontend.ScrollableTables(data_table).init()
+        })
+    </script>
+
+    <script>
+        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
+        const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
     </script>
     
 </body>

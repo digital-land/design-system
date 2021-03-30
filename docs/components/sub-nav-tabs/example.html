@@ -16,46 +16,46 @@
         document.body.className = ((document.body.className) ? document.body.className +
             ' js-enabled' : 'js-enabled');
     </script>
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-tabs" data-module="dlf-subnav">
+    <h2 class="govuk-tabs__title">
+      Contents
+    </h2>
+    <nav class="dlf-subnav" aria-label="Sub navigation">
+        <ul class="dlf-subnav__list">
+            
+            <li class="dlf-subnav__list-item dlf-subnav__list-item--selected">
+                <a class="dlf-subnav__list-item__link" href="#record" data-module-sub-nav="tab">
+                Record
+                </a>
+            </li>
+            
+            <li class="dlf-subnav__list-item dlf-subnav__list-item--selected">
+                <a class="dlf-subnav__list-item__link" href="#history" data-module-sub-nav="tab">
+                History
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+
+    
+    <div id="record">
         
-<ol class="dl-timeline">
-    
-    
-<li class="dl-timeline__entry">
-    <h3 class="govuk-heading-s dl-timeline__entry-heading">Comment: Emily Hill</h3>
-    <p class="dl-timeline__entry-details govuk-body-s">
-      16 August 2018
-    </p>
-    <div class="dl-timeline__entry__content"><p class="govuk-body">Need to fix issue with brownfield collection - we're losing out on data</p>
-    </div>
-</li>
-
-    
-    
-<li class="dl-timeline__entry">
-    <h3 class="govuk-heading-s dl-timeline__entry-heading">Reopened</h3>
-    <p class="dl-timeline__entry-details govuk-body-s">
-      by Matt Lucht, 29 May 2020
-    </p>
-    <div class="dl-timeline__entry__content">
-    <p class="govuk-body">Further evidence came to light.</p></div>
-</li>
-
-    
-    
-<li class="dl-timeline__entry">
-    <h3 class="govuk-heading-s dl-timeline__entry-heading">Resolved</h3>
-    <p class="dl-timeline__entry-details govuk-body-s">
-      by Matt Lucht, 29 May 2020
-    </p>
-    <div class="dl-timeline__entry__content"></div>
-</li>
-
-    </ol>
+<p class="govuk-body">This is the record section.</p>
 
     </div>
+    
+    <div id="history">
+        
+<p class="govuk-body">This is the history section.</p>
+
+    </div>
+    
 </div>
+
     <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components

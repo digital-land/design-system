@@ -222,6 +222,15 @@
 
 <li
 	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="../data-table">Data table</a>
+</li>
+
+
+	
+	
+
+<li
+	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../document">Document</a>
 </li>
 
@@ -295,6 +304,15 @@
 <li
 	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../related-content">Related content</a>
+</li>
+
+
+	
+	
+
+<li
+	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="../sub-nav-tabs">Sub nav tabs</a>
 </li>
 
 
@@ -801,12 +819,12 @@ new DLMaps.Map($mapElement).init({})
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
-    &lt;span id=&#34;aria-label-6245&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-6815&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
         data-module=&#34;boundary-map&#34;
-        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-6245&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        style=&#34;height: 350px;&#34; aria-labelledby=&#34;aria-label-6815&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
@@ -947,6 +965,1338 @@ new DLMaps.Map($mapElement).init({})
         &lt;div class=&#34;bfs-hectare bfs-hectare--lg&#34;&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
+
+<h2 class="govuk-heading-l">Brownfield map</h2>
+<p class="govuk-body">An example of the national brownfield map.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-brownfield.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="A sample of the national brownfield land map"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--xl"
+      src="example-brownfield.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34; class=&#34;govuk-template &#34;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;title&gt;BFS Map | Digital Land&lt;/title&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, viewport-fit=cover&#34;&gt;
+    &lt;meta name=&#34;theme-color&#34; content=&#34;#0b0c0c&#34;&gt; 
+
+    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+
+
+    &lt;link rel=&#34;manifest&#34; href=&#34;/site.webmanifest&#34;&gt;
+&lt;link rel=&#34;shortcut icon&#34; sizes=&#34;48x48&#34; href=&#34;/images/favicon.ico&#34; type=&#34;image/x-icon&#34;&gt;
+&lt;link rel=&#34;shortcut icon&#34; sizes=&#34;32x32&#34; href=&#34;/images/favicon-32x32.png&#34; type=&#34;image/png&#34;&gt;
+&lt;link rel=&#34;shortcut icon&#34; sizes=&#34;16x16&#34; href=&#34;/images/favicon-16x16.png&#34; type=&#34;image/png&#34;&gt;
+&lt;link rel=&#34;apple-touch-icon&#34; href=&#34;/images/apple-touch-icon.png&#34;&gt;
+
+
+
+    &lt;meta name=&#34;digital-land:template&#34; content=&#34;dlf-base--full-width.html&#34;&gt;
+
+    &lt;!-- should make this optional, no need to load if not showing a map --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://unpkg.com/leaflet@1.6.0/dist/leaflet.css&#34;
+integrity=&#34;sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==&#34;
+crossorigin=&#34;&#34; /&gt;
+
+&lt;!-- Make sure you put this AFTER Leaflet&#39;s CSS --&gt;
+&lt;script src=&#34;https://unpkg.com/leaflet@1.6.0/dist/leaflet.js&#34;
+    integrity=&#34;sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==&#34;
+    crossorigin=&#34;&#34;&gt;&lt;/script&gt;
+
+&lt;!-- assets needed for fullscreen maps --&gt;
+&lt;script src=&#39;https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js&#39;&gt;&lt;/script&gt;
+&lt;link href=&#39;https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css&#39; rel=&#39;stylesheet&#39; /&gt;
+
+&lt;!-- script needed for recentring map --&gt;
+&lt;script src=&#34;https://digital-land.github.io/javascripts/Leaflet.recentre.js&#34;&gt;&lt;/script&gt;
+
+&lt;script src=&#34;https://digital-land.github.io/javascripts/dl-maps.js&#34;&gt;&lt;/script&gt;
+
+    &lt;link href=&#34;https://digital-land.github.io/stylesheets/dl-frontend.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+
+    &lt;meta property=&#34;og:image&#34; content=&#34;/images/govuk-opengraph-image.png&#34;&gt;
+  &lt;/head&gt;
+  &lt;body class=&#34;govuk-template__body &#34;&gt;
+    &lt;script&gt;document.body.className = ((document.body.className) ? document.body.className + &#39; js-enabled&#39; : &#39;js-enabled&#39;);&lt;/script&gt;
+
+
+
+      &lt;a href=&#34;#main-content&#34; class=&#34;govuk-skip-link&#34;&gt;Skip to main content&lt;/a&gt;
+
+
+
+&lt;!-- Cookie banner partial version 1.0.1 --&gt;
+&lt;div id=&#34;global-cookie-message&#34; class=&#34;govuk-clearfix global-cookie-message&#34; data-module=&#34;cookie-banner&#34; role=&#34;region&#34; aria-label=&#34;cookie banner&#34; data-nosnippet=&#34;&#34;&gt;
+
+  &lt;div id=&#34;cookie-banner&#34; class=&#34;govuk-width-container&#34;&gt;
+    &lt;div class=&#34;govuk-grid-row&#34;&gt;
+      &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
+        &lt;div class=&#34;cookie-banner__message govuk-!-margin-top-6&#34;&gt;
+          &lt;h2 class=&#34;govuk-heading-m&#34;&gt;Tell us whether you accept cookies&lt;/h2&gt;
+          &lt;p class=&#34;govuk-body&#34;&gt;We use &lt;a class=&#34;govuk-link&#34; href=&#34;/cookies&#34;&gt;cookies to collect information&lt;/a&gt; about how you use the Digital Land website to make the website work as well as possible.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;cooke-banner__buttons govuk-grid-row&#34;&gt;
+          &lt;div class=&#34;govuk-grid-column-one-half&#34;&gt;
+            &lt;button class=&#34;govuk-button&#34; onclick=&#34;acceptCookies();showCookieConfirmation();&#34;&gt;Accept all cookies&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;govuk-grid-column-one-half&#34;&gt;
+            &lt;a class=&#34;govuk-button&#34; href=&#34;/cookies&#34;&gt;Set cookie preferences&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&#34;cookie-confirmation&#34; class=&#34;govuk-width-container govuk-!-padding-top-6&#34; tabindex=&#34;-1&#34; style=&#34;display: none;&#34;&gt;
+    &lt;p class=&#34;cookie-banner__confirmation-message govuk-body&#34;&gt;You’ve accepted all cookies. You can &lt;a class=&#34;govuk-link&#34; href=&#34;/cookies&#34;&gt;change your cookie settings&lt;/a&gt; at any time.&lt;/p&gt;
+    &lt;button class=&#34;cookie-banner__hide-button govuk-button govuk-button--secondary&#34; onclick=&#34;document.getElementById(&#39;cookie-confirmation&#39;).style.display=&#39;none&#39;;&#34;&gt;Hide&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+&lt;header role=&#34;banner&#34; id=&#34;global-header&#34; class=&#34;govuk-header  with-proposition dl-header dl-header--full&#34; data-module=&#34;govuk-header&#34;&gt;
+  &lt;div class=&#34;govuk-header__container dl-full-width-container&#34;&gt;
+    &lt;div class=&#34;header-proposition&#34;&gt;
+      &lt;div class=&#34;govuk-header__content&#34;&gt;
+        &lt;a href=&#34;https://digital-land.github.io/&#34; class=&#34;govuk-header__link govuk-header__link--service-name&#34;&gt;
+        Digital Land
+        &lt;/a&gt;
+        &lt;button type=&#34;button&#34; class=&#34;govuk-header__menu-button govuk-js-header-toggle&#34; aria-controls=&#34;navigation&#34; aria-label=&#34;Show or hide Top Level Navigation&#34;&gt;Menu&lt;/button&gt;
+        &lt;nav&gt;
+          &lt;ul id=&#34;navigation&#34; class=&#34;govuk-header__navigation&#34; aria-label=&#34;Top Level Navigation&#34;&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/about&#34;&gt;Team&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/project/&#34;&gt;Projects&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/weeknote/&#34;&gt;Weeknotes&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/blog-post/&#34;&gt;Blog&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/guidance/&#34;&gt;Guidance&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/dataset/&#34;&gt;Datasets&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/organisation/&#34;&gt;Organisations&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&#34;govuk-header__navigation-item&#34;&gt;
+              &lt;a class=&#34;govuk-header__link&#34; href=&#34;/map/&#34;&gt;Map&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+
+
+
+&lt;div class=&#34;dl-full-width-container &#34;&gt;
+
+
+&lt;div class=&#34;govuk-phase-banner&#34;&gt;
+  &lt;p class=&#34;govuk-phase-banner__content&#34;&gt;&lt;strong class=&#34;govuk-tag govuk-phase-banner__content__tag &#34;&gt;
+  prototype
+&lt;/strong&gt;&lt;span class=&#34;govuk-phase-banner__text&#34;&gt;
+      This is a prototype. Please provide feedback to the Digital Land team.
+    &lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+
+    &lt;main class=&#34;govuk-main-wrapper &#34; id=&#34;main-content&#34; role=&#34;main&#34;&gt;
+
+&lt;div class=&#34;govuk-grid-row&#34;&gt;
+    &lt;div class=&#34;govuk-grid-column-full&#34;&gt;
+    &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Map of brownfield land&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p class=&#34;govuk-body-l&#34;&gt;National view of the brownfield land  collected and collated by Digital Land.&lt;/p&gt;
+
+
+
+
+&lt;div class=&#34;dl-map__wrapper&#34;&gt;&lt;div 
+        class=&#34;dl-map govuk-!-margin-bottom-0&#34;
+        id=&#34;aMap&#34;
+        data-module=&#34;boundary-map&#34;
+        style=&#34;height: 700px;&#34;   
+    &gt;
+        &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;dl-map__loader&#34;&gt;
+        &lt;div class=&#34;dl-map__loader-msg&#34;&gt;
+            &lt;div class=&#34;dl-map__spinning-loader&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;govuk-!-font-size-24 govuk-!-margin-top-6&#34;&gt;Loading brownfield land data&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;dl-map__side-panel js-hidden&#34;&gt;
+
+&lt;div class=&#34;dl-map__side-panel__section&#34;&gt;
+&lt;h3 class=&#34;govuk-heading-s govuk-!-margin-bottom-0&#34;&gt;Displayed on map&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class=&#34;dl-map__side-panel__section dl-map__side-panel__section--title js-hidden&#34; data-module=&#34;dl-map-items&#34;&gt;
+  &lt;p class=&#34;govuk-body govuk-!-margin-bottom-1&#34;&gt;&lt;span class=&#34;organisation-count&#34;&gt;&lt;/span&gt; organisation boundaries&lt;/p&gt;
+  &lt;p class=&#34;govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-1 js-hidden&#34;&gt;Active: &lt;span class=&#34;active-organisation dl-map__highlight--yellow&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;dl-map__side-panel__section dl-map__side-panel__section--blue&#34;&gt;
+
+&lt;div class=&#34;govuk-form-group govuk-!-margin-bottom-0&#34;&gt;
+  &lt;label class=&#34;govuk-label&#34; for=&#34;dl-organisation-autocomplete&#34;&gt;
+    Search for an organisation
+  &lt;/label&gt;
+  &lt;span id=&#34;dl-organisation-autocomplete-error&#34; class=&#34;govuk-error-message&#34; role=&#34;alert&#34;&gt;
+    &lt;span class=&#34;govuk-visually-hidden&#34;&gt;Error:&lt;/span&gt; Value entered not recognised, please try again
+  &lt;/span&gt;
+  &lt;select class=&#34;govuk-select&#34; id=&#34;dl-organisation-autocomplete&#34; name=&#34;dl-organisation-autocomplete&#34;&gt;
+    &lt;option value=&#34;&#34;&gt;&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q20648596&#34;&gt;Old Oak and Park Royal Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q4916714&#34;&gt;Birmingham Heartlands Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q6670544&#34;&gt;London Legacy Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q6670837&#34;&gt;London Thames Gateway Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q72456968&#34;&gt;South Tees Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q72463795&#34;&gt;Ebbsfleet Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q7799380&#34;&gt;Thurrock Thames Gateway Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q7860503&#34;&gt;Tyne and Wear Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;development-corporation:Q7986087&#34;&gt;West Northamptonshire Development Corporation&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:D303&#34;&gt;Office for National Statistics&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:D38&#34;&gt;Ordnance Survey&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:D4&#34;&gt;Ministry of Housing, Communities and Local Government&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:D69&#34;&gt;HM Land Registry&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:EA39&#34;&gt;Planning Inspectorate&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:EA87&#34;&gt;Valuation Office Agency&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB1164&#34;&gt;Historic England&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB1204&#34;&gt;Valuation Tribunal for England&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB1218&#34;&gt;Regulator of Social Housing&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB1232&#34;&gt;Homes England&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB160&#34;&gt;Building Regulations Advisory Committee&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB207&#34;&gt;Health and Safety Executive&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB372&#34;&gt;Housing Ombudsman&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB373&#34;&gt;Leasehold Advisory Service&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PB375&#34;&gt;Valuation Tribunal Service&lt;/option&gt;
+    &lt;option value=&#34;government-organisation:PC163&#34;&gt;Architects Registration Board&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ADU&#34;&gt;Adur District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ALL&#34;&gt;Allerdale Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:AMB&#34;&gt;Amber Valley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ARU&#34;&gt;Arun District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ASF&#34;&gt;Ashford Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ASH&#34;&gt;Ashfield District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:AYL&#34;&gt;Aylesbury Vale District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BAB&#34;&gt;Babergh District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BAE&#34;&gt;Bassetlaw District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BAI&#34;&gt;Basildon Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BAN&#34;&gt;Basingstoke and Deane Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BAR&#34;&gt;Barrow-in-Furness Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BAS&#34;&gt;Bath and North East Somerset Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BBD&#34;&gt;Blackburn with Darwen Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BDF&#34;&gt;Bedford Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BDG&#34;&gt;London Borough of Barking and Dagenham&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BEN&#34;&gt;London Borough of Brent&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BEX&#34;&gt;London Borough of Bexley&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BIR&#34;&gt;Birmingham City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BKM&#34;&gt;Buckinghamshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BLA&#34;&gt;Blaby District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BMH&#34;&gt;Bournemouth Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BNE&#34;&gt;London Borough of Barnet&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BNH&#34;&gt;Brighton and Hove City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BNS&#34;&gt;Barnsley Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BOL&#34;&gt;Bolton Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BOS&#34;&gt;Bolsover District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BOT&#34;&gt;Boston Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BPC&#34;&gt;Bournemouth, Christchurch and Poole Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BPL&#34;&gt;Blackpool Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRA&#34;&gt;Braintree District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRC&#34;&gt;Bracknell Forest Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRD&#34;&gt;City of Bradford Metropolitan District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRE&#34;&gt;Breckland District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRM&#34;&gt;Bromsgrove District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRO&#34;&gt;Broadland District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRT&#34;&gt;Broxtowe Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRW&#34;&gt;Brentwood Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRX&#34;&gt;Broxbourne Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BRY&#34;&gt;London Borough of Bromley&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BST&#34;&gt;Bristol City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BUC&#34;&gt;Buckinghamshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BUN&#34;&gt;Burnley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:BUR&#34;&gt;Bury Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CAB&#34;&gt;Cambridge City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CAM&#34;&gt;Cambridgeshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CAN&#34;&gt;Cannock Chase District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CAR&#34;&gt;Carlisle City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CAS&#34;&gt;Castle Point Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CAT&#34;&gt;Canterbury City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CBF&#34;&gt;Central Bedfordshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHA&#34;&gt;Charnwood Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHC&#34;&gt;Christchurch Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHE&#34;&gt;Cheshire East Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHI&#34;&gt;Chichester District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHL&#34;&gt;Chelmsford City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHN&#34;&gt;Chiltern District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHO&#34;&gt;Chorley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHR&#34;&gt;Cherwell District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHS&#34;&gt;Chesterfield Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHT&#34;&gt;Cheltenham Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CHW&#34;&gt;Cheshire West and Chester Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CLD&#34;&gt;Calderdale Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CMA&#34;&gt;Cumbria County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CMD&#34;&gt;London Borough of Camden&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:COL&#34;&gt;Colchester Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CON&#34;&gt;Cornwall Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:COP&#34;&gt;Copeland Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:COR&#34;&gt;Corby Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:COT&#34;&gt;Cotswold District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:COV&#34;&gt;Coventry City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CPCA&#34;&gt;Cambridgeshire and Peterborough Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CRA&#34;&gt;Craven District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CRW&#34;&gt;Crawley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:CRY&#34;&gt;London Borough of Croydon&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DAC&#34;&gt;Dacorum Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DAL&#34;&gt;Darlington Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DAR&#34;&gt;Dartford Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DAV&#34;&gt;Daventry District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DBY&#34;&gt;Derbyshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DEB&#34;&gt;Derbyshire Dales District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DER&#34;&gt;Derby City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DEV&#34;&gt;Devon County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DNC&#34;&gt;Doncaster Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DOR&#34;&gt;Dorset County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DOV&#34;&gt;Dover District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DST&#34;&gt;Dorset Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DUD&#34;&gt;Dudley Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:DUR&#34;&gt;Durham County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EAL&#34;&gt;London Borough of Ealing&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EAS&#34;&gt;Eastbourne Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EAT&#34;&gt;Eastleigh Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ECA&#34;&gt;East Cambridgeshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EDE&#34;&gt;East Devon District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EDN&#34;&gt;Eden District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EDO&#34;&gt;East Dorset District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EHA&#34;&gt;East Hampshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EHE&#34;&gt;East Hertfordshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ELI&#34;&gt;East Lindsey District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ELM&#34;&gt;Elmbridge Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ENF&#34;&gt;London Borough of Enfield&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ENO&#34;&gt;East Northamptonshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EPP&#34;&gt;Epping Forest District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EPS&#34;&gt;Epsom and Ewell Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ERE&#34;&gt;Erewash Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ERY&#34;&gt;East Riding of Yorkshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ESK&#34;&gt;East Suffolk Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ESS&#34;&gt;Essex County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EST&#34;&gt;East Staffordshire Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ESX&#34;&gt;East Sussex County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:EXE&#34;&gt;Exeter City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:FAR&#34;&gt;Fareham Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:FEN&#34;&gt;Fenland District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:FOE&#34;&gt;Forest of Dean District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:FOR&#34;&gt;Forest Heath District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:FYL&#34;&gt;Fylde Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GAT&#34;&gt;Gateshead Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GED&#34;&gt;Gedling Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GLA&#34;&gt;Greater London Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GLO&#34;&gt;Gloucester City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GLS&#34;&gt;Gloucestershire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GMCA&#34;&gt;Greater Manchester Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GOS&#34;&gt;Gosport Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GRA&#34;&gt;Gravesham Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GRE&#34;&gt;Royal Borough of Greenwich&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GRT&#34;&gt;Guildford Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:GRY&#34;&gt;Great Yarmouth Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAA&#34;&gt;Havant Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAE&#34;&gt;Hambleton District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAG&#34;&gt;Harrogate Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAL&#34;&gt;Halton Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAM&#34;&gt;Hampshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAO&#34;&gt;Harborough District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAR&#34;&gt;Harlow District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAS&#34;&gt;Hastings Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAT&#34;&gt;Hart District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HAV&#34;&gt;London Borough of Havering&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HCK&#34;&gt;London Borough of Hackney&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HEF&#34;&gt;Herefordshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HER&#34;&gt;Hertsmere Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HIG&#34;&gt;High Peak Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HIL&#34;&gt;London Borough of Hillingdon&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HIN&#34;&gt;Hinckley and Bosworth Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HMF&#34;&gt;London Borough of Hammersmith &amp; Fulham&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HNS&#34;&gt;London Borough of Hounslow&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HOR&#34;&gt;Horsham District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HPL&#34;&gt;Hartlepool Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HRT&#34;&gt;Hertfordshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HRW&#34;&gt;London Borough of Harrow&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HRY&#34;&gt;London Borough of Haringey&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HUN&#34;&gt;Huntingdonshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:HYN&#34;&gt;Hyndburn Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:IOS&#34;&gt;Council of the Isles of Scilly&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:IOW&#34;&gt;Isle of Wight Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:IPS&#34;&gt;Ipswich Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ISL&#34;&gt;London Borough of Islington&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KEC&#34;&gt;Royal Borough of Kensington and Chelsea&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KEN&#34;&gt;Kent County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KET&#34;&gt;Kettering Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KHL&#34;&gt;Hull City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KIN&#34;&gt;Borough Council of King&#39;s Lynn and West Norfolk&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KIR&#34;&gt;Kirklees Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KTT&#34;&gt;Royal Borough of Kingston upon Thames&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:KWL&#34;&gt;Knowsley Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LAC&#34;&gt;Lancaster City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LAN&#34;&gt;Lancashire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LBH&#34;&gt;London Borough of Lambeth&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LCE&#34;&gt;Leicester City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LCR&#34;&gt;Liverpool City Region&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LDS&#34;&gt;Leeds City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LEC&#34;&gt;Leicestershire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LEE&#34;&gt;Lewes District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LEW&#34;&gt;London Borough of Lewisham&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LIC&#34;&gt;City of Lincoln Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LIF&#34;&gt;Lichfield District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LIN&#34;&gt;Lincolnshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LIV&#34;&gt;Liverpool City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LND&#34;&gt;City of London Corporation&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:LUT&#34;&gt;Luton Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MAI&#34;&gt;Maidstone Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MAL&#34;&gt;Maldon District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MAN&#34;&gt;Manchester City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MAS&#34;&gt;Mansfield District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MAV&#34;&gt;Malvern Hills District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MDB&#34;&gt;Middlesbrough Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MDE&#34;&gt;Mid Devon District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MDW&#34;&gt;Medway Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MEL&#34;&gt;Melton Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MEN&#34;&gt;Mendip District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MIK&#34;&gt;Milton Keynes Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MOL&#34;&gt;Mole Valley District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MRT&#34;&gt;London Borough of Merton&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MSS&#34;&gt;Mid Sussex District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:MSU&#34;&gt;Mid Suffolk District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NBL&#34;&gt;Northumberland County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NDE&#34;&gt;North Devon District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NDO&#34;&gt;North Dorset District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NEA&#34;&gt;Newark and Sherwood District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NEC&#34;&gt;Newcastle-under-Lyme Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NECA&#34;&gt;North East Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NED&#34;&gt;North East Derbyshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NEL&#34;&gt;North East Lincolnshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NET&#34;&gt;Newcastle City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NEW&#34;&gt;New Forest District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NFK&#34;&gt;Norfolk County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NGM&#34;&gt;Nottingham City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NHE&#34;&gt;North Hertfordshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NKE&#34;&gt;North Kesteven District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NLN&#34;&gt;North Lincolnshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NNO&#34;&gt;North Norfolk District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NOR&#34;&gt;Northampton Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NOW&#34;&gt;Norwich City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NSM&#34;&gt;North Somerset  Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NTCA&#34;&gt;North of Tyne Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NTH&#34;&gt;Northamptonshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NTT&#34;&gt;Nottinghamshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NTY&#34;&gt;North Tyneside Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NUN&#34;&gt;Nuneaton and Bedworth Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NWA&#34;&gt;North Warwickshire Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NWL&#34;&gt;North West Leicestershire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NWM&#34;&gt;London Borough of Newham&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:NYK&#34;&gt;North Yorkshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:OAD&#34;&gt;Oadby and Wigston Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:OLD&#34;&gt;Oldham Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:OXF&#34;&gt;Oxfordshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:OXO&#34;&gt;Oxford City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:PEN&#34;&gt;Pendle Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:PLY&#34;&gt;Plymouth City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:POL&#34;&gt;Borough of Poole&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:POR&#34;&gt;Portsmouth City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:PRE&#34;&gt;Preston City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:PTE&#34;&gt;Peterborough City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:PUR&#34;&gt;Purbeck District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RCC&#34;&gt;Redcar and Cleveland Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RCH&#34;&gt;Rochdale Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RDB&#34;&gt;London Borough of Redbridge&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RDG&#34;&gt;Reading Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RED&#34;&gt;Redditch Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:REI&#34;&gt;Reigate and Banstead Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RIB&#34;&gt;Ribble Valley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RIC&#34;&gt;London Borough of Richmond upon Thames&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RIH&#34;&gt;Richmondshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ROC&#34;&gt;Rochford District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ROH&#34;&gt;Rother District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ROS&#34;&gt;Rossendale Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:ROT&#34;&gt;Rotherham Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RUG&#34;&gt;Rugby Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RUH&#34;&gt;Rushmoor Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RUN&#34;&gt;Runnymede Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RUS&#34;&gt;Rushcliffe Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RUT&#34;&gt;Rutland County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:RYE&#34;&gt;Ryedale District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SAL&#34;&gt;St Albans City and District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SAW&#34;&gt;Sandwell Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SBU&#34;&gt;South Bucks District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SCA&#34;&gt;South Cambridgeshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SCE&#34;&gt;Scarborough Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SCR&#34;&gt;Sheffield City Region&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SDE&#34;&gt;South Derbyshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SED&#34;&gt;St Edmundsbury Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SEG&#34;&gt;Sedgemoor District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SEL&#34;&gt;Selby District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SEV&#34;&gt;Sevenoaks District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SFK&#34;&gt;Suffolk County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SFT&#34;&gt;Sefton Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SGC&#34;&gt;South Gloucestershire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SHA&#34;&gt;South Hams District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SHE&#34;&gt;Folkestone and Hythe Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SHF&#34;&gt;Sheffield City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SHN&#34;&gt;St Helens Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SHO&#34;&gt;South Holland District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SHR&#34;&gt;Shropshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SKE&#34;&gt;South Kesteven District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SKP&#34;&gt;Stockport Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SLA&#34;&gt;South Lakeland District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SLF&#34;&gt;Salford City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SLG&#34;&gt;Slough Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SND&#34;&gt;Sunderland City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SNO&#34;&gt;South Norfolk District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SNR&#34;&gt;South Northamptonshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SOL&#34;&gt;Solihull Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SOM&#34;&gt;Somerset County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SOS&#34;&gt;Southend-on-Sea Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SOX&#34;&gt;South Oxfordshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SPE&#34;&gt;Spelthorne Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SRI&#34;&gt;South Ribble Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SRY&#34;&gt;Surrey County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SSO&#34;&gt;South Somerset District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SST&#34;&gt;South Staffordshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STA&#34;&gt;Stafford Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STE&#34;&gt;Stoke-on-Trent City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STF&#34;&gt;Staffordshire Moorlands District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STH&#34;&gt;Southampton City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STN&#34;&gt;London Borough of Sutton&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STO&#34;&gt;Stroud District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STR&#34;&gt;Stratford-on-Avon District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STS&#34;&gt;Staffordshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STT&#34;&gt;Stockton-on-Tees Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STV&#34;&gt;Stevenage Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:STY&#34;&gt;South Tyneside Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SUF&#34;&gt;Suffolk Coastal District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SUR&#34;&gt;Surrey Heath Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SWD&#34;&gt;Swindon Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SWK&#34;&gt;London Borough of Southwark&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SWL&#34;&gt;Swale Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:SWT&#34;&gt;Somerset West and Taunton Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TAM&#34;&gt;Tameside Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TAN&#34;&gt;Tandridge District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TAU&#34;&gt;Taunton Deane Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TAW&#34;&gt;Tamworth Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TEI&#34;&gt;Teignbridge District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TEN&#34;&gt;Tendring District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TES&#34;&gt;Test Valley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TEW&#34;&gt;Tewkesbury Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TFW&#34;&gt;Telford &amp; Wrekin Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:THA&#34;&gt;Thanet District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:THE&#34;&gt;Three Rivers District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:THR&#34;&gt;Thurrock Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TOB&#34;&gt;Torbay Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TON&#34;&gt;Tonbridge and Malling Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TOR&#34;&gt;Torridge District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TRF&#34;&gt;Trafford Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TUN&#34;&gt;Tunbridge Wells Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TVCA&#34;&gt;Tees Valley Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:TWH&#34;&gt;London Borough of Tower Hamlets&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:UTT&#34;&gt;Uttlesford District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:VAL&#34;&gt;Vale of White Horse District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WAE&#34;&gt;Waverley Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WAR&#34;&gt;Warwickshire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WAT&#34;&gt;Watford Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WAV&#34;&gt;Waveney District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WAW&#34;&gt;Warwick District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WBK&#34;&gt;West Berkshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WDE&#34;&gt;West Devon Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WDO&#34;&gt;West Dorset District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WEA&#34;&gt;Wealden District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WECA&#34;&gt;West of England Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WEL&#34;&gt;Wellingborough Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WEW&#34;&gt;Welwyn Hatfield Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WEY&#34;&gt;Weymouth and Portland Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WFT&#34;&gt;London Borough of Waltham Forest&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WGN&#34;&gt;Wigan Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WIL&#34;&gt;Wiltshire Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WIN&#34;&gt;Winchester City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WKF&#34;&gt;Wakefield Metropolitan District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WLA&#34;&gt;West Lancashire Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WLI&#34;&gt;West Lindsey District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WLL&#34;&gt;Walsall Metropolitan Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WLV&#34;&gt;City of Wolverhampton Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WMCA&#34;&gt;West Midlands Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WND&#34;&gt;London Borough of Wandsworth&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WNM&#34;&gt;Royal Borough of Windsor and Maidenhead&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WOC&#34;&gt;Worcester City Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WOI&#34;&gt;Woking Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WOK&#34;&gt;Wokingham Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WOR&#34;&gt;Worcestershire County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WOT&#34;&gt;Worthing Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WOX&#34;&gt;West Oxfordshire District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WRL&#34;&gt;Wirral Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WRT&#34;&gt;Warrington Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WSK&#34;&gt;West Suffolk Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WSM&#34;&gt;City of Westminster&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WSO&#34;&gt;West Somerset District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WSX&#34;&gt;West Sussex County Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WYC&#34;&gt;Wychavon District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WYCA&#34;&gt;West Yorkshire Combined Authority&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WYE&#34;&gt;Wyre Forest District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WYO&#34;&gt;Wycombe District Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:WYR&#34;&gt;Wyre Borough Council&lt;/option&gt;
+    &lt;option value=&#34;local-authority-eng:YOR&#34;&gt;City of York Council&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q20198711&#34;&gt;South Downs National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q27159704&#34;&gt;Lake District National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q27178932&#34;&gt;Yorkshire Dales National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q4972284&#34;&gt;Broads Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q5225646&#34;&gt;Dartmoor National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q72617158&#34;&gt;New Forest National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q72617669&#34;&gt;North York Moors National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q72617784&#34;&gt;Exmoor National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q72617890&#34;&gt;Northumberland National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;national-park-authority:Q72617988&#34;&gt;Peak District National Park Authority&lt;/option&gt;
+    &lt;option value=&#34;public-authority:Q5533909&#34;&gt;GeoPlace&lt;/option&gt;
+    &lt;option value=&#34;regional-park-authority:Q6515400&#34;&gt;Lee Valley Regional Park Authority&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q25171369&#34;&gt;West Midlands Passenger Transport Executive&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q6820591&#34;&gt;Merseytravel&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q682520&#34;&gt;Transport for London&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q7569004&#34;&gt;South Yorkshire Passenger Transport Executive&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q7834921&#34;&gt;Transport for Greater Manchester&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q7860508&#34;&gt;Tyne and Wear Passenger Transport Executive&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q7985947&#34;&gt;Transport for West Midlands&lt;/option&gt;
+    &lt;option value=&#34;transport-authority:Q7987043&#34;&gt;West Yorkshire Passenger Transport Executive&lt;/option&gt;
+    &lt;option value=&#34;waste-authority:Q20711950&#34;&gt;East London Waste Authority&lt;/option&gt;
+    &lt;option value=&#34;waste-authority:Q20713477&#34;&gt;North London Waste Authority&lt;/option&gt;
+    &lt;option value=&#34;waste-authority:Q21921612&#34;&gt;West London Waste Authority&lt;/option&gt;
+    &lt;option value=&#34;waste-authority:Q21935501&#34;&gt;Western Riverside Waste Authority&lt;/option&gt;
+    &lt;option value=&#34;waste-authority:Q5600652&#34;&gt;Greater Manchester Waste Disposal Authority&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+  &lt;p class=&#34;govuk-!-margin-bottom-0 govuk-!-margin-top-1 dl-map__error js-hidden&#34; data-module=&#34;organisation-search-error&#34;&gt;Boundary for organisation not found.&lt;/p&gt;
+&lt;/div&gt;
+
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+    &lt;/main&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;footer class=&#34;govuk-footer &#34; role=&#34;contentinfo&#34;
+        &gt;
+  &lt;div class=&#34;govuk-width-container dl-full-width-container&#34;&gt;
+
+    &lt;div class=&#34;govuk-footer__meta&#34;&gt;
+      &lt;div class=&#34;govuk-footer__meta-item govuk-footer__meta-item--grow&#34;&gt;
+
+          &lt;h2 class=&#34;govuk-visually-hidden&#34;&gt;Support links&lt;/h2&gt;
+              &lt;ul class=&#34;govuk-footer__inline-list&#34;&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/cookies&#34;&gt;
+                      Cookies
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/accessibility-statement&#34;&gt;
+                      Accessibility statement
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/design-system&#34;&gt;
+                      Design system
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+              &lt;/ul&gt;
+
+
+
+            &lt;div class=&#34;govuk-footer__meta-custom&#34;&gt;
+              The &lt;a class=&#34;govuk-footer__link&#34; href=&#34;https://github.com/digital-land/digital-land/&#34;&gt;software&lt;/a&gt; and &lt;a class=&#34;govuk-footer__link&#34; href=&#34;https://github.com/digital-land/digital-land/&#34;&gt;data&lt;/a&gt; used to build these pages is &lt;a class=&#34;govuk-footer__link&#34; href=&#34;https://github.com/digital-land/digital-land/blob/master/LICENSE&#34;&gt;open source&lt;/a&gt;.
+            &lt;/div&gt;
+
+
+        &lt;svg
+          role=&#34;presentation&#34;
+          focusable=&#34;false&#34;
+          class=&#34;govuk-footer__licence-logo&#34;
+          xmlns=&#34;http://www.w3.org/2000/svg&#34;
+          viewBox=&#34;0 0 483.2 195.7&#34;
+          height=&#34;17&#34;
+          width=&#34;41&#34;
+        &gt;
+          &lt;path
+            fill=&#34;currentColor&#34;
+            d=&#34;M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145&#34;
+          /&gt;
+        &lt;/svg&gt;
+        &lt;span class=&#34;govuk-footer__licence-description&#34;&gt;
+          All content is available under the
+          &lt;a
+            class=&#34;govuk-footer__link&#34;
+            href=&#34;https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/&#34;
+            rel=&#34;license&#34;
+          &gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;govuk-footer__meta-item&#34;&gt;
+        &lt;a
+          class=&#34;govuk-footer__link govuk-footer__copyright-logo&#34;
+          href=&#34;https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/&#34;
+        &gt;© Crown copyright&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+
+
+&lt;script src=&#34;https://digital-land.github.io/javascripts/dl-cookies.js&#34;&gt;&lt;/script&gt;
+    &lt;script async src=&#39;https://www.google-analytics.com/analytics.js&#39;&gt;&lt;/script&gt;
+    &lt;!-- end google analytics --&gt;
+
+
+    &lt;script src=&#34;https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+    &lt;/script&gt;
+
+
+
+    &lt;script src=&#34;https://digital-land.github.io/javascripts/dl-frontend.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // adds any necessary polyfills
+        window.DLFrontend.polyfill();
+    &lt;/script&gt;
+
+
+
+&lt;script src=&#34;https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+(function(dlf, accessibleAutocomplete) {
+  let organisationMapper = {}
+  const bfsHelpers = DLMaps.brownfieldSites
+
+  // create URL used to fetch boundaries
+  function laBoundaryURL(st_geo_code) {
+    return `https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/${st_geo_code}/index.geojson`
+  }
+
+  // add a property to a feature
+  function addProperty(feature, name, value) {
+    if( feature.properties ) {
+      feature.properties[name] = value
+    }
+  }
+
+  const organisationActiveStyle = {
+    fillOpacity: 0.2,
+    weight: 2,
+    color: &#39;#FFDD00&#39;,
+    fillColor: &#39;#FFEE80&#39;
+  }
+
+  // $elements needed for map functions
+  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
+  const $sidePanel = document.querySelector(&#34;.dl-map__side-panel&#34;)
+  const $mapItems = document.querySelector(&#34;[data-module=&#39;dl-map-items&#39;]&#34;)
+  const $boundaryCount = $mapItems.querySelector(&#34;.organisation-count&#34;)
+  const $activeOrganisation = $mapItems.querySelector(&#34;.active-organisation&#34;)
+
+  // needed for organisation search
+  const $picker = document.querySelector(&#39;#dl-organisation-autocomplete&#39;)
+  const $orgSearchError = document.querySelector(&#34;[data-module=&#39;organisation-search-error&#39;]&#34;)
+
+  // initiate the map component
+  const bfsmap = new DLMaps.Map($mapElement).init({})
+  var localAuthorityBoundaries = bfsmap.createFeatureGroup(&#34;localAuthorityBoundaries&#34;).addTo(bfsmap.map)
+  var brownfieldSiteGroups = bfsmap.createFeatureGroup(&#39;brownfieldSiteGroups&#39;).addTo(bfsmap.map)
+  bfsmap.setMapHeight()
+
+  function handleOrganisationSearch(val) {
+    const orgname = dlf.utils.toCamelCase(val)
+    if (laTracker.get(orgname)) {
+      $orgSearchError.classList.add(&#34;js-hidden&#34;)
+      const match = laTracker.get(orgname)
+      selectOrganisation(match.name, match.boundaryLayer)
+    } else {
+      $orgSearchError.classList.remove(&#34;js-hidden&#34;)
+    }
+  }
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: $picker,
+    onConfirm: handleOrganisationSearch,
+    confirmOnBlur: false
+  })
+
+  // in the real map the whole array is passed to the template
+  var brownfieldPublishers = [
+      {&#34;count&#34;: 32, &#34;id&#34;: &#34;local-authority-eng:DEB&#34;, &#34;name&#34;: &#34;Derbyshire Dales District Council&#34;, &#34;statistical_geography&#34;: &#34;E07000035&#34;},
+      {&#34;count&#34;: 34, &#34;id&#34;: &#34;local-authority-eng:HAL&#34;, &#34;name&#34;: &#34;Halton Borough Council&#34;, &#34;statistical_geography&#34;: &#34;E06000006&#34;}
+      ]
+
+  organisationMapper = dlf.utils.createOrgMapper(brownfieldPublishers)
+  bfsHelpers.registerOrganisationMapper(organisationMapper)
+
+  function addUsefulPropertiesToFeature(feature, organisation) {
+    addProperty(feature, &#34;organisation&#34;, organisation.id)
+    addProperty(feature, &#34;organisation_name&#34;, organisation.name)
+    addProperty(feature, &#34;bfs_count&#34;, organisation.count)
+    return feature
+  }
+
+  function updateActiveOrgPanel(name) {
+    $activeOrganisation.textContent = name
+    const $container = $activeOrganisation.parentElement
+    if ($container.classList.contains(&#34;js-hidden&#34;)) {
+      $container.classList.remove(&#34;js-hidden&#34;)
+    }
+  }
+
+  function LayerTracker(defaultProps) {
+    this.items = {}
+    this._defaultProps = defaultProps || {}
+  }
+  LayerTracker.prototype.add = function(name, props) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    // can i use spread???
+    this.items[trackerId] = {...this._defaultProps, ...props}
+    this.items[trackerId][&#34;name&#34;] = name
+    return trackerId
+  }
+  LayerTracker.prototype.addToItem = function(name, k, v) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    if (Object.prototype.hasOwnProperty.call(this.items, trackerId)) {
+      this.items[trackerId][k] = v
+    }
+  }
+  LayerTracker.prototype.get = function (name) {
+    return this.items[dlf.utils.toCamelCase(name)]
+  }
+
+  var laTracker = new LayerTracker({&#34;loadedBFS&#34;: false})
+  console.log(laTracker)
+
+
+  function brownfieldDataUrl(organisation){
+    orgDir = dlf.utils.curie_to_url_part(organisation)
+    return `https://raw.githubusercontent.com/digital-land/dataset/master/docs/brownfield-land/organisation/${orgDir}/sites.geojson`
+  }
+
+  function setActiveBoundaryLayer(layer) {
+    // track which layer is active
+    localAuthorityBoundaries.activeLayer = layer._leaflet_id
+    localAuthorityBoundaries.eachLayer(function (layer) {
+      layer.activeBoundary = false
+      layer.setStyle(bfsmap.styles.defaultBoundaryStyle)
+    })
+    if (hasParentLayer(layer)) {
+      layer.parentId[&#34;activeBoundary&#34;] = true
+      layer.parentId.setStyle(organisationActiveStyle)
+    }
+
+    // should this be done another way? i.e. trigger an event on the side panel?
+    updateActiveOrgPanel(layer.feature.properties[&#39;organisation_name&#39;])
+  }
+
+  function hasParentLayer(childLayer) {
+    return Object.prototype.hasOwnProperty.call(childLayer, &#34;parentId&#34;)
+  }
+
+  function setParentLayer(parentLayer, layerName) {
+    parentLayer.activeBoundary = false
+    laTracker.addToItem(layerName, &#34;layer&#34;, parentLayer)
+    for (var lId in parentLayer._layers) {
+      if (Object.prototype.hasOwnProperty.call(parentLayer._layers, lId)) {
+        const childLayer = parentLayer._layers[lId]
+        childLayer.parentId = localAuthorityBoundaries.getLayer(parentLayer._leaflet_id)
+        laTracker.addToItem(layerName, &#34;boundaryLayer&#34;, childLayer)
+      }
+    }
+  }
+
+  function addHoverState (layer) {
+    bfsmap.addLayerHoverState(layer, {
+      check: function (layer) {
+        return !Object.prototype.hasOwnProperty.call(layer, &#34;parentId&#34;) || !layer.parentId.activeBoundary
+      }
+    })
+  }
+
+  function onSuccessfulBrownfieldLoad (layer, organisationName) {
+    if (laTracker.get(organisationName)) {
+      laTracker.get(organisationName).loadedBFS = true
+    }
+  }
+
+  /**
+   * Select the organisation -&gt; highlights polygon and loads data if not loaded
+   * @param  {String} organisationName Name of organisation to select, e.g. Harrogate Borough Council
+   * @param  {Object} layer Leaflet layer. Should be the boundary polygon layer not the parent
+   */
+  // needs to be own function because called from multiple sources: click and organisation search
+  function selectOrganisation(organisationName, layer) {
+    setActiveBoundaryLayer(layer)
+    bfsmap.zoomToLayer(layer)
+    if (laTracker.get(organisationName)) {
+      const url = laTracker.get(organisationName).brownfield_data_url
+      bfsHelpers.loadSites(bfsmap, url, organisationName, {
+        layerGroup: brownfieldSiteGroups,
+        cb: onSuccessfulBrownfieldLoad
+      })
+    }
+  }
+
+
+  function addLayerClickEvent(feature, layer) {
+    const organisation = layer.feature.properties.organisation
+    const organisationName = organisationMapper[organisation]
+    laTracker.addToItem(organisationName, &#34;brownfield_data_url&#34;, brownfieldDataUrl(organisation)) 
+    layer.on(&#39;click&#39;, function(e) {
+      selectOrganisation(organisationName, layer)
+    })
+  }
+
+  function setupAuthorityBoundaryLayer(feature, layer) {
+    // function is run for each boundary that is plotted
+    addHoverState(layer)
+    addLayerClickEvent(feature, layer)
+  }
+
+  console.log(brownfieldPublishers.length)
+  var failing = []
+  Promise.allSettled(
+    brownfieldPublishers.map(function(bP) {
+      const url = laBoundaryURL(bP.statistical_geography)
+      // track the organisation layer on the map
+      const trackerId = laTracker.add(bP.name, {&#34;id&#34;: bP.id})
+      return fetch(url)
+        .then(resp =&gt; resp.json())
+        .then((data) =&gt; {
+          data.features[0] = addUsefulPropertiesToFeature(data.features[0], bP)
+          // create geojson feature layer (parent)
+          var boundary = L.geoJSON(data, {
+            style: bfsmap.styles.defaultBoundaryStyle,
+            onEachFeature: setupAuthorityBoundaryLayer
+          })
+          .on(&#34;add&#34;, function(e) {
+            // set currently added layer as parent for all children layers
+            setParentLayer(e.target, bP.name)
+          })
+          .addTo(localAuthorityBoundaries)
+          return boundary
+        })
+        .catch(function(err) {
+          console.log(bP.id, &#39;error&#39;, err)
+          failing.push([bP.id, bP.statistical_geography])
+        })
+    }
+  )).then(boundaries =&gt; {
+    // after all boundaries collected then fitBounds of map
+    bfsmap.map.fitBounds(localAuthorityBoundaries.getBounds())
+    bfsmap.hideLoader()
+    $boundaryCount.textContent = brownfieldPublishers.length - failing.length
+    $mapItems.classList.remove(&#34;js-hidden&#34;)
+    $sidePanel.classList.remove(&#34;js-hidden&#34;)
+  })
+
+  // candidate for dl-maps.js?
+  bfsmap.map.on(&#34;zoom&#34;, function(e) {
+    const zoomLevel = bfsmap.map.getZoom()
+    if (zoomLevel &gt; 7) {
+      brownfieldSiteGroups.addTo(bfsmap.map)
+    } else {
+      brownfieldSiteGroups.remove()
+    }
+  })
+
+window.bfsmap = bfsmap
+window.laTracker = laTracker
+
+})(window.DLFrontend, window.accessibleAutocomplete)
+
+&lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/dlf-base--full-width.html&#34; %}
+{% from &#39;digital-land-frontend/components/map/macro.html&#39; import dlMap %}
+
+{% set includesMap = true %}
+{% block pageTitle %}BFS Map | Digital Land{% endblock %}
+
+{% block content %}
+&lt;div class=&#34;govuk-grid-row&#34;&gt;
+    &lt;div class=&#34;govuk-grid-column-full&#34;&gt;
+    &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Map of brownfield land&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p class=&#34;govuk-body-l&#34;&gt;National view of the brownfield land  collected and collated by Digital Land.&lt;/p&gt;
+
+{% set sidePanelHTML %}
+&lt;div class=&#34;dl-map__side-panel__section&#34;&gt;
+&lt;h3 class=&#34;govuk-heading-s govuk-!-margin-bottom-0&#34;&gt;Displayed on map&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class=&#34;dl-map__side-panel__section dl-map__side-panel__section--title js-hidden&#34; data-module=&#34;dl-map-items&#34;&gt;
+  &lt;p class=&#34;govuk-body govuk-!-margin-bottom-1&#34;&gt;&lt;span class=&#34;organisation-count&#34;&gt;&lt;/span&gt; organisation boundaries&lt;/p&gt;
+  &lt;p class=&#34;govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-1 js-hidden&#34;&gt;Active: &lt;span class=&#34;active-organisation dl-map__highlight--yellow&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;dl-map__side-panel__section dl-map__side-panel__section--blue&#34;&gt;
+  {% include &#39;digital-land-frontend/partials/dl-organisation-autocomplete.html&#39; %}
+  &lt;p class=&#34;govuk-!-margin-bottom-0 govuk-!-margin-top-1 dl-map__error js-hidden&#34; data-module=&#34;organisation-search-error&#34;&gt;Boundary for organisation not found.&lt;/p&gt;
+&lt;/div&gt;
+
+{% endset %}
+
+{{ dlMap({
+    &#34;id&#34;: &#34;aMap&#34;,
+    &#34;classes&#34;: &#34;govuk-!-margin-bottom-0&#34;,
+    &#34;height&#34;: 700,
+    &#34;loader&#34;: {
+      &#34;text&#34;: &#34;Loading brownfield land data&#34;
+    },
+    &#34;sidePanel&#34;: {
+      &#34;html&#34;: sidePanelHTML,
+      &#34;classes&#34;: &#34;js-hidden&#34;
+    }
+}) }}
+{% endblock %}
+
+{% block bodyEnd %}
+{{ super() }}
+&lt;script src=&#34;{{ staticPath|default(&#39;/static&#39;) }}/javascripts/vendor/govuk-accessible-autocomplete.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+(function(dlf, accessibleAutocomplete) {
+  let organisationMapper = {}
+  const bfsHelpers = DLMaps.brownfieldSites
+
+  // create URL used to fetch boundaries
+  function laBoundaryURL(st_geo_code) {
+    return `https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/${st_geo_code}/index.geojson`
+  }
+
+  // add a property to a feature
+  function addProperty(feature, name, value) {
+    if( feature.properties ) {
+      feature.properties[name] = value
+    }
+  }
+
+  const organisationActiveStyle = {
+    fillOpacity: 0.2,
+    weight: 2,
+    color: &#39;#FFDD00&#39;,
+    fillColor: &#39;#FFEE80&#39;
+  }
+
+  // $elements needed for map functions
+  const $mapElement = document.querySelector(&#39;[data-module=&#34;boundary-map&#34;]&#39;)
+  const $sidePanel = document.querySelector(&#34;.dl-map__side-panel&#34;)
+  const $mapItems = document.querySelector(&#34;[data-module=&#39;dl-map-items&#39;]&#34;)
+  const $boundaryCount = $mapItems.querySelector(&#34;.organisation-count&#34;)
+  const $activeOrganisation = $mapItems.querySelector(&#34;.active-organisation&#34;)
+
+  // needed for organisation search
+  const $picker = document.querySelector(&#39;#dl-organisation-autocomplete&#39;)
+  const $orgSearchError = document.querySelector(&#34;[data-module=&#39;organisation-search-error&#39;]&#34;)
+
+  // initiate the map component
+  const bfsmap = new DLMaps.Map($mapElement).init({})
+  var localAuthorityBoundaries = bfsmap.createFeatureGroup(&#34;localAuthorityBoundaries&#34;).addTo(bfsmap.map)
+  var brownfieldSiteGroups = bfsmap.createFeatureGroup(&#39;brownfieldSiteGroups&#39;).addTo(bfsmap.map)
+  bfsmap.setMapHeight()
+
+  function handleOrganisationSearch(val) {
+    const orgname = dlf.utils.toCamelCase(val)
+    if (laTracker.get(orgname)) {
+      $orgSearchError.classList.add(&#34;js-hidden&#34;)
+      const match = laTracker.get(orgname)
+      selectOrganisation(match.name, match.boundaryLayer)
+    } else {
+      $orgSearchError.classList.remove(&#34;js-hidden&#34;)
+    }
+  }
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: $picker,
+    onConfirm: handleOrganisationSearch,
+    confirmOnBlur: false
+  })
+
+  // in the real map the whole array is passed to the template
+  var brownfieldPublishers = [
+      {&#34;count&#34;: 32, &#34;id&#34;: &#34;local-authority-eng:DEB&#34;, &#34;name&#34;: &#34;Derbyshire Dales District Council&#34;, &#34;statistical_geography&#34;: &#34;E07000035&#34;},
+      {&#34;count&#34;: 34, &#34;id&#34;: &#34;local-authority-eng:HAL&#34;, &#34;name&#34;: &#34;Halton Borough Council&#34;, &#34;statistical_geography&#34;: &#34;E06000006&#34;}
+      ]
+
+  organisationMapper = dlf.utils.createOrgMapper(brownfieldPublishers)
+  bfsHelpers.registerOrganisationMapper(organisationMapper)
+
+  function addUsefulPropertiesToFeature(feature, organisation) {
+    addProperty(feature, &#34;organisation&#34;, organisation.id)
+    addProperty(feature, &#34;organisation_name&#34;, organisation.name)
+    addProperty(feature, &#34;bfs_count&#34;, organisation.count)
+    return feature
+  }
+
+  function updateActiveOrgPanel(name) {
+    $activeOrganisation.textContent = name
+    const $container = $activeOrganisation.parentElement
+    if ($container.classList.contains(&#34;js-hidden&#34;)) {
+      $container.classList.remove(&#34;js-hidden&#34;)
+    }
+  }
+
+  function LayerTracker(defaultProps) {
+    this.items = {}
+    this._defaultProps = defaultProps || {}
+  }
+  LayerTracker.prototype.add = function(name, props) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    // can i use spread???
+    this.items[trackerId] = {...this._defaultProps, ...props}
+    this.items[trackerId][&#34;name&#34;] = name
+    return trackerId
+  }
+  LayerTracker.prototype.addToItem = function(name, k, v) {
+    const trackerId = dlf.utils.toCamelCase(name)
+    if (Object.prototype.hasOwnProperty.call(this.items, trackerId)) {
+      this.items[trackerId][k] = v
+    }
+  }
+  LayerTracker.prototype.get = function (name) {
+    return this.items[dlf.utils.toCamelCase(name)]
+  }
+
+  var laTracker = new LayerTracker({&#34;loadedBFS&#34;: false})
+  console.log(laTracker)
+
+
+  function brownfieldDataUrl(organisation){
+    orgDir = dlf.utils.curie_to_url_part(organisation)
+    return `https://raw.githubusercontent.com/digital-land/dataset/master/docs/brownfield-land/organisation/${orgDir}/sites.geojson`
+  }
+
+  function setActiveBoundaryLayer(layer) {
+    // track which layer is active
+    localAuthorityBoundaries.activeLayer = layer._leaflet_id
+    localAuthorityBoundaries.eachLayer(function (layer) {
+      layer.activeBoundary = false
+      layer.setStyle(bfsmap.styles.defaultBoundaryStyle)
+    })
+    if (hasParentLayer(layer)) {
+      layer.parentId[&#34;activeBoundary&#34;] = true
+      layer.parentId.setStyle(organisationActiveStyle)
+    }
+
+    // should this be done another way? i.e. trigger an event on the side panel?
+    updateActiveOrgPanel(layer.feature.properties[&#39;organisation_name&#39;])
+  }
+
+  function hasParentLayer(childLayer) {
+    return Object.prototype.hasOwnProperty.call(childLayer, &#34;parentId&#34;)
+  }
+
+  function setParentLayer(parentLayer, layerName) {
+    parentLayer.activeBoundary = false
+    laTracker.addToItem(layerName, &#34;layer&#34;, parentLayer)
+    for (var lId in parentLayer._layers) {
+      if (Object.prototype.hasOwnProperty.call(parentLayer._layers, lId)) {
+        const childLayer = parentLayer._layers[lId]
+        childLayer.parentId = localAuthorityBoundaries.getLayer(parentLayer._leaflet_id)
+        laTracker.addToItem(layerName, &#34;boundaryLayer&#34;, childLayer)
+      }
+    }
+  }
+
+  function addHoverState (layer) {
+    bfsmap.addLayerHoverState(layer, {
+      check: function (layer) {
+        return !Object.prototype.hasOwnProperty.call(layer, &#34;parentId&#34;) || !layer.parentId.activeBoundary
+      }
+    })
+  }
+
+  function onSuccessfulBrownfieldLoad (layer, organisationName) {
+    if (laTracker.get(organisationName)) {
+      laTracker.get(organisationName).loadedBFS = true
+    }
+  }
+
+  /**
+   * Select the organisation -&gt; highlights polygon and loads data if not loaded
+   * @param  {String} organisationName Name of organisation to select, e.g. Harrogate Borough Council
+   * @param  {Object} layer Leaflet layer. Should be the boundary polygon layer not the parent
+   */
+  // needs to be own function because called from multiple sources: click and organisation search
+  function selectOrganisation(organisationName, layer) {
+    setActiveBoundaryLayer(layer)
+    bfsmap.zoomToLayer(layer)
+    if (laTracker.get(organisationName)) {
+      const url = laTracker.get(organisationName).brownfield_data_url
+      bfsHelpers.loadSites(bfsmap, url, organisationName, {
+        layerGroup: brownfieldSiteGroups,
+        cb: onSuccessfulBrownfieldLoad
+      })
+    }
+  }
+
+
+  function addLayerClickEvent(feature, layer) {
+    const organisation = layer.feature.properties.organisation
+    const organisationName = organisationMapper[organisation]
+    laTracker.addToItem(organisationName, &#34;brownfield_data_url&#34;, brownfieldDataUrl(organisation)) 
+    layer.on(&#39;click&#39;, function(e) {
+      selectOrganisation(organisationName, layer)
+    })
+  }
+
+  function setupAuthorityBoundaryLayer(feature, layer) {
+    // function is run for each boundary that is plotted
+    addHoverState(layer)
+    addLayerClickEvent(feature, layer)
+  }
+
+  console.log(brownfieldPublishers.length)
+  var failing = []
+  Promise.allSettled(
+    brownfieldPublishers.map(function(bP) {
+      const url = laBoundaryURL(bP.statistical_geography)
+      // track the organisation layer on the map
+      const trackerId = laTracker.add(bP.name, {&#34;id&#34;: bP.id})
+      return fetch(url)
+        .then(resp =&gt; resp.json())
+        .then((data) =&gt; {
+          data.features[0] = addUsefulPropertiesToFeature(data.features[0], bP)
+          // create geojson feature layer (parent)
+          var boundary = L.geoJSON(data, {
+            style: bfsmap.styles.defaultBoundaryStyle,
+            onEachFeature: setupAuthorityBoundaryLayer
+          })
+          .on(&#34;add&#34;, function(e) {
+            // set currently added layer as parent for all children layers
+            setParentLayer(e.target, bP.name)
+          })
+          .addTo(localAuthorityBoundaries)
+          return boundary
+        })
+        .catch(function(err) {
+          console.log(bP.id, &#39;error&#39;, err)
+          failing.push([bP.id, bP.statistical_geography])
+        })
+    }
+  )).then(boundaries =&gt; {
+    // after all boundaries collected then fitBounds of map
+    bfsmap.map.fitBounds(localAuthorityBoundaries.getBounds())
+    bfsmap.hideLoader()
+    $boundaryCount.textContent = brownfieldPublishers.length - failing.length
+    $mapItems.classList.remove(&#34;js-hidden&#34;)
+    $sidePanel.classList.remove(&#34;js-hidden&#34;)
+  })
+
+  // candidate for dl-maps.js?
+  bfsmap.map.on(&#34;zoom&#34;, function(e) {
+    const zoomLevel = bfsmap.map.getZoom()
+    if (zoomLevel &gt; 7) {
+      brownfieldSiteGroups.addTo(bfsmap.map)
+    } else {
+      brownfieldSiteGroups.remove()
+    }
+  })
+
+window.bfsmap = bfsmap
+window.laTracker = laTracker
+
+})(window.DLFrontend, window.accessibleAutocomplete)
+
+&lt;/script&gt;
+{% endblock %}
 </code></pre>
     </div>
   </div>
