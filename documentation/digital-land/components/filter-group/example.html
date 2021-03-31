@@ -1,0 +1,23 @@
+{%- from "digital-land-frontend/components/filter-group/macro.html" import dlFilterGroup %}
+<div class="govuk-form-group">
+    {% call dlFilterGroup({
+      "title": "Location",
+      "is_open": False,
+      "selected": 0
+    }) %}
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="investigation-yes" name="investigation" type="radio" value="true">
+        <label class="govuk-label govuk-radios__label" for="investigation-yes">
+        UK
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="investigation-no" name="investigation" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="investigation-no">
+        Rest of World
+        </label>
+      </div>
+    </div>
+    {% endcall %}
+</div>
