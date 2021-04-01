@@ -24,6 +24,14 @@ When progressively enhanced it will show (and update) a count of the number of i
 
 ```
 <script>
-    << TO ADD >>
+    var $filters = document.querySelectorAll('[data-module="selected-counter"]')
+    $filters.forEach(filter => {
+        new window.DLFrontend.SelectedCounter(filter).init()
+    })
+
+    var $filterCheckboxes = document.querySelectorAll('[data-module="filter-checkboxes"]')
+    $filterCheckboxes.forEach(el => {
+        new window.DLFrontend.FilterCheckboxes(el).init()
+    })
 </script>
 ```
