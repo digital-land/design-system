@@ -16,25 +16,37 @@
         document.body.className = ((document.body.className) ? document.body.className +
             ' js-enabled' : 'js-enabled');
     </script>
-
 <div class="govuk-form-group">
-  <label class="govuk-label"
-     for="sort">
-    Sort by
-  </label>
+    
+<details class="filter-group"  data-module="selected-counter">
+	<summary class="filter-group__summary"><h3 class="govuk-heading-s filter-group__heading">Location</h3><svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="filter-group__icon filter-group__icon--up"><path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path></svg>
+		<svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="filter-group__icon filter-group__icon--down"><path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path></svg>
+	</summary>
+	<fieldset class="govuk-fieldset filter-group__fieldset">
+		<legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+		  <h1 class="govuk-fieldset__heading">
+			Location
+		  </h1>
+		</legend>
+		
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="investigation-yes" name="investigation" type="radio" value="true">
+        <label class="govuk-label govuk-radios__label" for="investigation-yes">
+        UK
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="investigation-no" name="investigation" type="radio" value="false">
+        <label class="govuk-label govuk-radios__label" for="investigation-no">
+        Rest of World
+        </label>
+      </div>
+    </div>
+    
+	</fieldset>
+</details>
 
-
-  <select class="govuk-select" id="sort" name="sort" >
-  
-    <option value="published">Recently published</option>
-  
-    <option value="updated" selected>Recently updated</option>
-  
-    <option value="views">Most views</option>
-  
-    <option value="comments">Most comments</option>
-  
-  </select>
 </div>
     <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>

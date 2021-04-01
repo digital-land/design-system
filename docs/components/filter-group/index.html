@@ -239,7 +239,7 @@
 	
 
 <li
-	class="app-subnav__section-item app-subnav__section-item--current">
+	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../feedback">Feedback</a>
 </li>
 
@@ -248,7 +248,7 @@
 	
 
 <li
-	class="app-subnav__section-item">
+	class="app-subnav__section-item app-subnav__section-item--current">
 	<a class="app-subnav__link govuk-link" href="../filter-group">Filter group</a>
 </li>
 
@@ -341,8 +341,8 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Page feedback</h1>
-<p class="govuk-body">This is a test explanation</p>
+            <h1 class="govuk-heading-xl">Filter group</h1>
+<p class="govuk-body">Use this component when you have a wide table users will need to scroll horizontally.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -350,9 +350,9 @@
   </div>
   <div class="app-example">
     <iframe
-      title="An example of the page feedback prompt"
+      title="An example showing the filter group component in action"
       data-module="app-example-frame"
-      class="app-example__frame app-example__frame--resizable app-example__frame--xs"
+      class="app-example__frame app-example__frame--resizable app-example__frame--s"
       src="example.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
@@ -384,12 +384,39 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;div class=&#34;dlf-pg-feedback &#34;&gt;
-    &lt;div class=&#34;dlf-pg-feedback__prompt&#34;&gt;
-      &lt;a href=&#34;#&#34; class=&#34;dlf-pg-feedback__link&#34;&gt;Do you have feedback about this page?&lt;/a&gt;
+      <pre class="hljs-container"><code class="html">
+&lt;div class=&#34;govuk-form-group&#34;&gt;
+
+&lt;details class=&#34;filter-group&#34;  data-module=&#34;selected-counter&#34;&gt;
+    &lt;summary class=&#34;filter-group__summary&#34;&gt;&lt;h3 class=&#34;govuk-heading-s filter-group__heading&#34;&gt;Location&lt;/h3&gt;&lt;svg version=&#34;1.1&#34; viewBox=&#34;0 0 1024 1024&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;filter-group__icon filter-group__icon--up&#34;&gt;&lt;path d=&#34;m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+        &lt;svg version=&#34;1.1&#34; viewBox=&#34;0 0 1024 1024&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;filter-group__icon filter-group__icon--down&#34;&gt;&lt;path d=&#34;m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+    &lt;/summary&gt;
+    &lt;fieldset class=&#34;govuk-fieldset filter-group__fieldset&#34;&gt;
+        &lt;legend class=&#34;govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden&#34;&gt;
+          &lt;h1 class=&#34;govuk-fieldset__heading&#34;&gt;
+            Location
+          &lt;/h1&gt;
+        &lt;/legend&gt;
+
+    &lt;div class=&#34;govuk-radios&#34;&gt;
+      &lt;div class=&#34;govuk-radios__item&#34;&gt;
+        &lt;input class=&#34;govuk-radios__input&#34; id=&#34;investigation-yes&#34; name=&#34;investigation&#34; type=&#34;radio&#34; value=&#34;true&#34;&gt;
+        &lt;label class=&#34;govuk-label govuk-radios__label&#34; for=&#34;investigation-yes&#34;&gt;
+        UK
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;govuk-radios__item&#34;&gt;
+        &lt;input class=&#34;govuk-radios__input&#34; id=&#34;investigation-no&#34; name=&#34;investigation&#34; type=&#34;radio&#34; value=&#34;false&#34;&gt;
+        &lt;label class=&#34;govuk-label govuk-radios__label&#34; for=&#34;investigation-no&#34;&gt;
+        Rest of World
+        &lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+
+    &lt;/fieldset&gt;
+&lt;/details&gt;
+
+&lt;/div&gt;</code></pre>
     </div>
   </div>
 
@@ -399,11 +426,30 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/page-feedback/macro.html&#34; import dlfPageFeedback -%}
-{{ dlfPageFeedback({
-    &#34;text&#34;: &#34;Do you have feedback about this page?&#34;,
-    &#34;href&#34;: &#34;#&#34;
-}) }}</code></pre>
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/filter-group/macro.html&#34; import dlFilterGroup %}
+&lt;div class=&#34;govuk-form-group&#34;&gt;
+    {% call dlFilterGroup({
+      &#34;title&#34;: &#34;Location&#34;,
+      &#34;is_open&#34;: False,
+      &#34;selected&#34;: 0
+    }) %}
+    &lt;div class=&#34;govuk-radios&#34;&gt;
+      &lt;div class=&#34;govuk-radios__item&#34;&gt;
+        &lt;input class=&#34;govuk-radios__input&#34; id=&#34;investigation-yes&#34; name=&#34;investigation&#34; type=&#34;radio&#34; value=&#34;true&#34;&gt;
+        &lt;label class=&#34;govuk-label govuk-radios__label&#34; for=&#34;investigation-yes&#34;&gt;
+        UK
+        &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;govuk-radios__item&#34;&gt;
+        &lt;input class=&#34;govuk-radios__input&#34; id=&#34;investigation-no&#34; name=&#34;investigation&#34; type=&#34;radio&#34; value=&#34;false&#34;&gt;
+        &lt;label class=&#34;govuk-label govuk-radios__label&#34; for=&#34;investigation-no&#34;&gt;
+        Rest of World
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {% endcall %}
+&lt;/div&gt;
+</code></pre>
     </div>
   </div>
 
@@ -412,6 +458,22 @@
 </div>
 
 <!-- end app-example-wrapper -->
+
+<h3 class="govuk-heading-m">Initialise JS module</h3>
+<p class="govuk-body">The <code class="dl-code">dlFilterGroup</code> component can be progressively enhanced.</p>
+<p class="govuk-body">When progressively enhanced it will show (and update) a count of the number of items selected in the group.</p>
+<pre class="hljs-container"><code class="dl-code">&lt;script&gt;
+    var $filters = document.querySelectorAll('[data-module=&quot;selected-counter&quot;]')
+    $filters.forEach(filter =&gt; {
+        new window.DLFrontend.SelectedCounter(filter).init()
+    })
+
+    var $filterCheckboxes = document.querySelectorAll('[data-module=&quot;filter-checkboxes&quot;]')
+    $filterCheckboxes.forEach(el =&gt; {
+        new window.DLFrontend.FilterCheckboxes(el).init()
+    })
+&lt;/script&gt;
+</code></pre>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
