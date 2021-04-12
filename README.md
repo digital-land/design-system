@@ -18,7 +18,7 @@ Commit changes to this directory.
 
 ## Contributing
 
-All documentation and examples are kept in the `/src` directory.
+All documentation and examples are kept in the `/documentation` directory.
 
 ### New examples
 
