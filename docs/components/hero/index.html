@@ -423,6 +423,111 @@
 </div>
 
 <!-- end app-example-wrapper -->
+
+<h3 class="govuk-heading-m">Hero with button</h3>
+<p class="govuk-body">If you need more control over the elements in the hero component you can you the <code class="dl-code">call</code> method.</p>
+<p class="govuk-body">This allows you to use additional jinja components within the <code class="dl-code">hero</code>. For example you might want to include a start button to prompt the user to start a journey of your service.</p>
+<div class="app-example-wrapper" data-module="app-tabs">
+  <div class="app-example__toolbar">
+    <a href="example-button.html" class="govuk-link" target="_blank"
+      rel="noopener noreferrer">Open example in new window</a>
+  </div>
+  <div class="app-example">
+    <iframe
+      title="An example of the hero component with a button"
+      data-module="app-example-frame"
+      class="app-example__frame app-example__frame--resizable app-example__frame--m"
+      src="example-button.html" loading="lazy" id="iFrameResizer3"
+      scrolling="auto" frameborder="0"></iframe>
+  </div>
+
+
+
+  <ul class="app-tabs" role="tablist">
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-html" role="tab"
+        aria-controls="example-test-id-html" data-track="tab-html">HTML</a>
+    </li>
+
+    <li class="app-tabs__item js-tabs__item" role="presentation"><a
+        href="#example-test-id-jinja" role="tab"
+        aria-controls="example-test-id-jinja" data-track="tab-jinja">Jinja</a>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-html" role="tab"
+      aria-controls="example-test-id-html">HTML</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="html">
+
+&lt;header class=&#34;hero&#34;&gt;
+    &lt;div class=&#34;hero__content govuk-width-container&#34;&gt;
+
+  &lt;h1 class=&#34;govuk-heading-l&#34;&gt;The entry point of a service&lt;/h1&gt;
+  &lt;p class=&#34;govuk-body-l&#34;&gt;Introducing the service and what to expect next. &lt;a href=&#34;/&#34;&gt;Guidance for the service&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+&lt;a href=&#34;get-started&#34; role=&#34;button&#34; draggable=&#34;false&#34; class=&#34;govuk-button dl-button--on-blue govuk-!-margin-bottom-0 govuk-button--start&#34; data-module=&#34;govuk-button&#34;&gt;
+  Get started
+  &lt;svg class=&#34;govuk-button__start-icon&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;17.5&#34; height=&#34;19&#34; viewBox=&#34;0 0 33 40&#34; role=&#34;presentation&#34; focusable=&#34;false&#34;&gt;
+    &lt;path fill=&#34;currentColor&#34; d=&#34;M0 0h13l20 20-20 20H0l20-20z&#34;&gt;&lt;/path&gt;
+  &lt;/svg&gt;&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/header&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <div class="app-tabs__heading js-tabs__heading">
+    <a href="#example-test-id-jinja" role="tab"
+      aria-controls="example-test-id-jinja">Jinja</a>
+  </div>
+  <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
+    <div class="app-example__code">
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.html&#34; import dlHero -%}
+{% from &#39;govuk-jinja-components/components/button/macro.jinja&#39; import govukButton  %}
+{% call dlHero({
+    &#34;classes&#34;: &#34;govuk-width-container&#34;
+  }) %}
+  &lt;h1 class=&#34;govuk-heading-l&#34;&gt;The entry point of a service&lt;/h1&gt;
+  &lt;p class=&#34;govuk-body-l&#34;&gt;Introducing the service and what to expect next. &lt;a href=&#34;/&#34;&gt;Guidance for the service&lt;/a&gt;.&lt;/p&gt;
+  {{ govukButton({
+    &#34;text&#34;: &#34;Get started&#34;,
+    &#34;isStartButton&#34;: true,
+    &#34;href&#34;: &#34;get-started&#34;,
+    &#34;classes&#34;: &#34;dl-button--on-blue govuk-!-margin-bottom-0&#34;
+  })}}
+{% endcall %}
+</code></pre>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
