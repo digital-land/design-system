@@ -1,0 +1,14 @@
+{%- from "digital-land-frontend/components/hero/macro.html" import dlHero -%}
+{% from 'govuk-jinja-components/components/button/macro.jinja' import govukButton  %}
+{% call dlHero({
+    "classes": "govuk-width-container"
+  }) %}
+  <h1 class="govuk-heading-l">The entry point of a service</h1>
+  <p class="govuk-body-l">Introducing the service and what to expect next. <a href="/">Guidance for the service</a>.</p>
+  {{ govukButton({
+    "text": "Get started",
+    "isStartButton": true,
+    "href": "get-started",
+    "classes": "dl-button--on-blue govuk-!-margin-bottom-0"
+  })}}
+{% endcall %}
