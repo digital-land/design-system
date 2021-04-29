@@ -6,9 +6,8 @@
 
 {%- block pageTitle %}{% if section %}{{ section|capitalize }} | {% endif %}Design system | Digital Land{% endblock -%}
 
-{% block head %}
+{% block dlCss %}
 {{super()}}
-<link href="{{ staticPath|default('/static') }}/stylesheets/dl-frontend.css" rel="stylesheet" />
 <link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" />
 {% endblock %}
 
