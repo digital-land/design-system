@@ -6,10 +6,10 @@
 
 {%- block pageTitle %}{% if section %}{{ section|capitalize }} | {% endif %}Design system | Digital Land{% endblock -%}
 
-{% block dlCss %}
+{%- block dlCss %}
 {{super()}}
-<link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" />
-{% endblock %}
+    <link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" />
+{% endblock -%}
 
 {% block main %}
 
