@@ -113,7 +113,9 @@
 
     <script>
         const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
+        if ($subNavTabs) {
+            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
+        }
     </script>
 
     <script>
