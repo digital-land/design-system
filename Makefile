@@ -1,6 +1,8 @@
 # current git branch
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
+all:: render
+
 init: 
 	pip3 install --upgrade pip
 	pip3 install --upgrade -r requirements.txt
