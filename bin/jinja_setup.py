@@ -2,15 +2,7 @@
 
 import jinja2
 
-from digital_land_frontend.filters import (
-    group_id_to_name_filter,
-    get_jinja_template_raw,
-    organisation_id_to_name_filter,
-    is_list,
-    strip_slug,
-    is_historical,
-    contains_historical,
-)
+from digital_land_frontend.filters import register_basic_filters, register_mapper_filters, get_jinja_template_raw
 
 from bin.filters import is_current_page
 
@@ -36,13 +28,11 @@ def setup_jinja():
     env = jinja2.Environment(loader=multi_loader)
 
     # register jinja filters
+    register_basic_filters(env)
+    register_mapper_filters(env)
+
+    # specific to design system
     env.filters["raw_jinja"] = get_jinja_template_raw
-    env.filters["organisation_id_to_name"] = organisation_id_to_name_filter
-    env.filters["is_list"] = is_list
-    env.filters["group_id_to_name"] = group_id_to_name_filter
-    env.filters["clean_slug"] = strip_slug
-    env.filters["is_historical"] = is_historical
-    env.filters["contains_historical"] = contains_historical
     env.filters["is_current_page"] = is_current_page
 
     # set variables to make available to all templates

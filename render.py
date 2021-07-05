@@ -10,7 +10,7 @@ import markdown
 
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
-from digital_land_frontend.filters import organisation_mapper
+from digital_land_frontend.jinja_filters.mappers import OrganisationMapper
 
 from frontmatter import Frontmatter
 
@@ -44,8 +44,9 @@ example_template = env.get_template("iframe-base.html")
 component_template = env.get_template("component-page.html")
 
 # data for organisation autocomplete
+organisations = OrganisationMapper()
 orgs = [
-    {"value": k, "text": v} for k, v in organisation_mapper.organisations.all().items()
+    {"value": k, "text": v} for k, v in organisations.all().items()
 ]
 
 # init markdown
