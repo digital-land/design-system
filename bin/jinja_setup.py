@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 
 import jinja2
-
-from digital_land_frontend.filters import register_basic_filters, register_mapper_filters, get_jinja_template_raw
+from digital_land_frontend.filters import (
+    get_jinja_template_raw,
+    register_basic_filters,
+    register_mapper_filters,
+)
 
 from bin.filters import is_current_page
 
 
-def setup_jinja():
+def setup_jinja(specification):
     # register templates
     multi_loader = jinja2.ChoiceLoader(
         [
@@ -28,8 +31,8 @@ def setup_jinja():
     env = jinja2.Environment(loader=multi_loader)
 
     # register jinja filters
-    register_basic_filters(env)
-    register_mapper_filters(env)
+    register_basic_filters(env, specification)
+    register_mapper_filters(env, None, specification)
 
     # specific to design system
     env.filters["raw_jinja"] = get_jinja_template_raw

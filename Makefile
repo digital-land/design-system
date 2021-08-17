@@ -1,16 +1,19 @@
+include makerules/makerules.mk
+
+
 # current git branch
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
 all:: render
 
-init: 
+init::
 	pip3 install --upgrade pip
 	pip3 install --upgrade -r requirements.txt
 
 dist:
 	mkdir -p docs/static
 
-clobber:
+clobber::
 	rm -rf docs
 
 render: dist

@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
+import codecs
+import glob
 import os
 import sys
-import glob
-import jinja2
 
-import codecs
 import markdown
+from digital_land.specification import Specification
+from digital_land_frontend.jinja_filters.mappers import OrganisationMapper
+from frontmatter import Frontmatter
 
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
-from digital_land_frontend.jinja_filters.mappers import OrganisationMapper
-
-from frontmatter import Frontmatter
 
 docs = "docs/"
+specification = Specification("specification")
 
 
 def path_to_url(p):
@@ -35,7 +35,7 @@ def render(path, template, **kwargs):
         f.write(template.render(path=path_to_url(path), **kwargs))
 
 
-env = setup_jinja()
+env = setup_jinja(specification)
 
 # get page templates
 index_template = env.get_template("index.html")
@@ -45,9 +45,7 @@ component_template = env.get_template("component-page.html")
 
 # data for organisation autocomplete
 organisations = OrganisationMapper()
-orgs = [
-    {"value": k, "text": v} for k, v in organisations.all().items()
-]
+orgs = [{"value": k, "text": v} for k, v in organisations.all().items()]
 
 # init markdown
 # give it access to the configured jinja.environment
