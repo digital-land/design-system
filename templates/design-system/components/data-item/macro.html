@@ -1,0 +1,6 @@
+{% macro dlfDataItem(params) %}
+<div class="data-item {% if params.classes %}{{ params.classes }}{% endif %}">
+    <span class="data-item__number">{{ params.number }}</span>
+    <span class="data-item__label">{{ params.html | safe if params.html else params.text }}</span>
+</div>
+{% endmacro %}

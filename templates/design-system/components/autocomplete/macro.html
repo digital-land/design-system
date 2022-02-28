@@ -1,0 +1,16 @@
+{% macro dlAutocomplete(params) %}
+<div class="govuk-form-group{{ ' ' + params.classes if params.classes }}">
+  <label class="govuk-label" for="{{ params.name }}">
+    {{ params.label }}
+  </label>
+  <span id="{{ params.name }}-error" class="govuk-error-message" role="alert">
+    <span class="govuk-visually-hidden">Error:</span> {{ params.error_msg|default("Value entered not recognised, please try again") }}
+  </span>
+  <select class="govuk-select" id="{{ params.name }}" name="{{ params.name }}">
+    <option value=""></option>
+    {%- for i in params.data %}
+    <option value="{{ i.value }}">{{ i.text }}</option>
+    {%- endfor %}
+  </select>
+</div>
+{% endmacro %}

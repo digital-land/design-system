@@ -1,0 +1,7 @@
+{% macro dlInputCopy(params) %}
+<label for="input-copy" class="govuk-label">{{ params.label }}</label>
+<input class="govuk-input copy-and-paste{{ ' ' + params.classes if params.classes }}"
+    name="input-copy" type="text"
+    value="{{ params.value }}" readonly=""
+    data-module="input-copy">
+{% endmacro %}

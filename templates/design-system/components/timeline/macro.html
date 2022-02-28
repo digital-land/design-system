@@ -1,0 +1,41 @@
+{% macro dlTimelineEntry(params) %}
+<li class="dl-timeline__entry
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- if params.attributes %}
+{%- for attribute, value in params.attributes.items() %} {{ attribute }}="{{ value }}"{% endfor %}
+{%- endif %}>
+    <h3 class="{{ params.heading_class|default('govuk-heading-s') }} dl-timeline__entry-heading">{{ params.heading }}</h3>
+    {% if params.meta -%}
+    <p class="dl-timeline__entry-details govuk-body-s">
+      {% if params.meta.html -%}
+        {{ params.meta.html|safe }}
+      {% else -%}
+        {{ params.meta }}
+      {%- endif %}
+    </p>
+    {%- endif %}
+    <div class="dl-timeline__entry__content">
+    {%- if params.html %}
+    {{ params.html|safe }}
+    {%- elif params.text -%}
+    <p class="govuk-body">{{ params.text }}</p>
+    {% endif -%}
+    </div>
+</li>
+{% endmacro %}
+
+{% macro dlTimeline(params) %}
+<ol {% if params.id %}id="{{ params.id }}" {% endif %}class="dl-timeline{{ ' ' + params.classes if params.classes }}{{ ' dl-timeline--with-starter-label' if params.startLabel }}">
+  {% for entry in params.entries %}
+    {{ dlTimelineEntry(entry)}}
+  {% endfor %}
+  {%- if caller -%}
+		{{ caller() }}
+	{%- endif -%}
+  {% if params.startLabel %}
+  <li class="dl-timeline__start-label">
+    <h4 class="govuk-heading-s">{{ params.startLabel }}</h4>
+  </li>
+  {% endif %}
+</ol>
+{% endmacro %}

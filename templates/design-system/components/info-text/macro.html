@@ -1,0 +1,9 @@
+{% macro dlInfoText(params) %}
+<div class="dl-info-text{{ ' ' + params.classes if params.classes }}">
+  <span class="dl-info-text__icon" aria-hidden="true">i</span>
+  <p class="dl-info-text__text">
+    <span class="dl-info-text__assistive">Please note</span>
+    {% if params.html %}{{ params.html|safe }}{% else %}{{ params.text }} {% endif %}
+  </p>
+</div>
+{% endmacro %}

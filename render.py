@@ -4,17 +4,15 @@ import codecs
 import glob
 import os
 import sys
+import json
 
 import markdown
-from digital_land.specification import Specification
-from digital_land_frontend.jinja_filters.mappers import OrganisationMapper
 from frontmatter import Frontmatter
 
 from bin.jinja_setup import setup_jinja
 from bin.markdown_jinja import MarkdownJinja
 
 docs = "docs/"
-specification = Specification("specification")
 
 
 def path_to_url(p):
@@ -35,7 +33,7 @@ def render(path, template, **kwargs):
         f.write(template.render(path=path_to_url(path), **kwargs))
 
 
-env = setup_jinja(specification)
+env = setup_jinja()
 
 # get page templates
 index_template = env.get_template("index.html")
@@ -44,8 +42,13 @@ example_template = env.get_template("iframe-base.html")
 component_template = env.get_template("component-page.html")
 
 # data for organisation autocomplete
-organisations = OrganisationMapper()
-orgs = [{"value": k, "text": v} for k, v in organisations.all().items()]
+def get_organisations():
+    with open("templates/data/organisation.json") as json_file:
+        data = json.load(json_file)
+        return data["organisation"]
+
+
+organisations = get_organisations()
 
 # init markdown
 # give it access to the configured jinja.environment
@@ -162,7 +165,7 @@ def generate_component_documentation_pages(component_sets):
                     "display_map": is_displaying_map(documentation),
                 }
                 if reqs_org_data is not None:
-                    extras["organisation_data"] = orgs
+                    extras["organisation_data"] = organisations
 
                 # render all examples for component
                 render_example_pages(

@@ -1,5 +1,5 @@
-{% extends "digital-land-frontend/dlf-base--full-width.html" %}
-{% from 'digital-land-frontend/components/map/macro.html' import dlMap %}
+{% extends "digital-land-frontend/layouts/base--full-width.jinja" %}
+{% from 'digital-land-frontend/components/map/macro.jinja' import dlMap %}
 
 {% set includesMap = true %}
 {% block pageTitle %}BFS Map | Digital Land{% endblock %}
@@ -22,7 +22,7 @@
   <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-1 js-hidden">Active: <span class="active-organisation dl-map__highlight--yellow"></span></p>
 </div>
 <div class="dl-map__side-panel__section dl-map__side-panel__section--blue">
-  {% include 'digital-land-frontend/partials/dl-organisation-autocomplete.html' %}
+  {% include 'design-system/partials/dl-organisation-autocomplete.html' %}
   <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-1 dl-map__error js-hidden" data-module="organisation-search-error">Boundary for organisation not found.</p>
 </div>
 

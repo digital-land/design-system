@@ -1,0 +1,16 @@
+{% macro dlRelatedContent(params) %}
+<aside class="app-related-items{{ ' ' + params.classes if params.classes }}" role="complementary">
+    <h2 class="govuk-heading-m" id="subsection-title">
+      {{ params.heading|default("Related content") }}
+    </h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+        {%- if params.links %}
+        <ul class="govuk-list govuk-!-font-size-16">
+          {%- for link in params.links %}
+          <li><a href="{{ link.href }}">{{ link.text }}</a></li>
+          {% endfor -%}
+      </ul>
+      {% endif -%}
+    </nav>
+</aside>
+{% endmacro %}

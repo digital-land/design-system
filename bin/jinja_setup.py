@@ -1,27 +1,32 @@
 #!/usr/bin/env python3
-
+import os
 import jinja2
-from digital_land_frontend.filters import (
-    get_jinja_template_raw,
-    register_basic_filters,
-    register_mapper_filters,
-)
-
 from bin.filters import is_current_page
 
+from digital_land_frontend.filters import is_list_filter
+from digital_land_frontend.globals import random_int
 
-def setup_jinja(specification):
+
+def get_jinja_template_raw(template_file_path):
+    if template_file_path:
+        if os.path.exists(template_file_path):
+            file = open(template_file_path, "r")
+            return file.read()
+    return None
+
+
+def setup_jinja():
     # register templates
     multi_loader = jinja2.ChoiceLoader(
         [
             jinja2.FileSystemLoader(searchpath="./templates"),
             jinja2.PrefixLoader(
                 {
+                    "govuk_frontend_jinja": jinja2.PackageLoader(
+                        "govuk_frontend_jinja"
+                    ),
                     "digital-land-frontend": jinja2.PackageLoader(
                         "digital_land_frontend"
-                    ),
-                    "govuk-jinja-components": jinja2.PackageLoader(
-                        "govuk_jinja_components"
                     ),
                     "examples": jinja2.FileSystemLoader(searchpath="./documentation"),
                 }
@@ -30,11 +35,8 @@ def setup_jinja(specification):
     )
     env = jinja2.Environment(loader=multi_loader)
 
-    # register jinja filters
-    register_basic_filters(env, specification)
-    register_mapper_filters(env, None, specification)
-
     # specific to design system
+    env.filters["is_list"] = is_list_filter
     env.filters["raw_jinja"] = get_jinja_template_raw
     env.filters["is_current_page"] = is_current_page
 
@@ -42,5 +44,6 @@ def setup_jinja(specification):
     env.globals["staticPath"] = "https://digital-land.github.io"
     env.globals["urlPath"] = "/design-system"
     env.globals["includesMap"] = False
+    env.globals["random_int"] = random_int
 
     return env

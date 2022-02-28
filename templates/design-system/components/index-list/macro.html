@@ -1,0 +1,49 @@
+{% macro dlIndexList(params) %}
+<table class="dl-index-list{% if params.classes %} {{ params.classes }}{% endif %}"
+  {% if params.filterable %} data-filter="list"{% endif %}
+  {% if params.attributes -%}{%- for attribute, value in params.attributes.items() %} {{ attribute }}='{{ value }}'{% endfor %}{%- endif %}>
+  <tbody>
+{%- for item in params['items'] -%}
+{%- set ns = namespace(item_ref="", item_text="") %}
+{#- figure out what to use as reference -#}
+{%- if params.pipeline_name and item[params.pipeline_name] -%}
+  {% set ns.item_ref = item[params.pipeline_name] %}
+{%- elif item['reference'] -%}
+  {% set ns.item_ref = item['reference'] %}
+{%- else -%}
+  {% set ns.item_ref = item['slug']|clean_slug %}
+{%- endif -%}
+
+{#- figure out what to use as the text/name -#}
+{%- if item['site'] -%}
+  {% set ns.item_text = item['site'] %}
+  {%- if item['site-address'] -%}
+    {% set ns.item_text = ns.item_text + ", " + item['site-address'] %}
+  {%- endif -%}
+{%- elif item['name'] -%}
+  {% set ns.item_text = item['name'] %}
+{%- else -%}
+  {% set ns.item_text = item['text'] %}
+{%- endif -%}
+
+{% set contains_historical = false %}
+
+<tr class="{% if item|is_historical %} historical-item{% endif %}" {% if params.filterable %} data-filter="item"{% endif %} data-historical-item="{{ 'true' if item|is_historical else 'false' }}">
+  <td>
+    <h4 class="govuk-heading-s govuk-!-font-weight-regular dl-break-word govuk-!-margin-bottom-0">
+      <a class="govuk-link" href="{{ item['href'] }}"{% if params.filterable %} data-filter="match-content"{% endif %}>{{ ns.item_ref }}</a>
+      {% if item|is_historical %}
+      <span class="govuk-visually-hidden">This record is </span><strong class="govuk-tag govuk-tag--grey">historical</strong>
+      {% endif %}
+    </h4>
+  </td>
+  <td>
+    {% if ns.item_text is not none and ns.item_text != ns.item_ref %}
+    <p class="govuk-body govuk-!-margin-bottom-0"{% if params.filterable %} data-filter="match-content"{% endif %}>{{ ns.item_text }}</p>
+    {% endif %}
+  </td>
+</tr>
+{%- endfor -%}
+</tbody>
+</table>
+{% endmacro %}
