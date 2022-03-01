@@ -77,7 +77,7 @@
 }) }}
 {% endblock %}
 
-{% block bodyEndScripts %}
+{% block libraryScripts %}
 {{ super() }}
 
 {# required for on page syntax highlighting #}
@@ -86,3 +86,7 @@
   hljs.initHighlightingOnLoad();
 </script>
 {% endblock %}
+
+{% block pageScripts %}
+<script src="{{ staticPath|default('/static') }}/javascripts/application-design-system.js"></script>
+{% endblock  %}

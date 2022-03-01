@@ -1,1 +1,5 @@
-console.log("Design system js");
+import AppTabs from './components/app-tabs'
+
+export {
+  AppTabs
+}

@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "description": "A collection of frontend components and patterns created by digital land",
   "scripts": {
-    "copy:css": "rsync -ar src/css/vendor/ application/static/stylesheets/vendor",
-    "copy:js": "rsync -ar src/javascripts/vendor/ application/static/javascripts/vendor",
+    "copy:css": "rsync -ar src/css/vendor/ docs/static/stylesheets/vendor",
+    "copy:js": "rsync -ar src/javascripts/vendor/ docs/static/javascripts/vendor",
     "copy": "npm-run-all --parallel copy:*",
     "watch:assets": "npm run nps watch.assets",
     "watch:pages": "npm run nps watch.pages",
     "watch": "npm-run-all --parallel watch:*",
     "nps": "nps -c ./node_modules/digital-land-frontend/package-scripts.js",
-    "postinstall": "npm run nps build.stylesheets && npm run nps build.javascripts"
+    "postinstall": "npm run nps copy.javascripts && npm run nps build.stylesheets && npm run nps build.javascripts && npm run copy"
   },
   "repository": {
     "type": "git",
