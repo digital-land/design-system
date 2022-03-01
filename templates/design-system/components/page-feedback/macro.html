@@ -5,3 +5,10 @@
     </div>
 </div>
 {% endmacro %}
+
+{% macro feedbackPanel(params) %}
+<div class="feedback-panel">
+  <h3 class="feedback-panel__heading">{{ params.heading }}</h3>
+  {{ params.html }}
+</div>
+{% endmacro %}
