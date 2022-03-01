@@ -1,0 +1,174 @@
+// styleguide-specific variables
+$app-light-grey: #f8f8f8;
+
+@import "highlight-style";
+@import "app-nav";
+@import "iframe-example";
+@import "govuk-example";
+
+// wide page width settings
+
+.dlf-page-wide {
+  .govuk-header {
+    padding-bottom: 7px;
+    border-bottom: 10px solid govuk-colour("blue");
+  }
+
+  .govuk-header__container,
+  .govuk-phase-banner {
+    border-bottom: 0;
+  }
+}
+
+// Example and code panels
+// Styles needed for the example and code panels
+// =============================================
+
+.module-example {
+  margin-bottom: 30px;
+  padding: 50px 30px;
+}
+
+.module-example,
+.module-code {
+  position: relative;
+  margin-bottom: $govuk-gutter;
+  border: 1px solid $govuk-border-colour;
+
+  font-family: $govuk-font-family-nta;
+
+  &:before {
+    content: "Example";
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px 10px 5px;
+
+    color: govuk-colour("blue");
+    background: govuk-colour("light-grey", $legacy: "grey-3");
+    font-weight: 200;
+  }
+}
+
+pre {
+  margin: 0 0 $govuk-gutter;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
+.module-code {
+  &:before {
+    content: "HTML";
+  }
+
+  pre {
+    margin: 0;
+  }
+}
+
+pre,
+code {
+  font-family: monospace, monospace;
+  font-size: 16px;
+}
+
+code {
+  line-height: govuk-em(25, 19);
+}
+
+$code-block-text-colour: govuk-shade(govuk-colour("red"), 25);
+$code-block-bg-colour: #f8f8f8;
+
+%code {
+  padding: 0 5px;
+
+  color: $code-block-text-colour;
+  background-color: $code-block-bg-colour;
+  font-family: monospace, monospace;
+  font-size: 100%;
+}
+
+p,
+li {
+  code {
+    @extend %code;
+    font-size: 19px;
+  }
+}
+
+.dl-code {
+  @extend %code;
+}
+
+// List items on index page
+// =============================================
+
+.dlf-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.dlf-list-item {
+  margin-bottom: 10px;
+
+  .dlf-list-item__heading {
+    margin-bottom: 5px;
+  }
+
+  p:first-of-type {
+    margin-top: 5px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Example pages used in iframes
+// =============================================
+
+.app-example-page {
+  padding: govuk-spacing(6);
+}
+
+
+// Code blocks
+// =========================================================
+
+.app-tabs__heading {
+  @include govuk-font($size: 19);
+  margin-top: -1px;
+  padding: 15px;
+  border: 1px solid govuk-colour("mid-grey");
+  border-bottom: 0;
+
+  span {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -($govuk-gutter-half);
+      left: -($govuk-gutter-half);
+      width: calc(#{$govuk-gutter} + 100%);
+      height: 2px;
+      background: govuk-colour("white");
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -($govuk-gutter-half) - 1px;
+      right: -($govuk-gutter-half);
+      width: 1px;
+      height: calc(100% + #{$govuk-gutter});
+      background: $govuk-border-colour;
+    }
+  }
+}
+
+.styleguide-gif {
+  margin-bottom: $govuk-gutter;
+  padding: $govuk-gutter-half;
+  border: 1px solid $govuk-border-colour;
+}

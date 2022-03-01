@@ -1,0 +1,32 @@
+{
+  "name": "design-system",
+  "version": "0.0.1",
+  "description": "A collection of frontend components and patterns created by digital land",
+  "scripts": {
+    "copy:css": "rsync -ar src/css/vendor/ application/static/stylesheets/vendor",
+    "copy:js": "rsync -ar src/javascripts/vendor/ application/static/javascripts/vendor",
+    "copy": "npm-run-all --parallel copy:*",
+    "watch:assets": "npm run nps watch.assets",
+    "watch:pages": "npm run nps watch.pages",
+    "watch": "npm-run-all --parallel watch:*",
+    "nps": "nps -c ./node_modules/digital-land-frontend/package-scripts.js",
+    "postinstall": "npm run nps build.stylesheets && npm run nps build.javascripts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digital-land/design-system"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digital-land/design-system/issues"
+  },
+  "dependencies": {
+    "digital-land-frontend": "https://gitpkg.now.sh/digital-land/digital-land-frontend/package?main",
+    "govuk-frontend": "^4.0.1"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "standardx": "^7.0.0"
+  }
+}

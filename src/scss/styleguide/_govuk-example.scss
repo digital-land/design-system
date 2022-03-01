@@ -1,0 +1,248 @@
+// Example styles
+.app-example-wrapper {
+  @include govuk-responsive-margin(6, "top");
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+.app-example {
+  position: relative;
+  border: 1px solid $govuk-border-colour;
+  // Add a 'checkerboard' background
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQoU2P88ePHfwY0wMHBwYguxjgUFKI7GsTH5m4M3w1ChQAZTSeO0/AZpgAAAABJRU5ErkJggg==") repeat;
+}
+
+.app-example--tabs {
+  @include govuk-responsive-margin(0, "bottom");
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: -1px;
+  }
+}
+
+.app-example__toolbar {
+  padding: 10px;
+  background: $govuk-body-background-colour;
+}
+
+.app-example__new-window {
+  @include govuk-font(14);
+}
+
+.app-example__frame {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  border-right: 1px solid $govuk-border-colour;
+  background: govuk-colour("white");
+}
+
+// Default size
+.app-example__iframe,
+.app-example__frame--xs {
+  height: 150px;
+}
+
+.app-example__frame--s {
+  height: 250px;
+}
+
+.app-example__frame--m {
+  height: 350px;
+}
+
+.app-example__frame--l {
+  height: 450px;
+}
+
+.app-example__frame--xl {
+  height: 550px;
+}
+
+.app-example__frame--resizable {
+  min-width: 230px;
+  min-height: govuk-spacing(6) * 2;
+  overflow: auto;
+  transform: translate3d(0, 0, 0);
+
+  @include govuk-media-query($from: desktop) {
+    resize: both;
+  }
+}
+
+.app-example__code {
+  @include govuk-font($size: 19);
+}
+
+
+// =========================================================
+// Tabs (desktop)
+// =========================================================
+
+.app-tabs {
+  margin: -1px auto;
+  padding: 0;
+  overflow: visible;
+  list-style-type: none;
+  border: 1px solid $govuk-border-colour;
+
+  @include govuk-media-query($until: desktop) {
+    display: none;
+  }
+
+  .app-prose-scope & { // A specific selector to reset .app-prose-scope ul
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 0; // Prevent white space taking up space between tabs
+  }
+}
+
+.app-tabs__item {
+  @include govuk-font(19);
+  display: inline-block;
+  position: relative;
+  padding: govuk-spacing(4);
+
+  a {
+    display: block;
+
+    .app-prose-scope &:visited {
+      color: $govuk-link-colour;
+    }
+
+    .app-prose-scope &:focus {
+      color: $govuk-focus-text-colour;
+    }
+
+    // Extend the touch area of the <a> to fill the entire tab
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .app-prose-scope & { // A specific selector to reset .app-prose-scope ul li
+    margin: 0;
+  }
+}
+
+.app-tabs__item--current {
+  border-right: 1px solid $govuk-border-colour;
+  border-left: 1px solid $govuk-border-colour;
+  background: govuk-colour("white");
+
+  // Offset the added borders
+  .app-prose-scope & {
+    margin: 0 -1px;
+  }
+
+  // No left hand border is required for the first tab, as it would just double
+  // up the border of its parent
+  &:first-child {
+    border-left: 0;
+
+    .app-prose-scope & {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    .app-prose-scope & {
+      color: $govuk-text-colour;
+      text-decoration: none;
+    }
+  }
+}
+
+// =========================================================
+// 'Accordion' (mobile and tablet)
+// =========================================================
+
+.app-tabs__heading {
+  display: none;
+  position: relative;
+  padding: govuk-spacing(3);
+  border: 1px solid $govuk-border-colour;
+  border-top: 0;
+
+  @include govuk-media-query($until: desktop) {
+    display: block;
+  }
+
+  a {
+    // Extend the touch area of the <a> to fill the entire heading
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .app-prose-scope &:visited {
+      color: $govuk-link-colour;
+    }
+
+    .app-prose-scope &:focus {
+      color: $govuk-focus-text-colour;
+    }
+  }
+}
+
+.app-tabs__heading--current {
+  border-bottom: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// =========================================================
+// Code blocks
+// =========================================================
+
+.app-tabs__container {
+  padding: 20px;
+  border: 1px solid $govuk-border-colour;
+  background-color: govuk-colour("white");
+
+  // When used for tabs, position to underlap tabs
+  @include govuk-media-query($from: desktop) {
+    margin-top: -2px;
+  }
+}
+
+.app-tabs__container--hidden {
+  display: none;
+}
+
+.app-tabs__container pre {
+  position: relative;
+  max-width: inherit;
+  margin-bottom: 0;
+  padding: 0;
+  border: 0;
+  outline: 1px solid transparent;
+  background-color: govuk-colour("light-grey");
+  font-size: inherit;
+}
+
+.app-tabs__container pre code {
+  display: block;
+  padding: govuk-spacing(4);
+  overflow-x: auto;
+
+  .js-enabled & {
+    padding-top: 45px; // Allow extra space for the copy code button
+  }
+}
+
+.app-tabs__container pre {
+  padding-right: 0;
+  padding-bottom: 0;
+}

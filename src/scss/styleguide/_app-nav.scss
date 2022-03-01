@@ -1,0 +1,216 @@
+$toc-width: 260px;
+$toc-width-tablet: 210px;
+
+.app-nav {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    background-color: $app-light-grey;
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+}
+
+.app-nav__wrap {
+  box-sizing: border-box;
+  @include govuk-font(19, $weight: bold);
+  width: 100%;
+
+  @include govuk-media-query($from: tablet) {
+    margin-left: -(govuk-spacing(3)); // aligns text with beginning of phase banner
+  }
+}
+
+$navigation-height: 53px;
+
+.app-nav__list {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+
+  & > .app-nav__list-item {
+    box-sizing: border-box;
+    height: $navigation-height;
+    padding: 0 govuk-spacing(3);
+    float: left;
+    line-height: $navigation-height;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    &.app-nav--current-page {
+      border-bottom: 4px solid govuk-colour("blue") !important;
+
+      a:hover {
+        color: $govuk-link-colour;
+        text-decoration: none;
+      }
+
+      a:focus {
+        color: $govuk-focus-text-colour;
+      }
+    }
+  }
+}
+
+.app-nav__link {
+  @include govuk-typography-weight-bold; // Override .govuk-link weight
+  color: $govuk-link-colour;
+  text-decoration: none;
+
+  &:visited {
+    color: $govuk-link-colour;
+  }
+
+  &:hover:not(:focus):not(:active) {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+    color: $govuk-focus-text-colour;
+  }
+}
+
+.app-nav__body {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    position: relative;
+    min-height: 0;
+    overflow: inherit;
+  }
+
+  @include govuk-media-query(1160px) {
+    width: 100%;
+  }
+}
+
+.app-nav__subnav {
+  @include govuk-media-query($from: tablet) {
+    width: $toc-width-tablet;
+    flex: 0 0 auto;
+  }
+  @include govuk-media-query($from: desktop) {
+    width: $toc-width;
+  }
+}
+
+.app-nav__content {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 100%;
+    flex-direction: column;
+  }
+}
+
+.no-flexbox {
+  .app-nav {
+    height: auto;
+    overflow: visible;
+    @include govuk-clearfix;
+  }
+
+  .app-nav__body {
+    display: block;
+  }
+
+  .app-nav__subnav {
+    width: $toc-width;
+    float: left;
+    overflow-x: hidden;
+    border-right: 0;
+  }
+
+  .app-nav__content {
+    margin-left: -1px;
+    overflow-x: hidden;
+  }
+}
+
+.app-subnav {
+  padding: govuk-spacing(6) govuk-spacing(3) 0 0;
+  @include govuk-font(16);
+}
+
+.app-subnav__section {
+  margin: 0 0 govuk-spacing(4);
+  padding: 0;
+  list-style-type: none;
+}
+
+.app-subnav__section-item {
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style: none;
+}
+
+.app-subnav__link {
+  color: govuk-colour("blue");
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: $govuk-link-colour;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  // put last so text colour not overridden by :hover state
+  &:focus {
+    @include govuk-focused-text;
+  }
+}
+
+.app-subnav__section-item--current {
+  margin-left: -14px;
+  padding-left: 10px;
+  border-left: 4px solid $govuk-link-colour;
+  background-color: govuk-color("white");
+
+  a {
+    font-weight: bold;
+  }
+}
+
+.app-subnav__heading {
+  margin: 0;
+  padding: govuk-spacing(2) govuk-spacing(3);
+  color: govuk-colour("dark-grey", $legacy: "grey-1");
+  @include govuk-font(19);
+}
+
+.app-content {
+  padding: govuk-spacing(3) govuk-spacing(0);
+
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(6);
+    padding-right: 0;
+  }
+}
+
+.app-subnav__theme {
+  margin: 0;
+  padding: 10px 15px 10px 0;
+  @include govuk-font(19);
+  color: govuk-colour("dark-grey");
+}
+
+// back-to-top button
+.app-back-to-top {
+  // check postcss is working
+  position: sticky;
+  top: $govuk-gutter;
+  margin-bottom: $govuk-gutter;
+}
+
+.app-back-to-top__icon {
+  display: inline-block;
+  width: .8em;
+  height: 1em;
+  margin-top: -5px;
+  margin-right: 10px;
+  vertical-align: middle;
+}

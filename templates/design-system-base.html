@@ -4,9 +4,9 @@
 
 {%- block pageTitle %}{% if section %}{{ section|capitalize }} | {% endif %}Design system | Digital Land{% endblock -%}
 
-{%- block dlCss %}
+{%- block stylesheets %}
 {{super()}}
-    <link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" />
+    <link href="{{ staticPath|default('/static') }}/stylesheets/application.css" rel="stylesheet" />
 {% endblock -%}
 
 {% block main %}
