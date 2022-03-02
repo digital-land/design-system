@@ -1,0 +1,61 @@
+.dl-info-text {
+  @include govuk-font($size: 19);
+  @include govuk-text-colour;
+
+  position: relative;
+  @include govuk-responsive-margin(6, "bottom");
+  padding: govuk-spacing(2) 0;
+}
+
+.dl-info-text__assistive {
+  @include govuk-visually-hidden;
+}
+
+$dl-info-colour: govuk-colour("blue");
+
+.dl-info-text__icon {
+  @include govuk-font($size: false, $weight: bold);
+
+  box-sizing: content-box;
+  display: inline-block;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 32px;
+  height: 32px;
+  margin-top: -20px; // Half the height of the circle (adjusted for NTA)
+
+  // When a user customises their colours the background colour will often be removed.
+  // Adding a border to the component keeps it's shape as a circle.
+  border: 3px solid $dl-info-colour;
+  border-radius: 50%;
+
+  color: govuk-colour("white");
+  background: $dl-info-colour;
+
+  // measurements work with arial
+  font-family: Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 32px;
+
+  text-align: center;
+
+  // Prevent the exclamation mark from being included when the warning text
+  // is copied, for example.
+  user-select: none;
+}
+
+.dl-info-text__text {
+  display: block;
+  margin-left: -$govuk-gutter-half;
+  padding-left: 65px;
+}
+
+.dl-info-text--closer {
+  .dl-info-text__text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
