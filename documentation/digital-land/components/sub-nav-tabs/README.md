@@ -12,7 +12,7 @@ Use this component when you have a wide table users will need to scroll horizont
     "size": "s"
 },
 "example": {
-    "path": "digital-land/components/data-table"
+    "path": "digital-land/components/sub-nav-tabs"
 }
 }) }}
 
@@ -23,7 +23,7 @@ The `subNavTabs` component is a progressive enhancement. You will need to initia
 
 ```
 <script>
-    const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
+    const $subNavTabs = document.querySelector('[data-module="dl-subnav"]')
     const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
 </script>
 ```
