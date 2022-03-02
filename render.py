@@ -58,7 +58,8 @@ md = markdown.Markdown(
         MarkdownJinja(
             env=env,
             macros={
-                "designSystemExample": "design-system/components/example/macro.html"
+                "designSystemExample": "design-system/components/example/macro.html",
+                "govukTag": "govuk_frontend_jinja/components/tag/macro.html",
             },
         ),
         "fenced_code",
