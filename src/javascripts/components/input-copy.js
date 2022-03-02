@@ -7,7 +7,7 @@ function InputCopy ($module) {
 
 InputCopy.prototype.init = function (params) {
   this.$module.addEventListener('click', function (ev) {
-    var target = ev.target
+    const target = ev.target
     if (target.hasAttribute('readonly')) {
       target.focus()
       target.select()
