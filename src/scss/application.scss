@@ -4,6 +4,8 @@
 // import styleguide specific scss
 @import "styleguide/styleguide";
 
+@import "components/accessible-autocomplete";
+@import "components/buttons";
 @import "components/data-item";
 @import "components/feedback-panel";
 @import "components/info-text";

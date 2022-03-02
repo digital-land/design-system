@@ -1,9 +1,11 @@
 {%- from "design-system/components/autocomplete/macro.html" import dlAutocomplete %}
 
-{{ dlAutocomplete({
+<div class="autocomplete__wrapper">
+  {{ dlAutocomplete({
     "name": "organisation-search",
     "label": "Search for an organisation",
     "classes": "govuk-!-margin-top-2",
     "data": organisation_data
-}) }}
+  }) }}
+</div>
 

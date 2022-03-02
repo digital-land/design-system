@@ -10,7 +10,7 @@ An example of how to use the autocomplete module.
 "iframe": {
     "title": "An example autocomplete component used to list all organisations",
     "url": "example.html",
-    "size": "xs"
+    "size": "s"
 },
 "example": {
     "path": "digital-land/components/autocomplete"

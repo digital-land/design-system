@@ -1,6 +1,10 @@
 ---
 contains_map: False
 ---
+{{ govukTag({
+  "text": "candidate"
+}) }}
+
 # Document
 
 This component is used to depict a document.
