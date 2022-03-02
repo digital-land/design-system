@@ -6,8 +6,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}</title>
-    <link href="{{ staticPath|default('/static') }}/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="{{ staticPath|default('/static') }}/stylesheets/styleguide.css" rel="stylesheet" media="all" />
+    <link href="{{ staticPath|default('/static') }}/stylesheets/application.css" rel="stylesheet" media="all" />
     <link href="{{ staticPath|default('/static') }}/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 
     {%- if display_map -%}
@@ -40,7 +39,10 @@
         window.GOVUKFrontend.initAll();
     </script>
     {# needs to come after govuk frontend #}
-    <script src="{{ staticPath|default('/static') }}/javascripts/dl-frontend.js"></script>
+    <script src="{{ assetPath | default('/assets') }}/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
     <script src="{{ staticPath|default('/static') }}/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
@@ -68,12 +70,6 @@
         })
     </script>
 
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
-        }
-    </script>
 
     <script>
         var $filters = document.querySelectorAll('[data-module="selected-counter"]')
