@@ -9,34 +9,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     
-	<link rel="shortcut icon" sizes="48x48" href="/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" sizes="32x32" href="/images/favicon-32x32.png" type="image/png">
-<link rel="shortcut icon" sizes="16x16" href="/images/favicon-16x16.png" type="image/png">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="shortcut icon" sizes="48x48" href="/static/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" sizes="32x32" href="/static/images/favicon-32x32.png" type="image/png">
+  <link rel="shortcut icon" sizes="16x16" href="/static/images/favicon-16x16.png" type="image/png">
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
 
 
     
-	<meta name="digital-land:template" content="dlf-base.html">
-	
+	<meta name="digital-land:template" content="digital-land-frontend/base.jinja">
+    
+    
 
-	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-	
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+    
+    <link href="/static/stylesheets/application.css" rel="stylesheet" />
 
     
     
-    <meta property="og:image" content="/images/govuk-opengraph-image.png">
+    <meta property="og:image" content="/static/images/govuk-opengraph-image.png">
   </head>
   <body class="govuk-template__body ">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
     
 
     
-      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+      
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+
     
 
     
-<!-- Cookie banner partial version 1.0.1 -->
+  
+    <!-- Cookie banner partial version 1.0.1 -->
 <div id="global-cookie-message" class="govuk-clearfix global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
 
   <div id="cookie-banner" class="govuk-width-container">
@@ -64,13 +69,16 @@
   </div>
 
 </div>
+  
 
+  
+    
 
 <header role="banner" id="global-header" class="govuk-header  with-proposition dl-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="header-proposition">
       <div class="govuk-header__content">
-        <a href="https://digital-land.github.io/" class="govuk-header__link govuk-header__link--service-name">
+        <a href="/" class="govuk-header__link govuk-header__link--service-name">
         Digital Land
         </a>
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
@@ -116,19 +124,25 @@
   </div>
 </header>
 
+  
 
 
     
 
 
+
 <div class="govuk-phase-banner govuk-width-container">
-  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
-  styleguide
-</strong><span class="govuk-phase-banner__text">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      styleguide
+    </strong>
+    <span class="govuk-phase-banner__text">
       This is a <a href="/design-system">styleguide for digital land</a>
     </span>
   </p>
 </div>
+
+
 
 
 
@@ -326,6 +340,15 @@
 
 <li
 	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="../step-by-step">Step by step</a>
+</li>
+
+
+	
+	
+
+<li
+	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../sub-nav-tabs">Sub nav tabs</a>
 </li>
 
@@ -367,6 +390,7 @@
 
 
 
+
   <ul class="app-tabs" role="tablist">
 
     <li class="app-tabs__item js-tabs__item" role="presentation"><a
@@ -394,11 +418,25 @@
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 
-&lt;div class=&#34;feedback-panel&#34;&gt;
-    &lt;h3 class=&#34;feedback-panel__heading&#34;&gt;Is there a problem with this data?&lt;/h3&gt;
-    &lt;p&gt;If you have spotted an issue with the data or have a question email the digital land team on
-    &lt;a href=&#34;mailto:email@email.com&#34;&gt;email@email.com&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;dl-feedback&#34;&gt;
+    &lt;div class=&#34;dl-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dl-feedback__prompt-content&#34;&gt;
+
+                If you have spotted an issue with the data or have a question email the digital land team on
+    &lt;a href=&#34;mailto:email@email.com&#34;&gt;email@email.com&lt;/a&gt;.
+
+        &lt;/div&gt;
+
+        &lt;div class=&#34;dl-feedback__prompt-action&#34;&gt;
+            &lt;a href=&#34;&#34; class=&#34;govuk-button dl-feedback__prompt__link&#34;&gt;&lt;/a&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
+
 </code></pre>
     </div>
   </div>
@@ -409,9 +447,9 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback-panel/macro.html&#34; import dlFeedbackPanel %}
-{{ dlFeedbackPanel({
-    &#34;title&#34;: &#34;Is there a problem with this data?&#34;,
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
+{{ dlFeedback({
+    &#34;action&#34;: &#34;Is there a problem with this data?&#34;,
     &#34;html&#34;: &#39;If you have spotted an issue with the data or have a question email the digital land team on
     &lt;a href=&#34;mailto:email@email.com&#34;&gt;email@email.com&lt;/a&gt;.&#39;
     })
@@ -422,16 +460,13 @@
 
 
 </div>
-
-<!-- end app-example-wrapper -->
-
 <p class="govuk-body">It works well when included at the bottom of the page, after the main content. Putting it after the main content means it won't distract the user from the content before they have had chance to read it.</p>
 <h2 class="govuk-heading-l">Feedback prompt</h2>
 <p class="govuk-body">Use the <code class="dl-code">dlf-feedback-prompt</code> component to place a prompt for feedback. The component includes options to add content to the panel and an <code class="dl-code">action</code> in the form of a button.</p>
 <p class="govuk-body">By default the component will be 100% width.</p>
 <h3 class="govuk-heading-m">Feedback with button</h3>
 <p class="govuk-body">Using a button in the prompt helps the user know they can interact with the prompt.</p>
-<div class="app-example-wrapper" data-module="app-tabs">
+<!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback.html" class="govuk-link" target="_blank"
       rel="noopener noreferrer">Open example in new window</a>
@@ -447,6 +482,7 @@
 
 
 
+
   <ul class="app-tabs" role="tablist">
 
     <li class="app-tabs__item js-tabs__item" role="presentation"><a
@@ -477,16 +513,16 @@
 
 
 
-&lt;div class=&#34;dlf-feedback&#34;&gt;
-    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+&lt;div class=&#34;dl-feedback&#34;&gt;
+    &lt;div class=&#34;dl-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dl-feedback__prompt-content&#34;&gt;
 
-            &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
+            &lt;span class=&#34;dl-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
 
         &lt;/div&gt;
 
-        &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
-            &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
+        &lt;div class=&#34;dl-feedback__prompt-action&#34;&gt;
+            &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dl-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
         &lt;/div&gt;
 
     &lt;/div&gt;
@@ -502,7 +538,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.html&#34; import dlFeedback %}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 {{ dlFeedback({
     &#34;text&#34;: &#34;Spotted an issue? Let us know so we can improve the data.&#34;,
     &#34;action&#34;: {
@@ -518,12 +554,9 @@
 
 
 </div>
-
-<!-- end app-example-wrapper -->
-
 <h3 class="govuk-heading-m">Feedback without button</h3>
 <p class="govuk-body">You don't always need to include a button. A link can be used instead.</p>
-<div class="app-example-wrapper" data-module="app-tabs">
+<!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-no-action.html" class="govuk-link" target="_blank"
       rel="noopener noreferrer">Open example in new window</a>
@@ -536,6 +569,7 @@
       src="example-feedback-no-action.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
+
 
 
 
@@ -570,9 +604,9 @@
 
 
 
-&lt;div class=&#34;dlf-feedback&#34;&gt;
-    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+&lt;div class=&#34;dl-feedback&#34;&gt;
+    &lt;div class=&#34;dl-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dl-feedback__prompt-content&#34;&gt;
 
 
 &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? &lt;a href=&#34;#&#34; class=&#34;dlf-feedback__link&#34;&gt;Let us know&lt;/a&gt; so we can improve the data.&lt;/span&gt;
@@ -593,7 +627,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.html&#34; import dlFeedback %}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 {% set feedbackHtml %}
 &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? &lt;a href=&#34;#&#34; class=&#34;dlf-feedback__link&#34;&gt;Let us know&lt;/a&gt; so we can improve the data.&lt;/span&gt;
 {% endset %}
@@ -608,15 +642,12 @@
 
 
 </div>
-
-<!-- end app-example-wrapper -->
-
 <h3 class="govuk-heading-m">Feedback when pinned to footer</h3>
 <p class="govuk-body">Often if makes sense to ask for feedback about the whole page.</p>
 <p class="govuk-body">When doing this it makes sense to place the feedback prompt at the bottom of the page.</p>
 <p class="govuk-body">The <a href="../../template/dlf-base">dlf-base template</a> has a <code class="dl-code">feedbackPrompt</code> block that can be used to place the component at the end of the page.</p>
 <p class="govuk-body">This takes the feeback component out of the main <code class="dl-code">content</code> block on the page and uses the <code class="dl-code">feedbackPrompt</code> block. This will wrap the component in div with the <code class="dl-code">.dlf-feedback__wrapper</code>. This class limits the width of the component to the maximum page width.</p>
-<div class="app-example-wrapper" data-module="app-tabs">
+<!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-pinned.html" class="govuk-link" target="_blank"
       rel="noopener noreferrer">Open example in new window</a>
@@ -629,6 +660,7 @@
       src="example-feedback-pinned.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
+
 
 
 
@@ -668,31 +700,36 @@
     &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
 
 
-    &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;48x48&#34; href=&#34;/images/favicon.ico&#34; type=&#34;image/x-icon&#34;&gt;
-&lt;link rel=&#34;shortcut icon&#34; sizes=&#34;32x32&#34; href=&#34;/images/favicon-32x32.png&#34; type=&#34;image/png&#34;&gt;
-&lt;link rel=&#34;shortcut icon&#34; sizes=&#34;16x16&#34; href=&#34;/images/favicon-16x16.png&#34; type=&#34;image/png&#34;&gt;
-&lt;link rel=&#34;apple-touch-icon&#34; href=&#34;/images/apple-touch-icon.png&#34;&gt;
+  &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;48x48&#34; href=&#34;/static/images/favicon.ico&#34; type=&#34;image/x-icon&#34;&gt;
+  &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;32x32&#34; href=&#34;/static/images/favicon-32x32.png&#34; type=&#34;image/png&#34;&gt;
+  &lt;link rel=&#34;shortcut icon&#34; sizes=&#34;16x16&#34; href=&#34;/static/images/favicon-16x16.png&#34; type=&#34;image/png&#34;&gt;
+  &lt;link rel=&#34;apple-touch-icon&#34; href=&#34;/static/images/apple-touch-icon.png&#34;&gt;
 
 
 
-    &lt;meta name=&#34;digital-land:template&#34; content=&#34;dlf-base.html&#34;&gt;
-
-    &lt;link href=&#34;https://digital-land.github.io/stylesheets/dl-frontend.css&#34; rel=&#34;stylesheet&#34; /&gt;
+    &lt;meta name=&#34;digital-land:template&#34; content=&#34;digital-land-frontend/base.jinja&#34;&gt;
 
 
+    &lt;link href=&#34;/static/stylesheets/dl-frontend.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
-    &lt;meta property=&#34;og:image&#34; content=&#34;/images/govuk-opengraph-image.png&#34;&gt;
+
+
+    &lt;meta property=&#34;og:image&#34; content=&#34;/static/images/govuk-opengraph-image.png&#34;&gt;
   &lt;/head&gt;
   &lt;body class=&#34;govuk-template__body &#34;&gt;
     &lt;script&gt;document.body.className = ((document.body.className) ? document.body.className + &#39; js-enabled&#39; : &#39;js-enabled&#39;);&lt;/script&gt;
 
 
 
-      &lt;a href=&#34;#main-content&#34; class=&#34;govuk-skip-link&#34;&gt;Skip to main content&lt;/a&gt;
+
+  &lt;a href=&#34;#main-content&#34; class=&#34;govuk-skip-link&#34; data-module=&#34;govuk-skip-link&#34;&gt;Skip to main content&lt;/a&gt;
 
 
 
-&lt;!-- Cookie banner partial version 1.0.1 --&gt;
+
+
+
+    &lt;!-- Cookie banner partial version 1.0.1 --&gt;
 &lt;div id=&#34;global-cookie-message&#34; class=&#34;govuk-clearfix global-cookie-message&#34; data-module=&#34;cookie-banner&#34; role=&#34;region&#34; aria-label=&#34;cookie banner&#34; data-nosnippet=&#34;&#34;&gt;
 
   &lt;div id=&#34;cookie-banner&#34; class=&#34;govuk-width-container&#34;&gt;
@@ -722,11 +759,14 @@
 &lt;/div&gt;
 
 
+
+
+
 &lt;header role=&#34;banner&#34; id=&#34;global-header&#34; class=&#34;govuk-header  with-proposition dl-header&#34; data-module=&#34;govuk-header&#34;&gt;
   &lt;div class=&#34;govuk-header__container govuk-width-container&#34;&gt;
     &lt;div class=&#34;header-proposition&#34;&gt;
       &lt;div class=&#34;govuk-header__content&#34;&gt;
-        &lt;a href=&#34;https://digital-land.github.io/&#34; class=&#34;govuk-header__link govuk-header__link--service-name&#34;&gt;
+        &lt;a href=&#34;/&#34; class=&#34;govuk-header__link govuk-header__link--service-name&#34;&gt;
         Digital Land
         &lt;/a&gt;
         &lt;button type=&#34;button&#34; class=&#34;govuk-header__menu-button govuk-js-header-toggle&#34; aria-controls=&#34;navigation&#34; aria-label=&#34;Show or hide Top Level Navigation&#34;&gt;Menu&lt;/button&gt;
@@ -775,17 +815,25 @@
 
 
 
+
       &lt;div class=&#34;govuk-width-container &#34;&gt;
 
 
+
+
 &lt;div class=&#34;govuk-phase-banner&#34;&gt;
-  &lt;p class=&#34;govuk-phase-banner__content&#34;&gt;&lt;strong class=&#34;govuk-tag govuk-phase-banner__content__tag &#34;&gt;
-  prototype
-&lt;/strong&gt;&lt;span class=&#34;govuk-phase-banner__text&#34;&gt;
-      This is a prototype. Please provide feedback to the Digital Land team.
+  &lt;p class=&#34;govuk-phase-banner__content&#34;&gt;
+    &lt;strong class=&#34;govuk-tag govuk-phase-banner__content__tag&#34;&gt;
+      prototype
+    &lt;/strong&gt;
+    &lt;span class=&#34;govuk-phase-banner__text&#34;&gt;
+      This is a prototype. Please provide &lt;a class=&#34;govuk-link&#34; href=&#34;mailto:digitalland@communities.gov.uk?subject=Prototype feedback&#34;&gt;feedback to the Digital Land team&lt;/a&gt;.
     &lt;/span&gt;
   &lt;/p&gt;
 &lt;/div&gt;
+
+
+
 
 
         &lt;main class=&#34;govuk-main-wrapper &#34; id=&#34;main-content&#34; role=&#34;main&#34;&gt;
@@ -802,61 +850,34 @@
 
 
 
-&lt;div class=&#34;dlf-feedback&#34;&gt;
-    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
-
-            &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? Let us know so we can improve the data.&lt;/span&gt;
-
-        &lt;/div&gt;
-
-        &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
-            &lt;a href=&#34;DigitalLand@communities.gov.uk&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;There is something wrong with the data&lt;/a&gt;
-        &lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
 
 
 
 
 
-
-
-
-
-
-
-&lt;footer class=&#34;govuk-footer &#34; role=&#34;contentinfo&#34;
-        &gt;
+  &lt;footer class=&#34;govuk-footer &#34; role=&#34;contentinfo&#34;&gt;
   &lt;div class=&#34;govuk-width-container &#34;&gt;
 
     &lt;div class=&#34;govuk-footer__meta&#34;&gt;
       &lt;div class=&#34;govuk-footer__meta-item govuk-footer__meta-item--grow&#34;&gt;
 
           &lt;h2 class=&#34;govuk-visually-hidden&#34;&gt;Support links&lt;/h2&gt;
-              &lt;ul class=&#34;govuk-footer__inline-list&#34;&gt;
 
-                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
-                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/cookies&#34;&gt;
-                      Cookies
-                    &lt;/a&gt;
-                  &lt;/li&gt;
+            &lt;ul class=&#34;govuk-footer__inline-list&#34;&gt;
 
-                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
-                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/accessibility-statement&#34;&gt;
-                      Accessibility statement
-                    &lt;/a&gt;
-                  &lt;/li&gt;
+                &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                  &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/cookies&#34;&gt;
+                    Cookies
+                  &lt;/a&gt;
+                &lt;/li&gt;
 
-                  &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
-                    &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/design-system&#34;&gt;
-                      Design system
-                    &lt;/a&gt;
-                  &lt;/li&gt;
+                &lt;li class=&#34;govuk-footer__inline-list-item&#34;&gt;
+                  &lt;a class=&#34;govuk-footer__link&#34; href=&#34;/accessibility-statement&#34;&gt;
+                    Accessibility statement
+                  &lt;/a&gt;
+                &lt;/li&gt;
 
-              &lt;/ul&gt;
-
+            &lt;/ul&gt;
 
 
             &lt;div class=&#34;govuk-footer__meta-custom&#34;&gt;
@@ -865,7 +886,7 @@
 
 
         &lt;svg
-          role=&#34;presentation&#34;
+          aria-hidden=&#34;true&#34;
           focusable=&#34;false&#34;
           class=&#34;govuk-footer__licence-logo&#34;
           xmlns=&#34;http://www.w3.org/2000/svg&#34;
@@ -898,24 +919,37 @@
 &lt;/footer&gt;
 
 
-    &lt;script src=&#34;https://digital-land.github.io/javascripts/dl-cookies.js&#34;&gt;&lt;/script&gt;
+
+
+
+
+
+
+
+    &lt;script src=&#34;/static/javascripts/digital-land-cookies.js&#34;&gt;&lt;/script&gt;
     &lt;script async src=&#39;https://www.google-analytics.com/analytics.js&#39;&gt;&lt;/script&gt;
-    &lt;!-- end google analytics --&gt;
 
 
-    &lt;script src=&#34;https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js&#34;&gt;&lt;/script&gt;
+
+
+
+
+    &lt;script src=&#34;/static/javascripts/govuk/govuk-frontend.js&#34;&gt;&lt;/script&gt;
     &lt;script&gt;
-        // initiate all GOVUK components
-        window.GOVUKFrontend.initAll();
+      // initiate all GOVUK components
+      window.GOVUKFrontend.initAll();
     &lt;/script&gt;
 
 
 
-    &lt;script src=&#34;https://digital-land.github.io/javascripts/dl-frontend.js&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;/static/javascripts/digital-land-frontend.js&#34;&gt;&lt;/script&gt;
     &lt;script&gt;
-        // adds any necessary polyfills
-        window.DLFrontend.polyfill();
+      window.DLFrontend.initAll();
     &lt;/script&gt;
+
+
+
+
 
 
 
@@ -930,7 +964,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/dlf-base.html&#34; %}
+      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base.jinja&#34; %}
 
 {% block content %}
   &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
@@ -954,13 +988,10 @@
 
 
 </div>
-
-<!-- end app-example-wrapper -->
-
 <h3 class="govuk-heading-m">Stacked feedback</h3>
 <p class="govuk-body">You can use the feedback prompt component in a narrower layout - for example, in a <code class="dl-code">govuk-grid-column-one-third</code> parent.</p>
 <p class="govuk-body">Add the class <code class="dl-code">dlf-feedback--stacked</code> to get the desired effect.</p>
-<div class="app-example-wrapper" data-module="app-tabs">
+<!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-stacked.html" class="govuk-link" target="_blank"
       rel="noopener noreferrer">Open example in new window</a>
@@ -973,6 +1004,7 @@
       src="example-feedback-stacked.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
+
 
 
 
@@ -1009,16 +1041,16 @@
 
 
 
-&lt;div class=&#34;dlf-feedback dlf-feedback--stacked dlf-feedback--flush&#34;&gt;
-    &lt;div class=&#34;dlf-feedback__prompt&#34;&gt;
-        &lt;div class=&#34;dlf-feedback__prompt-content&#34;&gt;
+&lt;div class=&#34;dl-feedback dlf-feedback--stacked dlf-feedback--flush&#34;&gt;
+    &lt;div class=&#34;dl-feedback__prompt&#34;&gt;
+        &lt;div class=&#34;dl-feedback__prompt-content&#34;&gt;
 
-            &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Have you spotted any issues with the data?&lt;/span&gt;
+            &lt;span class=&#34;dl-feedback__prompt-content__text&#34;&gt;Have you spotted any issues with the data?&lt;/span&gt;
 
         &lt;/div&gt;
 
-        &lt;div class=&#34;dlf-feedback__prompt-action&#34;&gt;
-            &lt;a href=&#34;mailto:digitalLand@communities.gov.uk?subject=Feedback&#34; class=&#34;govuk-button dlf-feedback__prompt__link&#34;&gt;Provide feedback&lt;/a&gt;
+        &lt;div class=&#34;dl-feedback__prompt-action&#34;&gt;
+            &lt;a href=&#34;mailto:digitalLand@communities.gov.uk?subject=Feedback&#34; class=&#34;govuk-button dl-feedback__prompt__link&#34;&gt;Provide feedback&lt;/a&gt;
         &lt;/div&gt;
 
     &lt;/div&gt;
@@ -1037,7 +1069,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.html&#34; import dlFeedback %}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 &lt;div class=&#39;govuk-grid-row&#39;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;Main content&lt;/div&gt;
     &lt;div class=&#34;govuk-grid-column-one-third&#34;&gt;
@@ -1060,13 +1092,12 @@
 
 
 </div>
-
 <!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
-    <h3 class="feedback-panel__heading">Help improve this page</h3>
-    <p>If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a></p>
+  <h3 class="feedback-panel__heading">Help improve this page</h3>
+  If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>
 </div>
 
         </main>
@@ -1081,13 +1112,13 @@
     
 
 
-<footer class="govuk-footer app-footer app-footer--full" role="contentinfo"
-        >
+
+  <footer class="govuk-footer app-footer app-footer--full" role="contentinfo">
   <div class="govuk-width-container app-width-container">
     
       <div class="govuk-footer__navigation">
         
-          <div class="govuk-footer__section">
+          <div class="govuk-footer__section govuk-grid-column-full">
             <h2 class="govuk-footer__heading govuk-heading-m">Related resources</h2>
             
               
@@ -1128,28 +1159,28 @@
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
           <h2 class="govuk-visually-hidden">Support links</h2>
-              <ul class="govuk-footer__inline-list">
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/cookies">
-                      Cookies
-                    </a>
-                  </li>
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/accessibility-statement">
-                      Accessibility statement
-                    </a>
-                  </li>
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/design-system">
-                      Design system
-                    </a>
-                  </li>
-                
-              </ul>
-            
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/cookies">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/design-system">
+                    Design system
+                  </a>
+                </li>
+              
+            </ul>
           
           
             <div class="govuk-footer__meta-custom">
@@ -1158,7 +1189,7 @@
           
         
         <svg
-          role="presentation"
+          aria-hidden="true"
           focusable="false"
           class="govuk-footer__licence-logo"
           xmlns="http://www.w3.org/2000/svg"
@@ -1191,35 +1222,50 @@
 </footer>
 
 
+
+
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
-	<script async src='https://www.google-analytics.com/analytics.js'></script>
-	<!-- end google analytics -->
-	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
-	<script>
-		// initiate all GOVUK components
-		window.GOVUKFrontend.initAll();
-	</script>
+  
 
-	
+  
+    
+    <script src="/static/javascripts/digital-land-cookies.js"></script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    
 
-	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
-	<script>
-		// adds any necessary polyfills
-		window.DLFrontend.polyfill();
-	</script>
-	
+    
+
+    
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
 
+    
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.js"></script>
+    <script>
+      // initiate all GOVUK components
+      window.GOVUKFrontend.initAll();
+    </script>
+    
 
+    
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
+    
+
+    
+<script src="/static/javascripts/application-design-system.js"></script>
+
+  
+
+  
 
 <script>
     // Initialise back to top
@@ -1232,7 +1278,7 @@
     // Initialise tabs
     var $tabs = document.querySelectorAll('[data-module="app-tabs"]')
     $tabs.forEach(function ($tab) {
-        new DLFrontend.AppTabs($tab).init()
+        new DLStyleguide.AppTabs($tab).init()
     })
 </script>
 

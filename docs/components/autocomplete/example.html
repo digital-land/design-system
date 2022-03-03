@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -17,7 +16,8 @@
             ' js-enabled' : 'js-enabled');
     </script>
 
-
+<div class="autocomplete__wrapper">
+  
 <div class="govuk-form-group govuk-!-margin-top-2">
   <label class="govuk-label" for="organisation-search">
     Search for an organisation
@@ -36,10 +36,12 @@
     <option value="development-corporation:Q7799380">Thurrock Thames Gateway Development Corporation</option>
     <option value="development-corporation:Q7860503">Tyne and Wear Development Corporation</option>
     <option value="development-corporation:Q7986087">West Northamptonshire Development Corporation</option>
+    <option value="government-organisation:D1342">Department for Levelling Up, Housing and Communities</option>
     <option value="government-organisation:D303">Office for National Statistics</option>
     <option value="government-organisation:D38">Ordnance Survey</option>
     <option value="government-organisation:D4">Ministry of Housing, Communities and Local Government</option>
     <option value="government-organisation:D69">HM Land Registry</option>
+    <option value="government-organisation:D7">Department for Environment, Food & Rural Affairs</option>
     <option value="government-organisation:EA39">Planning Inspectorate</option>
     <option value="government-organisation:EA87">Valuation Office Agency</option>
     <option value="government-organisation:PB1164">Historic England</option>
@@ -47,6 +49,7 @@
     <option value="government-organisation:PB1218">Regulator of Social Housing</option>
     <option value="government-organisation:PB1232">Homes England</option>
     <option value="government-organisation:PB160">Building Regulations Advisory Committee</option>
+    <option value="government-organisation:PB202">Natural England</option>
     <option value="government-organisation:PB207">Health and Safety Executive</option>
     <option value="government-organisation:PB372">Housing Ombudsman</option>
     <option value="government-organisation:PB373">Leasehold Advisory Service</option>
@@ -262,6 +265,7 @@
     <option value="local-authority-eng:NKE">North Kesteven District Council</option>
     <option value="local-authority-eng:NLN">North Lincolnshire Council</option>
     <option value="local-authority-eng:NNO">North Norfolk District Council</option>
+    <option value="local-authority-eng:NNUA">North Northamtonshire Council</option>
     <option value="local-authority-eng:NOR">Northampton Borough Council</option>
     <option value="local-authority-eng:NOW">Norwich City Council</option>
     <option value="local-authority-eng:NSM">North Somerset  Council</option>
@@ -404,6 +408,7 @@
     <option value="local-authority-eng:WMCA">West Midlands Combined Authority</option>
     <option value="local-authority-eng:WND">London Borough of Wandsworth</option>
     <option value="local-authority-eng:WNM">Royal Borough of Windsor and Maidenhead</option>
+    <option value="local-authority-eng:WNUA">West Northamtonshire Council</option>
     <option value="local-authority-eng:WOC">Worcester City Council</option>
     <option value="local-authority-eng:WOI">Woking Borough Council</option>
     <option value="local-authority-eng:WOK">Wokingham Borough Council</option>
@@ -450,22 +455,27 @@
   </select>
 </div>
 
+</div>
 
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -475,20 +485,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

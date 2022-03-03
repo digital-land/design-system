@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -17,55 +16,57 @@
             ' js-enabled' : 'js-enabled');
     </script>
 
-<nav class="dlf-pagination"
-    role="navigation" aria-label="Pagination">
-    <ul class="dlf-pagination__list">
-        <li class="dlf-pagination__item dlf-pagination__item--previous">
-        <a href="#previous" class="dlf-pagination__link" rel="prev">
-            <span class="dlf-pagination__link-title">
-                <svg class="dlf-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
-                    <path fill="#626a6e" d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
-                </svg>
-                <span class="dlf-pagination__link-text">
-                    Previous
+
+<nav class="app-pagination" role="navigation" aria-label="Pagination">
+    
+    <div class="app-pagination__button app-pagination__button--next">
+        <a href="#" class="app-pagination__link" rel="next">
+            <span class="app-pagination__link-title">
+                <span class="app-pagination__link-label">
+                    Next<span class="govuk-visually-hidden"> set of results</span>
                 </span>
             </span>
-            <span class="dlf-pagination__link-divider visually-hidden">:</span>
-            <span class="dlf-pagination__link-label">Step 1: Gather the information</span>
+            
+            <span class="app-pagination__link-text">Show next 10 entities</span>
+            
         </a>
-        </li>
-        <li class="dlf-pagination__item dlf-pagination__item--next">
-        <a href="#next" class="dlf-pagination__link" rel="next">
-            <span class="dlf-pagination__link-title">
-                <svg class="dlf-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
-                    <path fill="#626a6e" d="m10.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
-                </svg>
-                <span class="dlf-pagination__link-text">
-                    Next
+    </div>
+    
+    
+    <div class="app-pagination__button app-pagination__button--previous">
+        <a href="#" class="app-pagination__link" rel="prev">
+            <span class="app-pagination__link-title">
+                <span class="app-pagination__link-label">
+                    Previous<span class="govuk-visually-hidden"> set of results</span>
                 </span>
             </span>
-            <span class="dlf-pagination__link-divider visually-hidden">:</span>
-            <span class="dlf-pagination__link-label">Step 3: Publish the data on your site</span>
+            
+            <span class="app-pagination__link-text">Show previous 10 entities</span>
+            
         </a>
-        </li>
-    </ul>
+    </div>
+    
 </nav>
 
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -75,20 +76,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

@@ -9,34 +9,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     
-	<link rel="shortcut icon" sizes="48x48" href="/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" sizes="32x32" href="/images/favicon-32x32.png" type="image/png">
-<link rel="shortcut icon" sizes="16x16" href="/images/favicon-16x16.png" type="image/png">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="shortcut icon" sizes="48x48" href="/static/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" sizes="32x32" href="/static/images/favicon-32x32.png" type="image/png">
+  <link rel="shortcut icon" sizes="16x16" href="/static/images/favicon-16x16.png" type="image/png">
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
 
 
     
-	<meta name="digital-land:template" content="dlf-base.html">
-	
+	<meta name="digital-land:template" content="digital-land-frontend/base.jinja">
+    
+    
 
-	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-	
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" />
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+    
+    <link href="/static/stylesheets/application.css" rel="stylesheet" />
 
     
     
-    <meta property="og:image" content="/images/govuk-opengraph-image.png">
+    <meta property="og:image" content="/static/images/govuk-opengraph-image.png">
   </head>
   <body class="govuk-template__body ">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
     
 
     
-      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+      
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+
     
 
     
-<!-- Cookie banner partial version 1.0.1 -->
+  
+    <!-- Cookie banner partial version 1.0.1 -->
 <div id="global-cookie-message" class="govuk-clearfix global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
 
   <div id="cookie-banner" class="govuk-width-container">
@@ -64,13 +69,16 @@
   </div>
 
 </div>
+  
 
+  
+    
 
 <header role="banner" id="global-header" class="govuk-header  with-proposition dl-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="header-proposition">
       <div class="govuk-header__content">
-        <a href="https://digital-land.github.io/" class="govuk-header__link govuk-header__link--service-name">
+        <a href="/" class="govuk-header__link govuk-header__link--service-name">
         Digital Land
         </a>
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
@@ -116,19 +124,25 @@
   </div>
 </header>
 
+  
 
 
     
 
 
+
 <div class="govuk-phase-banner govuk-width-container">
-  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
-  styleguide
-</strong><span class="govuk-phase-banner__text">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      styleguide
+    </strong>
+    <span class="govuk-phase-banner__text">
       This is a <a href="/design-system">styleguide for digital land</a>
     </span>
   </p>
 </div>
+
+
 
 
 
@@ -326,6 +340,15 @@
 
 <li
 	class="app-subnav__section-item">
+	<a class="app-subnav__link govuk-link" href="../step-by-step">Step by step</a>
+</li>
+
+
+	
+	
+
+<li
+	class="app-subnav__section-item">
 	<a class="app-subnav__link govuk-link" href="../sub-nav-tabs">Sub nav tabs</a>
 </li>
 
@@ -346,7 +369,10 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Timeline</h1>
+            <p class="govuk-body"><strong class="govuk-tag">
+  candidate
+</strong></p>
+<h1 class="govuk-heading-xl">Timeline</h1>
 <p class="govuk-body">Use the timeline component to show an ordered record of what has happened.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
@@ -361,6 +387,7 @@
       src="example.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
+
 
 
 
@@ -444,7 +471,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/timeline/macro.html&#34; import dlTimeline %}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimeline %}
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
         {{ dlTimeline({
@@ -473,16 +500,13 @@
 
 
 </div>
-
-<!-- end app-example-wrapper -->
-
 <h2 class="govuk-heading-l">Filtering a timeline</h2>
 <p class="govuk-body">The timeline component can be progressively enhanced to allow filtering by date.</p>
 <p class="govuk-body"><img class="styleguide-gif" src="images/timeline-filter-video.gif"></p>
 <p class="govuk-body">We add this enhancement when the timeline has many entries and a user might need to find a specific one. An example of that can be seen on a <a href="https://digital-land.github.io/collection/brownfield-land/log/">collection log page</a>.</p>
 <h3 class="govuk-heading-m">Collector log example</h3>
 <p class="govuk-body">The timeline component is good to use when you are showing a sequence of log entries.</p>
-<div class="app-example-wrapper" data-module="app-tabs">
+<!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-collector.html" class="govuk-link" target="_blank"
       rel="noopener noreferrer">Open example in new window</a>
@@ -495,6 +519,7 @@
       src="example-collector.html" loading="lazy" id="iFrameResizer3"
       scrolling="auto" frameborder="0"></iframe>
   </div>
+
 
 
 
@@ -575,7 +600,7 @@
     &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;No new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -587,7 +612,7 @@
     &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -602,7 +627,7 @@
                 &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
                     Error
                   &lt;/strong&gt;
-                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                  &lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
                 &lt;/span&gt; 
                 &lt;span&gt;No run information available.&lt;/span&gt;
             &lt;/div&gt;
@@ -616,7 +641,7 @@
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
                 &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -628,7 +653,7 @@
     &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;No new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -640,7 +665,7 @@
     &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -655,7 +680,7 @@
                 &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
                     Error
                   &lt;/strong&gt;
-                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                  &lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
                 &lt;/span&gt; 
                 &lt;span&gt;No run information available.&lt;/span&gt;
             &lt;/div&gt;
@@ -669,7 +694,7 @@
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
                 &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -681,7 +706,7 @@
     &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;No new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -693,7 +718,7 @@
     &lt;div class=&#34;dl-timeline__entry__content&#34;&gt;
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -708,7 +733,7 @@
                 &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
                     Error
                   &lt;/strong&gt;
-                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                  &lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
                 &lt;/span&gt; 
                 &lt;span&gt;No run information available.&lt;/span&gt;
             &lt;/div&gt;
@@ -722,7 +747,7 @@
 
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
                 &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
             &lt;/div&gt;
             &lt;/div&gt;
@@ -742,8 +767,8 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/timeline/macro.html&#34; import dlTimeline %}
-{%- from &#34;digital-land-frontend/components/timeline/macro.html&#34; import dlTimelineEntry %}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimeline %}
+{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimelineEntry %}
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
         &lt;div class=&#34;govuk-form-group&#34;&gt;
@@ -793,7 +818,7 @@
 
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;No new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -810,7 +835,7 @@
 
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -830,7 +855,7 @@
                 &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
                     Error
                   &lt;/strong&gt;
-                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                  &lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
                 &lt;/span&gt; 
                 &lt;span&gt;No run information available.&lt;/span&gt;
             &lt;/div&gt;
@@ -849,7 +874,7 @@
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
                 &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -866,7 +891,7 @@
 
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;No new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -883,7 +908,7 @@
 
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -903,7 +928,7 @@
                 &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
                     Error
                   &lt;/strong&gt;
-                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                  &lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
                 &lt;/span&gt; 
                 &lt;span&gt;No run information available.&lt;/span&gt;
             &lt;/div&gt;
@@ -922,7 +947,7 @@
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
                 &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -939,7 +964,7 @@
 
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;No new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -956,7 +981,7 @@
 
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 new resources collected.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -976,7 +1001,7 @@
                 &lt;span&gt;&lt;strong class=&#34;govuk-tag govuk-tag--red&#34;&gt;
                     Error
                   &lt;/strong&gt;
-                  &lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
+                  &lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.
                 &lt;/span&gt; 
                 &lt;span&gt;No run information available.&lt;/span&gt;
             &lt;/div&gt;
@@ -995,7 +1020,7 @@
             {%- set entryHTML %}
             &lt;div class=&#34;technical-summary-card technical-summary-card--compressed&#34;&gt;
                 &lt;span class=&#34;dlf-warning__icon--inline&#34; aria-hidden=&#34;true&#34;&gt;!&lt;/span&gt;
-                &lt;span&gt;&lt;a href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
+                &lt;span&gt;&lt;a class=&#34;govuk-link&#34; href=&#34;#&#34;&gt;Brownfield collector&lt;/a&gt;.&lt;/span&gt; 
                 &lt;span&gt;3 issues with the endpoints.&lt;/span&gt;
             &lt;/div&gt;
             {% endset -%}
@@ -1019,18 +1044,16 @@
 
 
 </div>
-
-<!-- end app-example-wrapper -->
-
 <p class="govuk-body">When the timeline has many entries you can use the <code class="dl-code">call</code> approach to generate the entries individually or via a loop.</p>
 <h2 class="govuk-heading-l">Research on this compponent</h2>
 <p class="govuk-body">We need to do more research on this component. If you have used the timeline component, get in touch to share your research findings.</p>
 <p class="govuk-body">We will keep an eye on other services that use the timeline and hopefully get a better inderstanding of how timelines are being used across government. For example, it is used by <a href="https://moj-design-system.herokuapp.com/components/timeline">MoJ</a>.</p>
+<!-- end app-example-wrapper -->
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             
 <div class="feedback-panel">
-    <h3 class="feedback-panel__heading">Help improve this page</h3>
-    <p>If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a></p>
+  <h3 class="feedback-panel__heading">Help improve this page</h3>
+  If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>
 </div>
 
         </main>
@@ -1045,13 +1068,13 @@
     
 
 
-<footer class="govuk-footer app-footer app-footer--full" role="contentinfo"
-        >
+
+  <footer class="govuk-footer app-footer app-footer--full" role="contentinfo">
   <div class="govuk-width-container app-width-container">
     
       <div class="govuk-footer__navigation">
         
-          <div class="govuk-footer__section">
+          <div class="govuk-footer__section govuk-grid-column-full">
             <h2 class="govuk-footer__heading govuk-heading-m">Related resources</h2>
             
               
@@ -1092,28 +1115,28 @@
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
           <h2 class="govuk-visually-hidden">Support links</h2>
-              <ul class="govuk-footer__inline-list">
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/cookies">
-                      Cookies
-                    </a>
-                  </li>
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/accessibility-statement">
-                      Accessibility statement
-                    </a>
-                  </li>
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/design-system">
-                      Design system
-                    </a>
-                  </li>
-                
-              </ul>
-            
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/cookies">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/design-system">
+                    Design system
+                  </a>
+                </li>
+              
+            </ul>
           
           
             <div class="govuk-footer__meta-custom">
@@ -1122,7 +1145,7 @@
           
         
         <svg
-          role="presentation"
+          aria-hidden="true"
           focusable="false"
           class="govuk-footer__licence-logo"
           xmlns="http://www.w3.org/2000/svg"
@@ -1155,35 +1178,50 @@
 </footer>
 
 
+
+
     
-<script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
-	<script async src='https://www.google-analytics.com/analytics.js'></script>
-	<!-- end google analytics -->
-	
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
-	<script>
-		// initiate all GOVUK components
-		window.GOVUKFrontend.initAll();
-	</script>
+  
 
-	
+  
+    
+    <script src="/static/javascripts/digital-land-cookies.js"></script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    
 
-	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
-	<script>
-		// adds any necessary polyfills
-		window.DLFrontend.polyfill();
-	</script>
-	
+    
+
+    
 
 
-<script src="https://digital-land.github.io/javascripts/vendor/highlight.pack.js"></script>
+<script src="/static/javascripts/vendor/highlight.pack.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
 
+    
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.js"></script>
+    <script>
+      // initiate all GOVUK components
+      window.GOVUKFrontend.initAll();
+    </script>
+    
 
+    
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
+    
+
+    
+<script src="/static/javascripts/application-design-system.js"></script>
+
+  
+
+  
 
 <script>
     // Initialise back to top
@@ -1196,7 +1234,7 @@
     // Initialise tabs
     var $tabs = document.querySelectorAll('[data-module="app-tabs"]')
     $tabs.forEach(function ($tab) {
-        new DLFrontend.AppTabs($tab).init()
+        new DLStyleguide.AppTabs($tab).init()
     })
 </script>
 
