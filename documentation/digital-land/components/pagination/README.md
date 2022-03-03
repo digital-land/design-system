@@ -11,7 +11,7 @@ It should be placed at the end of the content on the current page.
 "iframe": {
     "title": "An example of the pagination component",
     "url": "example.html",
-    "size": "m"
+    "size": "s"
 },
 "example": {
     "path": "digital-land/components/pagination"

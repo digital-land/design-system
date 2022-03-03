@@ -1,12 +1,12 @@
-{#{%- from "digital-land-frontend/components/pagination/macro.html" import dlContentPagePagination %}
-{{ dlContentPagePagination({
-    "previous": {
-        "label": "Step 1: Gather the information",
-        "href": "#previous"
-    },
-    "next": {
-        "label": "Step 3: Publish the data on your site",
-        "href": "#next"
-    }
+{%- from "design-system/components/pagination/macro.jinja" import appPagination %}
+
+{{ appPagination({
+  "prev": {
+    "href": "#",
+    "text": "Show previous 10 entities"
+  },
+  "next": {
+    "href": "#",
+    "text": "Show next 10 entities"
+  }
 }) }}
-#}
