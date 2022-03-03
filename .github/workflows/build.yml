@@ -37,10 +37,10 @@ jobs:
       run: make init
 
     - name: Force rebuild of pages and dataset
-     run: make clobber
+      run: make clobber
 
     - name: Build docs
-     run: make render
+      run: make render
 
     - name: Commit docs
       run: make commit-docs
