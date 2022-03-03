@@ -35,11 +35,11 @@ jobs:
     - name: Install dependencies
       run: make init
 
-    #- name: Force rebuild of pages and dataset
-    #  run: make clobber
+    - name: Force rebuild of pages and dataset
+     run: make clobber
 
-    #- name: Build docs
-    #  run: make render
+    - name: Build docs
+     run: make render
 
     - name: Commit docs
       run: make commit-docs
