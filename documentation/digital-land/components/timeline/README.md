@@ -1,6 +1,10 @@
 ---
 contains_map: False
 ---
+{{ govukTag({
+  "text": "candidate"
+}) }}
+
 # Timeline
 
 Use the timeline component to show an ordered record of what has happened.

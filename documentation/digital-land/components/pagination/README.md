@@ -1,6 +1,10 @@
 ---
 contains_map: False
 ---
+{{ govukTag({
+  "text": "candidate"
+}) }}
+
 # Pagination
 
 Use this component on content pages to help users to navigate to previous or the next content in the sequence.

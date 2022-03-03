@@ -1,6 +1,10 @@
 ---
 contains_map: False
 ---
+{{ govukTag({
+  "text": "candidate"
+}) }}
+
 # List filter
 
 Allow a user to search or filter a list. This is an progressive enhancement.

@@ -1,6 +1,9 @@
 ---
 requires_orgs: True
 ---
+{{ govukTag({
+  "text": "candidate"
+}) }}
 
 # Autocomplete 
 
