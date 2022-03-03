@@ -33,11 +33,11 @@ jobs:
         git remote set-url origin https://${DLB_BOT_USERNAME}:${DLB_BOT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git checkout main
 
-    - name: Install dependencies
-      run: make init
-
     - name: Force rebuild of pages and dataset
       run: make clobber
+
+    - name: Install dependencies
+      run: make init
 
     - name: Build docs
       run: make render
