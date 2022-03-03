@@ -41,8 +41,8 @@ def setup_jinja():
     env.filters["is_current_page"] = is_current_page
 
     # set variables to make available to all templates
-    env.globals["staticPath"] = "/static"
-    env.globals["assetPath"] = "/static"  # used by digital-land-frontend
+    env.globals["staticPath"] = "/design-system/static"
+    env.globals["assetPath"] = "/design-system/static"  # used by digital-land-frontend
     env.globals["urlPath"] = "/design-system"
     env.globals["includesMap"] = False
     env.globals["random_int"] = random_int
