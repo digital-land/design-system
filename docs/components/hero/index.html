@@ -414,13 +414,13 @@
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
-&lt;header class=&#34;hero&#34;&gt;
-    &lt;div class=&#34;hero__content&#34;&gt;
+&lt;section class=&#34;dl-hero&#34;&gt;
+  &lt;div class=&#34;dl-hero__content govuk-width-container&#34;&gt;
 
-        &lt;h1 class=&#34;govuk-heading-l&#34;&gt;A hero example&lt;/h1&gt;&lt;p class=&#34;govuk-body-l&#34;&gt;There is some useful stuff on the &lt;a href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&lt;/p&gt;
+    &lt;h1 class=&#34;govuk-heading-l&#34;&gt;A hero example&lt;/h1&gt;&lt;p class=&#34;govuk-body-l&#34;&gt;There is some useful stuff on the &lt;a href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&lt;/p&gt;
 
-    &lt;/div&gt;
-&lt;/header&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
   </div>
@@ -431,10 +431,11 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/hero/macro.html&#34; import dlHero -%}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.jinja&#34; import dlHero -%}
 {{ dlHero({
     &#34;html&#34;: &#39;&lt;h1 class=&#34;govuk-heading-l&#34;&gt;A hero example&lt;/h1&gt;&lt;p class=&#34;govuk-body-l&#34;&gt;There is some useful stuff on the &lt;a href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&lt;/p&gt;&#39;
-}) }}</code></pre>
+}) }}
+</code></pre>
     </div>
   </div>
 
@@ -488,8 +489,8 @@
     <div class="app-example__code">
       <pre class="hljs-container"><code class="html">
 
-&lt;header class=&#34;hero&#34;&gt;
-    &lt;div class=&#34;hero__content govuk-width-container&#34;&gt;
+&lt;section class=&#34;dl-hero&#34;&gt;
+  &lt;div class=&#34;dl-hero__content govuk-width-container govuk-width-container&#34;&gt;
 
   &lt;h1 class=&#34;govuk-heading-l&#34;&gt;The entry point of a service&lt;/h1&gt;
   &lt;p class=&#34;govuk-body-l&#34;&gt;Introducing the service and what to expect next. &lt;a href=&#34;/&#34;&gt;Guidance for the service&lt;/a&gt;.&lt;/p&gt;
@@ -514,8 +515,8 @@
 
 
 
-    &lt;/div&gt;
-&lt;/header&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
   </div>
@@ -526,7 +527,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/hero/macro.html&#34; import dlHero -%}
+      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.jinja&#34; import dlHero -%}
 {% from &#39;govuk_frontend_jinja/components/button/macro.html&#39; import govukButton  %}
 {% call dlHero({
     &#34;classes&#34;: &#34;govuk-width-container&#34;
