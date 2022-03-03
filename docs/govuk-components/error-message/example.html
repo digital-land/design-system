@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -20,98 +19,96 @@
 
 
 
+
+
   
 
 
 <div class="govuk-form-group govuk-form-group--error">
-  
-	
-		
-	<fieldset class="govuk-fieldset" role="group">
+
+<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint passport-issued-error">
   
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      When was your passport issued?
-    </h1>
+    
+      <h1 class="govuk-fieldset__heading">
+        When was your passport issued?
+      </h1>
+    
   </legend>
   
   
-      <span id="passport-issued-hint" class="govuk-hint">
+  <div id="passport-issued-hint" class="govuk-hint">
     For example, 12 11 2007
-  </span>
+  </div>
 
 
   
   
-  <span id="passport-issued-error" class="govuk-error-message" >
-    The date your passport was issued must be in the past
-  </span>
-
+  <p id="passport-issued-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> The date your passport was issued must be in the past
+  </p>
 
   <div class="govuk-date-input" id="passport-issued">
-
-    
     
     <div class="govuk-date-input__item">
-    <div class="govuk-form-group">
-        <label class="govuk-label govuk-date-input__label"
-           for="passport-issued-day">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
           Day
         </label>
 
-
-        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-day" name="passport-issued-day" type="number" value="6" pattern="[0-9]*">
-
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
       </div>
     </div>
-    
+  
     <div class="govuk-date-input__item">
-    <div class="govuk-form-group">
-        <label class="govuk-label govuk-date-input__label"
-           for="passport-issued-month">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
           Month
         </label>
 
-
-        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="passport-issued-month" name="passport-issued-month" type="number" value="3" pattern="[0-9]*">
-
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
       </div>
     </div>
-    
+  
     <div class="govuk-date-input__item">
-    <div class="govuk-form-group">
-        <label class="govuk-label govuk-date-input__label"
-           for="passport-issued-year">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
           Year
         </label>
 
-
-        <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="passport-issued-year" name="passport-issued-year" type="number" value="2076" pattern="[0-9]*">
-
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
       </div>
     </div>
-    
-    
-    
-  </div>
-    </fieldset>
   
+  </div>
+  
+  
+</fieldset>
+
+
+
 </div>
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+
+
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -121,20 +118,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

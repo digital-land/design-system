@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -19,99 +18,107 @@
 
 
 
-	
-		
-	<fieldset class="govuk-fieldset">
+<fieldset class="govuk-fieldset">
   
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      What is your address?
-    </h1>
+    
+      <h1 class="govuk-fieldset__heading">
+        What is your address?
+      </h1>
+    
   </legend>
   
   
 
 
 
+
 <div class="govuk-form-group">
-  <label class="govuk-label"
-     for="address-line-1">
+  <label class="govuk-label" for="address-line-1">
     Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
   </label>
 
-
-  <input class="govuk-input" id="address-line-1" name="address-line-1" type="text">
-
+<input class="govuk-input" id="address-line-1" name="address-line-1" type="text">
 </div>
 
 
 
+
+
+
 <div class="govuk-form-group">
-  <label class="govuk-label"
-     for="address-line-2">
+  <label class="govuk-label" for="address-line-2">
     <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
   </label>
 
-
-  <input class="govuk-input" id="address-line-2" name="address-line-2" type="text">
-
+<input class="govuk-input" id="address-line-2" name="address-line-2" type="text">
 </div>
 
 
 
+
+
+
 <div class="govuk-form-group">
-  <label class="govuk-label"
-     for="address-town">
+  <label class="govuk-label" for="address-town">
     Town or city
   </label>
 
-
-  <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
-
+<input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
 </div>
 
 
 
+
+
+
 <div class="govuk-form-group">
-  <label class="govuk-label"
-     for="address-county">
+  <label class="govuk-label" for="address-county">
     County
   </label>
 
-
-  <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
-
+<input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
 </div>
+
+
+
 
 
 
 <div class="govuk-form-group">
-  <label class="govuk-label"
-     for="address-postcode">
+  <label class="govuk-label" for="address-postcode">
     Postcode
   </label>
 
-
-  <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
-
+<input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
 </div>
 
+
+
+
+  
 </fieldset>
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+
+
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -121,20 +128,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

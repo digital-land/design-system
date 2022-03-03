@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -67,7 +66,7 @@
     <div class="dl-timeline__entry__content">
     
             <div class="technical-summary-card technical-summary-card--compressed">
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>No new resources collected.</span>
             </div>
             </div>
@@ -79,7 +78,7 @@
     <div class="dl-timeline__entry__content">
     
             <div class="technical-summary-card technical-summary-card--compressed">
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>3 new resources collected.</span>
             </div>
             </div>
@@ -94,7 +93,7 @@
                 <span><strong class="govuk-tag govuk-tag--red">
                     Error
                   </strong>
-                  <a href="#">Brownfield collector</a>.
+                  <a class="govuk-link" href="#">Brownfield collector</a>.
                 </span> 
                 <span>No run information available.</span>
             </div>
@@ -108,7 +107,7 @@
     
             <div class="technical-summary-card technical-summary-card--compressed">
                 <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>3 issues with the endpoints.</span>
             </div>
             </div>
@@ -120,7 +119,7 @@
     <div class="dl-timeline__entry__content">
     
             <div class="technical-summary-card technical-summary-card--compressed">
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>No new resources collected.</span>
             </div>
             </div>
@@ -132,7 +131,7 @@
     <div class="dl-timeline__entry__content">
     
             <div class="technical-summary-card technical-summary-card--compressed">
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>3 new resources collected.</span>
             </div>
             </div>
@@ -147,7 +146,7 @@
                 <span><strong class="govuk-tag govuk-tag--red">
                     Error
                   </strong>
-                  <a href="#">Brownfield collector</a>.
+                  <a class="govuk-link" href="#">Brownfield collector</a>.
                 </span> 
                 <span>No run information available.</span>
             </div>
@@ -161,7 +160,7 @@
     
             <div class="technical-summary-card technical-summary-card--compressed">
                 <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>3 issues with the endpoints.</span>
             </div>
             </div>
@@ -173,7 +172,7 @@
     <div class="dl-timeline__entry__content">
     
             <div class="technical-summary-card technical-summary-card--compressed">
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>No new resources collected.</span>
             </div>
             </div>
@@ -185,7 +184,7 @@
     <div class="dl-timeline__entry__content">
     
             <div class="technical-summary-card technical-summary-card--compressed">
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>3 new resources collected.</span>
             </div>
             </div>
@@ -200,7 +199,7 @@
                 <span><strong class="govuk-tag govuk-tag--red">
                     Error
                   </strong>
-                  <a href="#">Brownfield collector</a>.
+                  <a class="govuk-link" href="#">Brownfield collector</a>.
                 </span> 
                 <span>No run information available.</span>
             </div>
@@ -214,7 +213,7 @@
     
             <div class="technical-summary-card technical-summary-card--compressed">
                 <span class="dlf-warning__icon--inline" aria-hidden="true">!</span>
-                <span><a href="#">Brownfield collector</a>.</span> 
+                <span><a class="govuk-link" href="#">Brownfield collector</a>.</span> 
                 <span>3 issues with the endpoints.</span>
             </div>
             </div>
@@ -225,21 +224,25 @@
 
     </div>
 </div>
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -249,20 +252,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

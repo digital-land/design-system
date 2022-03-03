@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -26,34 +25,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     
-	<link rel="shortcut icon" sizes="48x48" href="/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" sizes="32x32" href="/images/favicon-32x32.png" type="image/png">
-<link rel="shortcut icon" sizes="16x16" href="/images/favicon-16x16.png" type="image/png">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="shortcut icon" sizes="48x48" href="/static/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" sizes="32x32" href="/static/images/favicon-32x32.png" type="image/png">
+  <link rel="shortcut icon" sizes="16x16" href="/static/images/favicon-16x16.png" type="image/png">
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
 
 
     
     
 	<meta name="digital-land:template" content="page-per-thing/index.html">
-	
-	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
-	
-    <script src="https://digital-land.github.io/javascripts/dl-maps.js"></script>
+    
+    
+    <link href="/static/stylesheets/dl-frontend.css" rel="stylesheet" />
+    
+    <script src="/static/javascripts/dl-maps.js"></script>
     
     
     
-    <meta property="og:image" content="/images/govuk-opengraph-image.png">
+    <meta property="og:image" content="/static/images/govuk-opengraph-image.png">
   </head>
   <body class="govuk-template__body ">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
     
 
     
-      <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+      
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+
     
 
     
-<!-- Cookie banner partial version 1.0.1 -->
+  
+    <!-- Cookie banner partial version 1.0.1 -->
 <div id="global-cookie-message" class="govuk-clearfix global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
 
   <div id="cookie-banner" class="govuk-width-container">
@@ -81,13 +85,16 @@
   </div>
 
 </div>
+  
 
+  
+    
 
 <header role="banner" id="global-header" class="govuk-header  with-proposition dl-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="header-proposition">
       <div class="govuk-header__content">
-        <a href="https://digital-land.github.io/" class="govuk-header__link govuk-header__link--service-name">
+        <a href="/" class="govuk-header__link govuk-header__link--service-name">
         Digital Land
         </a>
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
@@ -133,22 +140,31 @@
   </div>
 </header>
 
+  
 
 
     
       <div class="govuk-width-container ">
         
-	
+  
+    
+
 <div class="govuk-phase-banner">
-  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
-  prototype
-</strong><span class="govuk-phase-banner__text">
-      This is a prototype. Please provide feedback to the Digital Land team.
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      prototype
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a prototype. Please provide <a class="govuk-link" href="mailto:digitalland@communities.gov.uk?subject=Prototype feedback">feedback to the Digital Land team</a>.
     </span>
   </p>
 </div>
+
+
+  
 	
-<div class="govuk-breadcrumbs ">
+
+  <div class="govuk-breadcrumbs ">
   <ol class="govuk-breadcrumbs__list">
   
     
@@ -159,6 +175,8 @@
   
   </ol>
 </div>
+
+
         <main class="govuk-main-wrapper " id="main-content" role="main">
           
 
@@ -172,16 +190,16 @@
 
 
 
-<div class="dlf-feedback dlf-feedback--stacked dlf-feedback--flush">
-    <div class="dlf-feedback__prompt">
-        <div class="dlf-feedback__prompt-content">
+<div class="dl-feedback dlf-feedback--stacked dlf-feedback--flush">
+    <div class="dl-feedback__prompt">
+        <div class="dl-feedback__prompt-content">
             
-            <span class="dlf-feedback__prompt-content__text">Have you spotted any issues with the data?</span>
+            <span class="dl-feedback__prompt-content__text">Have you spotted any issues with the data?</span>
             
         </div>
         
-        <div class="dlf-feedback__prompt-action">
-            <a href="mailto:digitalLand@communities.gov.uk?subject=Feedback on  data" class="govuk-button dlf-feedback__prompt__link">Provide feedback</a>
+        <div class="dl-feedback__prompt-action">
+            <a href="mailto:digitalLand@communities.gov.uk?subject=Feedback on  data" class="govuk-button dl-feedback__prompt__link">Provide feedback</a>
         </div>
         
     </div>
@@ -211,11 +229,7 @@
     <div class="dl-sticky-banner">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-half">
-                <a href="#index-title" class="govuk-link govuk-link--no-visited-state back-to-top__link">
-    <svg role="presentation" focusable="false" class="back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
-        <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
-    </svg>Back to top
-</a>
+                
             </div>
         </div>
     </div>
@@ -230,36 +244,30 @@
 
 
 
-<footer class="govuk-footer " role="contentinfo"
-        >
+
+  <footer class="govuk-footer " role="contentinfo">
   <div class="govuk-width-container ">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
           <h2 class="govuk-visually-hidden">Support links</h2>
-              <ul class="govuk-footer__inline-list">
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/cookies">
-                      Cookies
-                    </a>
-                  </li>
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/accessibility-statement">
-                      Accessibility statement
-                    </a>
-                  </li>
-                
-                  <li class="govuk-footer__inline-list-item">
-                    <a class="govuk-footer__link" href="/design-system">
-                      Design system
-                    </a>
-                  </li>
-                
-              </ul>
-            
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/cookies">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+            </ul>
           
           
             <div class="govuk-footer__meta-custom">
@@ -268,7 +276,7 @@
           
         
         <svg
-          role="presentation"
+          aria-hidden="true"
           focusable="false"
           class="govuk-footer__licence-logo"
           xmlns="http://www.w3.org/2000/svg"
@@ -302,27 +310,40 @@
 
 
 
+
+
     
-    <script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
-	<script async src='https://www.google-analytics.com/analytics.js'></script>
-	<!-- end google analytics -->
-	
+    
+  
 
-	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
-	<script>
-		// initiate all GOVUK components
-		window.GOVUKFrontend.initAll();
-	</script>
+  
+    
+    <script src="/static/javascripts/digital-land-cookies.js"></script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    
 
-	
-	
-	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
-	<script>
-		// adds any necessary polyfills
-		window.DLFrontend.polyfill();
-	</script>
-	
+    
+    
+    
+    
+    <script src="/static/javascripts/govuk/govuk-frontend.js"></script>
+    <script>
+      // initiate all GOVUK components
+      window.GOVUKFrontend.initAll();
+    </script>
+    
 
+    
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
+    
+
+    
+  
+
+  
 
 
     <script>
@@ -354,21 +375,25 @@
 
   </body>
 </html>
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -378,20 +403,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -19,130 +18,115 @@
 
 
   
+
   
 
   
-  
 
-  
-  
-
-  
   
 <dl class="govuk-summary-list">
   
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Name
-      </dt>
-      <dd class="govuk-summary-list__value">
-        Sarah Philips
-      </dd>
-      
-        <dd class="govuk-summary-list__actions">
-          
-            <ul class="govuk-summary-list__actions-list">
-              
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> name</span>
-                      </a>
-                </li>
-              
-            </ul>
-          
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sarah Philips
         </dd>
-      
-    </div>
+        
+          <dd class="govuk-summary-list__actions">
+            
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+            
+          </dd>
+        
+      </div>
+    
   
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Date of birth
-      </dt>
-      <dd class="govuk-summary-list__value">
-        5 January 1978
-      </dd>
-      
-        <dd class="govuk-summary-list__actions">
-          
-            <ul class="govuk-summary-list__actions-list">
-              
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> date of birth</span>
-                      </a>
-                </li>
-              
-            </ul>
-          
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          5 January 1978
         </dd>
-      
-    </div>
+        
+          <dd class="govuk-summary-list__actions">
+            
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+            
+          </dd>
+        
+      </div>
+    
   
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Contact information
-      </dt>
-      <dd class="govuk-summary-list__value">
-        72 Guild Street<br>London<br>SE23 6FH
-      </dd>
-      
-        <dd class="govuk-summary-list__actions">
-          
-            <ul class="govuk-summary-list__actions-list">
-              
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> contact information</span>
-                      </a>
-                </li>
-              
-            </ul>
-          
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact information
+        </dt>
+        <dd class="govuk-summary-list__value">
+          72 Guild Street<br>London<br>SE23 6FH
         </dd>
-      
-    </div>
+        
+          <dd class="govuk-summary-list__actions">
+            
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact information</span>
+                </a>
+            
+          </dd>
+        
+      </div>
+    
   
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Contact details
-      </dt>
-      <dd class="govuk-summary-list__value">
-        <p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>
-      </dd>
-      
-        <dd class="govuk-summary-list__actions">
-          
-            <ul class="govuk-summary-list__actions-list">
-              
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> contact details</span>
-                      </a>
-                </li>
-              
-            </ul>
-          
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>
         </dd>
-      
-    </div>
+        
+          <dd class="govuk-summary-list__actions">
+            
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+            
+          </dd>
+        
+      </div>
+    
   
 </dl>
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -152,20 +136,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

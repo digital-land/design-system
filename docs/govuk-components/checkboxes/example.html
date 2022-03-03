@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -21,93 +20,108 @@
 
 
 
-  
-
-  
-
-  
 <div class="govuk-form-group">
 
   
-	
-		
-	<fieldset class="govuk-fieldset">
+<fieldset class="govuk-fieldset" aria-describedby="waste-hint">
   
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-    <h1 class="govuk-fieldset__heading">
-      Which types of waste do you transport?
-    </h1>
+    
+      <h1 class="govuk-fieldset__heading">
+        Which types of waste do you transport?
+      </h1>
+    
   </legend>
   
   
-  <span id="waste-hint" class="govuk-hint">
-    Select all that apply.
-  </span>
+  <div id="waste-hint" class="govuk-hint">
+  Select all that apply.
+</div>
 
 
-  <div class="govuk-checkboxes">
+  <div class="govuk-checkboxes"
+    data-module="govuk-checkboxes">
     
+      
+          
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-checkboxes__label" for="waste">
+  Waste from animal carcasses
+</label>
+            
+          </div>
+          
+        
+      
     
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+  Waste from mines or quarries
+</label>
+            
+          </div>
+          
+        
+      
     
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
-      <label class="govuk-label govuk-checkboxes__label"
-         for="waste-1">
-        Waste from animal carcasses
-      </label>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-      <label class="govuk-label govuk-checkboxes__label"
-         for="waste-2">
-        Waste from mines or quarries
-      </label>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-      <label class="govuk-label govuk-checkboxes__label"
-         for="waste-3">
-        Farm or agricultural waste
-      </label>
-    </div>
-    
+      
+        
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+  Farm or agricultural waste
+</label>
+            
+          </div>
+          
+        
+      
     
   </div>
-  </fieldset>
+  
+  
+</fieldset>
+
+
 
 </div>
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -117,20 +131,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

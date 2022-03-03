@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -18,10 +17,11 @@
     </script>
 
 
-<article class="data-record">
-    <h4 class="govuk-heading-s data-record__identifier">#con-area:18u2</h4>
-    <dl class="govuk-summary-list data-record__properties">
-     
+<article class="dl-data-record">
+    <h4 class="govuk-heading-s dl-data-record__identifier">#con-area:18u2</h4>
+    <div class="dl-data-record__body">
+      <dl class="govuk-summary-list">
+       
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Organisation</dt>
     <dd class="govuk-summary-list__value">
@@ -29,30 +29,37 @@
 <a href="/" class="govuk-link">Harrogate Borough Council</a>
 
 
-<span title="Organisation identifier: local-authority-eng:HAG" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">Organisation identifier is </span>local-authority-eng:HAG)</span>
+<span title="Organisation identifier: local-authority-eng:HAG" class="govuk-!-font-size-16 dl-data-reference-cell">
+  (<span class="govuk-visually-hidden">Organisation identifier is </span>local-authority-eng:HAG)
+</span>
 
 </dd>
 </div>
     
-    </dl>
-    <footer class="govuk-!-font-size-16 data-record__resource">From resource <a href="https://github.com/digital-land/conservation-area-geography-collection/blob/master/collection/resource/043fd72cc71429aad3fffa1a42a75d0c063f5946f5de88a65eb4bc9a71bfb54e" class="govuk-link">041560991f8c2e27d...</a></footer>
+      </dl>
+    </div>
+    <footer class="govuk-!-font-size-16 dl-data-record__resource">From resource <a href="https://github.com/digital-land/conservation-area-geography-collection/blob/master/collection/resource/043fd72cc71429aad3fffa1a42a75d0c063f5946f5de88a65eb4bc9a71bfb54e" class="govuk-link">041560991f8c2e27d...</a></footer>
     </article>
 
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -62,20 +69,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 

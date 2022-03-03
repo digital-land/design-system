@@ -6,9 +6,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/styleguide.css" rel="stylesheet" media="all" />
-    <link href="https://digital-land.github.io/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/application.css" rel="stylesheet" media="all" />
+    <link href="/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" />
 </head>
 
 <body class="govuk-template__body app-example-page">
@@ -23,16 +22,16 @@
 
 
 
-<div class="dlf-feedback dlf-feedback--stacked dlf-feedback--flush">
-    <div class="dlf-feedback__prompt">
-        <div class="dlf-feedback__prompt-content">
+<div class="dl-feedback dlf-feedback--stacked dlf-feedback--flush">
+    <div class="dl-feedback__prompt">
+        <div class="dl-feedback__prompt-content">
             
-            <span class="dlf-feedback__prompt-content__text">Have you spotted any issues with the data?</span>
+            <span class="dl-feedback__prompt-content__text">Have you spotted any issues with the data?</span>
             
         </div>
         
-        <div class="dlf-feedback__prompt-action">
-            <a href="mailto:digitalLand@communities.gov.uk?subject=Feedback" class="govuk-button dlf-feedback__prompt__link">Provide feedback</a>
+        <div class="dl-feedback__prompt-action">
+            <a href="mailto:digitalLand@communities.gov.uk?subject=Feedback" class="govuk-button dl-feedback__prompt__link">Provide feedback</a>
         </div>
         
     </div>
@@ -42,21 +41,25 @@
     </div>
 </div>
 
-    <script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+    <script src="/static/javascripts/govuk/govuk-frontend.min.js"></script>
     <script>
         // initiate all GOVUK components
         window.GOVUKFrontend.initAll();
     </script>
     
-    <script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
 
-    <script src="https://digital-land.github.io/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
+    <script src="/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"></script>
 
+    <script src="/static/javascripts/application-design-system.js"></script>
     <!-- should move this to dl-frontend.js in an initAll() -->
     <script>
         const $inputCopyElements = document.querySelectorAll('[data-module*="input-copy"]')
         $inputCopyElements.forEach(function ($input) {
-            new window.DLFrontend.InputCopy($input).init()
+            new window.DLStyleguide.InputCopy($input).init()
         })
     </script>
 
@@ -66,20 +69,6 @@
             accessibleAutocomplete.enhanceSelectElement({
                 selectElement: $picker
             })
-        }
-    </script>
-
-    <script>
-        var $data_tables = document.querySelectorAll('[data-module*="data-table"]')
-        $data_tables.forEach(data_table => {
-            new window.DLFrontend.ScrollableTables(data_table).init()
-        })
-    </script>
-
-    <script>
-        const $subNavTabs = document.querySelector('[data-module="dlf-subnav"]')
-        if ($subNavTabs) {
-            const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
         }
     </script>
 
