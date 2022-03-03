@@ -130,5 +130,4 @@ dmypy.json
 
 .vscode/
 
-docs/static
 node_modules
