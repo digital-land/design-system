@@ -9,7 +9,9 @@
 
   <div class="app-nav__content">
     <main id="main-content" class="app-content" role="main">
-      {{ rendered_markdown|safe }}
+      <div class="app-prose">
+        {{ rendered_markdown|safe }}
+      </div>
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
       {{ feedbackPanel({
           "heading": "Help improve this page",

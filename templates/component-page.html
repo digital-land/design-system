@@ -10,12 +10,14 @@
     {%- include menu_path -%}
     <div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
+          <div class="app-prose">
             {{ rendered_markdown|safe }}
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            {{ feedbackPanel({
-                "heading": "Help improve this page",
-                "html": 'If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>'
-            }) }}
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          {{ feedbackPanel({
+              "heading": "Help improve this page",
+              "html": 'If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>'
+          }) }}
         </main>
     </div>
 </div>
