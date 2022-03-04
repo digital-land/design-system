@@ -252,9 +252,10 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Index page templates</h1>
-<p class="govuk-body">This templates is used to generate index pages for a set of data we have collected.</p>
-<p class="govuk-body">The template extends the <a href="../dlf-base">dlf-base.html</a></p>
+          <div class="app-prose">
+            <h1>Index page templates</h1>
+<p>This templates is used to generate index pages for a set of data we have collected.</p>
+<p>The template extends the <a href="../dlf-base">dlf-base.html</a></p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-basic.html" class="govuk-link" target="_blank"
@@ -297,7 +298,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;!DOCTYPE html&gt;
+      <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;en&#34; class=&#34;govuk-template &#34;&gt;
   &lt;head&gt;
     &lt;meta charset=&#34;utf-8&#34;&gt;
@@ -667,7 +668,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% extends &#34;design-system/page-per-thing/index.html&#34; %}
+      <pre><code class="jinja">{% extends &#34;design-system/page-per-thing/index.html&#34; %}
 
 {% set data_type = &#34;Test data&#34;  %}
 {% set breadcrumb = [] %}</code></pre>
@@ -677,48 +678,49 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Options</h3>
-<p class="govuk-body">Contains all the options available to <a href="../dlf-base">dlf-base</a>.</p>
-<p class="govuk-body">The index template adds makes more options available.</p>
-<table class="govuk-table" >
-<thead class="govuk-table__head">
-<tr class="govuk-table__row">
-<th scope="row" class="govuk-table__header">Option name</th>
-<th scope="row" class="govuk-table__header">Option type</th>
-<th scope="row" class="govuk-table__header">Description</th>
+<h3>Options</h3>
+<p>Contains all the options available to <a href="../dlf-base">dlf-base</a>.</p>
+<p>The index template adds makes more options available.</p>
+<table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Option type</th>
+<th>Description</th>
 </tr>
 </thead>
-<tbody class="govuk-table__body">
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">data_type</code></td>
-<td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">This is the collection name and is set by the renderer. It can be overridden in the template if needed.</td>
+<tbody>
+<tr>
+<td><code>data_type</code></td>
+<td>variable</td>
+<td>This is the collection name and is set by the renderer. It can be overridden in the template if needed.</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">indexTitle</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Part of <code class="dl-code">content</code> block. Contains the heading displayed on the page</td>
+<tr>
+<td><code>indexTitle</code></td>
+<td>block</td>
+<td>Part of <code>content</code> block. Contains the heading displayed on the page</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">indexList</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Part of <code class="dl-code">content</code> block. Displays a list of records or the records grouped.</td>
+<tr>
+<td><code>indexList</code></td>
+<td>block</td>
+<td>Part of <code>content</code> block. Displays a list of records or the records grouped.</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">initMapBlock</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Part of <code class="dl-code">bodyEnd</code> block. JS script the looks for <code class="dl-code">boundary-map</code> module and inits the map.</td>
+<tr>
+<td><code>initMapBlock</code></td>
+<td>block</td>
+<td>Part of <code>bodyEnd</code> block. JS script the looks for <code>boundary-map</code> module and inits the map.</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">initFilteringBlock</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Part of <code class="dl-code">bodyEnd</code> block. JS script that sets up any filters on the page - these can be a <code class="dl-code">FilterList</code> filter and a <code class="dl-code">FilterHistorical</code> filter.</td>
+<tr>
+<td><code>initFilteringBlock</code></td>
+<td>block</td>
+<td>Part of <code>bodyEnd</code> block. JS script that sets up any filters on the page - these can be a <code>FilterList</code> filter and a <code>FilterHistorical</code> filter.</td>
 </tr>
 </tbody>
 </table>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

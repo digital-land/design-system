@@ -369,9 +369,10 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Related content</h1>
-<p class="govuk-body">Use this component when you want to point a user at related content.</p>
-<p class="govuk-body">You should include it in a small column to the side of the main content.</p>
+          <div class="app-prose">
+            <h1>Related content</h1>
+<p>Use this component when you want to point a user at related content.</p>
+<p>You should include it in a small column to the side of the main content.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -414,7 +415,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
         &lt;p class=&#34;govuk-body&#34;&gt;Some content&lt;/p&gt;
@@ -447,7 +448,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/related-content/macro.html&#34; import dlRelatedContent %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/related-content/macro.html&#34; import dlRelatedContent %}
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
         &lt;p class=&#34;govuk-body&#34;&gt;Some content&lt;/p&gt;
@@ -479,8 +480,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

@@ -369,11 +369,12 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Feedback</h1>
-<p class="govuk-body">Use these components when you want the user to provide feedback on the page / content.</p>
-<h2 class="govuk-heading-l">Inline feedback</h2>
-<p class="govuk-body">For inline feedback use the <code class="dl-code">feedback-panel</code> component.</p>
-<p class="govuk-body">Use the feedback panel component when you want to ask the user to provide feedback on a page or section of a page.</p>
+          <div class="app-prose">
+            <h1>Feedback</h1>
+<p>Use these components when you want the user to provide feedback on the page / content.</p>
+<h2>Inline feedback</h2>
+<p>For inline feedback use the <code>feedback-panel</code> component.</p>
+<p>Use the feedback panel component when you want to ask the user to provide feedback on a page or section of a page.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -416,7 +417,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 
 
@@ -447,7 +448,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 {{ dlFeedback({
     &#34;action&#34;: &#34;Is there a problem with this data?&#34;,
     &#34;html&#34;: &#39;If you have spotted an issue with the data or have a question email the digital land team on
@@ -460,12 +461,12 @@
 
 
 </div>
-<p class="govuk-body">It works well when included at the bottom of the page, after the main content. Putting it after the main content means it won't distract the user from the content before they have had chance to read it.</p>
-<h2 class="govuk-heading-l">Feedback prompt</h2>
-<p class="govuk-body">Use the <code class="dl-code">dlf-feedback-prompt</code> component to place a prompt for feedback. The component includes options to add content to the panel and an <code class="dl-code">action</code> in the form of a button.</p>
-<p class="govuk-body">By default the component will be 100% width.</p>
-<h3 class="govuk-heading-m">Feedback with button</h3>
-<p class="govuk-body">Using a button in the prompt helps the user know they can interact with the prompt.</p>
+<p>It works well when included at the bottom of the page, after the main content. Putting it after the main content means it won't distract the user from the content before they have had chance to read it.</p>
+<h2>Feedback prompt</h2>
+<p>Use the <code>dlf-feedback-prompt</code> component to place a prompt for feedback. The component includes options to add content to the panel and an <code>action</code> in the form of a button.</p>
+<p>By default the component will be 100% width.</p>
+<h3>Feedback with button</h3>
+<p>Using a button in the prompt helps the user know they can interact with the prompt.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback.html" class="govuk-link" target="_blank"
@@ -508,7 +509,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 
 
@@ -538,7 +539,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 {{ dlFeedback({
     &#34;text&#34;: &#34;Spotted an issue? Let us know so we can improve the data.&#34;,
     &#34;action&#34;: {
@@ -554,8 +555,8 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Feedback without button</h3>
-<p class="govuk-body">You don't always need to include a button. A link can be used instead.</p>
+<h3>Feedback without button</h3>
+<p>You don't always need to include a button. A link can be used instead.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-no-action.html" class="govuk-link" target="_blank"
@@ -598,7 +599,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 
 
@@ -627,7 +628,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 {% set feedbackHtml %}
 &lt;span class=&#34;dlf-feedback__prompt-content__text&#34;&gt;Spotted an issue? &lt;a href=&#34;#&#34; class=&#34;dlf-feedback__link&#34;&gt;Let us know&lt;/a&gt; so we can improve the data.&lt;/span&gt;
 {% endset %}
@@ -642,11 +643,11 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Feedback when pinned to footer</h3>
-<p class="govuk-body">Often if makes sense to ask for feedback about the whole page.</p>
-<p class="govuk-body">When doing this it makes sense to place the feedback prompt at the bottom of the page.</p>
-<p class="govuk-body">The <a href="../../template/dlf-base">dlf-base template</a> has a <code class="dl-code">feedbackPrompt</code> block that can be used to place the component at the end of the page.</p>
-<p class="govuk-body">This takes the feeback component out of the main <code class="dl-code">content</code> block on the page and uses the <code class="dl-code">feedbackPrompt</code> block. This will wrap the component in div with the <code class="dl-code">.dlf-feedback__wrapper</code>. This class limits the width of the component to the maximum page width.</p>
+<h3>Feedback when pinned to footer</h3>
+<p>Often if makes sense to ask for feedback about the whole page.</p>
+<p>When doing this it makes sense to place the feedback prompt at the bottom of the page.</p>
+<p>The <a href="../../template/dlf-base">dlf-base template</a> has a <code>feedbackPrompt</code> block that can be used to place the component at the end of the page.</p>
+<p>This takes the feeback component out of the main <code>content</code> block on the page and uses the <code>feedbackPrompt</code> block. This will wrap the component in div with the <code>.dlf-feedback__wrapper</code>. This class limits the width of the component to the maximum page width.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-pinned.html" class="govuk-link" target="_blank"
@@ -689,7 +690,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;!DOCTYPE html&gt;
+      <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;en&#34; class=&#34;govuk-template &#34;&gt;
   &lt;head&gt;
     &lt;meta charset=&#34;utf-8&#34;&gt;
@@ -964,7 +965,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base.jinja&#34; %}
+      <pre><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base.jinja&#34; %}
 
 {% block content %}
   &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
@@ -988,9 +989,9 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Stacked feedback</h3>
-<p class="govuk-body">You can use the feedback prompt component in a narrower layout - for example, in a <code class="dl-code">govuk-grid-column-one-third</code> parent.</p>
-<p class="govuk-body">Add the class <code class="dl-code">dlf-feedback--stacked</code> to get the desired effect.</p>
+<h3>Stacked feedback</h3>
+<p>You can use the feedback prompt component in a narrower layout - for example, in a <code>govuk-grid-column-one-third</code> parent.</p>
+<p>Add the class <code>dlf-feedback--stacked</code> to get the desired effect.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-feedback-stacked.html" class="govuk-link" target="_blank"
@@ -1033,7 +1034,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#39;govuk-grid-row&#39;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;Main content&lt;/div&gt;
     &lt;div class=&#34;govuk-grid-column-one-third&#34;&gt;
@@ -1069,7 +1070,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/feedback/macro.jinja&#34; import dlFeedback %}
 &lt;div class=&#39;govuk-grid-row&#39;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;Main content&lt;/div&gt;
     &lt;div class=&#34;govuk-grid-column-one-third&#34;&gt;
@@ -1093,8 +1094,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

@@ -369,8 +369,9 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Hero</h1>
-<p class="govuk-body">This component is a blue hero panel. It should be used to introduce a new site, service or significant section.</p>
+          <div class="app-prose">
+            <h1>Hero</h1>
+<p>This component is a blue hero panel. It should be used to introduce a new site, service or significant section.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -413,7 +414,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;section class=&#34;dl-hero&#34;&gt;
   &lt;div class=&#34;dl-hero__content govuk-width-container&#34;&gt;
 
@@ -431,7 +432,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.jinja&#34; import dlHero -%}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.jinja&#34; import dlHero -%}
 {{ dlHero({
     &#34;html&#34;: &#39;&lt;h1 class=&#34;govuk-heading-l&#34;&gt;A hero example&lt;/h1&gt;&lt;p class=&#34;govuk-body-l&#34;&gt;There is some useful stuff on the &lt;a href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&lt;/p&gt;&#39;
 }) }}
@@ -442,9 +443,9 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Hero with button</h3>
-<p class="govuk-body">If you need more control over the elements in the hero component you can you the <code class="dl-code">call</code> method.</p>
-<p class="govuk-body">This allows you to use additional jinja components within the <code class="dl-code">hero</code>. For example you might want to include a start button to prompt the user to start a journey of your service.</p>
+<h3>Hero with button</h3>
+<p>If you need more control over the elements in the hero component you can you the <code>call</code> method.</p>
+<p>This allows you to use additional jinja components within the <code>hero</code>. For example you might want to include a start button to prompt the user to start a journey of your service.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-button.html" class="govuk-link" target="_blank"
@@ -487,7 +488,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;section class=&#34;dl-hero&#34;&gt;
   &lt;div class=&#34;dl-hero__content govuk-width-container govuk-width-container&#34;&gt;
@@ -527,7 +528,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.jinja&#34; import dlHero -%}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/hero/macro.jinja&#34; import dlHero -%}
 {% from &#39;govuk_frontend_jinja/components/button/macro.html&#39; import govukButton  %}
 {% call dlHero({
     &#34;classes&#34;: &#34;govuk-width-container&#34;
@@ -549,8 +550,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

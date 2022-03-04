@@ -252,10 +252,11 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">DLF Base</h1>
-<p class="govuk-body">Use this template to keep your pages consistent with the rest of Digital Land.</p>
-<p class="govuk-body">The <a href="">dlf-base.html</a> template extends the <a href="">GOV.UK template</a></p>
-<p class="govuk-body">The default max width is 1020px (with margins the content width is 960px). You can make it wider if needed. Using the dlf-base--full-width.html template is another option.</p>
+          <div class="app-prose">
+            <h1>DLF Base</h1>
+<p>Use this template to keep your pages consistent with the rest of Digital Land.</p>
+<p>The <a href="">dlf-base.html</a> template extends the <a href="">GOV.UK template</a></p>
+<p>The default max width is 1020px (with margins the content width is 960px). You can make it wider if needed. Using the dlf-base--full-width.html template is another option.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-basic.html" class="govuk-link" target="_blank"
@@ -298,7 +299,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;!DOCTYPE html&gt;
+      <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;en&#34; class=&#34;govuk-template &#34;&gt;
   &lt;head&gt;
     &lt;meta charset=&#34;utf-8&#34;&gt;
@@ -573,7 +574,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base.jinja&#34; %}
+      <pre><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base.jinja&#34; %}
 
 {% block content %}
   &lt;h1 class=&#34;govuk-heading-xl&#34;&gt;Default page template&lt;/h1&gt;
@@ -584,121 +585,122 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Options</h3>
-<table class="govuk-table" >
-<thead class="govuk-table__head">
-<tr class="govuk-table__row">
-<th scope="row" class="govuk-table__header">Option name</th>
-<th scope="row" class="govuk-table__header">Option type</th>
-<th scope="row" class="govuk-table__header">Description</th>
+<h3>Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Option type</th>
+<th>Description</th>
 </tr>
 </thead>
-<tbody class="govuk-table__body">
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">pageTitle</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Add a title for the page. Will be added to the <code class="dl-code">&lt;meta&gt;</code> tag in the head</td>
+<tbody>
+<tr>
+<td><code>pageTitle</code></td>
+<td>block</td>
+<td>Add a title for the page. Will be added to the <code>&lt;meta&gt;</code> tag in the head</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">staticPath</code></td>
-<td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">Option to set the root of the path to static assets, usually set in the renderer. Defaults to <code class="dl-code">/static</code></td>
+<tr>
+<td><code>staticPath</code></td>
+<td>variable</td>
+<td>Option to set the root of the path to static assets, usually set in the renderer. Defaults to <code>/static</code></td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">head</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Use this to override the assets digital land loads in the head.</td>
+<tr>
+<td><code>head</code></td>
+<td>block</td>
+<td>Use this to override the assets digital land loads in the head.</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">dlHead</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Use this instead of the <code class="dl-code">head</code> block to add to the things digital land loads in the head</td>
+<tr>
+<td><code>dlHead</code></td>
+<td>block</td>
+<td>Use this instead of the <code>head</code> block to add to the things digital land loads in the head</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">dlMetaTemplate</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Use this block to add a <code class="dl-code">&lt;meta name="dl-template" content="TEMPLATE"&gt;</code>, replace TEMPLATE with template name</td>
+<tr>
+<td><code>dlMetaTemplate</code></td>
+<td>block</td>
+<td>Use this block to add a <code>&lt;meta name="dl-template" content="TEMPLATE"&gt;</code>, replace TEMPLATE with template name</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">templateName</code></td>
-<td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">Use this to name the template or base template the page uses. Helpful when things go wrong. Defaults to <code class="dl-code">dlf-base.html</code></td>
+<tr>
+<td><code>templateName</code></td>
+<td>variable</td>
+<td>Use this to name the template or base template the page uses. Helpful when things go wrong. Defaults to <code>dlf-base.html</code></td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">dlMapAssets</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">This block contains assets needed for the maps on the digital land website</td>
+<tr>
+<td><code>dlMapAssets</code></td>
+<td>block</td>
+<td>This block contains assets needed for the maps on the digital land website</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">includesMap</code></td>
-<td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">If true the assets needed for dl maps will be loaded</td>
+<tr>
+<td><code>includesMap</code></td>
+<td>variable</td>
+<td>If true the assets needed for dl maps will be loaded</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">dlCss</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Use to override the stylesheets digital land loads as default</td>
+<tr>
+<td><code>dlCss</code></td>
+<td>block</td>
+<td>Use to override the stylesheets digital land loads as default</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">includeAutocomplete</code></td>
-<td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">If true the assets needed for the autocomplete component will be loaded</td>
+<tr>
+<td><code>includeAutocomplete</code></td>
+<td>variable</td>
+<td>If true the assets needed for the autocomplete component will be loaded</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">header</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Inherited from GOV.UK base. By default, includes our cookie banner and top navigation banner</td>
+<tr>
+<td><code>header</code></td>
+<td>block</td>
+<td>Inherited from GOV.UK base. By default, includes our cookie banner and top navigation banner</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">beforeContent</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Inherited from GOV.UK base. Includes prototype banner and breadcrumbs block</td>
+<tr>
+<td><code>beforeContent</code></td>
+<td>block</td>
+<td>Inherited from GOV.UK base. Includes prototype banner and breadcrumbs block</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">dl_breadcrumbs</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Hook to insert breadcrumbs component for the page</td>
+<tr>
+<td><code>dl_breadcrumbs</code></td>
+<td>block</td>
+<td>Hook to insert breadcrumbs component for the page</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">content</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Inherited from GOV.UK base. Where the bulk of the page content will go</td>
+<tr>
+<td><code>content</code></td>
+<td>block</td>
+<td>Inherited from GOV.UK base. Where the bulk of the page content will go</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">footer</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Inherited from GOV.UK base. Includes the digital land footer</td>
+<tr>
+<td><code>footer</code></td>
+<td>block</td>
+<td>Inherited from GOV.UK base. Includes the digital land footer</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">feedbackPrompt</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Use to add a feedback component to the bottom of the page. Sits inside the <code class="dl-code">footer</code> block</td>
+<tr>
+<td><code>feedbackPrompt</code></td>
+<td>block</td>
+<td>Use to add a feedback component to the bottom of the page. Sits inside the <code>footer</code> block</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">bodyEnd</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Inherited from GOV.UK base. A block to insert any scripts for the page. We have broken this down into specific block.</td>
+<tr>
+<td><code>bodyEnd</code></td>
+<td>block</td>
+<td>Inherited from GOV.UK base. A block to insert any scripts for the page. We have broken this down into specific block.</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">googleAnalytics</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Where we include our cookie and google analytics scripts</td>
+<tr>
+<td><code>googleAnalytics</code></td>
+<td>block</td>
+<td>Where we include our cookie and google analytics scripts</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">includeJQuery</code></td>
-<td class="govuk-table__cell">variable</td>
-<td class="govuk-table__cell">If set to <code class="dl-code">true</code> a version of jQuery will be included on the page</td>
+<tr>
+<td><code>includeJQuery</code></td>
+<td>variable</td>
+<td>If set to <code>true</code> a version of jQuery will be included on the page</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">bodyEndScripts</code></td>
-<td class="govuk-table__cell">block</td>
-<td class="govuk-table__cell">Where we include <code class="dl-code">dl-frontend.js</code></td>
+<tr>
+<td><code>bodyEndScripts</code></td>
+<td>block</td>
+<td>Where we include <code>dl-frontend.js</code></td>
 </tr>
 </tbody>
 </table>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

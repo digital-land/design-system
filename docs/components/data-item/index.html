@@ -369,11 +369,12 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <p class="govuk-body"><strong class="govuk-tag">
+          <div class="app-prose">
+            <p><strong class="govuk-tag">
   candidate
 </strong></p>
-<h1 class="govuk-heading-xl">Data item</h1>
-<p class="govuk-body">Use the data item component when you want to display a number from some data.</p>
+<h1>Data item</h1>
+<p>Use the data item component when you want to display a number from some data.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -416,7 +417,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;div class=&#34;data-item &#34;&gt;
     &lt;span class=&#34;data-item__number&#34;&gt;67&lt;/span&gt;
@@ -439,7 +440,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/data-item/macro.html&#34; import dlfDataItem %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/data-item/macro.html&#34; import dlfDataItem %}
 {{ dlfDataItem({
     &#34;number&#34;: &#34;67&#34;,
     &#34;text&#34;: &#34;New resources&#34;
@@ -458,10 +459,10 @@
 
 
 </div>
-<h3 class="govuk-heading-m">When not to use</h3>
-<p class="govuk-body">This component shouldn't be used for any number on a page, it is intended to be used to display a significant piece of data or information.</p>
-<h3 class="govuk-heading-m">Inline example</h3>
-<p class="govuk-body">Add a <code class="dl-code">.data-item--inline</code> class if you need the data item to display inline.</p>
+<h3>When not to use</h3>
+<p>This component shouldn't be used for any number on a page, it is intended to be used to display a significant piece of data or information.</p>
+<h3>Inline example</h3>
+<p>Add a <code>.data-item--inline</code> class if you need the data item to display inline.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-inline.html" class="govuk-link" target="_blank"
@@ -504,7 +505,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;div class=&#34;data-item data-item--inline&#34;&gt;
     &lt;span class=&#34;data-item__number&#34;&gt;2&lt;/span&gt;
@@ -527,7 +528,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/data-item/macro.html&#34; import dlfDataItem %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/data-item/macro.html&#34; import dlfDataItem %}
 {{ dlfDataItem({
     &#34;number&#34;: &#34;2&#34;,
     &#34;text&#34;: &#34;New resources&#34;,
@@ -548,8 +549,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

@@ -369,12 +369,13 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Map component</h1>
-<p class="govuk-body">Use this component when seeing something on a map would be useful for a user.</p>
-<p class="govuk-body">These examples show how to use <code class="dl-code">DLMaps.Map()</code> to create simple maps displaying area boundaries.</p>
-<h2 class="govuk-heading-l">Show a local authority boundary</h2>
-<p class="govuk-body">We regularly need to show the extent of an area or areas. The most common is the local authority boundary.</p>
-<p class="govuk-body">This example shows the boundaries for <a href="https://digital-land.github.io/organisation/local-authority-eng/HAG/">Harrogate borough council</a> and <a href="https://digital-land.github.io/organisation/local-authority-eng/YOR/">City of York Council</a>.</p>
+          <div class="app-prose">
+            <h1>Map component</h1>
+<p>Use this component when seeing something on a map would be useful for a user.</p>
+<p>These examples show how to use <code>DLMaps.Map()</code> to create simple maps displaying area boundaries.</p>
+<h2>Show a local authority boundary</h2>
+<p>We regularly need to show the extent of an area or areas. The most common is the local authority boundary.</p>
+<p>This example shows the boundaries for <a href="https://digital-land.github.io/organisation/local-authority-eng/HAG/">Harrogate borough council</a> and <a href="https://digital-land.github.io/organisation/local-authority-eng/YOR/">City of York Council</a>.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -417,7 +418,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;div class=&#34;dl-map__wrapper &#34; style=&#34;min-height: 350px;&#34;&gt;&lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
@@ -450,7 +451,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
 {{ dlMap({
     &#34;id&#34;: &#34;basicMap&#34;,
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
@@ -471,12 +472,12 @@
 
 
 </div>
-<h2 class="govuk-heading-l">Show multiple shapes</h2>
-<p class="govuk-body">There are a number of ways to pass ursl to geojson files to the map component.</p>
-<p class="govuk-body">All urls must point to <code class="dl-code">.geojson</code> files.</p>
-<h3 class="govuk-heading-m">HTML attribute</h3>
-<p class="govuk-body">You can pass a list of urls, separate by <code class="dl-code">;</code>, to the <code class="dl-code">data-geojson-urls</code> attribute of the map element.</p>
-<pre class="hljs-container"><code class="dl-code">&lt;div class="dl-map" id="aMap" 
+<h2>Show multiple shapes</h2>
+<p>There are a number of ways to pass ursl to geojson files to the map component.</p>
+<p>All urls must point to <code>.geojson</code> files.</p>
+<h3>HTML attribute</h3>
+<p>You can pass a list of urls, separate by <code>;</code>, to the <code>data-geojson-urls</code> attribute of the map element.</p>
+<pre><code>&lt;div class="dl-map" id="aMap" 
     data-module="boundary-map"
     data-geojson-urls="/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson;/local-authority-district/E06000001/geometry.geojson"
 &gt;
@@ -523,7 +524,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
     &lt;div class=&#34;dl-map govuk-!-margin-top-3&#34; id=&#34;aMap&#34; style=&#34;height: 350px;&#34; data-module=&#34;boundary-map&#34; data-geojson-urls=&#34;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson;https://digital-land.github.io/local-authority-district/E06000001/geometry.geojson&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -541,7 +542,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
 &lt;div class=&#34;dl-map__wrapper&#34;&gt;
     &lt;div class=&#34;dl-map govuk-!-margin-top-3&#34; id=&#34;aMap&#34; style=&#34;height: 350px;&#34; data-module=&#34;boundary-map&#34; data-geojson-urls=&#34;https://raw.githubusercontent.com/digital-land/boundary-collection/master/collection/local-authority/E07000165/index.geojson;https://digital-land.github.io/local-authority-district/E06000001/geometry.geojson&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -556,8 +557,8 @@ new DLMaps.Map($mapElement).init({})
 
 
 </div>
-<h3 class="govuk-heading-m">Jinja macro option</h3>
-<p class="govuk-body">Use the <code class="dl-code">data-geojson-urls</code> option when calling the jinja macro. It accepts a string with urls separated by <code class="dl-code">;</code> or it accepts an array urls.</p>
+<h3>Jinja macro option</h3>
+<p>Use the <code>data-geojson-urls</code> option when calling the jinja macro. It accepts a string with urls separated by <code>;</code> or it accepts an array urls.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-multiple.html" class="govuk-link" target="_blank"
@@ -600,7 +601,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;div class=&#34;dl-map__wrapper &#34; style=&#34;min-height: 350px;&#34;&gt;&lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
@@ -627,7 +628,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
 {{ dlMap({
     &#34;id&#34;: &#34;aMap&#34;,
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;,
@@ -674,8 +675,8 @@ new DLMaps.Map($mapElement).init({})
 
 
 </div>
-<h3 class="govuk-heading-m">JS init</h3>
-<p class="govuk-body">An alternative approach is to provide the url(s) to the <code class="dl-code">geojsonUrls</code> option which initalising the module.</p>
+<h3>JS init</h3>
+<p>An alternative approach is to provide the url(s) to the <code>geojsonUrls</code> option which initalising the module.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -718,7 +719,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;div class=&#34;dl-map__wrapper &#34; style=&#34;min-height: 350px;&#34;&gt;&lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
@@ -751,7 +752,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap %}
 {{ dlMap({
     &#34;id&#34;: &#34;basicMap&#34;,
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;
@@ -772,42 +773,42 @@ new DLMaps.Map($mapElement).init({})
 
 
 </div>
-<h4 class="govuk-heading-s">Options</h4>
-<p class="govuk-body">There are a number of options you can set when initialising the module.</p>
-<table class="govuk-table" >
-<thead class="govuk-table__head">
-<tr class="govuk-table__row">
-<th scope="row" class="govuk-table__header">Option</th>
-<th scope="row" class="govuk-table__header">Type</th>
-<th scope="row" class="govuk-table__header">Description</th>
+<h4>Options</h4>
+<p>There are a number of options you can set when initialising the module.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead>
-<tbody class="govuk-table__body">
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">defaultPos</code></td>
-<td class="govuk-table__cell">Point</td>
-<td class="govuk-table__cell">An array of coords the map will initially centre on. Defaults to <code class="dl-code">[52.561928, -1.464854]</code>, which is the centre of the UK.</td>
+<tbody>
+<tr>
+<td><code>defaultPos</code></td>
+<td>Point</td>
+<td>An array of coords the map will initially centre on. Defaults to <code>[52.561928, -1.464854]</code>, which is the centre of the UK.</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">fullScreenControl</code></td>
-<td class="govuk-table__cell">Boolean</td>
-<td class="govuk-table__cell">True but default. Option to add button to make the map fullscreen</td>
+<tr>
+<td><code>fullScreenControl</code></td>
+<td>Boolean</td>
+<td>True but default. Option to add button to make the map fullscreen</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">minZoom</code></td>
-<td class="govuk-table__cell">Int</td>
-<td class="govuk-table__cell">Sets the minimum zoom level for the map. Defaults to 6</td>
+<tr>
+<td><code>minZoom</code></td>
+<td>Int</td>
+<td>Sets the minimum zoom level for the map. Defaults to 6</td>
 </tr>
-<tr class="govuk-table__row">
-<td class="govuk-table__cell"><code class="dl-code">maxZoom</code></td>
-<td class="govuk-table__cell">Int</td>
-<td class="govuk-table__cell">Sets the maximum zoom level for the map. Defaults to 18</td>
+<tr>
+<td><code>maxZoom</code></td>
+<td>Int</td>
+<td>Sets the maximum zoom level for the map. Defaults to 18</td>
 </tr>
 </tbody>
 </table>
-<h2 class="govuk-heading-l">Additional information</h2>
-<h3 class="govuk-heading-m">Aria Labelledby</h3>
-<p class="govuk-body">You can added a <code class="dl-code">aria-labelledby</code> attribute by adding text to the optional <code class="dl-code">arialabelledby</code> option when using the component.</p>
+<h2>Additional information</h2>
+<h3>Aria Labelledby</h3>
+<p>You can added a <code>aria-labelledby</code> attribute by adding text to the optional <code>arialabelledby</code> option when using the component.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-labelledby.html" class="govuk-link" target="_blank"
@@ -850,13 +851,13 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;dl-map__wrapper &#34; style=&#34;min-height: 350px;&#34;&gt;
-    &lt;span id=&#34;aria-label-8618&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
+    &lt;span id=&#34;aria-label-9875&#34; class=&#34;govuk-visually-hidden&#34;&gt;An example of the output of the digital land map component.&lt;/span&gt;
     &lt;div 
         class=&#34;dl-map govuk-!-margin-top-3&#34;
         id=&#34;aMap&#34;
-        data-module=&#34;boundary-map&#34; aria-labelledby=&#34;aria-label-8618&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
+        data-module=&#34;boundary-map&#34; aria-labelledby=&#34;aria-label-9875&#34; data-geojson-urls=&#34;https://digital-land.github.io/geography/conservation-area/c52ff772-db94-4a8a-acdf-be3a1ac79d25/boundary.geojson&#34;   
     &gt;
         &lt;noscript&gt;To view this map, you need to enable JavaScript.&lt;/noscript&gt;
     &lt;/div&gt;
@@ -878,7 +879,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap -%}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/map/macro.jinja&#34; import dlMap -%}
 {{- dlMap({
     &#34;id&#34;: &#34;aMap&#34;,
     &#34;classes&#34;: &#34;govuk-!-margin-top-3&#34;,
@@ -897,9 +898,9 @@ new DLMaps.Map($mapElement).init({})
 
 
 </div>
-<h3 class="govuk-heading-m">Key</h3>
-<p class="govuk-body">This is an experimental component.</p>
-<p class="govuk-body">An example of the key we use on the Brownfield land maps. Currently testing 2 options.</p>
+<h3>Key</h3>
+<p>This is an experimental component.</p>
+<p>An example of the key we use on the Brownfield land maps. Currently testing 2 options.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-key.html" class="govuk-link" target="_blank"
@@ -942,7 +943,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;div class=&#34;map-key&#34;&gt;
+      <pre><code class="html">&lt;div class=&#34;map-key&#34;&gt;
     &lt;h4 class=&#34;govuk-heading-s govuk-visually-hidden&#34;&gt;Key&lt;/h4&gt;
     &lt;div class=&#34;map-key__entry&#34;&gt;
         &lt;div class=&#34;map-key__entry__item&#34;&gt;
@@ -974,7 +975,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">&lt;div class=&#34;map-key&#34;&gt;
+      <pre><code class="jinja">&lt;div class=&#34;map-key&#34;&gt;
     &lt;h4 class=&#34;govuk-heading-s govuk-visually-hidden&#34;&gt;Key&lt;/h4&gt;
     &lt;div class=&#34;map-key__entry&#34;&gt;
         &lt;div class=&#34;map-key__entry__item&#34;&gt;
@@ -1004,8 +1005,8 @@ new DLMaps.Map($mapElement).init({})
 
 
 </div>
-<h2 class="govuk-heading-l">Brownfield map</h2>
-<p class="govuk-body">An example of the national brownfield map.</p>
+<h2>Brownfield map</h2>
+<p>An example of the national brownfield map.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-brownfield.html" class="govuk-link" target="_blank"
@@ -1048,7 +1049,7 @@ new DLMaps.Map($mapElement).init({})
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;!DOCTYPE html&gt;
+      <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;en&#34; class=&#34;govuk-template &#34;&gt;
   &lt;head&gt;
     &lt;meta charset=&#34;utf-8&#34;&gt;
@@ -2067,7 +2068,7 @@ window.laTracker = laTracker
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base--full-width.jinja&#34; %}
+      <pre><code class="jinja">{% extends &#34;digital-land-frontend/layouts/base--full-width.jinja&#34; %}
 {% from &#39;digital-land-frontend/components/map/macro.jinja&#39; import dlMap %}
 
 {% set includesMap = true %}
@@ -2368,8 +2369,9 @@ window.laTracker = laTracker
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

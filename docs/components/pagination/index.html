@@ -369,12 +369,13 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <p class="govuk-body"><strong class="govuk-tag">
+          <div class="app-prose">
+            <p><strong class="govuk-tag">
   candidate
 </strong></p>
-<h1 class="govuk-heading-xl">Pagination</h1>
-<p class="govuk-body">Use this component on content pages to help users to navigate to previous or the next content in the sequence.</p>
-<p class="govuk-body">It should be placed at the end of the content on the current page.</p>
+<h1>Pagination</h1>
+<p>Use this component on content pages to help users to navigate to previous or the next content in the sequence.</p>
+<p>It should be placed at the end of the content on the current page.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -417,7 +418,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 
 &lt;nav class=&#34;app-pagination&#34; role=&#34;navigation&#34; aria-label=&#34;Pagination&#34;&gt;
@@ -460,7 +461,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/pagination/macro.jinja&#34; import appPagination %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/pagination/macro.jinja&#34; import appPagination %}
 
 {{ appPagination({
   &#34;prev&#34;: {
@@ -480,8 +481,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

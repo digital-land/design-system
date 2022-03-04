@@ -369,11 +369,12 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <p class="govuk-body"><strong class="govuk-tag">
+          <div class="app-prose">
+            <p><strong class="govuk-tag">
   candidate
 </strong></p>
-<h1 class="govuk-heading-xl">Timeline</h1>
-<p class="govuk-body">Use the timeline component to show an ordered record of what has happened.</p>
+<h1>Timeline</h1>
+<p>Use the timeline component to show an ordered record of what has happened.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -416,7 +417,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
 
@@ -471,7 +472,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimeline %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimeline %}
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
         {{ dlTimeline({
@@ -500,12 +501,12 @@
 
 
 </div>
-<h2 class="govuk-heading-l">Filtering a timeline</h2>
-<p class="govuk-body">The timeline component can be progressively enhanced to allow filtering by date.</p>
-<p class="govuk-body"><img class="styleguide-gif" src="images/timeline-filter-video.gif"></p>
-<p class="govuk-body">We add this enhancement when the timeline has many entries and a user might need to find a specific one. An example of that can be seen on a <a href="https://digital-land.github.io/collection/brownfield-land/log/">collection log page</a>.</p>
-<h3 class="govuk-heading-m">Collector log example</h3>
-<p class="govuk-body">The timeline component is good to use when you are showing a sequence of log entries.</p>
+<h2>Filtering a timeline</h2>
+<p>The timeline component can be progressively enhanced to allow filtering by date.</p>
+<p><img class="styleguide-gif" src="images/timeline-filter-video.gif"></p>
+<p>We add this enhancement when the timeline has many entries and a user might need to find a specific one. An example of that can be seen on a <a href="https://digital-land.github.io/collection/brownfield-land/log/">collection log page</a>.</p>
+<h3>Collector log example</h3>
+<p>The timeline component is good to use when you are showing a sequence of log entries.</p>
 <!-- end app-example-wrapper --><div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example-collector.html" class="govuk-link" target="_blank"
@@ -548,7 +549,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
         &lt;div class=&#34;govuk-form-group&#34;&gt;
@@ -767,7 +768,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimeline %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimeline %}
 {%- from &#34;design-system/components/timeline/macro.html&#34; import dlTimelineEntry %}
 &lt;div class=&#34;govuk-grid-row&#34;&gt;
     &lt;div class=&#34;govuk-grid-column-two-thirds&#34;&gt;
@@ -1044,13 +1045,14 @@
 
 
 </div>
-<p class="govuk-body">When the timeline has many entries you can use the <code class="dl-code">call</code> approach to generate the entries individually or via a loop.</p>
-<h2 class="govuk-heading-l">Research on this compponent</h2>
-<p class="govuk-body">We need to do more research on this component. If you have used the timeline component, get in touch to share your research findings.</p>
-<p class="govuk-body">We will keep an eye on other services that use the timeline and hopefully get a better inderstanding of how timelines are being used across government. For example, it is used by <a href="https://moj-design-system.herokuapp.com/components/timeline">MoJ</a>.</p>
+<p>When the timeline has many entries you can use the <code>call</code> approach to generate the entries individually or via a loop.</p>
+<h2>Research on this compponent</h2>
+<p>We need to do more research on this component. If you have used the timeline component, get in touch to share your research findings.</p>
+<p>We will keep an eye on other services that use the timeline and hopefully get a better inderstanding of how timelines are being used across government. For example, it is used by <a href="https://moj-design-system.herokuapp.com/components/timeline">MoJ</a>.</p>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

@@ -369,8 +369,9 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Buttons</h1>
-<p class="govuk-body">This builds on the govukButton macro.</p>
+          <div class="app-prose">
+            <h1>Buttons</h1>
+<p>This builds on the govukButton macro.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -413,7 +414,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 
 
@@ -437,7 +438,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;govuk_frontend_jinja/components/button/macro.html&#34; import govukButton %}
+      <pre><code class="jinja">{%- from &#34;govuk_frontend_jinja/components/button/macro.html&#34; import govukButton %}
 {{ govukButton({
     &#34;text&#34;: &#34;Start now&#34;,
     &#34;classes&#34;: &#34;govuk-button--start&#34;
@@ -448,9 +449,9 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Secondary page action button</h3>
-<p class="govuk-body">Use these buttons when there is a page wide action a user is able to perform, which is not a main call to action. Examples include:</p>
-<ul class="govuk-list govuk-list--bullet">
+<h3>Secondary page action button</h3>
+<p>Use these buttons when there is a page wide action a user is able to perform, which is not a main call to action. Examples include:</p>
+<ul>
 <li>a button to print the page (as seen on <a href="http://gov.uk">GOV.UK</a>)</li>
 <li>a button to download the data behind a page</li>
 </ul>
@@ -496,7 +497,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">&lt;button class=&#34;app-action-button&#34; data-module=&#34;print-link&#34;&gt;Download geojson&lt;/button&gt;</code></pre>
+      <pre><code class="html">&lt;button class=&#34;app-action-button&#34; data-module=&#34;print-link&#34;&gt;Download geojson&lt;/button&gt;</code></pre>
     </div>
   </div>
 
@@ -506,7 +507,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">&lt;button class=&#34;app-action-button&#34; data-module=&#34;print-link&#34;&gt;Download geojson&lt;/button&gt;
+      <pre><code class="jinja">&lt;button class=&#34;app-action-button&#34; data-module=&#34;print-link&#34;&gt;Download geojson&lt;/button&gt;
 </code></pre>
     </div>
   </div>
@@ -515,8 +516,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

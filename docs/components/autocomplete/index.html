@@ -369,11 +369,12 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <p class="govuk-body"><strong class="govuk-tag">
+          <div class="app-prose">
+            <p><strong class="govuk-tag">
   candidate
 </strong></p>
-<h1 class="govuk-heading-xl">Autocomplete</h1>
-<p class="govuk-body">An example of how to use the autocomplete module.</p>
+<h1>Autocomplete</h1>
+<p>An example of how to use the autocomplete module.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -416,7 +417,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 &lt;div class=&#34;autocomplete__wrapper&#34;&gt;
 
@@ -443,7 +444,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/autocomplete/macro.html&#34; import dlAutocomplete %}
+      <pre><code class="jinja">{%- from &#34;design-system/components/autocomplete/macro.html&#34; import dlAutocomplete %}
 
 &lt;div class=&#34;autocomplete__wrapper&#34;&gt;
   {{ dlAutocomplete({
@@ -461,13 +462,13 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Include the assets</h3>
-<p class="govuk-body">Need to include the required <code class="dl-code">js</code> and <code class="dl-code">css</code>.</p>
-<p class="govuk-body">Add the css to the page head. For example</p>
-<pre class="hljs-container"><code class="dl-code">&lt;link href="/design-system/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" /&gt;
+<h3>Include the assets</h3>
+<p>Need to include the required <code>js</code> and <code>css</code>.</p>
+<p>Add the css to the page head. For example</p>
+<pre><code>&lt;link href="/design-system/static/stylesheets/vendor/govuk-accessible-autocomplete.min.css" rel="stylesheet" media="all" /&gt;
 </code></pre>
-<p class="govuk-body">Add the js to end of the <code class="dl-code">&lt;body&gt;</code>. For example</p>
-<pre class="hljs-container"><code class="dl-code">&lt;script src="/design-system/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"&gt;&lt;/script&gt;
+<p>Add the js to end of the <code>&lt;body&gt;</code>. For example</p>
+<pre><code>&lt;script src="/design-system/static/javascripts/vendor/govuk-accessible-autocomplete.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     const $picker = document.querySelector('#organisation-search')
     accessibleAutocomplete.enhanceSelectElement({
@@ -476,8 +477,9 @@
 &lt;/script&gt;
 </code></pre>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

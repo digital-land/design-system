@@ -441,8 +441,9 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">GOVUK Table</h1>
-<p class="govuk-body">An example of the govuk table component.</p>
+          <div class="app-prose">
+            <h1>GOVUK Table</h1>
+<p>An example of the govuk table component.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -485,7 +486,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
   &lt;table class=&#34;govuk-table&#34;&gt;
 
   &lt;caption class=&#34;govuk-table__caption&#34;&gt;Dates and amounts&lt;/caption&gt;
@@ -570,7 +571,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{% from &#34;govuk_frontend_jinja/components/table/macro.html&#34; import govukTable -%}
+      <pre><code class="jinja">{% from &#34;govuk_frontend_jinja/components/table/macro.html&#34; import govukTable -%}
 {{ govukTable({
     &#34;caption&#34;: &#34;Dates and amounts&#34;,
     &#34;firstCellIsHeader&#34;: true,
@@ -616,8 +617,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

@@ -369,8 +369,9 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Sub nav tabs</h1>
-<p class="govuk-body">Use this component when you have a wide table users will need to scroll horizontally.</p>
+          <div class="app-prose">
+            <h1>Sub nav tabs</h1>
+<p>Use this component when you have a wide table users will need to scroll horizontally.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -413,7 +414,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 
 
 
@@ -463,7 +464,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/sub-nav-tabs/macro.jinja&#34; import dlSubNavTabs %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/sub-nav-tabs/macro.jinja&#34; import dlSubNavTabs %}
 {% set recordHTML %}
 &lt;p class=&#34;govuk-body&#34;&gt;This is the record section.&lt;/p&gt;
 {% endset %}
@@ -491,16 +492,17 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Initialise JS module</h3>
-<p class="govuk-body">The <code class="dl-code">subNavTabs</code> component is a progressive enhancement. You will need to initialise the JS module for it to work.</p>
-<pre class="hljs-container"><code class="dl-code">&lt;script&gt;
+<h3>Initialise JS module</h3>
+<p>The <code>subNavTabs</code> component is a progressive enhancement. You will need to initialise the JS module for it to work.</p>
+<pre><code>&lt;script&gt;
     const $subNavTabs = document.querySelector('[data-module=&quot;dl-subnav&quot;]')
     const subNavTabsComponent = new DLFrontend.SubNavTabs($subNavTabs).init({})
 &lt;/script&gt;
 </code></pre>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

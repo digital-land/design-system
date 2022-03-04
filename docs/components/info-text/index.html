@@ -369,12 +369,13 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <p class="govuk-body"><strong class="govuk-tag">
+          <div class="app-prose">
+            <p><strong class="govuk-tag">
   candidate
 </strong></p>
-<h1 class="govuk-heading-xl">Info text</h1>
-<p class="govuk-body">This component is based on the <code class="dl-code">govuk-warning-text</code> component from the <a href="https://design-system.service.gov.uk/components/warning-text/">GOVUK design system</a>.</p>
-<p class="govuk-body">It should be used when highlighting some supplementary information to the user.</p>
+<h1>Info text</h1>
+<p>This component is based on the <code>govuk-warning-text</code> component from the <a href="https://design-system.service.gov.uk/components/warning-text/">GOVUK design system</a>.</p>
+<p>It should be used when highlighting some supplementary information to the user.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -417,7 +418,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;dl-info-text&#34;&gt;
   &lt;span class=&#34;dl-info-text__icon&#34; aria-hidden=&#34;true&#34;&gt;i&lt;/span&gt;
   &lt;p class=&#34;dl-info-text__text&#34;&gt;
@@ -435,7 +436,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;design-system/components/info-text/macro.html&#34; import dlInfoText -%}
+      <pre><code class="jinja">{%- from &#34;design-system/components/info-text/macro.html&#34; import dlInfoText -%}
 {{- dlInfoText({
     &#34;html&#34;: &#39;There is some useful stuff on the &lt;a class=&#34;govuk-link&#34; href=&#34;https://digital-land.github.io&#34;&gt;digital land website&lt;/a&gt;.&#39;
 }) }}
@@ -447,8 +448,9 @@
 
 </div>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>

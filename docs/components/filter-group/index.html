@@ -369,8 +369,9 @@
 
 </div><div class="app-nav__content">
         <main id="main-content" class="app-content" role="main">
-            <h1 class="govuk-heading-xl">Filter group</h1>
-<p class="govuk-body">Use this component when you have a wide table users will need to scroll horizontally.</p>
+          <div class="app-prose">
+            <h1>Filter group</h1>
+<p>Use this component when you have a wide table users will need to scroll horizontally.</p>
 <div class="app-example-wrapper" data-module="app-tabs">
   <div class="app-example__toolbar">
     <a href="example.html" class="govuk-link" target="_blank"
@@ -413,7 +414,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-html">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="html">
+      <pre><code class="html">
 &lt;div class=&#34;govuk-form-group&#34;&gt;
 
 &lt;details class=&#34;dl-filter-group&#34;  data-module=&#34;selected-counter&#34;&gt;
@@ -455,7 +456,7 @@
   </div>
   <div class="app-tabs__container js-tabs__container" id="example-test-id-jinja">
     <div class="app-example__code">
-      <pre class="hljs-container"><code class="jinja">{%- from &#34;digital-land-frontend/components/filter-group/macro.jinja&#34; import dlFilterGroup %}
+      <pre><code class="jinja">{%- from &#34;digital-land-frontend/components/filter-group/macro.jinja&#34; import dlFilterGroup %}
 &lt;div class=&#34;govuk-form-group&#34;&gt;
     {% call dlFilterGroup({
       &#34;title&#34;: &#34;Location&#34;,
@@ -485,10 +486,10 @@
 
 
 </div>
-<h3 class="govuk-heading-m">Initialise JS module</h3>
-<p class="govuk-body">The <code class="dl-code">dlFilterGroup</code> component can be progressively enhanced.</p>
-<p class="govuk-body">When progressively enhanced it will show (and update) a count of the number of items selected in the group.</p>
-<pre class="hljs-container"><code class="dl-code">&lt;script&gt;
+<h3>Initialise JS module</h3>
+<p>The <code>dlFilterGroup</code> component can be progressively enhanced.</p>
+<p>When progressively enhanced it will show (and update) a count of the number of items selected in the group.</p>
+<pre><code>&lt;script&gt;
     var $filters = document.querySelectorAll('[data-module=&quot;selected-counter&quot;]')
     $filters.forEach(filter =&gt; {
         new window.DLFrontend.SelectedCounter(filter).init()
@@ -501,8 +502,9 @@
 &lt;/script&gt;
 </code></pre>
 <!-- end app-example-wrapper -->
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            
+          </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
 <div class="feedback-panel">
   <h3 class="feedback-panel__heading">Help improve this page</h3>
   If you’ve got a question, idea or suggestion share it with the digital land team on <a href="https://github.com/digital-land/design-system">github</a> or email us on <a href="mailto:DigitalLand@communities.gov.uk">digitalland@communities.gov.uk</a>
