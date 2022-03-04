@@ -41,6 +41,7 @@ get_started_template = env.get_template("getting-started.html")
 example_template = env.get_template("iframe-base.html")
 component_template = env.get_template("component-page.html")
 
+
 # data for organisation autocomplete
 def get_organisations():
     with open("templates/data/organisation.json") as json_file:
@@ -101,7 +102,7 @@ def get_components(components_dir):
 def render_example_pages(name, src_dir, dest, jinja_path, **kwargs):
     for file in glob.glob(f"{src_dir}/{name}/*.html"):
         # don't want to render pages for the macro files
-        if not "macro.html" in file:
+        if "macro.html" not in file:
             example = os.path.basename(file)
             render(
                 f"{dest}/{name}/{example}",

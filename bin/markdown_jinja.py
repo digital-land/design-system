@@ -57,8 +57,8 @@ def extract_code_blocks(lines):
 
 def insert_lines(lines, lines_to_insert, start_from):
     insert_pt = start_from
-    for l in lines_to_insert:
-        lines.insert(insert_pt, l)
+    for line in lines_to_insert:
+        lines.insert(insert_pt, line)
         insert_pt = insert_pt + 1
 
 
@@ -71,7 +71,7 @@ def insert_code_blocks(lines, code_blocks, placeholder="{CODE BLOCK PLACEHOLDER}
                 block = code_blocks.pop(0)
                 insert_lines(lines, block, idx + 1)
                 del lines[idx]
-            except:
+            except Exception:
                 print("An exception occurred")
                 lines[idx] = "{Error: Couldn't re-insert code-block}"
         else:

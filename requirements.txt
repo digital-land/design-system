@@ -5,6 +5,7 @@ click
 curlylint
 dataclasses
 -e git+https://github.com/digital-land/digital-land-frontend.git#egg=digital_land_frontend
+flake8
 frontmatter
 importlib-metadata
 Markdown

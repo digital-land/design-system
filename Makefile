@@ -11,6 +11,18 @@ init::
 	pip3 install --upgrade -r requirements.txt
 	npm install
 
+
+lint:	black-check flake8
+
+black:
+	black .
+
+black-check:
+	black --check .
+
+flake8:
+	flake8 .
+
 dist:
 	mkdir -p docs/static
 
